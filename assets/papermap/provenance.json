@@ -1,0 +1,14 @@
+{
+  "project": "https://github.com/Ansonxb/papermap-demo",
+  "commit": "a43a337e4738d56e6e443e76621a162d5c7c76bc",
+  "upstream_index_sha256": "cb007fa947dc7ed62b322816163e01285c799e3ef52b7204c668af756435aa66",
+  "upstream_license_file": "not present in inspected commit",
+  "migration": "Original SVG renderer, pan/zoom, neighbor highlighting and mode switch adapted locally; remote retrieval/demo data disabled. Details based on 17 verified research articles, with explicit full-text/abstract/preview reading scope. All display positions and sizes carry no importance ranking.",
+  "changes": [
+    "Research article readings independent of API19B demonstration data",
+    "Evidence-specific relationship labels",
+    "Source-paper figures with figure numbers, reading notes and original links",
+    "Inline reading details and unresolved questions",
+    "Only outer page scrolling; wheel zoom requires modifier"
+  ]
+}

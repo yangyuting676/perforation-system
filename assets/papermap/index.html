@@ -1,0 +1,1511 @@
+<!doctype html><script src="../core/media-assets.js?v=media-20261031"></script><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>射孔参考文献知识图谱 · PaperMap</title><style>
+  :root {
+    --primary: #185FA5;
+    --primary-light: #378ADD;
+    --primary-bg: rgba(24,95,165,0.10);
+    --accent: #0F6E56;
+    --accent-light: #1D9E75;
+    --accent-bg: rgba(15,110,86,0.08);
+    --dark: #1a2332;
+    --text-primary: #1a2332;
+    --text-secondary: #5f5e5a;
+    --text-muted: #888780;
+    --bg: #f2f5f8;
+    --white: #ffffff;
+    --border: rgba(0,0,0,0.06);
+    --border-strong: rgba(0,0,0,0.12);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.03);
+    --radius: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    /* Apple Glass */
+    --glass-bg: rgba(255,255,255,0.65);
+    --glass-border: rgba(255,255,255,0.4);
+    --glass-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    --glass-blur: blur(20px);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(165deg, #eef2f7 0%, #f5f7fa 40%, #e8edf4 100%);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 15px;
+    min-height: 100vh;
+  }
+
+  /* Hero Section - Apple Vision Pro inspired */
+  .hero {
+    background: linear-gradient(135deg, #0c2f52 0%, #0f4a7a 35%, #185FA5 55%, #1D9E75 100%);
+    color: white;
+    padding: 72px 40px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top:-50%; left:-50%; width:200%; height:200%;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.10) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0%, transparent 40%);
+    pointer-events:none;
+  }
+  /* Apple-style grain texture for hero */
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    opacity: 0.02;
+    background: radial-gradient(circle at 25% 0%, rgba(255,255,255,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 100%, rgba(255,255,255,0.02) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  #particle-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-badge {
+    display:inline-block; padding:7px 20px; border-radius:20px;
+    background:rgba(255,255,255,0.1); backdrop-filter:blur(20px) saturate(1.3);
+    -webkit-backdrop-filter:blur(20px) saturate(1.3);
+    font-size:12px; letter-spacing:1px; margin-bottom:24px;
+    border:1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .hero h1 { font-size:42px; font-weight:700; margin-bottom:10px; letter-spacing:-0.8px; line-height:1.12; }
+  .hero .subtitle { font-size:17px; opacity:0.8; max-width:480px; margin:0 auto 28px; line-height:1.6; font-weight:400; }
+
+  /* Hero Search Bar - Apple Vision Pro inspired */
+  .hero-search {
+    display: flex; align-items: center; max-width: 600px; margin: 0 auto;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(30px) saturate(1.4);
+    -webkit-backdrop-filter: blur(30px) saturate(1.4);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 6px;
+    transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .hero-search:focus-within {
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 4px 28px rgba(0,0,0,0.12), 0 0 0 2px rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.3);
+  }
+  .hero-search input {
+    flex: 1; background: none; border: none; padding: 14px 20px;
+    font-size: 16px; color: white; font-family: inherit; outline: none;
+  }
+  .hero-search input::placeholder { color: rgba(255,255,255,0.55); }
+  .hero-search button {
+    padding: 12px 28px; background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border: none; border-radius: 11px;
+    font-size: 14px; font-weight: 600; color: var(--dark); cursor: pointer;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .hero-search button:hover {
+    background: white;
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  /* Container */
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  .section { padding:48px 0; }
+  .section-title {
+    font-size:28px; font-weight:700; color:var(--dark); text-align:center;
+    margin-bottom:10px; position:relative;
+  }
+  .section-title::after {
+    content: ''; display: block;
+    width: 60px; height: 3px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 2px;
+  }
+  .section-subtitle { text-align:center; color:var(--text-secondary); margin-bottom:45px; font-size:16px; }
+
+  /* Cards - Apple Glass */
+  .card {
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-lg); border: 1px solid var(--glass-border);
+    padding: 32px; transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--glass-shadow);
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+
+  /* Pain Points Grid - Apple Glass */
+  .pain-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:35px; }
+  .pain-item {
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius); border: 1px solid var(--glass-border);
+    padding: 26px 22px; position:relative; overflow:hidden;
+    box-shadow: var(--glass-shadow);
+  }
+  .pain-item::before {
+    content:''; position:absolute; top:0; left:0; width:4px; height:100%;
+    background:linear-gradient(to bottom, var(--primary), var(--accent));
+    opacity: 0.6;
+  }
+  .pain-item h3 { font-size:17px; font-weight:600; color:var(--dark); margin-bottom:10px; padding-left:8px; }
+  .pain-item p { color:var(--text-secondary); font-size:14px; padding-left:8px; line-height:1.7; }
+  .pain-icon {
+    width:42px; height:42px; border-radius:12px; display:flex; align-items:center;
+    justify-content:center; font-size:20px; margin-bottom:12px;
+    backdrop-filter: blur(8px);
+  }
+
+  /* ========== APPLE GLASS BUTTONS ========== */
+  .glass-btn {
+    padding: 10px 22px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 12px; font-size: 13px; font-weight: 500;
+    color: var(--text-secondary); cursor: pointer;
+    transition: all 0.2s ease, transform 0.08s ease;
+    white-space: nowrap; font-family: inherit;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  }
+  .glass-btn:hover {
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    color: var(--text-primary);
+    border-color: rgba(255,255,255,0.6);
+  }
+  .glass-btn.primary {
+    background: rgba(24,95,165,0.10);
+    color: var(--primary); border-color: rgba(24,95,165,0.12);
+  }
+  .glass-btn.primary:hover {
+    background: rgba(24,95,165,0.16);
+    color: var(--primary);
+  }
+  .glass-btn.accent {
+    background: rgba(29,158,117,0.08);
+    color: var(--accent); border-color: rgba(29,158,117,0.10);
+  }
+  .glass-btn.accent:hover {
+    background: rgba(29,158,117,0.14);
+  }
+  .glass-btn.dark {
+    background: rgba(44,62,80,0.08);
+    color: #2c3e50; border-color: rgba(44,62,80,0.10);
+  }
+  .glass-btn.dark:hover {
+    background: rgba(44,62,80,0.14);
+  }
+
+  /* Toggle Panels - Apple Glass */
+  .toggle-panel {
+    margin-top: 20px; padding: 24px 28px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur) saturate(1.3);
+    -webkit-backdrop-filter: var(--glass-blur) saturate(1.3);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+  }
+  .glass-btn.active {
+    background: rgba(24,95,165,0.14);
+    color: var(--primary); border-color: rgba(24,95,165,0.2);
+    backdrop-filter: blur(16px) saturate(1.3);
+  }
+
+  /* Graph Visualization - Apple Glass */
+  #graph-container {
+    width:100%; height:520px;
+    background: rgba(249,250,252,0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+    position:relative; overflow:hidden; margin-top:16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.03);
+  }
+  #graph-canvas { width:100%; height:100%; }
+
+  /* Stats Row - Apple Glass */
+  .stats-row { display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; justify-content:center; }
+  .stat-card {
+    flex:1; min-width:140px; max-width:200px;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 16px; text-align:center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .stat-num { font-size:26px; font-weight:700; color:var(--primary); line-height:1.2; }
+  .stat-label { font-size:12px; color:var(--text-secondary); margin-top:2px; }
+
+  /* Tech Stack - Apple Glass */
+  .tech-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-top:30px; }
+  .tech-item {
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius); border: 1px solid var(--glass-border);
+    padding:20px; text-align:center; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--glass-shadow);
+  }
+  .tech-item:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(0,0,0,0.06); border-color: rgba(255,255,255,0.6); }
+  .tech-icon { font-size:28px; margin-bottom:8px; }
+  .tech-name { font-weight:600; font-size:14px; color:var(--dark); }
+  .tech-desc { font-size:12px; color:var(--text-muted); margin-top:4px; }
+
+  /* Comparison Table - Apple Glass */
+  .compare-table { width:100%; border-collapse:collapse; margin-top:30px; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--glass-border); box-shadow: var(--glass-shadow); }
+  .compare-table th { background:rgba(24,95,165,0.06); padding:14px 18px; text-align:left; font-weight:600; font-size:14px; color:var(--primary); border-bottom:2px solid var(--primary); }
+  .compare-table td { padding:14px 18px; border-bottom:1px solid var(--border); font-size:14px; vertical-align:top; }
+  .compare-table tr:last-child td { border-bottom:none; }
+  .compare-table tr:hover td { background:rgba(255,255,255,0.5); }
+  .check { color:var(--accent); font-weight:bold; }
+  .cross { color:#e24b4a; }
+  .highlight-row td { background:rgba(15,110,86,0.06); font-weight:600; }
+  .highlight-row:hover td { background:rgba(15,110,86,0.08); }
+
+  /* Value Proposition - Apple Glass */
+  .value-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin-top:30px; }
+  .value-card {
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-lg); border: 1px solid var(--glass-border);
+    padding:28px; position:relative; overflow:hidden;
+    box-shadow: var(--glass-shadow);
+  }
+  .value-card::after {
+    content:''; position:absolute; top:-20px; right:-20px; width:100px; height:100px;
+    border-radius:50%; opacity:0.05;
+    filter: blur(20px);
+  }
+  .value-card.personal::after { background:var(--primary); }
+  .value-card.social::after { background:var(--accent); }
+  .value-card.biz::after { background:#BA7517; }
+  .value-emoji { font-size:32px; margin-bottom:12px; }
+  .value-card h3 { font-size:17px; font-weight:700; color:var(--dark); margin-bottom:8px; }
+  .value-card p { font-size:14px; color:var(--text-secondary); line-height:1.7; }
+
+  /* Footer - Apple Dark Glass */
+  .footer {
+    background: linear-gradient(135deg, rgba(26,35,50,0.92), rgba(26,35,50,0.85));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color:rgba(255,255,255,0.7); padding:40px; text-align:center;
+    font-size:14px; line-height:1.8;
+  }
+  .footer strong { color:white; }
+
+  /* Animations */
+  @keyframes fadeInUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+  .animate-in { animation:fadeInUp 0.6s ease forwards; opacity:0; }
+  .delay-1 { animation-delay:0.1s; }
+  .delay-2 { animation-delay:0.2s; }
+  .delay-3 { animation-delay:0.3s; }
+  .delay-4 { animation-delay:0.4s; }
+
+  /* Node tooltip */
+  .graph-node { cursor:pointer; }
+  .graph-node.shape-hover .node-shape { filter: brightness(1.12) drop-shadow(0 0 10px rgba(24,95,165,0.45)); }
+  .graph-node.is-dim { opacity: 0.22; }
+  .graph-node.is-link .node-label { fill: var(--primary); font-weight: 600; }
+  .node-shape { transition: filter 0.2s ease, opacity 0.2s ease; }
+  .edge-line { transition: opacity 0.2s ease, stroke-width 0.2s ease; }
+  .edge-line.is-dim { opacity: 0.06 !important; }
+  .edge-line.is-link { stroke-opacity: 0.85 !important; stroke-width: 2.2 !important; }
+  #graph-canvas { touch-action: none; cursor: grab; }
+  #graph-canvas.panning { cursor: grabbing; }
+
+  /* Graph toolbar */
+  .graph-card {
+    max-width:1100px; margin:0 auto; padding:0 24px;
+  }
+  .graph-toolbar {
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    margin:24px 0 10px;
+  }
+  .mode-switch {
+    display:flex; padding:3px; gap:2px; border-radius:11px;
+    background: rgba(255,255,255,0.55); border:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .mode-switch button {
+    padding:6px 14px; border:none; background:transparent; cursor:pointer;
+    border-radius:8px; font-size:12.5px; font-weight:600; color:var(--text-secondary);
+    font-family:inherit; transition:all 0.18s ease;
+  }
+  .mode-switch button.active { background:var(--primary); color:white; box-shadow:0 2px 8px rgba(24,95,165,0.25); }
+  .mode-switch button:not(.active):hover { color:var(--primary); background:rgba(24,95,165,0.06); }
+  .graph-status {
+    font-size:12px; color:var(--text-muted); flex:1; min-width:120px;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .graph-status strong { color:var(--primary); font-weight:600; }
+  .graph-actions { display:flex; gap:4px; }
+  .graph-actions button {
+    width:30px; height:30px; border-radius:9px; border:1px solid rgba(255,255,255,0.5);
+    background:rgba(255,255,255,0.6); cursor:pointer; color:var(--text-secondary);
+    font-size:14px; line-height:1; display:flex; align-items:center; justify-content:center;
+    font-family:inherit; transition:all 0.16s ease;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  .graph-actions button.wide { width:auto; padding:0 12px; font-size:12px; font-weight:600; }
+  .graph-actions button:hover { background:white; color:var(--primary); border-color:rgba(24,95,165,0.25); }
+  .graph-hint {
+    font-size:11.5px; color:var(--text-muted); text-align:center; margin-top:8px;
+  }
+  .graph-legend {
+    display:flex; gap:16px; flex-wrap:wrap; justify-content:center;
+    margin-top:10px; font-size:11.5px; color:var(--text-secondary);
+  }
+  .legend-item { display:inline-flex; align-items:center; gap:6px; }
+  .graph-tooltip {
+    position:absolute; z-index:8; pointer-events:none; opacity:0;
+    transform: translate(-50%, -100%); transition: opacity 0.15s ease;
+    background: rgba(26,35,50,0.94); color:white; padding:8px 12px;
+    border-radius:10px; font-size:12px; line-height:1.5; max-width:280px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.18);
+  }
+  .graph-tooltip.show { opacity:1; }
+  .graph-tooltip .tt-title { font-weight:600; margin-bottom:2px; }
+  .graph-tooltip .tt-meta { color:rgba(255,255,255,0.65); font-size:11px; }
+  .graph-empty {
+    position:absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:6px; text-align:center;
+    color:var(--text-muted); font-size:13px; padding:20px;
+  }
+  .graph-empty strong { color:var(--text-secondary); font-size:14px; }
+
+  /* Paper list view */
+  .paper-list { padding:16px; display:flex; flex-direction:column; gap:8px; overflow:auto; height:100%; }
+  .paper-card {
+    display:flex; gap:12px; align-items:flex-start; padding:12px 14px;
+    background:rgba(255,255,255,0.6); border:1px solid rgba(0,0,0,0.05);
+    border-radius:12px; cursor:pointer; transition:all 0.16s ease;
+  }
+  .paper-card:hover { background:white; border-color:rgba(24,95,165,0.2); transform:translateX(2px); }
+  .paper-rank {
+    flex-shrink:0; width:26px; height:26px; border-radius:8px; display:flex;
+    align-items:center; justify-content:center; font-size:12px; font-weight:700;
+    background:var(--primary-bg); color:var(--primary);
+  }
+  .paper-card.foundation .paper-rank { background:var(--primary); color:white; }
+  .paper-body { flex:1; min-width:0; }
+  .paper-title { font-size:13.5px; font-weight:600; color:var(--text-primary); line-height:1.45; }
+  .paper-meta { font-size:11.5px; color:var(--text-muted); margin-top:3px; }
+
+  /* Reading path list */
+  .reading-item {
+    display:flex; gap:12px; padding:12px 14px; border-radius:12px; cursor:pointer;
+    border:1px solid rgba(0,0,0,0.05); background:rgba(255,255,255,0.45);
+    margin-bottom:8px; transition:all 0.16s ease;
+  }
+  .reading-item:hover { background:white; border-color:rgba(24,95,165,0.2); }
+  .reading-step {
+    flex-shrink:0; width:24px; height:24px; border-radius:50%; display:flex;
+    align-items:center; justify-content:center; font-size:11px; font-weight:700;
+    background:var(--primary-bg); color:var(--primary);
+  }
+  .reading-item.foundation .reading-step { background:var(--primary); color:white; }
+  .reading-title { font-size:13.5px; font-weight:600; color:var(--text-primary); line-height:1.45; }
+  .reading-why { font-size:11.5px; color:var(--text-muted); margin-top:3px; }
+  .panel-head {
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+    margin-bottom:12px; flex-wrap:wrap;
+  }
+  .panel-head h4 { font-size:16px; font-weight:700; color:var(--dark); }
+  .panel-head .panel-tools { display:flex; gap:8px; align-items:center; }
+  .icon-btn {
+    background:none; border:none; cursor:pointer; color:var(--text-muted);
+    font-size:16px; line-height:1; padding:4px; border-radius:6px; font-family:inherit;
+  }
+  .icon-btn:hover { color:var(--text-primary); background:rgba(0,0,0,0.04); }
+  .export-btn {
+    padding:6px 12px; border-radius:9px; font-size:12px; font-weight:600; cursor:pointer;
+    border:1px solid rgba(24,95,165,0.14); background:rgba(24,95,165,0.07);
+    color:var(--primary); font-family:inherit; transition:all 0.16s ease;
+  }
+  .export-btn:hover { background:rgba(24,95,165,0.14); }
+
+  /* Toast */
+  .toast-stack {
+    position:fixed; right:20px; bottom:20px; z-index:1200;
+    display:flex; flex-direction:column; gap:10px; align-items:flex-end;
+    pointer-events:none;
+  }
+  .pm-toast {
+    pointer-events:auto; min-width:220px; max-width:360px;
+    background:rgba(255,255,255,0.92); color:var(--text-primary);
+    backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3);
+    border:1px solid rgba(0,0,0,0.06); border-left:4px solid var(--primary);
+    border-radius:12px; padding:12px 14px; font-size:13px; line-height:1.6;
+    box-shadow:0 12px 36px rgba(0,0,0,0.12);
+    animation: toastIn 0.32s cubic-bezier(0.22,1,0.36,1);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .pm-toast.hide { opacity:0; transform: translateY(8px); }
+  .pm-toast .toast-title { font-weight:700; margin-bottom:2px; display:flex; align-items:center; gap:6px; }
+  .pm-toast.success { border-left-color: var(--accent); }
+  .pm-toast.error { border-left-color: #e24b4a; }
+  .pm-toast.warn { border-left-color: #d9a441; }
+  .pm-toast .toast-close {
+    position:absolute; top:8px; right:8px; border:none; background:none; cursor:pointer;
+    color:var(--text-muted); font-size:14px; line-height:1; padding:2px 4px;
+  }
+  .pm-toast { position:relative; }
+  @keyframes toastIn { from { opacity:0; transform: translateY(12px) scale(0.98); } to { opacity:1; transform:none; } }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Enhanced Graph Container */
+  #graph-container {
+    transition: box-shadow 0.3s ease;
+  }
+  #graph-container.loaded {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  }
+
+  /* Demo indicator banner */
+  .demo-indicator {
+    position: absolute; bottom: 8px; left: 8px;
+    padding: 5px 14px; border-radius: 6px;
+    background: rgba(255,193,7,0.2); color: #b07a00;
+    font-size: 11px; font-weight: 600;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    pointer-events: none;
+    border: 1px solid rgba(255,193,7,0.25);
+    z-index: 5;
+  }
+
+  /* Suggestion chips */
+  .suggestion-chip {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  }
+  .suggestion-chip:hover {
+    background: rgba(255,255,255,0.8);
+    color: var(--primary);
+    border-color: rgba(255,255,255,0.7);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  /* ========== Knowledge Map ========== */
+  .knowledge-map {
+    padding: 4px 0;
+  }
+  .km-domain {
+    font-size: 20px; font-weight: 700; color: var(--primary);
+    padding: 16px 20px; margin-bottom: 16px;
+    background: linear-gradient(135deg, rgba(24,95,165,0.06), rgba(24,95,165,0.02));
+    border-radius: 12px; border-left: 4px solid var(--primary);
+    backdrop-filter: blur(8px);
+  }
+  .km-concept {
+    margin-bottom: 8px; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.4); overflow: hidden;
+    transition: box-shadow 0.2s;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+  }
+  .km-concept:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .km-concept-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 18px; cursor: pointer;
+    background: rgba(255,255,255,0.6); user-select: none;
+    transition: background 0.2s;
+  }
+  .km-concept-header:hover { background: rgba(255,255,255,0.85); }
+  .km-expand-icon {
+    font-size: 12px; color: var(--text-muted); transition: transform 0.3s;
+    width: 16px; text-align: center; flex-shrink: 0;
+  }
+  .km-expand-icon.expanded { transform: rotate(90deg); }
+  .km-concept-name { font-size: 15px; font-weight: 600; color: var(--dark); flex: 1; }
+  .km-badge {
+    font-size: 11px; padding: 3px 12px; border-radius: 12px;
+    background: rgba(24,95,165,0.08); color: var(--primary); font-weight: 600;
+    backdrop-filter: blur(4px);
+  }
+  .km-concept-papers {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 18px; background: rgba(245,247,250,0.4);
+  }
+  .km-concept-papers.open {
+    max-height: 800px; padding: 12px 18px;
+  }
+  .km-paper-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border-radius: 8px;
+    cursor: pointer; transition: background 0.15s;
+    border-left: 3px solid rgba(0,0,0,0.06);
+    margin-bottom: 6px;
+    background: rgba(255,255,255,0.3);
+  }
+  .km-paper-item:hover {
+    background: rgba(255,255,255,0.7);
+    border-left-color: var(--primary);
+  }
+  .km-paper-item:last-child { margin-bottom: 0; }
+  .km-paper-title {
+    font-size: 13px; font-weight: 500; color: var(--text-primary); flex: 1;
+  }
+  .km-paper-meta {
+    font-size: 11px; color: var(--text-muted); white-space: nowrap;
+  }
+  .km-empty {
+    text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px;
+  }
+
+  /* ========== 创意视觉元素 ========== */
+
+  /* Apple-style layered background */
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(24,95,165,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(29,158,117,0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(55,138,221,0.03) 0%, transparent 60%);
+    pointer-events: none; z-index: -1;
+  }
+  /* Subtle dot pattern overlay */
+  body::after {
+    content: ''; position: fixed; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.035) 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    pointer-events: none; z-index: -1;
+  }
+
+  /* 渐变标题 */
+  .gradient-title {
+    background: linear-gradient(135deg, #185FA5, #1D9E75);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 节点标签基础类：白色描边保证密集处依然可读 */
+  .node-label {
+    font-family:inherit; font-size:12px; fill:var(--text-primary);
+    paint-order: stroke; stroke: rgba(255,255,255,0.92); stroke-width: 3px;
+    stroke-linejoin: round; pointer-events: none;
+  }
+
+  /* ========== APPLE GLASSMORPHISM SYSTEM ========== */
+  .glass {
+    background: rgba(255,255,255,0.68);
+    backdrop-filter: blur(24px) saturate(1.3);
+    -webkit-backdrop-filter: blur(24px) saturate(1.3);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  }
+  .glass-dark {
+    background: rgba(26,35,50,0.68);
+    backdrop-filter: blur(24px) saturate(1.3);
+    -webkit-backdrop-filter: blur(24px) saturate(1.3);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+  }
+  /* ========== TAB NAVIGATION ========== */
+  .top-nav {
+    position: fixed; top:0; left:0; right:0; z-index:1000;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(40px) saturate(1.5);
+    -webkit-backdrop-filter: blur(40px) saturate(1.5);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .top-nav-brand {
+    font-size: 18px; font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-right: 32px;
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+  }
+  .top-nav-tabs { display: flex; gap: 2px; flex: 1; }
+  .top-nav-tab {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.08s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .top-nav-tab:hover { background: rgba(0,0,0,0.03); color: var(--text-primary); }
+  .top-nav-tab.active {
+    background: rgba(24,95,165,0.08);
+    backdrop-filter: blur(8px);
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .top-nav-actions { display: flex; gap: 6px; align-items: center; margin-left: auto; }
+
+  /* ========== APPLE-STYLE THEME PICKER ========== */
+  .theme-picker-btn {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.06);
+    cursor: pointer; transition: all 0.2s; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.3);
+  }
+  .theme-picker-btn:hover { transform: scale(1.15); border-color: var(--primary); background: rgba(255,255,255,0.6); }
+  .theme-picker-btn.active-theme { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(24,95,165,0.2); }
+  .theme-picker-btn .check { display: none; color: white; font-size: 14px; }
+  .theme-picker-btn.active-theme .check { display: block; }
+  .theme-picker {
+    position: fixed; top: 64px; right: 20px; z-index: 1001;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(40px) saturate(1.5);
+    -webkit-backdrop-filter: blur(40px) saturate(1.5);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+    display: none;
+    min-width: 240px;
+  }
+  .theme-picker.open { display: block; }
+  .theme-picker h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 14px; }
+  .theme-grid { display: flex; flex-direction: column; gap: 10px; }
+  .theme-option {
+    display: flex; align-items: center; gap: 12px; padding: 10px 12px;
+    border-radius: 12px; cursor: pointer; transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+  .theme-option:hover { background: rgba(0,0,0,0.02); }
+  .theme-option.active {
+    border-color: rgba(24,95,165,0.2);
+    background: rgba(24,95,165,0.06);
+    backdrop-filter: blur(4px);
+  }
+  .theme-swatch {
+    width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .theme-info { flex: 1; }
+  .theme-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .theme-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ========== TAB CONTENT ========== */
+  .tab-content { display: none; padding-top: 56px; }
+  .tab-content.active { display: block; }
+
+  /* ========== SEARCH HISTORY ========== */
+  .history-list { display: flex; flex-direction: column; gap: 6px; }
+  .history-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  }
+  .history-item:hover {
+    background: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.6);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .history-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .history-info { flex: 1; min-width: 0; }
+  .history-keyword { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+  .history-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .history-action {
+    padding: 6px 14px; border-radius: 8px; border: none;
+    background: var(--primary); color: white; font-size: 12px; font-weight: 600;
+    cursor: pointer; opacity: 0; transition: opacity 0.15s; font-family: inherit;
+    box-shadow: 0 2px 8px rgba(24,95,165,0.15);
+  }
+  .history-item:hover .history-action { opacity: 1; }
+  .history-clear {
+    padding: 8px 18px; border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+    color: var(--text-secondary); font-size: 13px;
+    cursor: pointer; transition: all 0.15s; font-family: inherit;
+  }
+  .history-clear:hover { border-color: #e24b4a; color: #e24b4a; background: rgba(226,75,74,0.05); }
+  .history-empty {
+    text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 14px;
+  }
+
+  /* ========== IMPROVED PAPER DETAIL PANEL ========== */
+  .detail-overlay {
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px) saturate(1.1);
+    -webkit-backdrop-filter: blur(8px) saturate(1.1);
+    display: none;
+    animation: fadeIn 0.2s ease;
+  }
+  .detail-overlay.open { display: block; }
+  .detail-slide {
+    position: fixed; top: 0; right: -480px; width: 460px; max-width: 90vw;
+    height: 100vh; z-index: 501;
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(40px) saturate(1.4);
+    -webkit-backdrop-filter: blur(40px) saturate(1.4);
+    border-left: 1px solid rgba(255,255,255,0.3);
+    padding: 28px;
+    overflow-y: auto;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -8px 0 48px rgba(0,0,0,0.08);
+  }
+  .detail-slide.open { right: 0; }
+  .detail-close {
+    width: 36px; height: 36px; border-radius: 50%; border: none;
+    background: rgba(0,0,0,0.03);
+    backdrop-filter: blur(8px);
+    cursor: pointer; font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; color: var(--text-secondary);
+  }
+  .detail-close:hover { background: rgba(0,0,0,0.08); }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ========== APPLE-STYLE NAV SEARCH ========== */
+  .nav-search {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(0,0,0,0.03);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    padding: 3px 3px 3px 14px;
+    flex: 1; max-width: 360px;
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .nav-search:focus-within {
+    border-color: rgba(24,95,165,0.2);
+    box-shadow: 0 0 0 3px rgba(24,95,165,0.06);
+  }
+  .nav-search input {
+    border: none; background: transparent; outline: none;
+    font-size: 13px; font-family: inherit; color: var(--text-primary);
+    flex: 1; min-width: 100px;
+  }
+  .nav-search button {
+    padding: 6px 14px; border-radius: 8px; border: none;
+    background: var(--primary); color: white; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-search button:hover { background: #0c447c; }
+
+  /* ========== APPLE-STYLE LOADING OVERLAY ========== */
+  .search-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0a1628 0%, #132642 40%, #1a3a2e 100%);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    z-index: 9998; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  .search-overlay.active {
+    opacity: 1; pointer-events: auto;
+  }
+  .search-overlay canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .search-overlay-content {
+    position: relative; z-index: 1;
+    text-align: center; color: white;
+    padding: 40px;
+  }
+  .search-overlay-keyword {
+    font-size: 48px; font-weight: 700;
+    background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px; letter-spacing: -1px;
+  }
+  .search-overlay-sub {
+    font-size: 18px; opacity: 0.7; font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .search-overlay-loader {
+    display: inline-block;
+    width: 32px; height: 32px;
+    border: 2px solid rgba(255,255,255,0.15);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  .search-overlay-progress {
+    margin-top: 24px;
+    display: flex; gap: 8px; justify-content: center;
+  }
+  .search-overlay-progress span {
+    padding: 5px 16px; border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.04);
+    font-size: 12px; color: rgba(255,255,255,0.5);
+    transition: all 0.4s;
+  }
+  .search-overlay-progress span.done {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.1);
+    color: white;
+  }
+  .overlay-escape {
+    display: none; margin-top: 26px; padding: 9px 18px; cursor: pointer;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.82);
+    border: 1px solid rgba(255,255,255,0.16); border-radius: 10px;
+    font-size: 12.5px; font-family: inherit;
+    transition: background 0.2s ease;
+  }
+  .overlay-escape:hover { background: rgba(255,255,255,0.18); }
+
+  /* ========== RESPONSIVE: Tablet & Mobile ========== */
+  @media(max-width:768px) {
+    .top-nav { padding: 0 12px; height: 50px; gap: 2px; }
+    .top-nav-brand { font-size: 15px; margin-right: 12px; }
+    .top-nav-tab { padding: 6px 10px; font-size: 12px; }
+    .theme-picker { right: 8px; top: 56px; min-width: 200px; }
+    .detail-slide { width: 100%; max-width: 100vw; right: -100%; }
+    .nav-search { max-width: 180px; }
+
+    .hero { padding: 48px 20px 36px; }
+    .hero h1 { font-size: 30px; }
+    .hero .subtitle { font-size: 15px; }
+    .hero-search { max-width: 100%; }
+    .hero-search input { padding: 12px 16px; font-size: 15px; }
+    .hero-search button { padding: 10px 20px; font-size: 13px; }
+    #graph-container { height: 360px; }
+
+    .section { padding: 36px 0; }
+    .section-title { font-size: 22px; }
+    .demo-section { padding: 16px; }
+    .suggestion-chip { padding: 4px 12px; font-size: 11px; }
+    .toggle-panel { padding: 16px; }
+    .stat-card { min-width: 100px; padding: 12px; }
+    .stat-num { font-size: 20px; }
+    .compare-table th,.compare-table td { padding: 10px 12px; font-size: 13px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: repeat(2, 1fr); }
+    .value-grid { grid-template-columns: 1fr; }
+
+    .search-overlay-keyword { font-size: 32px; }
+    .search-overlay-sub { font-size: 15px; }
+  }
+
+  @media(max-width:480px) {
+    .hide-mobile { display: none; }
+    .top-nav { padding: 0 8px; gap: 0; }
+    .top-nav-brand { font-size: 14px; margin-right: 8px; }
+    .top-nav-tabs { gap: 0; }
+    .top-nav-tab { padding: 6px 8px; font-size: 11px; }
+    .top-nav-actions .nav-search { display: none; }
+
+    .hero { padding: 40px 14px 28px; }
+    .hero h1 { font-size: 26px; }
+    .hero .subtitle { font-size: 14px; }
+    .hero-badge { font-size: 10px; padding: 4px 12px; }
+    .hero-search { border-radius: 12px; padding: 4px; }
+    .hero-search input { padding: 10px 12px; font-size: 14px; }
+    .hero-search button { padding: 8px 16px; font-size: 12px; border-radius: 8px; }
+    .stats-row { gap: 6px; }
+    .stat-card { min-width: auto; flex: 1; padding: 10px 8px; }
+    .stat-num { font-size: 17px; }
+    .stat-label { font-size: 10px; }
+    #graph-container { height: 300px; }
+    .graph-toolbar { margin-top: 18px; gap: 8px; }
+    .graph-status { order: 3; width: 100%; flex: none; }
+    .graph-actions button { width: 28px; height: 28px; }
+    .graph-hint { font-size: 11px; }
+    .paper-list { padding: 10px; gap: 6px; }
+    .paper-card { padding: 10px; gap: 10px; }
+    .paper-title { font-size: 12.5px; }
+    .reading-item { padding: 10px 12px; gap: 10px; }
+    .reading-title { font-size: 12.5px; }
+    .toast-stack { right: 12px; left: 12px; bottom: 12px; align-items: stretch; }
+    .pm-toast { max-width: none; }
+
+    .section-title { font-size: 20px; }
+    .section { padding: 28px 0; }
+    .container { padding: 0 12px; }
+    .suggestion-chip { padding: 3px 8px; font-size: 10px; border-radius: 10px; }
+    .toggle-panel { padding: 12px; margin-top: 12px; }
+    .toggle-panel h4 { font-size: 14px !important; }
+
+    .glass-btn { padding: 8px 14px; font-size: 12px; }
+
+    .search-overlay-keyword { font-size: 24px; }
+    .search-overlay-sub { font-size: 14px; }
+    .search-overlay-content { padding: 20px; }
+    .search-overlay-progress span { font-size: 10px; padding: 3px 10px; }
+
+    .detail-slide { padding: 20px; }
+    .detail-slide h3 { font-size: 18px; }
+    .detail-slide p { font-size: 13px; }
+
+    .km-domain { font-size: 16px; padding: 12px 16px; }
+    .km-concept-name { font-size: 13px; }
+
+    .tech-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .tech-item { padding: 14px; }
+    .tech-name { font-size: 12px; }
+
+    .pain-item { padding: 18px 16px; }
+    .pain-item h3 { font-size: 15px; }
+    .pain-item p { font-size: 13px; }
+
+    .footer { padding: 24px 16px; font-size: 12px; }
+
+    .search-result-toast { top: auto; bottom: 16px; right: 16px; left: 16px; max-width: none; font-size: 13px; }
+  }
+
+
+
+html,body{height:auto!important;min-height:0!important;overflow:hidden!important}body{background:#f4f7fa;color:#233c4c}main{max-width:1400px;margin:auto;padding:24px}.pm-title{margin:0 0 8px;font-size:25px;color:#1c4e63}.pm-intro{font-size:14px;color:#5a6c77;line-height:1.9;margin:0 0 17px}.scene-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.scene-tabs button,.gap-chips button,.detail-heading button,.related-links button{border:1px solid #cbd9e2;background:white;border-radius:8px;padding:8px 12px;color:#3e6072;cursor:pointer;font:inherit;font-size:13px}.scene-tabs button.active,.gap-chips button.active{background:#1c648b;border-color:#1c648b;color:white}.scene-illustration{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;align-items:center;background:white;border:1px solid #d8e3eb;border-radius:13px;padding:18px 22px;margin-bottom:18px}.scene-illustration h2{font-size:20px;margin:0 0 9px}.scene-illustration p{font-size:13px;line-height:1.9;color:#566c7a;margin:0}.graph-toolbar{margin:0 0 12px;max-width:none;padding:0}.mode-switch{flex-shrink:0}.mode-switch button{font-size:13px}.graph-status{font-size:12px}.graph-actions button{font-size:13px}#graph-container{height:auto!important;min-height:0!important;overflow:hidden;position:relative;background:radial-gradient(ellipse at center,#fff,#edf3f9);border:1px solid #dae5ef}#graph-canvas{display:block;width:100%;height:auto!important;min-height:320px;aspect-ratio:1400/900}.graph-node{cursor:pointer;pointer-events:bounding-box}.node-label{font-size:26px!important;fill:#1f5d89;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}.graph-tooltip{transform:translateX(-50%)!important;max-width:350px;pointer-events:none;line-height:1.7}.graph-tooltip span{display:block;font-size:11px;margin-top:4px}.graph-hint{font-size:12px;margin:11px 0 6px;color:#667c8a}.graph-legend{font-size:12px;margin:10px 0 17px;display:flex;gap:12px;flex-wrap:wrap}.gap-chips{border-top:1px solid #d5e0e9;padding-top:16px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:13px;margin-top:17px}.gap-chips>strong{font-size:13px;color:#765f3b}.paper-list{max-height:none!important;height:auto!important;overflow:visible!important;padding:12px}.paper-card{display:flex;width:100%;text-align:left;border:1px solid #dbe5ed;background:white;padding:13px 15px;margin:8px 0;border-radius:9px;gap:14px;cursor:pointer}.paper-card strong{font-size:14px;font-weight:600;display:block;color:#22567d}.paper-card small{font-size:12px;color:#647b8b;display:block;margin-top:5px}.paper-rank{font-size:14px;flex-shrink:0;min-width:35px;color:#28628b}#paper-detail{margin-top:24px;background:white;padding:25px;border:1px solid #d8e3eb;border-radius:13px}#paper-detail[hidden]{display:none}.detail-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.detail-heading small{font-size:12px;color:#5c798a}.detail-heading h2{font-size:23px;color:#1b5377;margin:9px 0 12px}.detail-heading button{flex-shrink:0}.reference-title{font-size:12px;color:#6c808b;line-height:1.8}.measurements{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:17px 0}.measurements>div{background:#f0f6fb;border:1px solid #d8e6f1;padding:17px 19px;border-radius:9px}.measurements span{font-size:12px;display:block;color:#537486}.measurements strong{font-size:28px;display:block;color:#225e88;margin:5px 0}.measurements small{font-size:15px}.measurements em{font-size:12px;color:#627e90;font-style:normal}.condition-line{font-size:12px;line-height:2;color:#536f80;padding-bottom:15px}.detail-figures{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:14px 0 23px}.detail-figures>a,.detail-figures figure{display:block;border:1px solid #d5e2eb;border-radius:8px;background:#f6f9fb;padding:12px;margin:0;text-align:center}.detail-figures img{width:100%;height:210px;object-fit:contain}.detail-figures span,.detail-figures figcaption{font-size:11px;line-height:1.8;color:#5e7786;display:block;margin-top:7px}.reading-section{margin-top:18px}#paper-detail h3{font-size:16px;color:#284f65;margin:21px 0 8px}#paper-detail p{font-size:14px;line-height:2;color:#405e70;margin:8px 0}.status-pill{background:#fbf5e9;color:#856737;border:1px solid #e9d9b5;padding:8px 12px;border-radius:7px;font-size:13px;margin:12px 0}.related-links{display:flex;gap:7px;flex-wrap:wrap;margin:11px 0}.original-page{margin-top:23px;border-top:1px solid #d9e3eb;padding-top:14px}.original-page summary{cursor:pointer;color:#2d698e;font-size:14px}.original-page img{width:100%;max-width:1000px;display:block;margin:14px auto}.question-figure{margin:16px 0;text-align:center;border:1px solid #d8e4ec;background:#f6f9fb;border-radius:9px;padding:15px}.question-figure img{max-height:400px;max-width:100%;object-fit:contain}.question-figure figcaption{max-width:900px;margin-left:auto;margin-right:auto;line-height:1.8;font-size:13px;color:#67808d;margin-top:9px}.pm-credit{font-size:11px;color:#718794;margin:18px 0 0}.pm-credit a{color:#426e8b}.graph-node:focus-visible{outline:2px solid #9e7134}.graph-legend svg{width:26px!important;height:10px!important;min-width:0!important}.graph-legend .legend-item{display:inline-flex;align-items:center;gap:5px}@media(max-width:620px){main{padding:15px}.scene-illustration{grid-template-columns:1fr;padding:16px}.measurements,.detail-figures{grid-template-columns:1fr}#paper-detail{padding:17px}.detail-heading h2{font-size:20px}.graph-toolbar{gap:8px}.pm-title{font-size:22px}}
+.reading-meta{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.reading-meta span{background:#eaf2f6;border:1px solid #d2e0e7;border-radius:6px;padding:7px 10px;font-size:12px;color:#315568}.detail-figures svg{width:100%;height:210px;display:block}.relation-reading{padding:13px 16px;background:#f3f7fa;border-left:3px solid #7e9bb0;margin:12px 0;border-radius:5px}.relation-reading button{border:1px solid #c9dae5;background:white;color:#265b7c;border-radius:6px;padding:7px 11px;font:inherit;cursor:pointer}.source-record{margin-top:22px;padding-top:14px;border-top:1px solid #d4e0e7;font-size:13px;line-height:1.9;overflow-wrap:anywhere}.source-record summary{cursor:pointer;color:#315c78}.question-figure img{width:100%}.original-figures{margin:28px 0}.original-figures figure{margin:20px 0 28px;padding:22px;background:#fff;border:1px solid #dbe5ec;border-radius:12px}.original-figures figure>a{display:block;text-align:center;background:#fff}.original-figures img{display:block;width:auto;max-width:100%;max-height:640px;height:auto;margin:0 auto;object-fit:contain}.original-figures figcaption{margin-top:19px;border-top:1px solid #e2eaf0;padding-top:15px;text-align:left}.original-figures figcaption strong{color:#215d7c;font-size:15px}.original-figures figcaption small{display:block;font-size:12px;color:#587181;line-height:1.9}.figure-source-link{margin:24px 0;padding:16px 20px;border-left:3px solid #b9cdd9;background:#f5f8fa;font-size:14px}.reading-section{max-width:960px}#paper-detail .reading-section p{font-size:15px;line-height:2.05}@media(max-width:620px){.original-figures figure{padding:12px}.original-figures img{max-height:none}}.question-figure figcaption small{display:block;color:#6b7f8b;font-size:11px;margin-top:5px}</style><main>
+ <h1 class="pm-title">射孔参数设计研究图谱</h1>
+ <p class="pm-intro">1963—2026 · 17篇研究文献。按研究问题串联经典方法、实验认识与近期进展。</p>
+ <nav class="scene-tabs" aria-label="知识图谱场景">
+  <button data-scene="all" onclick="setScene('all')">全部研究</button>
+  <button data-scene="productivity" onclick="setScene('productivity')">产能与流动</button>
+  <button data-scene="cleanup" onclick="setScene('cleanup')">欠平衡清洁</button>
+  <button data-scene="fracture" onclick="setScene('fracture')">裂缝起裂</button>
+  <button data-scene="allocation" onclick="setScene('allocation')">限流与冲蚀</button>
+ </nav>
+ <section class="scene-illustration"><div><h2 id="scene-name"></h2><p id="scene-description"></p></div></section>
+ <div class="graph-toolbar"><div class="mode-switch"><button data-mode="graph" class="active" onclick="setGraphMode('graph')">图谱视图</button><button data-mode="list" onclick="setGraphMode('list')">列表视图</button></div><div class="graph-status" id="graph-status"></div><div class="graph-actions" id="graph-actions"><button onclick="zoomGraph(1.25)" aria-label="放大图谱">＋</button><button onclick="zoomGraph(0.8)" aria-label="缩小图谱">－</button><button class="wide" onclick="resetGraphView()">重置</button></div></div>
+ <div id="graph-container"></div>
+ <div id="graph-hint" class="graph-hint">拖拽平移 · 按钮缩放（或 Ctrl＋滚轮） · 点击文献查看方法、结果与后续进展</div>
+ <div id="graph-legend" class="graph-legend"></div>
+ <div class="gap-chips"><strong>研究缺口</strong><button data-gap="Q1" onclick="openPaper('Q1')">工况与摩阻</button><button data-gap="Q2" onclick="openPaper('Q2')">跨尺度耦合</button><button data-gap="Q3" onclick="openPaper('Q3')">现场独立验证</button></div>
+ <section id="paper-detail" hidden aria-label="研究文献阅读详情"></section>
+ <p class="pm-credit">图谱交互：<a href="https://ansonxb.github.io/papermap-demo/" target="_blank" rel="noopener">PaperMap</a> · 文献检索与核验日期：2026-10-27。各篇阅读范围和引用位置见详情。</p>
+</main>
+<script>function nodeRadius(paper) {
+  if (paper.isExternal) return 14;
+  if (paper.isFoundation) return 22;
+  return paper.rank && paper.rank <= 5 ? 19 : 15;
+}
+
+/** 节点半径方向的角度 → 标签锚点位置 */
+function labelPlacement(paper, radius) {
+  const a = paper.labelAngle;
+  if (a === undefined || paper.labelRadius === 0) {
+    return { x: paper.x, y: paper.y + radius + 16, anchor: 'middle' };
+  }
+  const dist = paper.labelRadius + radius + 14;
+  const x = GRAPH_CENTER.cx + dist * Math.cos(a);
+  const y = GRAPH_CENTER.cy + dist * GRAPH_CENTER.yScale * Math.sin(a);
+  const cosA = Math.cos(a);
+  const anchor = Math.abs(cosA) < 0.35 ? 'middle' : (cosA > 0 ? 'start' : 'end');
+  return { x, y: y + 4, anchor };
+}
+
+function applyGraphView() {
+  const vp = document.getElementById('graph-viewport');
+  if (vp) vp.setAttribute('transform', `translate(${graphView.tx} ${graphView.ty}) scale(${graphView.scale})`);
+}
+
+/** 屏幕坐标 → viewBox 坐标 */
+function clientToViewBox(clientX, clientY) {
+  const svg = document.getElementById('graph-canvas');
+  if (!svg || !svg.getScreenCTM()) return { x: 0, y: 0 };
+  const pt = svg.createSVGPoint();
+  pt.x = clientX; pt.y = clientY;
+  return pt.matrixTransform(svg.getScreenCTM().inverse());
+}
+
+/** 以某点为中心缩放（默认画布中心） */
+function zoomGraph(factor, origin) {
+  const c = origin || { x: VIEWBOX.w / 2, y: VIEWBOX.h / 2 };
+  const next = Math.min(4, Math.max(0.55, graphView.scale * factor));
+  if (next === graphView.scale) return;
+  graphView.tx = c.x * graphView.scale + graphView.tx - c.x * next;
+  graphView.ty = c.y * graphView.scale + graphView.ty - c.y * next;
+  graphView.scale = next;
+  applyGraphView();
+}
+
+function resetGraphView() {
+  graphView = { scale: 1, tx: 0, ty: 0 };
+  applyGraphView();
+}
+
+/** 悬停高亮：只保留该节点及其一阶邻居、相关边 */
+function highlightNeighborhood(id) {
+  const keep = new Set([id]);
+  edgeElList.forEach(e => {
+    if (e.from === id) keep.add(e.to);
+    if (e.to === id) keep.add(e.from);
+  });
+  nodeElMap.forEach((el, nodeId) => {
+    el.classList.toggle('is-dim', !keep.has(nodeId));
+    el.classList.toggle('is-link', keep.has(nodeId) && nodeId !== id);
+    el.classList.toggle('shape-hover', nodeId === id);
+  });
+  edgeElList.forEach(e => {
+    const linked = e.from === id || e.to === id;
+    e.el.classList.toggle('is-link', linked);
+    e.el.classList.toggle('is-dim', !linked);
+  });
+}
+
+function clearHighlight() {
+  nodeElMap.forEach(el => el.classList.remove('is-dim', 'is-link', 'shape-hover'));
+  edgeElList.forEach(e => e.el.classList.remove('is-dim', 'is-link'));
+}
+
+function showNodeTooltip(paper) {
+  const tip = document.getElementById('graph-tooltip');
+  const container = document.getElementById('graph-container');
+  if (!tip || !container) return;
+  const svg = document.getElementById('graph-canvas');
+  const m = svg.getScreenCTM();
+  const pt = svg.createSVGPoint();
+  pt.x = paper.x * graphView.scale + graphView.tx;
+  pt.y = paper.y * graphView.scale + graphView.ty;
+  const screen = pt.matrixTransform(m);
+  const rect = container.getBoundingClientRect();
+  tip.innerHTML = `<div class="tt-title">${esc(paper.title)}</div>
+    <div class="tt-meta">${paper.year} · ${(paper.citations || 0).toLocaleString()} 次引用${paper.rank && paper.rank < 999 ? ' · 重要度 #' + paper.rank : ''}</div>`;
+  tip.style.left = (screen.x - rect.left) + 'px';
+  tip.style.top = (screen.y - rect.top - nodeRadius(paper) - 8) + 'px';
+  tip.classList.add('show');
+}
+
+function hideNodeTooltip() {
+  const tip = document.getElementById('graph-tooltip');
+  if (tip) tip.classList.remove('show');
+}
+
+/** 渲染图谱 */
+function drawGraph() {
+  const svg = document.getElementById('graph-canvas');
+  if (!svg) return;
+  nodeElMap = new Map();
+  edgeElList = [];
+  svg.innerHTML = '';
+  svg.style.opacity = '1';
+  hideNodeTooltip();
+
+  const viewport = document.createElementNS(SVG_NS, 'g');
+  viewport.setAttribute('id', 'graph-viewport');
+  svg.appendChild(viewport);
+
+  if (!demoPapers.length) {
+    const empty = document.createElementNS(SVG_NS, 'text');
+    empty.setAttribute('x', String(VIEWBOX.w / 2));
+    empty.setAttribute('y', String(VIEWBOX.h / 2));
+    empty.setAttribute('text-anchor', 'middle');
+    empty.setAttribute('fill', '#98a2b3');
+    empty.setAttribute('font-size', '15');
+    empty.textContent = '暂无数据，请输入关键词开始检索';
+    viewport.appendChild(empty);
+    svg.style.opacity = '1';
+    applyGraphView();
+    return;
+  }
+
+  // All topics share a single continuous network canvas.
+  // ── 连线 ──
+  edges.forEach(edge => {
+    const from = Array.isArray(edge) ? edge[0] : edge.from;
+    const to = Array.isArray(edge) ? edge[1] : edge.to;
+    const kind = (edge && edge.kind) || 'similar';
+    const src = demoPapers.find(p => p.id === from);
+    const dst = demoPapers.find(p => p.id === to);
+    if (!src || !dst) return;
+
+    const st = edgeStyle(kind);
+    const line = document.createElementNS(SVG_NS, 'path');
+    const dx=dst.x-src.x,dy=dst.y-src.y,length=Math.hypot(dx,dy)||1;
+    const bend=src.category===dst.category?22:35;
+    const controlX=(src.x+dst.x)/2-dy/length*bend,controlY=(src.y+dst.y)/2+dx/length*bend;
+    line.setAttribute('d',`M${src.x} ${src.y} Q${controlX} ${controlY} ${dst.x} ${dst.y}`);
+    line.setAttribute('fill','none');
+    line.setAttribute('stroke', st.color);
+    line.setAttribute('stroke-width', String(st.width));
+    line.setAttribute('stroke-opacity', String(kind==='theme'||kind==='question'?st.opacity*.72:st.opacity*.8));
+    if (st.dash) line.setAttribute('stroke-dasharray', st.dash);
+    line.classList.add('edge-line');
+    viewport.appendChild(line);
+    edgeElList.push({ el: line, from, to, kind });
+
+    if (st.arrow) {
+      const angle = Math.atan2(dst.y - controlY, dst.x - controlX);
+      const rOff = nodeRadius(dst) + 4;
+      const ax = dst.x - Math.cos(angle) * rOff;
+      const ay = dst.y - Math.sin(angle) * rOff;
+      const arr = 6;
+      const head = document.createElementNS(SVG_NS, 'polygon');
+      head.setAttribute('points',
+        `${ax},${ay} ${ax - arr * Math.cos(angle - 0.4)},${ay - arr * Math.sin(angle - 0.4)} ${ax - arr * Math.cos(angle + 0.4)},${ay - arr * Math.sin(angle + 0.4)}`);
+      head.setAttribute('fill', st.color);
+      head.setAttribute('fill-opacity', String(Math.min(st.opacity * 1.4, 0.75)));
+      head.classList.add('edge-line');
+      viewport.appendChild(head);
+      edgeElList.push({ el: head, from, to, kind });
+    }
+  });
+
+  // ── 节点 ──
+  demoPapers.forEach(paper => {
+    const cx = paper.x, cy = paper.y;
+    const radius = nodeRadius(paper);
+    const nodeColor = colors[paper.category] || '#888';
+    const group = document.createElementNS(SVG_NS, 'g');
+    group.classList.add('graph-node'); group.dataset.paperId=paper.id; group.setAttribute('role','button'); group.setAttribute('tabindex','0'); group.setAttribute('aria-label',paper.title); group.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showPaperDetail(paper)}});
+
+    if (paper.rank === 1 || paper.isFoundation) {
+      const glow = document.createElementNS(SVG_NS, 'circle');
+      glow.setAttribute('cx', cx); glow.setAttribute('cy', cy);
+      glow.setAttribute('r', radius + 9);
+      glow.setAttribute('fill', nodeColor);
+      glow.setAttribute('fill-opacity', '0.12');
+      group.appendChild(glow);
+    }
+
+    let shapeEl;
+    const polygon = (pts) => {
+      const el = document.createElementNS(SVG_NS, 'polygon');
+      el.setAttribute('points', pts.join(' '));
+      return el;
+    };
+    if (paper.category === 'foundation') {
+      const pts = [];
+      for (let i = 0; i < 6; i++) { const a = -Math.PI / 2 + i * Math.PI / 3; pts.push(`${cx + radius * Math.cos(a)},${cy + radius * Math.sin(a)}`); }
+      shapeEl = polygon(pts);
+      shapeEl.setAttribute('stroke', 'rgba(255,255,255,0.55)');
+      shapeEl.setAttribute('stroke-width', '2.5');
+    } else if (paper.category === 'vision' || paper.isGap) {
+      shapeEl = polygon([`${cx},${cy - radius}`, `${cx + radius * 0.9},${cy}`, `${cx},${cy + radius}`, `${cx - radius * 0.9},${cy}`]);
+    } else if (paper.category === 'generative') {
+      const h = radius * 1.1, w = radius * 1.1;
+      shapeEl = polygon([`${cx},${cy - h}`, `${cx + w},${cy + radius * 0.6}`, `${cx - w},${cy + radius * 0.6}`]);
+    } else if (paper.category === 'survey') {
+      const pts = [];
+      for (let i = 0; i < 8; i++) { const a = Math.PI / 8 + i * Math.PI / 4; pts.push(`${cx + radius * Math.cos(a)},${cy + radius * Math.sin(a)}`); }
+      shapeEl = polygon(pts);
+    } else if (paper.category === 'theory') {
+      const pts = [];
+      for (let i = 0; i < 5; i++) { const a = -Math.PI / 2 + i * 2 * Math.PI / 5; pts.push(`${cx + radius * Math.cos(a)},${cy + radius * Math.sin(a)}`); }
+      shapeEl = polygon(pts);
+    } else {
+      shapeEl = document.createElementNS(SVG_NS, 'circle');
+      shapeEl.setAttribute('cx', cx);
+      shapeEl.setAttribute('cy', cy);
+      shapeEl.setAttribute('r', radius);
+    }
+    shapeEl.setAttribute('fill', nodeColor);
+    shapeEl.classList.add('node-shape');
+    group.appendChild(shapeEl);
+
+    // 节点内文字：排名或年份
+    const inner = document.createElementNS(SVG_NS, 'text');
+    inner.setAttribute('x', cx);
+    inner.setAttribute('y', cy);
+    inner.setAttribute('text-anchor', 'middle');
+    inner.setAttribute('dominant-baseline', 'central');
+    inner.setAttribute('fill', 'white');
+    inner.setAttribute('font-weight', '700');
+    inner.setAttribute('font-size', '19');
+    inner.textContent = paper.isGap ? '?' : '[' + paper.refNumber + ']';
+    group.appendChild(inner);
+
+    // 标签沿半径向外，避免相邻节点文字重叠
+    const label = document.createElementNS(SVG_NS, 'text');
+    const pos = labelPlacement(paper, radius);
+    label.setAttribute('x', pos.x);
+    label.setAttribute('y', pos.y);
+    label.setAttribute('text-anchor', pos.anchor);
+    label.classList.add('node-label');
+    label.style.fontSize = '22px';
+    label.style.fontWeight = paper.isFoundation ? '600' : '400';
+    const maxLen = 22;
+    if(pos.shifted){const lead=document.createElementNS(SVG_NS,'line');
+      lead.setAttribute('x1',cx);lead.setAttribute('y1',cy);lead.setAttribute('x2',pos.x);lead.setAttribute('y2',pos.y-8);
+      lead.setAttribute('stroke','#809eae');lead.setAttribute('stroke-width','1');lead.setAttribute('stroke-opacity','.65');
+      group.insertBefore(lead,group.firstChild);
+    }
+    label.textContent=paper.label||paper.title;
+    group.appendChild(label);
+
+    group.addEventListener('mouseenter', () => {
+      highlightNeighborhood(paper.id);
+      showNodeTooltip(paper);
+    });
+    group.addEventListener('mouseleave', () => {
+      clearHighlight();
+      hideNodeTooltip();
+    });
+    group.addEventListener('click', () => { if (!svg.dataset.dragged) showPaperDetail(paper); });
+
+    nodeElMap.set(paper.id, group);
+    viewport.appendChild(group);
+  });
+
+  applyGraphView();
+  renderGraphLegend();
+  setTimeout(() => {
+    svg.style.transition = 'opacity 0.6s ease';
+    svg.style.opacity = '1';
+  }, 60);
+}
+
+/** 图例用 DOM 渲染（不占用画布空间，移动端也不糊） */
+function renderGraphLegend() {
+  const box = document.getElementById('graph-legend');
+  if (!box) return;
+  const kinds = new Set(edges.map(e => (e && e.kind) || 'similar'));
+  const items = Object.entries(EDGE_STYLES).filter(([k]) => kinds.has(k));
+  box.innerHTML = items.map(([, s]) => `
+    <span class="legend-item">
+      <svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5"
+        stroke="${s.color}" stroke-width="${Math.max(1.4, s.width)}" ${s.dash ? `stroke-dasharray="${s.dash}"` : ''}/></svg>
+      ${s.label}
+    </span>`).join('') + (items.length ? '' : '');
+}
+
+/** 列表视图：小屏与快速浏览更友好 */
+function renderPaperList() {
+  const container = document.getElementById('graph-container');
+  const ranked = demoPapers.filter(p => !p.isExternal).sort((a, b) => (a.rank || 99) - (b.rank || 99));
+  const external = demoPapers.filter(p => p.isExternal);
+  const rows = [...ranked, ...external];
+  if (!rows.length) {
+    container.innerHTML = `<div class="graph-empty"><strong>还没有数据</strong><span>在上方输入关键词后点击「搜索」</span></div>`;
+    return;
+  }
+  container.innerHTML = `<div class="paper-list">` + rows.map(p => {
+    const tag = p.isExternal ? '前期基础' : (p.isCiting ? '后续引用' : `${esc(categoryLabel(p.category))}`);
+    const rankText = p.isExternal ? '★' : (p.rank && p.rank < 999 ? p.rank : '·');
+    return `<div class="paper-card ${p.isFoundation ? 'foundation' : ''}" onclick="showPaperDetail(demoPapers.find(x => x.id === '${p.id}'))">
+      <div class="paper-rank">${rankText}</div>
+      <div class="paper-body">
+        <div class="paper-title">${esc(p.title)}</div>
+        <div class="paper-meta">${p.year} · ${(p.citations || 0).toLocaleString()} 次引用 · ${tag}</div>
+      </div>
+    </div>`;
+  }).join('') + `</div>`;
+}
+
+function categoryLabel(cat) {
+  return {
+    foundation: '基础架构', llm: '语言模型', vision: '计算机视觉', generative: '生成模型',
+    survey: '综述', rl: '强化学习', graph: '图学习', theory: '理论基础',
+    pre: '前期基础', tutorial: '教程', other: '其他', sport: '运动科学', bio: '生物医学',
+  }[cat] || '相关研究';
+}
+
+/** 图谱 / 列表 视图切换 */
+function setGraphMode(mode) {
+  graphMode = mode;
+  document.querySelectorAll('.mode-switch button').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  const container = document.getElementById('graph-container');
+  const hint = document.getElementById('graph-hint');
+  const toolbarActions = document.getElementById('graph-actions');
+  if (toolbarActions) toolbarActions.style.display = mode === 'graph' ? '' : 'none';
+  if (hint) hint.style.display = mode === 'graph' ? '' : 'none';
+  if (mode === 'list') {
+    renderPaperList();
+  } else {
+    container.innerHTML = `<svg id="graph-canvas" viewBox="0 0 ${VIEWBOX.w} ${VIEWBOX.h}" role="img" aria-label="射孔参考文献与研究问题关系图谱"></svg><div id="graph-tooltip" class="graph-tooltip" aria-hidden="true"></div>`;
+    resetGraphView();
+    drawGraph();
+    bindGraphInteraction();
+  }
+}
+
+/** 拖拽平移 / 滚轮缩放 / 双指缩放 */
+function bindGraphInteraction() {
+  const svg = document.getElementById('graph-canvas');
+  if (!svg || svg.dataset.bound) return;
+  svg.dataset.bound = '1';
+
+  const pointers = new Map();
+  let last = null;
+  let pinchDist = 0;
+
+  const scaleFactor = () => VIEWBOX.w / Math.max(1, svg.getBoundingClientRect().width);
+
+  svg.addEventListener('pointerdown', (e) => {
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    last = { x: e.clientX, y: e.clientY };
+    delete svg.dataset.dragged;
+    svg.classList.add('panning');
+    // 注意：这里不能立刻 setPointerCapture，否则 click 会被 SVG 吞掉，节点点击失效
+  });
+
+  svg.addEventListener('pointermove', (e) => {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.size >= 2) {
+      const [a, b] = [...pointers.values()];
+      const d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (pinchDist) {
+        const mid = clientToViewBox((a.x + b.x) / 2, (a.y + b.y) / 2);
+        zoomGraph(d / pinchDist, mid);
+      }
+      pinchDist = d;
+      svg.dataset.dragged = '1';
+      if (!svg.hasPointerCapture?.(e.pointerId)) svg.setPointerCapture?.(e.pointerId);
+      return;
+    }
+
+    if (!last) return;
+    const dx = e.clientX - last.x, dy = e.clientY - last.y;
+    if (Math.abs(dx) + Math.abs(dy) > 2) {
+      svg.dataset.dragged = '1';
+      // 确认是拖拽后再捕获指针，保证拖出画布也能跟手
+      if (!svg.hasPointerCapture?.(e.pointerId)) svg.setPointerCapture?.(e.pointerId);
+    }
+    const f = scaleFactor();
+    graphView.tx += dx * f;
+    graphView.ty += dy * f;
+    last = { x: e.clientX, y: e.clientY };
+    applyGraphView();
+  });
+
+  const endPointer = (e) => {
+    pointers.delete(e.pointerId);
+    if (pointers.size < 2) pinchDist = 0;
+    if (pointers.size === 0) {
+      last = null;
+      svg.classList.remove('panning');
+      // click 事件在 pointerup 之后派发，等一拍再复位拖拽标记
+      setTimeout(() => { delete svg.dataset.dragged; }, 0);
+    }
+  };
+  svg.addEventListener('pointerup', endPointer);
+  svg.addEventListener('pointercancel', endPointer);
+  window.addEventListener('pointerup', endPointer);
+
+  svg.addEventListener('wheel', (e) => {
+    if(!e.ctrlKey&&!e.metaKey)return;
+    e.preventDefault();
+    const origin = clientToViewBox(e.clientX, e.clientY);
+    zoomGraph(e.deltaY < 0 ? 1.12 : 0.89, origin);
+  }, { passive: false });
+
+  svg.addEventListener('dblclick', resetGraphView);
+}
+
+
+
+/* Source readings are curated locally. Renderer/pan/zoom: Ansonxb/PaperMap. */
+const RECORDS=[{"id": "P01", "refNumber": 1, "doi": "10.2118/530-PA", "year": 1963, "category": "allocation", "author": "Lagrone & Rasmussen", "title": "限流完井的早期实践", "label": "限流技术 · 1963", "referenceTitle": "A New Development in Completion Methods- The Limited Entry Technique", "citation": "K.W. Lagrone, J.W. Rasmussen. A New Development in Completion Methods- The Limited Entry Technique. Journal of Petroleum Technology 15(07), 695-702 (1963). https://doi.org/10.2118/530-PA", "bibauthor": "Lagrone, K.W. and Rasmussen, J.W.", "journal": "Journal of Petroleum Technology", "volume": "15(07)", "pages": "695-702", "question": "怎样让处理液进入多个层段，而非集中进入少数易吸液层？", "method": "限制射孔数并配合足够排量，利用孔眼入口压降改善多层分流；结合示踪测井检查处理范围。", "result": "作者汇总1960—1963年363口井的应用，报告处理层段覆盖和井表现改善，未给出统一的随机对照增产率。", "contribution": "把孔眼流阻作为分配处理液的设计手段。", "limitations": "历史现场案例，井况和处理制度不统一；不能将363口井视为同条件对照试验。", "access": "出版商摘要及公开引言", "anchor": "摘要；Introduction；Limited Entry Technique", "source_url": "https://doi.org/10.2118/530-PA", "url": "https://doi.org/10.2118/530-PA", "sections": [["设计问题与作用机制", "多层同时处理时，各层吸液能力不同，液体容易先进入阻力较小的层。限流设计通过减少入口数量、提高入口压降，使射孔阻力参与控制层间分配。研究中的孔数与施工排量需要配合选择，不能只把少打孔理解为有效限流。"], ["原始证据怎样获得", "作者汇总1960—1963年363口井的应用，采用包括示踪测井在内的资料判断处理液是否到达预定层段。这类证据主要回答多层处理是否实现和技术能否应用，并非在相同地质条件下逐项改变孔径、孔数得到的控制试验。"], ["结果应怎样理解", "这项经典工作的意义在于将孔眼入口阻力变成可设计的分流手段。现场覆盖范围和井表现支持其应用价值，但不能据此计算一个适用于所有储层的增产百分比。后续多簇压裂仍沿用入口压降调节分配的思想，同时需要计算裂缝竞争和孔眼变化。"]], "figures": []}, {"id": "P02", "refNumber": 2, "doi": "10.2118/12781-PA", "year": 1987, "category": "productivity", "author": "Tariq", "title": "射孔汇流与非达西效应", "label": "非达西流 · 1987", "referenceTitle": "Evaluation of Flow Characteristics of Perforations Including Nonlinear Effects With the Finite-Element Method", "citation": "Syed M. Tariq. Evaluation of Flow Characteristics of Perforations Including Nonlinear Effects With the Finite-Element Method. SPE Production Engineering 2(02), 104-112 (1987). https://doi.org/10.2118/12781-PA", "bibauthor": "Tariq, Syed M.", "journal": "SPE Production Engineering", "volume": "2(02)", "pages": "104-112", "question": "孔道附近汇聚流与高速气流怎样改变产能？", "method": "有限元计算稳态流动，进行网格敏感性检查，并考虑孔道附近非达西流。", "result": "相对其数值结果，Locke图版高估约5%—10%；高产气井的非达西效应会降低产能。", "contribution": "在几何参数之外纳入高速汇流损失，并检验既有图版。", "limitations": "稳态数值研究；没有给出适用于所有气井的统一参数最优值。", "access": "原始摘要", "anchor": "Summary；作者机构库记录", "source_url": "https://scholarsmine.mst.edu/min_nuceng_facwork/919/", "url": "https://scholarsmine.mst.edu/min_nuceng_facwork/919/", "sections": [["为何需要三维流动计算", "储层流体进入有限数量的射孔孔道时发生汇聚，孔道附近流速高于远场。穿深、孔密及圆周布置改变流线和局部压力损失；对于高产气井，局部高速流动还可能使压差与流量偏离达西线性关系。"], ["方法与核验对象", "研究以有限元求解射孔附近的稳态流动，并检查网格对结果的影响。它比较的是几何引起的产能变化与非线性流动损失，不是通过训练数据学习射孔参数，也没有给出多簇压裂过程。"], ["结果的比较基准", "作者指出，Locke图版相对于本文数值结果约高估5%—10%；这个数值的参照是所比较的图版与算例，而非现场产量预测误差。研究进一步表明，高速气体的非达西损失会降低产能。因此，只凭几何导流面积判断高产气井效果会遗漏局部流动损失。"]], "figures": []}, {"id": "P03", "refNumber": 3, "doi": "10.2118/18247-PA", "year": 1991, "category": "productivity", "author": "Karakas & Tariq", "title": "射孔完井半解析产能模型", "label": "半解析表皮 · 1991", "referenceTitle": "Semianalytical Productivity Models for Perforated Completions", "citation": "Metin Karakas, S. M. Tariq. Semianalytical Productivity Models for Perforated Completions. SPE Production Engineering 6(01), 73-82 (1991). https://doi.org/10.2118/18247-PA", "bibauthor": "Karakas, Metin and Tariq, S. M.", "journal": "SPE Production Engineering", "volume": "6(01)", "pages": "73-82", "question": "如何较快估计穿深、孔密、相位及损伤对射孔表皮的影响？", "method": "结合有限元结果与半解析关系，分别处理二维平面流和三维垂向汇聚流，并考虑损伤及渗透率各向异性。", "result": "给出射孔表皮计算关系，指出相位和穿深共同影响穿过近井损伤带后的产能。", "contribution": "把三维射孔流动结果转化为工程可用的表皮估计方法。", "limitations": "不是多目标优化算法；2007年Hagoort针对其各向异性处理指出可能偏高的产能估计。", "access": "原始摘要", "anchor": "Summary；作者机构库记录", "source_url": "https://scholarsmine.mst.edu/min_nuceng_facwork/916/", "url": "https://scholarsmine.mst.edu/min_nuceng_facwork/916/", "sections": [["模型要简化什么", "直接对每一种射孔布置进行三维数值计算成本较高。本文将有限元结果归纳为半解析表皮关系，使穿深、孔密、相位和损伤影响能够用于工程估算。表皮系数描述相对于参照流动的附加压力损失，并不是一个独立的产量。"], ["二维与三维分别表示什么", "孔道沿井轴间距较小时，平面内流动与垂向汇聚的贡献不同。作者分别处理二维平面流和三维垂向汇聚，再考虑近井损伤及渗透率各向异性。参数的影响取决于孔道是否穿过损伤区及各方向的流动能力。"], ["贡献及后来被修正的部分", "该方法把复杂几何计算转化为便于调用的射孔表皮估计，是后续产能研究的重要比较对象。Hagoort（2007）针对各向异性处理提出具体修正，指出损伤和各向异性共同存在时可能高估产能。这是明确的模型修正关系，不能扩展成所有工况下原模型均失效。"]], "figures": []}, {"id": "P04", "refNumber": 4, "doi": "10.2118/20661-PA", "year": 1991, "category": "fracture", "author": "Behrmann & Elbel", "title": "射孔方位与水力裂缝起裂", "label": "起裂试验 · 1991", "referenceTitle": "Effect of Perforations on Fracture Initiation", "citation": "L.A. Behrmann, J.L. Elbel. Effect of Perforations on Fracture Initiation. Journal of Petroleum Technology 43(05), 608-615 (1991). https://doi.org/10.2118/20661-PA", "bibauthor": "Behrmann, L.A. and Elbel, J.L.", "journal": "Journal of Petroleum Technology", "volume": "43(05)", "pages": "608-615", "question": "射孔孔道方向是否决定裂缝最终扩展方向？", "method": "在三轴应力条件下对大砂岩块进行套管、水泥固结、真实射孔和注液压裂试验。", "result": "起裂受孔道方位、流体和排量影响；在所测工况下，裂缝在约一个井径内转向垂直最小水平应力的平面。", "contribution": "区分孔道附近起裂位置与远离井筒后的裂缝方向。", "limitations": "岩块尺度、岩性和应力范围有限，不能将局部起裂结论直接替代现场多簇扩展预测。", "access": "原始摘要及公开正文片段", "anchor": "Summary；Test Fixture；Experimental Procedure", "source_url": "https://doi.org/10.2118/20661-PA", "url": "https://doi.org/10.2118/20661-PA", "sections": [["试验如何接近实际完井", "研究使用约27×27×32英寸的大砂岩块，在三轴应力条件下设置套管和水泥固结，再实施真实射孔与注液压裂。与直接预制一条理想裂缝相比，这种试验保留了射孔附近的复杂起裂条件。公开正文还说明了试验装置、孔隙压力设置与操作过程。"], ["需要区分的两个方向", "孔道方向影响液体进入岩石的位置和近井起裂方式，但裂缝离开井筒后的方向同时受远场应力控制。在作者所测工况下，裂缝在约一个井径内转向垂直于最小水平主应力的平面。因此，射孔方位与最终裂缝方位不能简单画成同一直线。"], ["这项证据解决与遗留的问题", "该试验为孔道控制起裂、应力控制后续转向提供了物理观察。其岩块尺度、岩性和应力范围限制了外推；多簇之间的应力阴影、不同簇的同时或先后起裂，还需要后续试验与耦合模型研究。"]], "figures": []}, {"id": "P05", "refNumber": 5, "doi": "10.2118/83697-PA", "year": 2003, "category": "cleanup", "author": "Underdown et al.", "title": "按储层差异设计欠平衡射孔", "label": "欠平衡设计 · 2003", "referenceTitle": "Optimizing the Perforating Strategy in Well Completions To Maximize Productivity", "citation": "D. R. Underdown, W. H. Jenkins, A. Pitts, A. Venkitaraman, H. Li. Optimizing the Perforating Strategy in Well Completions To Maximize Productivity. SPE Drilling & Completion 18(02), 177-181 (2003). https://doi.org/10.2118/83697-PA", "bibauthor": "Underdown, D. R. and Jenkins, W. H. and Pitts, A. and Venkitaraman, A. and Li, H.", "journal": "SPE Drilling & Completion", "volume": "18(02)", "pages": "177-181", "question": "如何按分层渗透率选择枪弹、孔密与欠平衡，而非使用全井平均条件？", "method": "Britannia气田将测井解释、方案模拟、模拟井下条件岩心试验和完井后表皮分析结合。", "result": "露头岩心在1000 psi欠平衡下接近零射孔表皮；12口已完井井的分析呈低表皮或负表皮。", "contribution": "以实验核对欠平衡设计，再将分层方案用于现场。", "limitations": "特定气田与岩石、流体条件；1000 psi不是跨储层通用值，现场结果也不能分离各设计变量的贡献。", "access": "原始摘要", "anchor": "Summary", "source_url": "https://doi.org/10.2118/83697-PA", "url": "https://doi.org/10.2118/83697-PA", "sections": [["设计依据从平均值转向分层条件", "Britannia气田案例把分层渗透率解释用于射孔设计，将枪弹、孔密和欠平衡条件配合选择。不同层段的流动能力和清洁要求可能不同，因此全井平均渗透率不足以代表每一层的设计条件。"], ["岩心试验与现场资料分别证明什么", "作者在模拟井下条件的岩心试验中检查射孔效果，露头岩心在1000 psi欠平衡条件下接近零射孔表皮；又以12口已完井井的低表皮或负表皮结果报告现场表现。前者检验选定岩石与压力条件下的清洁效果，后者提供整套完井方案的应用证据。"], ["参数取值为何不能直接照搬", "1000 psi是对应试验的压力条件，不是通用清洁阈值。现场同时改变或组合了多项设计，井况也有差异，因而无法仅由最终表皮分离某一个射孔参数的贡献。后续动态欠平衡模型补充了压力随时间变化的描述。"]], "figures": []}, {"id": "P06", "refNumber": 6, "doi": "10.1016/j.petrol.2006.09.001", "year": 2007, "category": "productivity", "author": "Hagoort", "title": "各向异性条件下的解析产能模型", "label": "各向异性 · 2007", "referenceTitle": "An analytical model for predicting the productivity of perforated wells", "citation": "Jacques Hagoort. An analytical model for predicting the productivity of perforated wells. Journal of Petroleum Science and Engineering 56(4), 199-218 (2007). https://doi.org/10.1016/j.petrol.2006.09.001", "bibauthor": "Hagoort, Jacques", "journal": "Journal of Petroleum Science and Engineering", "volume": "56(4)", "pages": "199-218", "question": "既有射孔产能关系怎样处理渗透率各向异性与损伤？", "method": "从单孔单相达西流解析解构建规则孔列模型，计算几何、损伤与各向异性影响。", "result": "与既有数值结果作比较；指出Karakas–Tariq方法在损伤和各向异性并存时可能过高估计产能。", "contribution": "对既有半解析方法的各向异性处理作了具体修正与比较。", "limitations": "规则孔列、单相达西流假设；没有覆盖动态清洁、非达西气流及压裂多簇竞争。", "access": "出版商摘要及公开结果片段", "anchor": "Abstract；Results；Example calculation", "source_url": "https://doi.org/10.1016/j.petrol.2006.09.001", "url": "https://doi.org/10.1016/j.petrol.2006.09.001", "sections": [["解析模型的构造思路", "作者从单个孔道在半无限储层中的单相达西流出发，构建规则孔列的产能模型。通过解析关系考察射孔几何、近井损伤和渗透率各向异性，目的在于以较低计算成本估计完井产能。"], ["与既有方法比较的重点", "论文不是只增加一条参数敏感性曲线，而是检查Karakas–Tariq方法对各向异性的处理。公开结果指出，当损伤与各向异性共同存在时，既有处理可能给出偏高的产能；本文提供替代关系与比较算例。"], ["适用范围与后续问题", "这里的产能结论建立在规则孔列、单相和达西流动条件下。孔道内高速非达西流、射孔后的瞬态清洁和压裂期间的多簇竞争属于不同过程。使用该模型时，应先核对流动条件，再比较其表皮或产能输出。"]], "figures": [{"paper": "P06", "number": "1", "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0920410506001823-gr1.jpg", "ok": true, "file": "P06-fig1.jpg", "explanation": "单孔解析模型的原始几何定义。Lp为孔道长度，2rp为直径，qp为进入井筒的流量；箭头表示周围介质向孔道汇流。这是构造规则孔列产能关系的基本单元。它没有显示清洁、冲蚀或裂缝扩展，读图时应将几何定义与后续产能计算区分。原站仅提供此尺寸版本。", "caption": "", "sha256": "bd9b61be3316a32874c2997f47a70f9fb347a7cfd66e081487cb00658fac8e8f", "size": 6740, "width": 222, "height": 153}]}, {"id": "P07", "refNumber": 7, "doi": "10.1016/j.petrol.2017.03.023", "year": 2017, "category": "allocation", "author": "Li et al.", "title": "限流压裂的孔眼入口单元", "label": "入口单元 · 2017", "referenceTitle": "Numerical simulation of limited-entry multi-cluster fracturing in horizontal well", "citation": "Yang Li, Jingen Deng, Wei Liu, Wei Yan, Yongcun Feng, Wenke Cao, Pengfei Wang, Youlin Hou. Numerical simulation of limited-entry multi-cluster fracturing in horizontal well. Journal of Petroleum Science and Engineering 152, 443-455 (2017). https://doi.org/10.1016/j.petrol.2017.03.023", "bibauthor": "Li, Yang and Deng, Jingen and Liu, Wei and Yan, Wei and Feng, Yongcun and Cao, Wenke and Wang, Pengfei and Hou, Youlin", "journal": "Journal of Petroleum Science and Engineering", "volume": "152", "pages": "443-455", "question": "怎样在多簇扩展计算中自动分配各簇进液量？", "method": "将射孔入口单元接入三维水力–力学有限元模型，以两个单元级算例核验压降与分流。", "result": "五簇算例表明，提高入口压降可缓解应力阴影引起的裂缝不均衡；井底压力相近不代表各簇均匀生长。", "contribution": "把孔眼压降与各簇竞争扩展直接耦合。", "limitations": "原模型忽略簇间井筒压降和近井裂缝弯曲摩阻，未处理孔眼冲蚀。", "access": "公开正文", "anchor": "§2假设；§2.1入口单元；§2.4核验；§4；§6", "source_url": "https://doi.org/10.1016/j.petrol.2017.03.023", "url": "https://doi.org/10.1016/j.petrol.2017.03.023", "sections": [["入口单元为何关键", "多簇压裂中，井筒压力与各裂缝入口压力之间存在孔眼压降。本文将这一关系做成入口单元，使各簇流量随压力和裂缝竞争自动调整，而不是在计算开始时强行规定各簇等量进液。"], ["算例与验证层次", "作者将入口单元接入三维流固耦合有限元模型，以单元级解析算例核验入口压降与分流关系，再研究五簇扩展。公开正文中的五簇示例采用10 m簇距、6 m³/min排量和8 mm孔径。单元核验与多簇算例承担不同的验证任务。"], ["结果及尚未纳入的过程", "提高入口压降可以减弱应力阴影造成的分流不均；相近的井底压力却可能对应不同的各簇裂缝长度，因此仅看施工压力不足以判断均匀性。模型未计入簇间井筒摩阻、近井弯曲摩阻和孔眼冲蚀。Liu等后续工作明确增加冲蚀与起裂不同步，补充了其中部分过程。"]], "figures": [{"paper": "P07", "number": "1", "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0920410517303807-gr1_lrg.jpg", "ok": true, "file": "P07-fig1.jpg", "explanation": "两个压力节点构成的入口单元。p1、p2表示孔眼两侧压力，q1、q2表示节点流量；绿色连接表示模型中的入口关系。作者以孔眼压降与流量平方的关系更新入口阻力，使各簇流量由耦合系统求出，而不是预设每簇等量。", "caption": "", "sha256": "8807bff7b1e21a80ec102a3bc451595492e6c8a4be6b5db4bf8404811deb2653", "size": 36586, "width": 1500, "height": 220}, {"paper": "P07", "number": "8", "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0920410517303807-gr8_lrg.jpg", "ok": true, "file": "P07-fig8.jpg", "explanation": "射孔入口单元与裂缝单元的连接。图(a)给出一段水平井的多簇布置，图(b)给出计算连接：各入口单元在井筒侧共享一个注入节点，另一端分别接入裂缝。读图可看出，原模型把各簇井筒侧压力视为相同，因此没有计算簇间井筒沿程压降。", "caption": "", "sha256": "6222e7164662d99169671a5427ddc05cbf40ecb18184662906ff4f52c717d795", "size": 264640, "width": 1708, "height": 1936}]}, {"id": "P08", "refNumber": 8, "doi": "10.11885/j.issn.1674-5086.2018.09.12.02", "year": 2019, "category": "productivity", "author": "李进等", "title": "考虑孔道摩阻的最优穿深设计", "label": "穿深取舍 · 2019", "referenceTitle": "基于最优穿深分析的射孔参数优化设计新方法", "citation": "李进, 许杰, 王昆剑, 韩耀图, 亓彦铼. 基于最优穿深分析的射孔参数优化设计新方法. 西南石油大学学报（自然科学版） 41(5), 142–149 (2019). https://doi.org/10.11885/j.issn.1674-5086.2018.09.12.02", "bibauthor": "李进 and 许杰 and 王昆剑 and 韩耀图 and 亓彦铼", "journal": "西南石油大学学报（自然科学版）", "volume": "41(5)", "pages": "142–149", "question": "为何不能仅按产能随穿深增加的敏感性曲线确定设计穿深？", "method": "耦合储层流入与孔道内流动，按Dikken准则，以摩阻导致产能降低20%对应的长度确定设计穿深。", "result": "馆陶组算例选择孔径不小于20 mm、穿深600 mm、孔密40孔/m；报道投产92.30 m³/d。", "contribution": "给出包含摩阻损失判据的穿深取舍方法。", "limitations": "20%是所采用的设计准则；现场产量高于配产不等于与另一射孔方案的受控增产比较。", "access": "全文", "anchor": "§2.4式21；§3；§4表2；§5", "source_url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/2019-5-142.htm", "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/2019-5-142.htm", "sections": [["从敏感性分析到设计判据", "常规产能曲线可能随穿深增加持续上升，难以据此确定应该选择多长的孔道。本文耦合储层流入与孔道流动摩阻，引入Dikken准则，以考虑摩阻的产能与忽略摩阻的产能之比为0.8作为穿深取舍依据。20%的损失是采用的设计判据，而非实验发现的普适临界值。"], ["如何从图得到参数", "馆陶组算例先比较不同孔径下的最优穿深和产能：孔径超过20 mm后进一步增大带来的收益减小，因而选取孔径不小于20 mm；结合对应穿深曲线选择600 mm，再配合孔密40孔/m和45°/135°相位。各数值属于该区块与模型条件。"], ["现场结果的证据边界", "论文报道投产单井产能92.30 m³/d，较油藏配产高约15 m³/d。配产是设计或管理参照，并非另一射孔方案的对照观测，因此不能将差值直接写成优化方案的净增产。与2023年孔道压降研究比较时，还应统一流量、孔径、粗糙度和流态。"]], "figures": [{"paper": "P08", "number": "1", "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-1.jpg", "caption": "", "ok": true, "status": 200, "size": 156888, "explanation": "产能比随穿深变化的参数曲线。各曲线对应不同孔径；单调增加的趋势说明，单凭产能敏感性难以确定设计穿深。", "sha256": "887920fa5594ddf27e005297d36e8e44e7df4f999525d77a2287decdc5438269", "width": 700, "height": 476}, {"paper": "P08", "number": "7", "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-7.jpg", "caption": "", "ok": true, "status": 200, "size": 200730, "explanation": "馆陶组储层采用Dikken优化原则的最佳穿深分析。不同颜色表示孔径；以考虑摩阻与忽略摩阻的产能之比为0.8作为取舍判据，识别对应的设计穿深。", "sha256": "afe69fd769a18648058fffcd31a1e6cce0760f44efc7341b83ed60a7eeda029c", "width": 700, "height": 534}, {"paper": "P08", "number": "8", "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-8.jpg", "caption": "", "ok": true, "status": 200, "size": 132625, "explanation": "不同孔径下产能比随穿深的变化。曲线间距随孔径增加而缩小，用于识别扩大孔径后的边际收益。", "sha256": "49f95a989a7aa153d8391c28bc16ca26b65d2cc2081cc6395efb1fa4731e0c4c", "width": 700, "height": 475}]}, {"id": "P09", "refNumber": 9, "doi": "10.1016/j.petrol.2019.106495", "year": 2020, "category": "cleanup", "author": "Bale & Satti", "title": "动态欠平衡井筒压力快速计算", "label": "瞬态压力 · 2020", "referenceTitle": "A fast computational model for wellbore pressure transients while perforating with dynamic underbalance", "citation": "Derek S. Bale, Rajani P. Satti. A fast computational model for wellbore pressure transients while perforating with dynamic underbalance. Journal of Petroleum Science and Engineering 185, 106495 (2020). https://doi.org/10.1016/j.petrol.2019.106495", "bibauthor": "Bale, Derek S. and Satti, Rajani P.", "journal": "Journal of Petroleum Science and Engineering", "volume": "185", "pages": "106495", "question": "怎样在作业设计中计算短时欠平衡压力历程？", "method": "建立面向设计流程的快速物理计算方法，将完井配置和储层条件与压力瞬态及清洁过程联系起来。", "result": "本轮公开片段可核对模型目标与所考虑的过程，未取得完整误差表，不列速度倍数或预测误差。", "contribution": "将欠平衡从单一初始压差扩展为有幅值和持续时间的瞬态过程。", "limitations": "本轮未取得全文；模型适用范围及定量精度仍需按原文进一步复核。", "access": "出版商公开片段", "anchor": "Introduction公开片段", "source_url": "https://doi.org/10.1016/j.petrol.2019.106495", "url": "https://doi.org/10.1016/j.petrol.2019.106495", "sections": [["研究对象是压力历程", "动态欠平衡不仅是射孔前井筒压力低于地层压力的一个差值，还包括射孔后压力下降、恢复和储层响应。本文面向完井设计建立快速计算模型，重点处理射孔后的井筒压力瞬态。压力幅值和持续时间共同决定后续回流所处的条件。"], ["过程划分怎样阅读", "原文将射孔后的过程区分为压力瞬态、后续涌流以及孔道清洁等阶段。本文所建快速模型的重点是压力瞬态，不能将其描述成已经独立验证所有清洁与损伤清除过程。后续压实带研究需要以压力历程作为载荷，再求解固体变形和渗流。"], ["公开结果支持到哪一步", "出版商公开结果说明图4对比模拟与实测井筒压力，图6考察500—3000 psi静态欠平衡及50、200、1500 mD渗透率，图7讨论动态欠平衡随静态欠平衡增大的变化。当前未取得完整误差表，故不把图形吻合转换为未经核实的百分比精度或计算加速倍数。"]], "figures": [{"paper": "P09", "number": "4", "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0920410519309167-gr4_lrg.jpg", "ok": true, "file": "P09-fig4.jpg", "explanation": "井筒压力瞬态的模型与试验对照。横轴为时间s，纵轴为压力psi；点状模型结果与连续测量曲线均显示压力骤降后恢复。比较时应分别观察最低压力、达到最低压力的时间及恢复段偏差。该图属于压力瞬态核验，不能据此推算孔道清洁率或给出图中没有列出的误差百分比。", "caption": "", "sha256": "5f137149554c2f27316fbbca76ce94c3a93bdf7f6d4cff797000ca6c7c990bd5", "size": 213491, "width": 1721, "height": 1414}]}, {"id": "P10", "refNumber": 10, "doi": "10.1038/s41598-023-46443-y", "year": 2023, "category": "productivity", "author": "Jiang et al.", "title": "储层渗流与孔道压降的量级比较", "label": "压降组成 · 2023", "referenceTitle": "Construction and application of flow pressure drop model of perforated well considering pressure loss of perforation hole", "citation": "Hongfeng Jiang, Muwang Wu, Yongjian Zheng, Qibin Zhao, Yongde Gao. Construction and application of flow pressure drop model of perforated well considering pressure loss of perforation hole. Scientific Reports 13(1), 19074 (2023). https://doi.org/10.1038/s41598-023-46443-y", "bibauthor": "Jiang, Hongfeng and Wu, Muwang and Zheng, Yongjian and Zhao, Qibin and Gao, Yongde", "journal": "Scientific Reports", "volume": "13(1)", "pages": "19074", "question": "生产压差主要消耗在储层渗流还是孔道内部？", "method": "用等效阻力与管流理论耦合求解，并与Karakas–Tariq模型比较。", "result": "其算例中孔道压降比生产压差小两个数量级以上；孔长、孔密的影响大于孔径和相位。", "contribution": "对特定单相生产条件下孔道摩阻的重要性给出量级判断。", "limitations": "模型间符合不能替代独立实验验证；该结论与2019年研究须按流量、孔径、粗糙度和流态分别比较。", "access": "全文", "anchor": "Solution of flow model；Results and discussion；Conclusions", "source_url": "https://www.nature.com/articles/s41598-023-46443-y", "url": "https://www.nature.com/articles/s41598-023-46443-y", "sections": [["模型将压差拆成哪些部分", "论文用等效流动阻力描述储层中的分区径向流，并将孔道内的管流压降接入同一产能关系。这样可以分别检查流体从储层汇入孔道和通过孔道进入井筒所消耗的压差，避免将全部压力损失归入同一个表皮项。"], ["读结果时应比较量级", "原图5比较不同孔径下压降随产量的变化，图6进一步分解孔道压降组成。在本文算例中，孔道压降比总生产压差小两个数量级以上；孔长和孔密对产能的影响大于孔径与相位。这个结论的关键是流动条件和量级，而不是孔道摩阻恒等于零。"], ["模型核验与跨论文对照", "作者与Karakas–Tariq模型比较计算结果。模型间一致提供计算参照，但仍不同于独立压差—流量试验。2019年最优穿深研究更强调摩阻取舍，两者应在统一流量、几何和流态下重算，不能仅凭摘要中的结论判断哪一篇错误。"]], "figures": [{"paper": "P10", "number": "2", "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-023-46443-y/MediaObjects/41598_2023_46443_Fig2_HTML.png", "caption": "Figure 2 Full size image Three radial flow model of perforated well. ( a ) Three radial flow model. ( b ) Radial flow model in reservoir area. ( c ) Radial flow model in perforated area.", "ok": true, "status": 200, "size": 1446312, "explanation": "分区径向流模型。图(a)展示总体流动路径，图(b)、(c)分别表示储层区与射孔区的径向流，用于将各区域压力损失纳入同一计算。", "sha256": "d096f3a259c3feefc6680925345938cab6d646f367d79fb69c344976d01fa445", "width": 2007, "height": 2100}, {"paper": "P10", "number": "5", "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-023-46443-y/MediaObjects/41598_2023_46443_Fig5_HTML.png", "caption": "Figure 5 Full size image Relationship curve between pressure drop and production under different hole diameters.", "ok": true, "status": 200, "size": 211447, "explanation": "不同孔径下孔道压降与产量的关系。横轴为产量，纵轴采用对数刻度；在同一产量下比较曲线，可以看到孔径增大使孔道压降降低。", "sha256": "3a9786014142e214736f1a8ffbcb6127e2126a60d1f98c86eb6e329fe80eeb48", "width": 968, "height": 604}, {"paper": "P10", "number": "6", "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-023-46443-y/MediaObjects/41598_2023_46443_Fig6_HTML.png", "caption": "Figure 6 Full size image Composition of pressure drop in the hole under different production.", "ok": true, "status": 200, "size": 128378, "explanation": "不同产量下孔道压降的组成。蓝、橙、绿柱分别表示流体内摩擦、摩擦阻力与孔道总压降；读图应同时核对纵轴的MPa量级。", "sha256": "a22987d39c0dde3303f7eb9942326713fb1a8846632ae3aa3cd6b9e9c4fa4632", "width": 967, "height": 714}]}, {"id": "P11", "refNumber": 11, "doi": "10.1021/acsomega.3c06416", "year": 2024, "category": "allocation", "author": "Liu et al.", "title": "密切割条件下的射孔参数优选", "label": "多簇优选 · 2024", "referenceTitle": "Investigation and Application of Perforation Optimization Method on Shale Gas Horizontal Well with Numerical Simulation of Multicluster Fracturing under Dense-Segment Pattern", "citation": "Chang Liu, Haitao Li, Hongwen Luo, Yu Lu, Ying Li, Chao Su, Shengnan Chen. Investigation and Application of Perforation Optimization Method on Shale Gas Horizontal Well with Numerical Simulation of Multicluster Fracturing under Dense-Segment Pattern. ACS Omega 9(1), 675-691 (2024). https://doi.org/10.1021/acsomega.3c06416", "bibauthor": "Liu, Chang and Li, Haitao and Luo, Hongwen and Lu, Yu and Li, Ying and Su, Chao and Chen, Shengnan", "journal": "ACS Omega", "volume": "9(1)", "pages": "675-691", "question": "簇间距、孔数与初始孔径怎样影响多裂缝扩展均匀性？", "method": "逐段核读引言、数值模型、20个参数算例、单井应用及结论。以拟三维位移不连续法连接裂缝变形、质量平衡、井筒与孔眼压降、冲蚀和起裂判别。", "result": "原图7中簇距5、8、12、15 m的均匀性指标依次为0.77、0.90、0.93、0.94；原图11中每簇16、8、4孔的指标为0.77、0.87、0.90。表3两组现场阶段平均SRV复算约为5.23与12.31×10⁶ m³。", "contribution": "在既有限流模型之外加入冲蚀和起裂不同步，并开展现场应用。", "limitations": "数值算例依赖给定分层、应力和施工条件。单井前后两组阶段未经随机分配，SRV不等于产量；全文部分算例标号、簇数及产量图注存在不一致，原图与表保持原样。", "access": "全文", "anchor": "全文§1—§5；式1—21；表1—3；图1、4、7、11、17、20。原图文件由Europe PMC开放全文图像包取得。", "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10785646/", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10785646/", "sections": [["研究问题：均衡并不只由簇距决定", "作者关注一段水平井内各簇裂缝体积不均：井筒压力、孔眼阻力与裂缝应力干扰共同控制进液，而某些簇还可能晚起裂或始终未起裂。引言明确指出，已有孔眼入口模型与少簇数研究尚未充分纳入孔眼冲蚀、起裂不同步和密切割条件。因此，本研究不是只寻找一个最佳簇距，而是同时比较簇距、孔数和初始孔径的分布方式。"], ["方法：把流量、压力和裂缝变形连起来", "模型采用拟三维位移不连续法描述裂缝相互作用；质量平衡计算进入裂缝的液体如何用于裂缝张开、滤失和继续流动。压力系统分别计算井筒沿程摩阻、孔眼入口压降和裂缝内压降。孔眼冲蚀又会增大孔径与流量系数，改变下一步分流。图1用四簇示例说明连接关系，后续参数比较按表2设置为八簇算例。"], ["起裂不同步具体怎样处理", "每个时间步先识别尚未起裂的簇，并按起裂压力组织试算。模型检查当前压力能否使新的簇起裂，然后重新求解流量与压力，直到系统达到平衡，再计算裂缝扩展。图4中的排序是试算策略，并非预先规定的实际起裂顺序。这个处理避免把所有簇在同一时刻开始扩展作为默认前提。"], ["参数算例及比较条件", "表1给出弹性模量45 GPa、泊松比0.25、平均最小/最大水平应力70/84 MPa、排量14 m³/min、流体黏度2 mPa·s和支撑剂浓度413 kg/m³。表2将20个算例分为六组，分别改变均匀或非均匀的簇距、孔数和初始孔径。比较输出是0—1的裂缝体积均匀性指标Ufm，越接近1越均匀；它不直接表示生产效率或现场成功率。"], ["数值结果：哪些改动有效，改善多少", "图7中簇距从5、8、12增至15 m时，Ufm依次为0.77、0.90、0.93和0.94，后两者已较接近。图11在5 m簇距下把每簇16孔减为8孔、4孔，指标从0.77提高到0.87、0.90。图17在8 m簇距、每簇16孔下，将初始孔径7 mm增至10、14 mm，指标从0.90降至0.88、0.83。结果支持在这些条件下通过入口阻力抑制优势簇进液，不能据此直接指定其他井段的通用孔数和孔径。"], ["现场应用：观察到什么，依据是什么", "应用井共22段，后11段采用平均约8 m簇距和每簇2—4孔的设计，并结合测井调整分布。前11段为经验设计。按表3的SRV列逐项复算，前组平均约5.23×10⁶ m³，试验组约12.31×10⁶ m³，约为2.35倍；图20同时给出事件空间分布和各段SRV。两组并非随机对照，地质和施工也有差异，因此这属于现场应用证据，不能把差值全部归因于射孔参数。"], ["研究推进与仍待核对之处", "本文明确增加了冲蚀和起裂不同步，对早期入口单元路线作了具体补充。天然裂缝网络的质量与最终生产响应仍未由这20个算例统一回答。全文中§3.1的a-1簇距与表2、图5不一致，部分图号和井号也有差异；本页数值比较对应明确的表和原图，不把含混标注补写成新的数据。"]], "figures": [{"paper": "P11", "number": "1", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles", "ok": true, "file": "P11-fig1.jpg", "explanation": "四簇示例的压力传递系统。液体沿井筒流动，经各簇孔眼进入裂缝；井筒摩阻、孔眼入口压降和裂缝内压降分别标出。读图先沿紫色箭头找进液方向，再比较每簇进入裂缝的支路：同一总排量不意味着各簇分到同样的流量。图中的四簇只是方法示意，后文参数算例使用八簇。", "caption": "Pressure transmission system coupled with fracture propagation model built by DDM (displacement discontinuity method) for a four-cluster perforation example.", "sha256": "816389416cd39c9efe8914a8c160a8f886186e3d68f3c647bc8b94a523010a08", "size": 87287, "width": 750, "height": 354}, {"paper": "P11", "number": "4", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles", "ok": true, "file": "P11-fig4.jpg", "explanation": "起裂不同步的判别流程。先检查是否仍有未起裂簇，再计算其起裂压力，并在每个时间步试算压力与流量平衡。某簇达到条件后进入下一轮试算；直到系统平衡才推进裂缝。流程中的试算次序不等于实际起裂次序，起裂压力相近的多个簇可能同时起裂。", "caption": "Flowchart of the initiation asynchrony progress, which is executed before the fracture propagation computation at each time-point whenever there exists clusters uninitiated.", "sha256": "d9aa3d107a46535cb66d0e86edd19c8da915ea6228799d8d3022626ed91b72f2", "size": 120890, "width": 800, "height": 782}, {"paper": "P11", "number": "7", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles", "ok": true, "file": "P11-fig7.jpg", "explanation": "簇距由5、8、12增至15 m的四组结果。蓝柱是八条裂缝各自占总裂缝体积的比例，理想均分为12.5%；红色点线采用右轴，表示均匀性指标Ufm，越接近1越均匀。原图分别为0.77、0.90、0.93、0.94，说明这一工况下增大簇距有利于均衡，但12到15 m的改善已较小。", "caption": "Distributions of fracture volume percentages and fracture uniformity indices of case a-1 to case a-4 with evenly distributed cluster spacings, of which the cluster spacings are 5, 8, 12, and 15 m, respectively.", "sha256": "7dfc017147e63d01058c53be934df1148aed0c9700798a39cf311f685531914a", "size": 112711, "width": 750, "height": 327}, {"paper": "P11", "number": "11", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles", "ok": true, "file": "P11-fig11.jpg", "explanation": "相同5 m簇距下，将每簇孔数由16减至8和4孔。蓝柱显示裂缝体积占比的差异减小，红色均匀性指标由0.77增至0.87和0.90。其原因是入口阻力增强后更能约束优势簇进液。它展示的是这组三维模型结果，不表示所有井段都应采用4孔。", "caption": "Fracture volume percentage distributions and fracture uniformity indices of cases a-1, c-1, and c-2 with the same cluster spacing of 5 m and even perforation numbers, of which the perforation numbers are 16, 8, and 4.", "sha256": "1d55fdcb6eebcb33f2cc9a50b63f57fc8dc528579c1dfdf2e55756999de7450e", "size": 103840, "width": 663, "height": 360}, {"paper": "P11", "number": "17", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles", "ok": true, "file": "P11-fig17.jpg", "explanation": "相同8 m簇距、每簇16孔时，初始孔径7、10、14 mm的结果。原图红色指标依次为0.90、0.88、0.83；蓝柱表明大孔径方案中部分裂缝占据更多体积。这里比较的是初始孔径，模型还在后续过程更新冲蚀，不能将图中的孔径当作施工结束后的孔径。", "caption": "Fracture volume percentage distributions and fracture uniformity indices of cases a-1, e-1, and e-2 with the same cluster spacing of 8 m, the same perforation number of 16 per cluster, and even initial perforation diameters, of which the initial perforation diameters are 7, 10, and 14 mm, respectively.", "sha256": "2cbe1894f5b2fb423c61a0a04a57eeada134cb0e7bba36fd729cd2f1a7d1864c", "size": 101906, "width": 646, "height": 351}, {"paper": "P11", "number": "20", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles", "ok": true, "file": "P11-fig20.jpg", "explanation": "现场微地震解释结果。左图为事件点及空间分布，右图按22个施工段展示解释SRV；前11段与后11个试验段用不同颜色表示。按原表3复算，两组平均SRV约为5.23和12.31×10⁶ m³，后者约为前者的2.35倍。SRV是微地震解释的改造体积，不能直接读取为产量或射孔参数的独立增产贡献。", "caption": "Fracture microseismic monitoring result and interpreted SRV statistical chart of well A1", "sha256": "d0e50bf9f6317a88c9626dca8d1258f5a07b913ec067775f837760536b5b2e0a", "size": 138131, "width": 700, "height": 340}]}, {"id": "P12", "refNumber": 12, "doi": "10.1016/j.compgeo.2023.106061", "year": 2024, "category": "fracture", "author": "Li et al.", "title": "CDEM模拟射孔起裂与扩展", "label": "起裂模拟 · 2024", "referenceTitle": "Study on the influence of perforation parameters on hydraulic fracture initiation and propagation based on CDEM", "citation": "Jing Li, Lixiang Wang, Chun Feng, Rui Zhang, Xinguang Zhu, Yiming Zhang. Study on the influence of perforation parameters on hydraulic fracture initiation and propagation based on CDEM. Computers and Geotechnics 167, 106061 (2024). https://doi.org/10.1016/j.compgeo.2023.106061", "bibauthor": "Li, Jing and Wang, Lixiang and Feng, Chun and Zhang, Rui and Zhu, Xinguang and Zhang, Yiming", "journal": "Computers and Geotechnics", "volume": "167", "pages": "106061", "question": "孔密、穿深和孔径怎样共同影响近井裂缝竞争？", "method": "连续–非连续单元法耦合流动与岩体力学，并与物理试验对比。", "result": "算例中裂缝竞争导致长度不均；裂缝发育程度对孔密和穿深更敏感。", "contribution": "将射孔几何参数与近井裂缝形态及起裂压力联系。", "limitations": "本轮核验到摘要，未取得误差表；模型趋势不能直接作为所有岩性与应力条件的设计范围。", "access": "出版商摘要", "anchor": "Abstract", "source_url": "https://doi.org/10.1016/j.compgeo.2023.106061", "url": "https://doi.org/10.1016/j.compgeo.2023.106061", "sections": [["为何采用连续—非连续方法", "近井岩体在起裂前连续变形，起裂后出现裂缝及块体间相互作用。本文采用CDEM，将流动与岩体力学耦合，用于分析射孔几何改变后的起裂和裂缝竞争，并与物理试验进行比较。"], ["参数与响应分别是什么", "输入关注孔密、穿深、孔径和布孔方式；输出包括起裂压力及裂缝形态。在作者算例中，线性布置的起裂压力最高；裂缝发育程度对孔密和穿深更敏感，不同孔道竞争又会造成裂缝长度不均。起裂压力与最终裂缝发育程度是不同响应，不能互相替代。"], ["当前能够核实的结论", "本轮来源覆盖出版商摘要，尚无完整参数表与逐组误差。因此页面保留方法和趋势，不给出未经核实的最优孔密、穿深范围或统一精度。它补充近井几何与起裂竞争的数值解释，尚不能替代现场多簇流量与裂缝监测。"]], "figures": [{"paper": "P12", "number": "1", "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0266352X23008182-gr1_lrg.jpg", "ok": true, "file": "P12-fig1.jpg", "explanation": "CDEM的块体与界面表示。左侧是离散块体，放大处的法向和切向弹簧描述界面的力学连接，右侧区分真实界面与虚拟界面。这幅图用于理解模型如何表达连续变形与破裂转换；它是数值方法结构图，不是实际孔道照片或参数优化结果。", "caption": "", "sha256": "ea7771ed9c2170beae82b3da02364ecb8f51e70143578cc195c8ba2b2617014b", "size": 279923, "width": 3125, "height": 862}]}, {"id": "P13", "refNumber": 13, "doi": "10.1016/j.petsci.2024.04.006", "year": 2024, "category": "fracture", "author": "Shi et al.", "title": "多簇共面射孔压裂物理试验", "label": "共面射孔 · 2024", "referenceTitle": "Experimental study of hydraulic fracture propagation with multi-cluster in-plane perforations in a horizontal well", "citation": "Xian Shi, Yuan-Yuan Yang, Xiang-Wei Kong, Qi Gao, Shu Jiang, Hai-Jun Mao. Experimental study of hydraulic fracture propagation with multi-cluster in-plane perforations in a horizontal well. Petroleum Science 21(5), 3258-3270 (2024). https://doi.org/10.1016/j.petsci.2024.04.006", "bibauthor": "Shi, Xian and Yang, Yuan-Yuan and Kong, Xiang-Wei and Gao, Qi and Jiang, Shu and Mao, Hai-Jun", "journal": "Petroleum Science", "volume": "21(5)", "pages": "3258-3270", "question": "共面射孔是否能在非均质岩石中保证均匀裂缝？", "method": "对10个300 mm立方体人造试样进行真三轴压裂，设置横向材料差异，改变应力差、孔数/相位、簇距、黏度、排量及暂堵条件，剖开观察裂缝并用激光扫描统计面积。", "result": "表3中高排量试样6的总裂缝面积为1746.78 cm²，两区面积比2.11；暂堵试样10分别为1762.85 cm²和1.11。较大裂缝面积与较均匀的两区分配是不同目标。", "contribution": "用物理试验展示共面布孔仍会受到横向材料差异和簇间应力干扰影响，补充理想均质条件下数值模型难以直接观察的裂缝形态证据。", "limitations": "这是10个人造试样的室内研究，孔道为预制结构。部分正文与表2对试样编号、孔数和黏度的描述不一致；表3的两区面积比与其他论文的Ufm定义不同，不能直接横向排名。", "access": "全文", "anchor": "全文13页：§2试样和表1—2（p.2—4）；§3十组试验（p.4—9）；§4与表3（p.9—11）；§5结论（p.11—12）；图1、9、10、12、15。", "source_url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf", "url": "https://www.sciopen.com/article/10.1016/j.petsci.2024.04.006", "sections": [["研究对象与试样：先认清这是什么试验", "全文使用10个300 mm×300 mm×300 mm的人造立方体试样，材料由水泥和石英砂配制，横向设置两种力学性质区域。井筒为外径15 mm、内径10 mm的不锈钢管，预制孔道直径3.5 mm。它用于研究布孔与材料差异对裂缝的引导，并非现场射孔枪形成孔道后的等比例复现。图1给出井轴、簇和材料分区的相对位置。"], ["比较了哪些条件，怎样观察结果", "表2列出十组方案：改变两簇孔数/相位、水平应力差、流体黏度、簇距、排量及材料差异，并设置变密度射孔和暂堵试验。常用排量15 mL/min，试样6提高至30 mL/min；簇距主要为0.10 m，试样5为0.15 m。压裂过程中记录注入压力，结束后剖开试样观察裂缝，再通过激光扫描及重建统计两区裂缝面积。"], ["横向材料差异怎样改变路径", "一般试样两区弹性模量为26.5与16.5 GPa。试样7将差值增至20 GPa，试样8采用相同力学性质。对照图9、10、15，可观察到非均质试样的分支、转向与较大的区域差异；均质试样则更接近平行横向扩展，但仍受到相邻裂缝的应力干扰。共面布孔可以约束近井起裂位置，却没有消除裂缝离开孔道后的竞争。"], ["结果：裂缝多、面积大与均衡不是同一件事", "表3把两区裂缝面积分别列出，并用两区面积之比表示不均衡程度，数值接近1表示面积较接近。高排量试样6的总面积为1746.78 cm²，面积比2.11；其分支较发育，但两区面积并不均衡。这里的面积指标与现场改造体积、产量不是同一量，也不能与ACS论文0—1的Ufm直接比较。"], ["变密度射孔与暂堵实际表现如何", "试样9采用不同孔数，表3总面积1108.47 cm²、面积比1.29；暂堵试样10为1762.85 cm²、面积比1.11。图12显示暂堵后较直的横向主裂缝与仍然存在的轴向裂缝。因此，试验不是证明暂堵无效，而是说明改善两区均衡的同时，流动阻力与裂缝方向也可能改变，不能只凭一个均匀性数值判断全部效果。"], ["研究补充了什么，设计时应关注什么", "这项试验把横向力学差异引入共面射孔研究，使裂缝照片、压力历程和分区面积能够共同检验设计设想。其结论支持先了解沿井材料与应力差异，再选择孔数、簇距及处理方式。后续若要用于现场，需要扩展岩性、尺度和重复试验，并与井下分流或裂缝诊断对应；本文没有独立识别实际产量收益。"], ["原文数据的阅读依据", "全文存在需核对的标注：表2与§3.1对试样1、2孔数的描述不同，黏度的正文说明与表2也不完全一致。本页方案条件按表2注明，面积结果按表3读取，照片保留作者原有试样编号；不对存在分歧的组别计算精确的单因素增益。"]], "figures": [{"paper": "P13", "number": "1", "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=3", "ok": true, "file": "P13-fig1.jpeg", "explanation": "共面射孔试验的井筒与布孔结构。图中给出水平井筒、不同方位的预制孔道及两种材料区。理解后续照片时，先用此图确定井轴、两个簇及分区界面的位置，再观察裂缝是否保持在预期平面。试样为300 mm立方体人造材料，孔道不是现场射孔枪形成的实测孔道。", "caption": "", "sha256": "fcf7286f4ac2b101e5747b062b2657364293b1ca087ec9595c9dfe602e300a9c", "size": 287777, "source_page": 3, "width": 1772, "height": 578}, {"paper": "P13", "number": "9", "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=7", "ok": true, "file": "P13-fig9.jpeg", "explanation": "试样7的裂缝照片。黄色标记沿原作者辨认的裂缝轨迹，网格用于定位表面位置。两个区域的弹性模量差增至20 GPa后，照片中可见横向主裂缝之外的分支和转向。应与图10的均质试样对照，看裂缝如何偏向和连接，而不是仅比较黄色线的多少。", "caption": "", "sha256": "fa4ae6edbe7ce053df019c61a9696431eca2e9d6162b109170036a72a95c6316", "size": 218701, "source_page": 7, "width": 832, "height": 832}, {"paper": "P13", "number": "10", "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=7", "ok": true, "file": "P13-fig10.jpeg", "explanation": "试样8的裂缝照片。该试样两区设置相同力学性质，较图9呈现更接近平行的两条横向主裂缝；局部仍存在偏转，说明消除材料差异后，簇间应力干扰仍可能影响路径。两幅照片提供形态对照，并非可直接换算到现场尺寸的裂缝长度预测。", "caption": "", "sha256": "825dd7217bba00e43c463ea617deb584415cb26b78758b84bf85a0f7c8d2d596", "size": 254382, "source_page": 7, "width": 832, "height": 832}, {"paper": "P13", "number": "12", "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=7", "ok": true, "file": "P13-fig12.jpeg", "explanation": "试样10采用暂堵后的裂缝形态。图中两条横向主裂缝较直，同时仍可见轴向裂缝。原表3的两区裂缝面积分别为928.13和834.72 cm²，面积比为1.11，比高排量试样6的2.11更接近1。暂堵在这个试样改善了两区面积均衡，但也增加流动阻力并可能形成新的裂缝方向。", "caption": "", "sha256": "6da4de3daea00fbf91952d3a078672ba3ddf55f109760acc6786afd4bdb2598b", "size": 186156, "source_page": 7, "width": 832, "height": 772}, {"paper": "P13", "number": "15", "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=11", "ok": true, "file": "P13-fig15.jpeg", "explanation": "横向非均质条件的裂缝形态对照。原图(a)概括两种材料区中的转向、分支及相互干扰，图(b)结合试样7、8的剖开结果比较有、无横向材料差异时的裂缝。示意与照片应对应阅读：横向性质差异不仅改变局部分支，也改变两区分得的裂缝面积。", "caption": "", "sha256": "dc6a791ec20101e87c1aa8dec6e93276540dd54e6a5560e69114128ac8a0ecf0", "size": 558260, "source_page": 11, "width": 1772, "height": 1681}]}, {"id": "P14", "refNumber": 14, "doi": "10.1016/j.geoen.2025.213805", "year": 2025, "category": "allocation", "author": "Li et al.", "title": "含冲蚀的三维多簇耦合模型", "label": "三维耦合 · 2025", "referenceTitle": "A 3D fully coupled numerical model for multi-cluster fracturing with perforation erosion", "citation": "Yang Li, Jiahao Wang, Di Wang, Zixian Guo, Huiying Tang, Liehui Zhang. A 3D fully coupled numerical model for multi-cluster fracturing with perforation erosion. Geoenergy Science and Engineering 250, 213805 (2025). https://doi.org/10.1016/j.geoen.2025.213805", "bibauthor": "Li, Yang and Wang, Jiahao and Wang, Di and Guo, Zixian and Tang, Huiying and Zhang, Liehui", "journal": "Geoenergy Science and Engineering", "volume": "250", "pages": "213805", "question": "怎样同时计算井筒摩阻、孔眼摩阻、冲蚀与三维裂缝扩展？", "method": "基于GEOS构建有限元–有限体积耦合模型，连接井筒与裂缝系统。", "result": "公开片段给出六簇现场尺度算例；使用84核，算例均在9小时内完成。", "contribution": "将井筒与孔眼摩阻及冲蚀纳入同一三维多簇计算框架。", "limitations": "现场尺度模拟不等同于现场观测验证；所报运行时间依赖硬件、网格和算例，不能跨论文比快慢。", "access": "出版商摘要及公开正文片段", "anchor": "Abstract；Validations；Implications of field-scale cases", "source_url": "https://doi.org/10.1016/j.geoen.2025.213805", "url": "https://doi.org/10.1016/j.geoen.2025.213805", "sections": [["从入口关系到井筒—裂缝联合求解", "研究基于GEOS构建三维全耦合模型，以有限元处理固体变形，以有限体积方法处理流体，并连接井筒与裂缝系统。井筒沿程摩阻、孔眼摩阻、孔眼冲蚀和裂缝扩展在同一框架中相互影响，避免把每簇的入口条件固定不变。"], ["模型规模与计算成本", "公开正文给出六簇现场尺度算例，岩体域约400×600×110 m。作者使用84核，所列算例均在9小时内完成。该时间用于说明这一配置下的可计算性；由于硬件、网格和求解设置不同，不能用来与其他论文直接比较速度。原图11已取得，其中井段深度与公开文字存在数字差异，故不在此给出唯一深度。"], ["验证层次与仍待衔接的证据", "文中区分模块核验与现场尺度应用计算。现场尺度表示几何和载荷接近现场量级，并不意味着所有输出均由井下实测验证。将孔眼几何、分流和多簇裂缝发展联合对照现场监测，仍是比单个模块吻合更高一级的证据要求。完整数值方法与结果仍待取得全文后逐项复核。"]], "figures": [{"paper": "P14", "number": "11", "url": "https://ars.els-cdn.com/content/image/1-s2.0-S2949891025001630-gr11_lrg.jpg", "ok": true, "file": "P14-fig11.jpg", "explanation": "三维岩体、井筒及六簇计算结构。右侧给出分层σxx应力和孔隙压力pp，较低应力的中层夹在上下层之间。原图标注井段位于−3945 m，而公开正文片段写−3495 m，二者尚未一致；此处保留原图，不自行改动深度。该图说明模型边界与层间约束，不是现场实测裂缝。", "caption": "", "sha256": "4bc751d4167068eb156fe833a7200a3143a300a1906e3b0db37303d4a727fdd8", "size": 294865, "width": 2333, "height": 1284}]}, {"id": "P15", "refNumber": 15, "doi": "10.1038/s41598-026-38667-5", "year": 2026, "category": "cleanup", "author": "Li et al.", "title": "动态负压清除压实带损伤", "label": "损伤清除 · 2026", "referenceTitle": "Investigation into the mechanism of damage removal in the compaction zone using dynamic negative pressure perforation", "citation": "Fuguo Li, Yuchen Li, Zhiqiang Zhang, Feng Li, Changhao Wang, Yao Wang. Investigation into the mechanism of damage removal in the compaction zone using dynamic negative pressure perforation. Scientific Reports 16(1), 7608 (2026). https://doi.org/10.1038/s41598-026-38667-5", "bibauthor": "Li, Fuguo and Li, Yuchen and Zhang, Zhiqiang and Li, Feng and Wang, Changhao and Wang, Yao", "journal": "Scientific Reports", "volume": "16(1)", "pages": "7608", "question": "瞬态压力怎样作用于压实带，哪些参数控制清洁程度？", "method": "耦合压力瞬态、固体力学与达西流，以正交数值试验和逐步回归分析控制因素，并作物理试验比较。", "result": "作者报告回归R²=0.792，所列物理试验比较误差小于3%；两者对应不同验证内容。", "contribution": "由压力历程进一步分析压实带变形、损伤和空间非均匀清洁。", "limitations": "研究主要面向脆性、均质碳酸盐岩，未考虑黏土水化膨胀；补充表部分清洁比例超过正文0—1的定义，尚需澄清。该补充表未用于本站演示数据。", "access": "全文", "anchor": "Numerical simulation；Experimental validation；Conclusion(4)(6)", "source_url": "https://www.nature.com/articles/s41598-026-38667-5", "url": "https://www.nature.com/articles/s41598-026-38667-5", "sections": [["清洁模型计算的对象", "论文将动态负压简化为压力载荷，耦合固体力学与达西渗流，分析孔道周围压实带的流场、压力梯度、位移和破坏区域。对象是压实带损伤清除，而非仅计算井筒压力最低值。原图2用于观察载荷与空间压力场，图6用于检查数值与物理模型的对应。"], ["不同数字分别代表哪种核验", "作者使用L32正交数值试验研究因素影响，并以逐步回归提取四个控制因素，报告R²为0.792；另列三组物理模型对比，报告误差小于3%。前者是回归拟合程度，后者是指定试验对比，不能合并写成模型对任意工况预测精度超过97%。"], ["原数据需要注意什么", "研究主要针对脆性、均质碳酸盐岩，未覆盖黏土水化膨胀。另经核对，补充表中部分清洁指标超过100%，与正文给出的0—1比例定义存在不一致，需作者澄清。本站保留论文作为机理研究参考，但没有把这一补充表用于当前响应面演示。"]], "figures": [{"paper": "P15", "number": "1", "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-026-38667-5/MediaObjects/41598_2026_38667_Fig1_HTML.png", "caption": "Fig. 1 Full size image Simplified Schematic Diagram of the Dynamic Negative Pressure Curve. ( a ) True Dynamic Negative Pressure Curve, ( b ) Simplified Dynamic Negative Pressure Curve.", "ok": true, "status": 200, "size": 221056, "explanation": "动态负压曲线及模型简化。左图为实际压力变化，右图为简化载荷；两图用于说明压力幅值、持续时间与恢复过程如何进入模型。", "sha256": "640f3d68a2c92dfee9bc6b20020fc6ae3f3c3cf5575d5c8249b4188fc0a746f5", "width": 1866, "height": 690}, {"paper": "P15", "number": "2", "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-026-38667-5/MediaObjects/41598_2026_38667_Fig2_HTML.png", "caption": "Fig. 2 Full size image Flow Field and Pressure Fields Around a Perforation Tunnel with Compaction Zone. ( a ) 3D Flow Field Schematic of a Perforation Tunnel with Compaction Zone, ( b ) 2D Pressure Gradient Schematic for Perforation Tunnel with Compaction Zone.", "ok": true, "status": 200, "size": 472161, "explanation": "压实带附近的流场与压力梯度。图(a)给出三维流动方向，图(b)展示二维压力分布，强调压差作用在孔道周围并不均匀。", "sha256": "66f7ede891ab4de452a11df6592eb96800de82ec3d3a7a83978aeb0a45f3589f", "width": 1485, "height": 702}, {"paper": "P15", "number": "6", "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-026-38667-5/MediaObjects/41598_2026_38667_Fig6_HTML.png", "caption": "Fig. 6 Full size image Comparison of Numerical Simulation Results for Compacted Zone Cleanup with Physical Model Experiments.", "ok": true, "status": 200, "size": 228141, "explanation": "三组压实带清洁物理试验与数值模拟对比。每列对应一组试验，原图用于比较清除区域的空间形态；回归模型的R²不是这幅图的验证指标。", "sha256": "a5f6567b62d41dcdd59d4e29ebcbadcea81e0a332dc7626fd6d38b28cc969190", "width": 1645, "height": 787}]}, {"id": "P16", "refNumber": 16, "doi": "10.1016/j.powtec.2026.122650", "year": 2026, "category": "allocation", "author": "Men et al.", "title": "冲蚀形变与进液分配双向反馈", "label": "冲蚀反馈 · 2026", "referenceTitle": "Numerical investigation of perforation erosion and flow redistribution in multi-cluster hydraulic fracturing", "citation": "Yuting Men, Zhiguo Wang, Shuai Li, Menghao He, Zhengguo Yan, Dan Liu, Guang Yang, Li Sun. Numerical investigation of perforation erosion and flow redistribution in multi-cluster hydraulic fracturing. Powder Technology 480, 122650 (2026). https://doi.org/10.1016/j.powtec.2026.122650", "bibauthor": "Men, Yuting and Wang, Zhiguo and Li, Shuai and He, Menghao and Yan, Zhengguo and Liu, Dan and Yang, Guang and Sun, Li", "journal": "Powder Technology", "volume": "480", "pages": "122650", "question": "孔眼被冲大后，流量和支撑剂分配会怎样反过来改变冲蚀？", "method": "双向CFD–DEM模型动态更新单簇12孔的几何形态及液固流动。", "result": "该模型中低侧150°孔眼及趾端附近孔眼扩大更明显；8—11 m³/min排量有利于流量均匀性。", "contribution": "把冲蚀导致的几何变化反馈给流场，研究孔眼位置效应。", "limitations": "虽题名涉及多簇，具体计算域为单簇12孔；尚不足以证明已完成全井多簇裂缝与长期产能联合验证。", "access": "出版商摘要及公开引言", "anchor": "Abstract；Introduction", "source_url": "https://doi.org/10.1016/j.powtec.2026.122650", "url": "https://doi.org/10.1016/j.powtec.2026.122650", "sections": [["几何反馈为何不能忽略", "含砂流体冲蚀孔眼后，入口面积发生变化，原先设定的孔眼阻力也会变化。研究采用双向CFD–DEM，使液固流动改变孔眼几何，再由更新后的几何重新影响流场，以分析冲蚀与分配之间的反馈。"], ["实际计算尺度与结果", "虽然题名涉及多簇压裂，具体计算域是单簇12孔。作者算例中，低侧150°孔眼和趾端附近孔眼扩大更明显，圆周方位的影响强于轴向位置；8—11 m³/min排量在该模型条件下有利于分配均匀。这个范围不能脱离孔眼尺寸、液固条件直接用于另一口井。"], ["对多簇设计增加了什么", "本文补充孔眼尺度的流场与几何演化，使恒定孔径假设的局限更清楚。但单簇孔眼反馈尚未等于全井多簇裂缝扩展与长期产能联合验证。与三维多簇模型连接时，需要传递可测的孔径变化和分流关系，而非简单叠加各模型的最优值。"]], "figures": [{"paper": "P16", "number": "GA", "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0032591026005395-ga1_lrg.jpg", "ok": true, "file": "P16-figGA.jpg", "explanation": "原文图文摘要。左上为单簇12孔套管及四组孔位，左下为颗粒几何表示，右侧按时间展示支撑剂输运和孔眼几何演化。先沿右侧由上到下观察输运过程，再对照各孔位置比较冲蚀。题名涉及多簇，但图示计算域仍为单簇，图示范围限于单簇计算域，尚未覆盖完整井段的多裂缝现场监测。", "caption": "", "sha256": "bc50ae42c88775405a6f2c526e34953a3c08ea7c6a090335baf41dccb61ec22d", "size": 232917, "label": "原文图文摘要", "width": 2195, "height": 886}]}, {"id": "P17", "refNumber": 17, "doi": "10.1371/journal.pone.0255793", "year": 2021, "category": "allocation", "author": "Liu et al.", "title": "三簇射孔参数的响应面优化", "label": "响应面优选 · 2021", "referenceTitle": "Research on optimization of perforation parameters for formation fractures based on response surface optimization method", "citation": "Wei Liu, Suling Wang, Kangxing Dong, Tiancai Cheng. Research on optimization of perforation parameters for formation fractures based on response surface optimization method. PLOS ONE 16(8), e0255793 (2021). https://doi.org/10.1371/journal.pone.0255793", "bibauthor": "Liu, Wei and Wang, Suling and Dong, Kangxing and Cheng, Tiancai", "journal": "PLOS ONE", "volume": "16(8)", "pages": "e0255793", "question": "怎样同时选择中间簇孔数、两侧簇孔数与中间簇孔径，使三簇扩展更均衡？", "method": "二维应力–渗流耦合数值模型采用三因子Box–Behnken设计，公开17组算例，并拟合二次响应面。", "result": "表5给出基准缝长差32.550 m，优化配置15 / 7 / 15的数值模拟缝长差0.528 m；本站演示数据来自表3。", "contribution": "把孔眼入口阻力、参数交互和连续响应面用于三簇均衡设计。", "limitations": "二维特定应力工况；表3含重复中心点与有正负号的响应，拟合R²不是独立预测验证。", "access": "全文", "anchor": "表2（p.12）、表3与式15（p.13）、表5（p.20）", "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0255793", "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0255793", "sections": [["研究目标与数值实验", "论文先建立水力裂缝模型，再在二维应力—渗流耦合三簇模型上研究分流与扩展。三项设计变量为中间簇孔数A、两侧每一簇孔数B，以及中间簇孔径C；其余条件固定。采用三因子Box–Behnken设计，以较少算例估计二次项和参数交互，而不是从现场井群训练通用预测模型。"], ["公开数据与模型输出", "表2给出A、B各4—20孔，C为6—18 mm；表3公开17次算例，包含重复中心点，共13种参数组合。响应为有正负号的缝长差ΔL，单位m。优化目标是减小差值的绝对值。一个差值不能反推出三条裂缝各自长度，原图17和18提供的是原始数值模型的裂缝分布。"], ["优化结果与复核", "原表5基准配置为12 / 12 / 12，数值模拟缝长差32.550 m；优化配置15 / 7 / 15的数值模拟差值为0.528 m。式15公布的是已舍入系数，直接代入基准得32.410 m，与表5预测32.950 m存在差异；本案例分别展示公布公式的计算值、表5数值及表3重拟合结果，便于核对不同来源。"], ["研究贡献与未决问题", "响应面将三项变量及其交互转化为轻量的参数取舍工具，本案例使用表3中的公开算例。结论依赖固定应力、材料、流体和二维模型；拟合优度不代表独立工况验证，也不证明现场产量提高。跨地质条件推广还需要新增数值算例、三维与实验核验。"]], "figures": [{"paper": "P17", "number": "6", "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g006", "caption": "", "ok": true, "status": 200, "size": 1489141, "explanation": "三簇二维模型与网格。原图给出100 m×100 m计算域、注入位置和三个簇的位置；后续响应面建立在这一模型及固定边界条件上。", "sha256": "1f5c20e001795b6586884a7caed16f008ed2a953a3e7735d54bcc9b5994f3fce", "width": 1803, "height": 913}, {"paper": "P17", "number": "13", "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g013", "caption": "", "ok": true, "status": 200, "size": 814331, "explanation": "中间簇孔数A与两侧各簇孔数B对缝长差的联合影响。曲面及底部等值线显示交互作用，第三变量按原图条件固定；该图反映模型内的参数响应，尚不构成独立现场预测验证。", "sha256": "d966728b9b03f2af0298652e47b21a8492aeee21ee0b51bcf8220a67cccc62ec", "width": 1725, "height": 1025}, {"paper": "P17", "number": "17", "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g017", "caption": "", "ok": true, "status": 200, "size": 189321, "explanation": "优化前的三簇裂缝分布。原图标出的缝长差为32.550 m，中间簇与两侧簇扩展明显不均衡。颜色和数值均保留原文。", "sha256": "446a4c1895176ed16ab2198f5339df93f45b602bb587a125514ca48e583bf59d", "width": 1200, "height": 853}, {"paper": "P17", "number": "18", "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g018", "caption": "", "ok": true, "status": 200, "size": 191302, "explanation": "优化后的三簇裂缝分布。原图标出的缝长差为0.528 m，显示该数值模型工况下的均衡改善；应与图17及表5共同阅读。", "sha256": "ff1860154b2e87f316d50ebc802fcd0d181274acacd7dd262aef2c30d7d54019", "width": 1200, "height": 864}]}],QUESTIONS=[{"id": "Q1", "label": "工况与摩阻", "title": "怎样判定孔道摩阻何时不可忽略？", "category": "question", "isGap": true, "x": 665, "y": 175, "image": "design-q1-v1.png", "question": "2019年的最优穿深研究与2023年的压降量级比较，对孔道摩阻给出了不同侧重。差异可能来自流量、几何和边界条件，尚需同条件比较。", "method": "统一流量、孔径、粗糙度、渗透率及边界条件后重算两套模型，再用独立压差与流量试验核查。", "remaining": "所选文献尚未完成统一工况下的系统交叉验证，因此尚难直接划定孔道摩阻可忽略的范围。", "related": ["P08", "P10"], "status": "统一工况下的交叉验证仍待补充", "image_caption": "在可比几何与流量条件下同步观测压差，核查孔道摩阻的量级。"}, {"id": "Q2", "label": "跨尺度耦合", "title": "孔眼冲蚀怎样传递到多簇裂缝和最终产能？", "category": "question", "isGap": true, "x": 665, "y": 450, "image": "design-q2-v1.png", "question": "单簇孔眼液固流动、多簇裂缝扩展与生产期供流分属不同尺度。孔径变化如何逐级影响分流、裂缝形态与长期产能，仍缺少连续验证。", "method": "用可测孔径演化和流量分配校核裂缝模型，将裂缝响应传递至生产模型，并用独立生产资料检验。", "remaining": "2025年三维多簇模型与2026年单簇CFD–DEM分别补充了部分过程，尚未完成从孔眼冲蚀到长期产能的联合验证。", "related": ["P07", "P11", "P14", "P16"], "status": "分过程研究已有进展，跨尺度验证仍待补充", "image_caption": "串联孔眼冲蚀、多簇裂缝与储层生产三个尺度，连接处仍需验证。"}, {"id": "Q3", "label": "现场独立验证", "title": "怎样识别射孔方案自身的现场收益？", "category": "question", "isGap": true, "x": 665, "y": 740, "image": "design-q3-v1.png", "question": "现场产能和SRV变化同时受到岩性、地应力、施工及生产制度影响，前后差异尚不能单独确定射孔参数的贡献。", "method": "采用匹配井段或重复试验，记录措施前基线、地质差异及施工制度，在可比条件下估计效果与不确定性。", "remaining": "所选现场案例支持技术应用，但尚不足以将全部产能或SRV变化归因于单一射孔参数。", "related": ["P05", "P08", "P11", "P15"], "status": "现场应用已有证据，参数贡献仍待独立识别", "image_caption": "对照可比井段与施工条件，独立识别射孔方案的贡献。"}],RELATIONS=[["P02", "P03", "citation", "Karakas与Tariq的参考文献明确列出Tariq（1987）。"], ["P03", "P06", "revision", "Hagoort在摘要及比较算例中指出既有各向异性处理的偏差，提出解析替代。"], ["P01", "P07", "theme", "同属利用孔眼入口压降调节分流的研究路线；此线不表示已核实的直接引用。"], ["P03", "P08", "theme", "均讨论几何与产能，但2019年研究采用孔道摩阻和长度取舍准则。"], ["P08", "P10", "contrast", "对孔道摩阻重要性的判断不同，须先核对生产流量、流态与边界条件。"], ["P03", "P10", "citation", "Jiang等参考文献列出Karakas–Tariq，正文以其作模型比较。"], ["P05", "P09", "theme", "从欠平衡设计与现场表现转向短时压力过程的快速计算。"], ["P09", "P15", "citation", "Li等（2026）引用Bale与Satti（2020），并进一步讨论压实带损伤清除。"], ["P04", "P12", "theme", "共同研究孔道几何与近井起裂；数值方法和验证工况不同。"], ["P04", "P13", "theme", "由射孔起裂试验扩展至多簇共面射孔物理试验，不能视作同条件性能比较。"], ["P07", "P11", "extension", "Liu等引言明确讨论Li等（2017）的限流模型，增加冲蚀与起裂不同步。"], ["P07", "P14", "citation", "Li等（2025）的参考文献列出2017年孔眼入口单元研究。"], ["P11", "P16", "citation", "Men等（2026）参考文献列出Liu等，进一步研究孔眼几何与流场反馈。"], ["P14", "P16", "theme", "分别关注多簇三维扩展与单簇孔眼冲蚀反馈，模型尺度不同。"], ["P07", "P17", "theme", "同属利用孔眼入口阻力调节多簇分流的研究路线；PLOS论文参考文献14为另一篇中文限流研究，此线不作为直接引用。"], ["P17", "P11", "theme", "分别采用响应面设计与拟三维多簇模拟分析射孔参数；两篇的数据和模型独立。"]];
+const SVG_NS='http://www.w3.org/2000/svg',VIEWBOX={w:1600,h:1120};
+const colors={productivity:'#267966',cleanup:'#3d7eae',fracture:'#ab7042',allocation:'#6864a2',question:'#b18b4f',ai:'#61758d'};
+const EDGE_STYLES={citation:{label:'已核对引用（早→晚）',color:'#3c77a2',width:1.8,opacity:.6,arrow:true},revision:{label:'明确修正',color:'#257f6a',width:2.3,opacity:.7,arrow:true},extension:{label:'具体补充',color:'#7664a1',width:2.3,opacity:.7,arrow:true},contrast:{label:'结论需按工况对照',color:'#ae7a39',width:2,dash:'5 4',opacity:.65},theme:{label:'相关研究主题',color:'#94a6b1',width:1.1,dash:'3 6',opacity:.4},question:{label:'关联研究缺口',color:'#ad9567',width:1,dash:'4 6',opacity:.35}};
+function edgeStyle(k){return EDGE_STYLES[k]||EDGE_STYLES.theme}
+function esc(t){return String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const SCENES={
+ all:{name:'从经典设计到耦合模拟',image:'structure-atlas.png',caption:'射孔前后井筒与储层连通结构示意',desc:'1963—2026年17篇研究，涵盖产能、欠平衡清洁、起裂与限流分配。沿连线阅读方法之间的联系，点击节点查看具体证据。'},
+ productivity:{name:'穿深、损伤与产能',image:'engineering-flow.png',caption:'孔道与储层流动结构示意',desc:'由汇聚流和半解析表皮模型，发展到各向异性修正与孔道摩阻分析。不同模型的结论须结合各自工况阅读。'},
+ cleanup:{name:'欠平衡与孔道清洁',image:'cleanup.png',caption:'欠平衡回流与孔道清洁机理示意',desc:'从储层条件下的枪弹和欠平衡设计，发展到压力瞬态计算及压实带损伤清除。初始压差、持续时间与岩石性质共同影响清洁。'},
+ fracture:{name:'孔道方位与裂缝起裂',image:'engineering-fracture.png',caption:'射孔附近起裂与扩展结构示意',desc:'对照经典大岩块试验、CDEM数值研究和近期多簇共面射孔试验，区分起裂位置、近井转向与多裂缝竞争。'},
+ allocation:{name:'限流、多簇竞争与孔眼冲蚀',image:'parameter-context.png',caption:'多孔、多簇布置及尺度关系示意',desc:'从限流技术的早期现场实践，发展到入口单元、含冲蚀多簇模型与孔眼液固流动反馈。孔数和孔径通过入口压降影响分流。'}
+};
+const PAPERS=RECORDS.map(r=>({...r,rank:null,citations:null,isFoundation:false,isExternal:false}));
+let demoPapers=[],edges=[],graphView={scale:1,tx:0,ty:0},nodeElMap=new Map(),edgeElList=[],graphMode='graph',scene='all',selected=null;
+const ALL_EDGES=RELATIONS.map(([from,to,kind,reason])=>({from,to,kind,reason}));
+QUESTIONS.forEach(q=>q.related.forEach(from=>ALL_EDGES.push({from,to:q.id,kind:'question'})));
+const POS={P01:[770,500],P02:[150,150],P03:[350,110],P04:[840,120],P05:[155,510],P06:[520,250],P07:[920,450],P08:[170,300],P09:[350,570],P10:[390,365],P11:[1100,460],P12:[1080,170],P13:[980,310],P14:[1190,620],P15:[430,745],P16:[1000,765],P17:[800,650]};
+PAPERS.forEach(p=>[p.x,p.y]=POS[p.id]);
+function placeLabels(){
+ const papers=demoPapers.filter(p=>!p.isGap),gaps=demoPapers.filter(p=>p.isGap);
+ VIEWBOX.h=1100;const cx=800,cy=550,rx=470,ry=390;
+ papers.forEach((p,i)=>{const a=-Math.PI/2+i*2*Math.PI/Math.max(1,papers.length),side=Math.cos(a);
+  p.x=cx+rx*Math.cos(a);p.y=cy+ry*Math.sin(a);
+  if(Math.abs(side)<.10){p.labelPos={x:p.x,y:p.y+(Math.sin(a)<0?-49:60),anchor:'middle'}}
+  else {p.labelPos={x:p.x+(side>0?45:-45),y:p.y+7,anchor:side>0?'start':'end'}}
+ });
+ gaps.forEach((p,i)=>{p.x=cx;p.y=gaps.length===1?cy:340+i*420/Math.max(1,gaps.length-1);
+  p.labelPos={x:p.x,y:p.y+54,anchor:'middle'};
+ });
+ const occupied=[],measure=document.createElement('canvas').getContext('2d');measure.font='22px sans-serif';
+ const intersects=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
+ const nodeBoxes=demoPapers.map(n=>({x:n.x-35,y:n.y-35,w:70,h:70}));
+ demoPapers.forEach(p=>{const base={...p.labelPos},w=measure.measureText(p.label||p.title).width+18;let chosen=null,best=Infinity;
+  for(const dy of [0,-36,36,-72,72,-108,108,-144,144]){const y=Math.max(40,Math.min(1070,base.y+dy));
+   const x=base.x,box={x:base.anchor==='start'?x-6:base.anchor==='end'?x-w+6:x-w/2,y:y-25,w,h:34};
+   const collisions=[...occupied,...nodeBoxes].filter(b=>intersects(box,b)).length;
+   const score=collisions*10000+Math.abs(dy);if(score<best){best=score;chosen={x,y,anchor:base.anchor,box,shifted:Math.abs(y-base.y)>20}}
+  }p.labelPos=chosen;occupied.push(chosen.box);
+ });
+}
+function nodeRadius(p){return p.isGap?26:30}
+function labelPlacement(p){return p.labelPos||{x:p.x,y:p.y+45,anchor:'middle'}}
+function categoryLabel(c){return {productivity:'产能与流动',cleanup:'欠平衡清洁',fracture:'裂缝起裂',allocation:'限流与冲蚀',question:'研究问题'}[c]||c}
+function showNodeTooltip(p){const tip=document.getElementById('graph-tooltip');tip.innerHTML='<strong>'+esc(p.title)+'</strong><span>'+(p.isGap?esc(p.status):esc(p.author)+' · '+p.year+' · '+esc(p.access))+'</span>';tip.classList.add('show');tip.style.left='50%';tip.style.top='12px'}
+function hideNodeTooltip(){document.getElementById('graph-tooltip')?.classList.remove('show')}
+function section(title,text){return '<section class="reading-section"><h3>'+title+'</h3><p>'+esc(text)+'</p></section>'}
+function paperButton(id){let p=PAPERS.find(p=>p.id===id);return '<button onclick="openPaper(\''+id+'\')">['+p.refNumber+'] '+esc(p.author)+' · '+p.year+'</button>'}
+function focusDetail(){requestAnimationFrame(()=>requestAnimationFrame(()=>parent.postMessage({type:'petro-papermap-focus',y:document.getElementById('paper-detail').offsetTop},'*')))}
+function originalFigures(p){
+ const figures=p.figures||[];
+ if(!figures.length)return '<div class="figure-source-link"><strong>原文图版</strong><p>当前资料未收录可核对的原文图版，可前往出版商页面查看。</p><a href="'+esc(p.source_url)+'" target="_blank" rel="noopener">前往出版商查看图版 ↗</a></div>';
+ return '<section class="original-figures"><h3>原文图与读图说明</h3>'+figures.map(f=>{let file=f.file||(p.id+'-fig'+f.number+'.png'),label=f.label||('原文图 '+f.number);return '<figure><a href="paper-figures/'+esc(file)+'" target="_blank" rel="noopener" aria-label="打开'+esc(label)+'大图"><img loading="lazy" width="'+f.width+'" height="'+f.height+'" style="width:'+f.width+'px;aspect-ratio:'+f.width+'/'+f.height+'" src="paper-figures/'+esc(file)+'" alt="'+esc(label)+'：'+esc(f.explanation)+'"></a><figcaption><strong>'+esc(label)+'</strong><p>'+esc(f.explanation)+'</p><small>'+esc(p.author)+' ('+p.year+') · <a href="'+esc(f.url)+'" target="_blank" rel="noopener">原图来源 ↗</a> · <a href="https://doi.org/'+esc(p.doi)+'" target="_blank" rel="noopener">原文与图注 ↗</a> · 点击图片查看原尺寸</small></figcaption></figure>'}).join('')+'</section>'
+}
+function showPaperDetail(p){if(!p)return;selected=p.id;if(demoPapers.some(x=>x.id===p.id))highlightNeighborhood(p.id);document.querySelectorAll('[data-gap]').forEach(b=>b.classList.toggle('active',b.dataset.gap===p.id));const box=document.getElementById('paper-detail');box.hidden=false;
+ let head='<div class="detail-heading"><div><small>'+(p.isGap?'研究缺口':'文献 ['+p.refNumber+'] · '+esc(p.author)+' · '+p.year)+'</small><h2>'+esc(p.title)+'</h2></div><button onclick="closePaperDetail()">收起</button></div>';
+ if(p.isGap){box.innerHTML=head+'<figure class="question-figure"><img src="../perforation-gaps/'+esc(p.image)+'" alt="'+esc(p.title+'：验证思路概念图')+'" decoding="async"><figcaption>'+esc(p.image_caption)+'<small>AI生成的验证思路概念图；不是论文实测图或已验证结果。</small></figcaption></figure><div class="status-pill">'+esc(p.status)+'</div>'+section('缺口依据',p.question)+section('验证路径',p.method)+section('尚缺的证据',p.remaining)+'<div class="related-links">'+p.related.map(paperButton).join('')+'</div>'}
+ else{let related=ALL_EDGES.filter(e=>e.kind!=='question'&&(e.from===p.id||e.to===p.id));let later=related.filter(e=>['revision','extension'].includes(e.kind)&&e.from===p.id&&PAPERS.find(q=>q.id===e.to)?.year>=p.year);let image=SCENES[p.category].image;
+ box.innerHTML=head+'<p class="reference-title">'+esc(p.referenceTitle)+'</p><div class="reading-meta"><span>'+esc(categoryLabel(p.category))+'</span>'+(p.source_type?'<span>'+esc(p.source_type)+'</span>':'')+'<span>阅读范围：'+esc(p.access)+'</span></div>'+section('研究问题',p.question)+(p.sections||[]).map(([title,text])=>section(title,text)).join('')+originalFigures(p)+section('研究方法',p.method)+section('主要结果',p.result)+section('研究贡献',p.contribution)+section('适用条件与局限',p.limitations)+'<h3>后续进展</h3>'+(later.length?later.map(e=>'<div class="relation-reading">'+paperButton(e.to)+'<p>'+esc(e.reason)+'</p></div>').join(''):'<p>所选文献尚未提供直接检验这一局限的后续证据。</p>')+'<h3>相关文献与关系依据</h3>'+related.map(e=>'<div class="relation-reading">'+paperButton(e.from===p.id?e.to:e.from)+'<p>'+esc(EDGE_STYLES[e.kind].label)+'：'+esc(e.reason)+'</p></div>').join('')+'<details class="source-record"><summary>文献与来源位置</summary><p>'+esc(p.citation)+'</p><p>阅读位置：'+esc(p.anchor)+'</p><p>“适用条件与局限”包含基于研究设计作出的评估；后续补充按上述关系逐项说明。</p></details><p><a href="'+esc(p.source_url)+'" target="_blank" rel="noopener">原始文献 ↗</a>　<a href="https://doi.org/'+esc(p.doi)+'" target="_blank" rel="noopener">DOI ↗</a></p>'}
+ focusDetail();queueHeight()}
+function openPaper(id){showPaperDetail([...PAPERS,...QUESTIONS].find(p=>p.id===id))}
+function closePaperDetail(){document.getElementById('paper-detail').hidden=true;clearHighlight();selected=null;queueHeight()}
+function renderPaperList(){document.getElementById('graph-container').innerHTML='<div class="paper-list">'+demoPapers.map(p=>'<button class="paper-card" onclick="openPaper(\''+p.id+'\')"><span class="paper-rank">'+(p.isGap?'?':'['+p.refNumber+']')+'</span><span><strong>'+esc(p.title)+'</strong><small>'+(p.isGap?esc(p.status):esc(p.author)+' · '+p.year+' · '+categoryLabel(p.category)+' · '+esc(p.access))+'</small></span></button>').join('')+'</div>';queueHeight()}
+function setScene(key){scene=key;const keep=PAPERS.filter(p=>key==='all'||p.category===key),ids=new Set(keep.map(p=>p.id));let qs=QUESTIONS.filter(q=>key==='all'||q.related.some(id=>ids.has(id)));demoPapers=[...keep,...qs].map(p=>({...p}));const allids=new Set(demoPapers.map(p=>p.id));edges=ALL_EDGES.filter(e=>allids.has(e.from)&&allids.has(e.to));if(key!=='all'){demoPapers.forEach((p,i)=>{let t=-Math.PI/2+i/demoPapers.length*Math.PI*2;p.x=700+430*Math.cos(t);p.y=450+300*Math.sin(t)})}placeLabels();document.querySelectorAll('[data-scene]').forEach(b=>b.classList.toggle('active',b.dataset.scene===key));let s=SCENES[key];document.getElementById('scene-name').textContent=s.name;document.getElementById('scene-description').textContent=s.desc;document.getElementById('graph-status').textContent=keep.length+'篇研究 · '+qs.length+'项研究缺口';document.getElementById('paper-detail').hidden=true;setGraphMode(graphMode);queueHeight()}
+let heightScheduled=false,lastHeight=0;
+function queueHeight(){if(!heightScheduled){heightScheduled=true;requestAnimationFrame(()=>{heightScheduled=false;let h=Math.ceil(document.querySelector('main').getBoundingClientRect().height+32);if(Math.abs(h-lastHeight)>1){lastHeight=h;parent.postMessage({type:'petro-papermap-height',height:h},'*')}})}}
+setScene('all');new ResizeObserver(queueHeight).observe(document.querySelector('main'));document.addEventListener('toggle',queueHeight,true);window.addEventListener('load',queueHeight);document.fonts.ready.then(queueHeight);
+window.PerforationPaperMap={state:()=>({scene,mode:graphMode,selected,graphView,papers:demoPapers.map(p=>p.id),edges:edges.map(e=>({...e}))})};
+</script></html>

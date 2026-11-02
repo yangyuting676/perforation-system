@@ -1,0 +1,963 @@
+{
+  "key": "selection",
+  "title": "射孔弹型智能选型研究图谱",
+  "intro": "13篇论文/研究来源，另按标识保留数据与专著；其中8项智能算法来源。新增方法关系表示本案例采用或比较，不冒充已核实的直接引用。",
+  "records": [
+    {
+      "id": "P03",
+      "refNumber": 1,
+      "doi": "10.2118/18247-PA",
+      "year": 1991,
+      "category": "productivity",
+      "author": "Karakas & Tariq",
+      "title": "射孔完井半解析产能模型",
+      "label": "半解析表皮 · 1991",
+      "referenceTitle": "Semianalytical Productivity Models for Perforated Completions",
+      "citation": "Metin Karakas, S. M. Tariq. Semianalytical Productivity Models for Perforated Completions. SPE Production Engineering 6(01), 73-82 (1991). https://doi.org/10.2118/18247-PA",
+      "bibauthor": "Karakas, Metin and Tariq, S. M.",
+      "journal": "SPE Production Engineering",
+      "volume": "6(01)",
+      "pages": "73-82",
+      "question": "如何较快估计穿深、孔密、相位及损伤对射孔表皮的影响？",
+      "method": "结合有限元结果与半解析关系，分别处理二维平面流和三维垂向汇聚流，并考虑损伤及渗透率各向异性。",
+      "result": "给出射孔表皮计算关系，指出相位和穿深共同影响穿过近井损伤带后的产能。",
+      "contribution": "把三维射孔流动结果转化为工程可用的表皮估计方法。",
+      "limitations": "不是多目标优化算法；2007年Hagoort针对其各向异性处理指出可能偏高的产能估计。",
+      "access": "原始摘要",
+      "anchor": "Summary；作者机构库记录",
+      "source_url": "https://scholarsmine.mst.edu/min_nuceng_facwork/916/",
+      "url": "https://scholarsmine.mst.edu/min_nuceng_facwork/916/",
+      "sections": [
+        [
+          "模型要简化什么",
+          "直接对每一种射孔布置进行三维数值计算成本较高。本文将有限元结果归纳为半解析表皮关系，使穿深、孔密、相位和损伤影响能够用于工程估算。表皮系数描述相对于参照流动的附加压力损失，并不是一个独立的产量。"
+        ],
+        [
+          "二维与三维分别表示什么",
+          "孔道沿井轴间距较小时，平面内流动与垂向汇聚的贡献不同。作者分别处理二维平面流和三维垂向汇聚，再考虑近井损伤及渗透率各向异性。参数的影响取决于孔道是否穿过损伤区及各方向的流动能力。"
+        ],
+        [
+          "贡献及后来被修正的部分",
+          "该方法把复杂几何计算转化为便于调用的射孔表皮估计，是后续产能研究的重要比较对象。Hagoort（2007）针对各向异性处理提出具体修正，指出损伤和各向异性共同存在时可能高估产能。这是明确的模型修正关系，不能扩展成所有工况下原模型均失效。"
+        ]
+      ],
+      "figures": [],
+      "source_type": "研究论文"
+    },
+    {
+      "id": "P05",
+      "refNumber": 2,
+      "doi": "10.2118/83697-PA",
+      "year": 2003,
+      "category": "cleanup",
+      "author": "Underdown et al.",
+      "title": "按储层差异设计欠平衡射孔",
+      "label": "欠平衡设计 · 2003",
+      "referenceTitle": "Optimizing the Perforating Strategy in Well Completions To Maximize Productivity",
+      "citation": "D. R. Underdown, W. H. Jenkins, A. Pitts, A. Venkitaraman, H. Li. Optimizing the Perforating Strategy in Well Completions To Maximize Productivity. SPE Drilling & Completion 18(02), 177-181 (2003). https://doi.org/10.2118/83697-PA",
+      "bibauthor": "Underdown, D. R. and Jenkins, W. H. and Pitts, A. and Venkitaraman, A. and Li, H.",
+      "journal": "SPE Drilling & Completion",
+      "volume": "18(02)",
+      "pages": "177-181",
+      "question": "如何按分层渗透率选择枪弹、孔密与欠平衡，而非使用全井平均条件？",
+      "method": "Britannia气田将测井解释、方案模拟、模拟井下条件岩心试验和完井后表皮分析结合。",
+      "result": "露头岩心在1000 psi欠平衡下接近零射孔表皮；12口已完井井的分析呈低表皮或负表皮。",
+      "contribution": "以实验核对欠平衡设计，再将分层方案用于现场。",
+      "limitations": "特定气田与岩石、流体条件；1000 psi不是跨储层通用值，现场结果也不能分离各设计变量的贡献。",
+      "access": "原始摘要",
+      "anchor": "Summary",
+      "source_url": "https://doi.org/10.2118/83697-PA",
+      "url": "https://doi.org/10.2118/83697-PA",
+      "sections": [
+        [
+          "设计依据从平均值转向分层条件",
+          "Britannia气田案例把分层渗透率解释用于射孔设计，将枪弹、孔密和欠平衡条件配合选择。不同层段的流动能力和清洁要求可能不同，因此全井平均渗透率不足以代表每一层的设计条件。"
+        ],
+        [
+          "岩心试验与现场资料分别证明什么",
+          "作者在模拟井下条件的岩心试验中检查射孔效果，露头岩心在1000 psi欠平衡条件下接近零射孔表皮；又以12口已完井井的低表皮或负表皮结果报告现场表现。前者检验选定岩石与压力条件下的清洁效果，后者提供整套完井方案的应用证据。"
+        ],
+        [
+          "参数取值为何不能直接照搬",
+          "1000 psi是对应试验的压力条件，不是通用清洁阈值。现场同时改变或组合了多项设计，井况也有差异，因而无法仅由最终表皮分离某一个射孔参数的贡献。后续动态欠平衡模型补充了压力随时间变化的描述。"
+        ]
+      ],
+      "figures": [],
+      "source_type": "研究论文"
+    },
+    {
+      "id": "P08",
+      "refNumber": 3,
+      "doi": "10.11885/j.issn.1674-5086.2018.09.12.02",
+      "year": 2019,
+      "category": "productivity",
+      "author": "李进等",
+      "title": "考虑孔道摩阻的最优穿深设计",
+      "label": "穿深取舍 · 2019",
+      "referenceTitle": "基于最优穿深分析的射孔参数优化设计新方法",
+      "citation": "李进, 许杰, 王昆剑, 韩耀图, 亓彦铼. 基于最优穿深分析的射孔参数优化设计新方法. 西南石油大学学报（自然科学版） 41(5), 142–149 (2019). https://doi.org/10.11885/j.issn.1674-5086.2018.09.12.02",
+      "bibauthor": "李进 and 许杰 and 王昆剑 and 韩耀图 and 亓彦铼",
+      "journal": "西南石油大学学报（自然科学版）",
+      "volume": "41(5)",
+      "pages": "142–149",
+      "question": "为何不能仅按产能随穿深增加的敏感性曲线确定设计穿深？",
+      "method": "耦合储层流入与孔道内流动，按Dikken准则，以摩阻导致产能降低20%对应的长度确定设计穿深。",
+      "result": "馆陶组算例选择孔径不小于20 mm、穿深600 mm、孔密40孔/m；报道投产92.30 m³/d。",
+      "contribution": "给出包含摩阻损失判据的穿深取舍方法。",
+      "limitations": "20%是所采用的设计准则；现场产量高于配产不等于与另一射孔方案的受控增产比较。",
+      "access": "全文",
+      "anchor": "§2.4式21；§3；§4表2；§5",
+      "source_url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/2019-5-142.htm",
+      "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/2019-5-142.htm",
+      "sections": [
+        [
+          "从敏感性分析到设计判据",
+          "常规产能曲线可能随穿深增加持续上升，难以据此确定应该选择多长的孔道。本文耦合储层流入与孔道流动摩阻，引入Dikken准则，以考虑摩阻的产能与忽略摩阻的产能之比为0.8作为穿深取舍依据。20%的损失是采用的设计判据，而非实验发现的普适临界值。"
+        ],
+        [
+          "如何从图得到参数",
+          "馆陶组算例先比较不同孔径下的最优穿深和产能：孔径超过20 mm后进一步增大带来的收益减小，因而选取孔径不小于20 mm；结合对应穿深曲线选择600 mm，再配合孔密40孔/m和45°/135°相位。各数值属于该区块与模型条件。"
+        ],
+        [
+          "现场结果的证据边界",
+          "论文报道投产单井产能92.30 m³/d，较油藏配产高约15 m³/d。配产是设计或管理参照，并非另一射孔方案的对照观测，因此不能将差值直接写成优化方案的净增产。与2023年孔道压降研究比较时，还应统一流量、孔径、粗糙度和流态。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P08",
+          "number": "1",
+          "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-1.jpg",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 156888,
+          "explanation": "产能比随穿深变化的参数曲线。各曲线对应不同孔径；单调增加的趋势说明，单凭产能敏感性难以确定设计穿深。",
+          "sha256": "887920fa5594ddf27e005297d36e8e44e7df4f999525d77a2287decdc5438269",
+          "width": 700,
+          "height": 476
+        },
+        {
+          "paper": "P08",
+          "number": "7",
+          "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-7.jpg",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 200730,
+          "explanation": "馆陶组储层采用Dikken优化原则的最佳穿深分析。不同颜色表示孔径；以考虑摩阻与忽略摩阻的产能之比为0.8作为取舍判据，识别对应的设计穿深。",
+          "sha256": "afe69fd769a18648058fffcd31a1e6cce0760f44efc7341b83ed60a7eeda029c",
+          "width": 700,
+          "height": 534
+        },
+        {
+          "paper": "P08",
+          "number": "8",
+          "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-8.jpg",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 132625,
+          "explanation": "不同孔径下产能比随穿深的变化。曲线间距随孔径增加而缩小，用于识别扩大孔径后的边际收益。",
+          "sha256": "49f95a989a7aa153d8391c28bc16ca26b65d2cc2081cc6395efb1fa4731e0c4c",
+          "width": 700,
+          "height": 475
+        }
+      ],
+      "source_type": "研究论文"
+    },
+    {
+      "id": "P11",
+      "refNumber": 4,
+      "doi": "10.1021/acsomega.3c06416",
+      "year": 2024,
+      "category": "allocation",
+      "author": "Liu et al.",
+      "title": "密切割条件下的射孔参数优选",
+      "label": "多簇优选 · 2024",
+      "referenceTitle": "Investigation and Application of Perforation Optimization Method on Shale Gas Horizontal Well with Numerical Simulation of Multicluster Fracturing under Dense-Segment Pattern",
+      "citation": "Chang Liu, Haitao Li, Hongwen Luo, Yu Lu, Ying Li, Chao Su, Shengnan Chen. Investigation and Application of Perforation Optimization Method on Shale Gas Horizontal Well with Numerical Simulation of Multicluster Fracturing under Dense-Segment Pattern. ACS Omega 9(1), 675-691 (2024). https://doi.org/10.1021/acsomega.3c06416",
+      "bibauthor": "Liu, Chang and Li, Haitao and Luo, Hongwen and Lu, Yu and Li, Ying and Su, Chao and Chen, Shengnan",
+      "journal": "ACS Omega",
+      "volume": "9(1)",
+      "pages": "675-691",
+      "question": "簇间距、孔数与初始孔径怎样影响多裂缝扩展均匀性？",
+      "method": "逐段核读引言、数值模型、20个参数算例、单井应用及结论。以拟三维位移不连续法连接裂缝变形、质量平衡、井筒与孔眼压降、冲蚀和起裂判别。",
+      "result": "原图7中簇距5、8、12、15 m的均匀性指标依次为0.77、0.90、0.93、0.94；原图11中每簇16、8、4孔的指标为0.77、0.87、0.90。表3两组现场阶段平均SRV复算约为5.23与12.31×10⁶ m³。",
+      "contribution": "在既有限流模型之外加入冲蚀和起裂不同步，并开展现场应用。",
+      "limitations": "数值算例依赖给定分层、应力和施工条件。单井前后两组阶段未经随机分配，SRV不等于产量；全文部分算例标号、簇数及产量图注存在不一致，原图与表保持原样。",
+      "access": "全文",
+      "anchor": "全文§1—§5；式1—21；表1—3；图1、4、7、11、17、20。原图文件由Europe PMC开放全文图像包取得。",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10785646/",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10785646/",
+      "sections": [
+        [
+          "研究问题：均衡并不只由簇距决定",
+          "作者关注一段水平井内各簇裂缝体积不均：井筒压力、孔眼阻力与裂缝应力干扰共同控制进液，而某些簇还可能晚起裂或始终未起裂。引言明确指出，已有孔眼入口模型与少簇数研究尚未充分纳入孔眼冲蚀、起裂不同步和密切割条件。因此，本研究不是只寻找一个最佳簇距，而是同时比较簇距、孔数和初始孔径的分布方式。"
+        ],
+        [
+          "方法：把流量、压力和裂缝变形连起来",
+          "模型采用拟三维位移不连续法描述裂缝相互作用；质量平衡计算进入裂缝的液体如何用于裂缝张开、滤失和继续流动。压力系统分别计算井筒沿程摩阻、孔眼入口压降和裂缝内压降。孔眼冲蚀又会增大孔径与流量系数，改变下一步分流。图1用四簇示例说明连接关系，后续参数比较按表2设置为八簇算例。"
+        ],
+        [
+          "起裂不同步具体怎样处理",
+          "每个时间步先识别尚未起裂的簇，并按起裂压力组织试算。模型检查当前压力能否使新的簇起裂，然后重新求解流量与压力，直到系统达到平衡，再计算裂缝扩展。图4中的排序是试算策略，并非预先规定的实际起裂顺序。这个处理避免把所有簇在同一时刻开始扩展作为默认前提。"
+        ],
+        [
+          "参数算例及比较条件",
+          "表1给出弹性模量45 GPa、泊松比0.25、平均最小/最大水平应力70/84 MPa、排量14 m³/min、流体黏度2 mPa·s和支撑剂浓度413 kg/m³。表2将20个算例分为六组，分别改变均匀或非均匀的簇距、孔数和初始孔径。比较输出是0—1的裂缝体积均匀性指标Ufm，越接近1越均匀；它不直接表示生产效率或现场成功率。"
+        ],
+        [
+          "数值结果：哪些改动有效，改善多少",
+          "图7中簇距从5、8、12增至15 m时，Ufm依次为0.77、0.90、0.93和0.94，后两者已较接近。图11在5 m簇距下把每簇16孔减为8孔、4孔，指标从0.77提高到0.87、0.90。图17在8 m簇距、每簇16孔下，将初始孔径7 mm增至10、14 mm，指标从0.90降至0.88、0.83。结果支持在这些条件下通过入口阻力抑制优势簇进液，不能据此直接指定其他井段的通用孔数和孔径。"
+        ],
+        [
+          "现场应用：观察到什么，依据是什么",
+          "应用井共22段，后11段采用平均约8 m簇距和每簇2—4孔的设计，并结合测井调整分布。前11段为经验设计。按表3的SRV列逐项复算，前组平均约5.23×10⁶ m³，试验组约12.31×10⁶ m³，约为2.35倍；图20同时给出事件空间分布和各段SRV。两组并非随机对照，地质和施工也有差异，因此这属于现场应用证据，不能把差值全部归因于射孔参数。"
+        ],
+        [
+          "研究推进与仍待核对之处",
+          "本文明确增加了冲蚀和起裂不同步，对早期入口单元路线作了具体补充。天然裂缝网络的质量与最终生产响应仍未由这20个算例统一回答。全文中§3.1的a-1簇距与表2、图5不一致，部分图号和井号也有差异；本页数值比较对应明确的表和原图，不把含混标注补写成新的数据。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P11",
+          "number": "1",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig1.jpg",
+          "explanation": "四簇示例的压力传递系统。液体沿井筒流动，经各簇孔眼进入裂缝；井筒摩阻、孔眼入口压降和裂缝内压降分别标出。读图先沿紫色箭头找进液方向，再比较每簇进入裂缝的支路：同一总排量不意味着各簇分到同样的流量。图中的四簇只是方法示意，后文参数算例使用八簇。",
+          "caption": "Pressure transmission system coupled with fracture propagation model built by DDM (displacement discontinuity method) for a four-cluster perforation example.",
+          "sha256": "816389416cd39c9efe8914a8c160a8f886186e3d68f3c647bc8b94a523010a08",
+          "size": 87287,
+          "width": 750,
+          "height": 354
+        },
+        {
+          "paper": "P11",
+          "number": "4",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig4.jpg",
+          "explanation": "起裂不同步的判别流程。先检查是否仍有未起裂簇，再计算其起裂压力，并在每个时间步试算压力与流量平衡。某簇达到条件后进入下一轮试算；直到系统平衡才推进裂缝。流程中的试算次序不等于实际起裂次序，起裂压力相近的多个簇可能同时起裂。",
+          "caption": "Flowchart of the initiation asynchrony progress, which is executed before the fracture propagation computation at each time-point whenever there exists clusters uninitiated.",
+          "sha256": "d9aa3d107a46535cb66d0e86edd19c8da915ea6228799d8d3022626ed91b72f2",
+          "size": 120890,
+          "width": 800,
+          "height": 782
+        },
+        {
+          "paper": "P11",
+          "number": "7",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig7.jpg",
+          "explanation": "簇距由5、8、12增至15 m的四组结果。蓝柱是八条裂缝各自占总裂缝体积的比例，理想均分为12.5%；红色点线采用右轴，表示均匀性指标Ufm，越接近1越均匀。原图分别为0.77、0.90、0.93、0.94，说明这一工况下增大簇距有利于均衡，但12到15 m的改善已较小。",
+          "caption": "Distributions of fracture volume percentages and fracture uniformity indices of case a-1 to case a-4 with evenly distributed cluster spacings, of which the cluster spacings are 5, 8, 12, and 15 m, respectively.",
+          "sha256": "7dfc017147e63d01058c53be934df1148aed0c9700798a39cf311f685531914a",
+          "size": 112711,
+          "width": 750,
+          "height": 327
+        },
+        {
+          "paper": "P11",
+          "number": "11",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig11.jpg",
+          "explanation": "相同5 m簇距下，将每簇孔数由16减至8和4孔。蓝柱显示裂缝体积占比的差异减小，红色均匀性指标由0.77增至0.87和0.90。其原因是入口阻力增强后更能约束优势簇进液。它展示的是这组三维模型结果，不表示所有井段都应采用4孔。",
+          "caption": "Fracture volume percentage distributions and fracture uniformity indices of cases a-1, c-1, and c-2 with the same cluster spacing of 5 m and even perforation numbers, of which the perforation numbers are 16, 8, and 4.",
+          "sha256": "1d55fdcb6eebcb33f2cc9a50b63f57fc8dc528579c1dfdf2e55756999de7450e",
+          "size": 103840,
+          "width": 663,
+          "height": 360
+        },
+        {
+          "paper": "P11",
+          "number": "17",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig17.jpg",
+          "explanation": "相同8 m簇距、每簇16孔时，初始孔径7、10、14 mm的结果。原图红色指标依次为0.90、0.88、0.83；蓝柱表明大孔径方案中部分裂缝占据更多体积。这里比较的是初始孔径，模型还在后续过程更新冲蚀，不能将图中的孔径当作施工结束后的孔径。",
+          "caption": "Fracture volume percentage distributions and fracture uniformity indices of cases a-1, e-1, and e-2 with the same cluster spacing of 8 m, the same perforation number of 16 per cluster, and even initial perforation diameters, of which the initial perforation diameters are 7, 10, and 14 mm, respectively.",
+          "sha256": "2cbe1894f5b2fb423c61a0a04a57eeada134cb0e7bba36fd729cd2f1a7d1864c",
+          "size": 101906,
+          "width": 646,
+          "height": 351
+        },
+        {
+          "paper": "P11",
+          "number": "20",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig20.jpg",
+          "explanation": "现场微地震解释结果。左图为事件点及空间分布，右图按22个施工段展示解释SRV；前11段与后11个试验段用不同颜色表示。按原表3复算，两组平均SRV约为5.23和12.31×10⁶ m³，后者约为前者的2.35倍。SRV是微地震解释的改造体积，不能直接读取为产量或射孔参数的独立增产贡献。",
+          "caption": "Fracture microseismic monitoring result and interpreted SRV statistical chart of well A1",
+          "sha256": "d0e50bf9f6317a88c9626dca8d1258f5a07b913ec067775f837760536b5b2e0a",
+          "size": 138131,
+          "width": 700,
+          "height": 340
+        }
+      ],
+      "source_type": "研究论文"
+    },
+    {
+      "id": "P17",
+      "refNumber": 5,
+      "doi": "10.1371/journal.pone.0255793",
+      "year": 2021,
+      "category": "allocation",
+      "author": "Liu et al.",
+      "title": "三簇射孔参数的响应面优化",
+      "label": "响应面优选 · 2021",
+      "referenceTitle": "Research on optimization of perforation parameters for formation fractures based on response surface optimization method",
+      "citation": "Wei Liu, Suling Wang, Kangxing Dong, Tiancai Cheng. Research on optimization of perforation parameters for formation fractures based on response surface optimization method. PLOS ONE 16(8), e0255793 (2021). https://doi.org/10.1371/journal.pone.0255793",
+      "bibauthor": "Liu, Wei and Wang, Suling and Dong, Kangxing and Cheng, Tiancai",
+      "journal": "PLOS ONE",
+      "volume": "16(8)",
+      "pages": "e0255793",
+      "question": "怎样同时选择中间簇孔数、两侧簇孔数与中间簇孔径，使三簇扩展更均衡？",
+      "method": "二维应力–渗流耦合数值模型采用三因子Box–Behnken设计，公开17组算例，并拟合二次响应面。",
+      "result": "表5给出基准缝长差32.550 m，优化配置15 / 7 / 15的数值模拟缝长差0.528 m；本站演示数据来自表3。",
+      "contribution": "把孔眼入口阻力、参数交互和连续响应面用于三簇均衡设计。",
+      "limitations": "二维特定应力工况；表3含重复中心点与有正负号的响应，拟合R²不是独立预测验证。",
+      "access": "全文",
+      "anchor": "表2（p.12）、表3与式15（p.13）、表5（p.20）",
+      "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0255793",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0255793",
+      "sections": [
+        [
+          "研究目标与数值实验",
+          "论文先建立水力裂缝模型，再在二维应力—渗流耦合三簇模型上研究分流与扩展。三项设计变量为中间簇孔数A、两侧每一簇孔数B，以及中间簇孔径C；其余条件固定。采用三因子Box–Behnken设计，以较少算例估计二次项和参数交互，而不是从现场井群训练通用预测模型。"
+        ],
+        [
+          "公开数据与模型输出",
+          "表2给出A、B各4—20孔，C为6—18 mm；表3公开17次算例，包含重复中心点，共13种参数组合。响应为有正负号的缝长差ΔL，单位m。优化目标是减小差值的绝对值。一个差值不能反推出三条裂缝各自长度，原图17和18提供的是原始数值模型的裂缝分布。"
+        ],
+        [
+          "优化结果与复核",
+          "原表5基准配置为12 / 12 / 12，数值模拟缝长差32.550 m；优化配置15 / 7 / 15的数值模拟差值为0.528 m。式15公布的是已舍入系数，直接代入基准得32.410 m，与表5预测32.950 m存在差异；本站将公布公式计算、表5数值和表3重拟合分别显示，保留来源区别。"
+        ],
+        [
+          "研究解决了什么，尚缺什么",
+          "响应面将三项变量及其交互转化为轻量的参数取舍工具，本站当前演示直接使用表3。结论依赖固定应力、材料、流体和二维模型；拟合优度不代表独立工况验证，也不证明现场产量提高。跨地质条件推广还需要新增数值算例、三维与实验核验。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P17",
+          "number": "6",
+          "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g006",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 1489141,
+          "explanation": "三簇二维模型与网格。原图给出100 m×100 m计算域、注入位置和三个簇的位置；后续响应面建立在这一模型及固定边界条件上。",
+          "sha256": "1f5c20e001795b6586884a7caed16f008ed2a953a3e7735d54bcc9b5994f3fce",
+          "width": 1803,
+          "height": 913
+        },
+        {
+          "paper": "P17",
+          "number": "13",
+          "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g013",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 814331,
+          "explanation": "中间簇孔数A与两侧各簇孔数B对缝长差的联合影响。曲面及底部等值线显示交互作用，第三变量按原图条件固定；这不是独立现场数据的预测精度图。",
+          "sha256": "d966728b9b03f2af0298652e47b21a8492aeee21ee0b51bcf8220a67cccc62ec",
+          "width": 1725,
+          "height": 1025
+        },
+        {
+          "paper": "P17",
+          "number": "17",
+          "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g017",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 189321,
+          "explanation": "优化前的三簇裂缝分布。原图标出的缝长差为32.550 m，中间簇与两侧簇扩展明显不均衡。颜色和数值均保留原文。",
+          "sha256": "446a4c1895176ed16ab2198f5339df93f45b602bb587a125514ca48e583bf59d",
+          "width": 1200,
+          "height": 853
+        },
+        {
+          "paper": "P17",
+          "number": "18",
+          "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g018",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 191302,
+          "explanation": "优化后的三簇裂缝分布。原图标出的缝长差为0.528 m，显示该数值模型工况下的均衡改善；应与图17及表5共同阅读。",
+          "sha256": "ff1860154b2e87f316d50ebc802fcd0d181274acacd7dd262aef2c30d7d54019",
+          "width": 1200,
+          "height": 864
+        }
+      ],
+      "source_type": "研究论文"
+    },
+    {
+      "id": "G03",
+      "doi": "10.3390/pr12071308",
+      "author": "Liang, Zhao & Jin",
+      "title": "射流侵彻与砂岩损伤的耦合数值预测",
+      "label": "SPH–FEM · 2024",
+      "year": 2024,
+      "category": "cleanup",
+      "question": "怎样同时计算套管—水泥—砂岩中的成孔过程与孔周损伤？",
+      "method": "采用FEM与SPH耦合描述大变形和侵彻，通过ABAQUS用户子程序提取应力、应变并计算孔隙度和渗透率变化。",
+      "result": "特定靶试对照中，计算孔深约56 cm，原文报告与试验的偏差小于8%；同时得到孔轴偏斜、孔壁不规则及局部损伤分布。",
+      "contribution": "将单一孔深扩展为成孔形态与孔周物性演化的联合分析。",
+      "limitations": "材料参数和边界条件针对所用砂岩与器材；原文第3.3节个别尺寸单位与前文不一致，复现时需核对。其56 cm结果不作为本站KNN验证标签。",
+      "access": "全文：模型、试验对照、结果及结论",
+      "anchor": "§2–5；图3、7；表1–2；PDF第2–18页",
+      "sections": [
+        [
+          "数据与模型怎样连接",
+          "先输入套管、水泥和砂岩材料参数以及射流分段速度，再计算冲击、侵彻和卸载过程。穿深取自最终成孔几何，孔周损伤则由应力和应变场计算，二者不是同一个输出。"
+        ],
+        [
+          "验证证明到哪一步",
+          "图7对照砂岩剖面和数值成孔。孔深的相近支持该组条件下的成孔计算，但不能由一次孔深对照推出所有围压、岩性和枪弹组合都具有相同误差。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "G03-model.png",
+          "number": 3,
+          "label": "原文图 3",
+          "url": "https://doi.org/10.3390/pr12071308",
+          "explanation": "左侧是砂岩靶体，右侧为射流入射端，套管和水泥位于岩石入口。材料界面决定射流依次穿过的路径，网格和粒子承担不同区域的大变形描述。该图给出数值模型结构，不是KNN网络结构。",
+          "width": 848,
+          "height": 445
+        },
+        {
+          "file": "G03-validation.png",
+          "number": 7,
+          "label": "原文图 7",
+          "url": "https://doi.org/10.3390/pr12071308",
+          "explanation": "比较试验剖面中的孔道延伸和计算得到的成孔形态。读图重点是孔深、孔壁形状以及孔周扰动，不能只看两幅图颜色相似。原文给出的约56 cm及小于8%偏差仅对应这组靶试条件。",
+          "width": 914,
+          "height": 458
+        }
+      ],
+      "referenceTitle": "Numerical Analyses of Perforation and Formation Damage of Sandstone Gas Reservoirs",
+      "citation": "Hao Liang, Zhihong Zhao, Haozeng Jin. Numerical Analyses of Perforation and Formation Damage of Sandstone Gas Reservoirs. Processes 12, 1308 (2024). https://doi.org/10.3390/pr12071308",
+      "source_url": "https://doi.org/10.3390/pr12071308",
+      "url": "https://doi.org/10.3390/pr12071308",
+      "refNumber": 6,
+      "source_type": "研究论文"
+    },
+    {
+      "id": "G04",
+      "doi": "10.3390/en17225558",
+      "author": "Nashed et al.",
+      "title": "用井下摄像观测预测套管入口孔径",
+      "label": "井下孔径预测 · 2024",
+      "year": 2024,
+      "category": "cleanup",
+      "question": "能否由储层、套管和射孔器材信息预测实际井下套管入口孔径？",
+      "method": "汇集埃及西部沙漠53口井的1716条记录，以井下摄像测得的EHD为标签，比较十类回归模型，并进行交叉验证和重复随机划分。",
+      "result": "表3中AdaBoost的测试R²为0.938；表4十折交叉验证R²为0.911。Well-X实测0.36 in、预测0.34 in。",
+      "contribution": "把入口孔径的预测标签建立在井下摄像观测上，并用实例说明孔径误差对孔眼压降估计的影响。",
+      "limitations": "文中主要采用记录级划分，未明确报告整井留出结果；表3、4的误差为归一化尺度。不能将归一化RMSE当作英寸，也不能把入口孔径预测当作穿深预测。",
+      "access": "全文：数据、建模、验证及现场实例",
+      "anchor": "§2–4；表1、3–6；图3、9–10；PDF第5–17页",
+      "sections": [
+        [
+          "输入和输出是什么",
+          "十项输入涵盖射孔测深、岩石密度、孔密、相位、地层与套管信息以及枪径。这里的perforation depth以ft计，表示作业测深，不是待预测的地层孔道穿深。输出只有套管入口孔径EHD。"
+        ],
+        [
+          "怎样比较性能",
+          "表3是一次80/20划分，表4是重复十折验证，不能将两张表中的数字混成一个成绩。Well-X提供另一项现场对照，但原文未清楚证明其与全部训练记录在井级上完全隔离。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "G04-method.png",
+          "number": 3,
+          "label": "原文图 3",
+          "url": "https://doi.org/10.3390/en17225558",
+          "explanation": "按数据收集、特征分析、预处理、建模和验证阅读。应首先确认摄像孔径怎样与同一孔眼或井段的输入对应，再解释模型精度。它展示的是研究工作流程，不表示不同算法自动共享同一个泛化误差。",
+          "width": 336,
+          "height": 560
+        },
+        {
+          "file": "G04-shap.png",
+          "number": 10,
+          "label": "原文图 10",
+          "url": "https://doi.org/10.3390/en17225558",
+          "explanation": "每行对应一个输入，每个点表示该输入对某条记录预测值的贡献。横向偏离零越远，模型中的贡献越大；红蓝区分输入取值高低。SHAP说明模型如何使用数据，不能单凭此图确认因果效应。",
+          "width": 978,
+          "height": 514
+        }
+      ],
+      "referenceTitle": "Downhole Camera Runs Validate the Capability of Machine Learning Models to Accurately Predict Perforation Entry Hole Diameter",
+      "citation": "Samuel Nashed, Srijan Lnu, Abdelali Guezei, Oluchi Ejehu, Rouzbeh Moghanloo. Downhole Camera Runs Validate the Capability of Machine Learning Models to Accurately Predict Perforation Entry Hole Diameter. Energies 17, 5558 (2024). https://doi.org/10.3390/en17225558",
+      "source_url": "https://doi.org/10.3390/en17225558",
+      "url": "https://doi.org/10.3390/en17225558",
+      "refNumber": 7,
+      "source_type": "研究论文"
+    },
+    {
+      "id": "G05",
+      "doi": "10.3390/fluids11030064",
+      "author": "Nashed et al.",
+      "title": "标准化靶试穿深的机器学习预测",
+      "label": "穿深代理模型 · 2026",
+      "year": 2026,
+      "category": "cleanup",
+      "question": "能否由器材、装药和靶试条件快速预测API 19B地面试验穿深？",
+      "method": "整理1648条标准化靶试，1318条用于建模及调参，330条用于独立留出检查。比较十类回归模型，使用重复五折验证选择超参数。",
+      "result": "XGBoost交叉验证RMSE为3.175 in、R²为0.939；330条留出记录RMSE为2.707 in、MAE为1.348 in、R²为0.956。",
+      "contribution": "建立地面靶试穿深的快速代理预测，并检查残差与特征贡献。",
+      "limitations": "数据限定API 19B Section 1地面试验，未显式纳入井下有效应力和孔隙压力；表格数据没有给出可直接下载的完整仓库。留出误差不能直接表示井下穿深精度。",
+      "access": "全文：数据、调参、留出验证及局限",
+      "anchor": "§2–4；表1–4；图8–14；PDF第4–20页",
+      "sections": [
+        [
+          "数据对应什么工况",
+          "文中输入为枪径、装药质量、温度等级、相位、水泥强度和套管规格等。输出PL为标准化地面试验穿深。1318/330划分与本站320/60合成样本是两套独立数据。"
+        ],
+        [
+          "性能怎样使用",
+          "先区分交叉验证与一次留出检验，再看误差单位和穿深范围。图9靠近一致线说明这批留出记录的预测较接近实测，尚不能检验有围压岩心或实际储层工况。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "G05-shap.png",
+          "number": 8,
+          "label": "原文图 8",
+          "url": "https://doi.org/10.3390/fluids11030064",
+          "explanation": "横轴是对穿深预测的SHAP贡献，颜色表示输入大小。装药质量等特征在本数据中贡献较突出。模型未输入井下围压，因此该图不能说明围压没有作用。",
+          "width": 870,
+          "height": 658
+        },
+        {
+          "file": "G05-validation.png",
+          "number": 9,
+          "label": "原文图 9",
+          "url": "https://doi.org/10.3390/fluids11030064",
+          "explanation": "横轴为实测地面靶试穿深，纵轴为模型预测，单位均为in。点到一致线的偏离表示预测误差；表4给出这330条记录的RMSE 2.707 in和R² 0.956。它与2024年井下孔径论文的标签、划分和尺度不同，不能直接按R²高低比较谁更适合现场。",
+          "width": 700,
+          "height": 509
+        }
+      ],
+      "referenceTitle": "From Laboratory Measurements to AI-Driven Insights: Predicting Shaped Charge Performance with Advanced Machine Learning",
+      "citation": "Samuel Nashed, Muhammad Abdullah, Oluchi Ejehu, Badr Mohamed, Norhan Sedki, Rouzbeh Moghanloo. From Laboratory Measurements to AI-Driven Insights: Predicting Shaped Charge Performance with Advanced Machine Learning. Fluids 11, 64 (2026). https://doi.org/10.3390/fluids11030064",
+      "source_url": "https://doi.org/10.3390/fluids11030064",
+      "url": "https://doi.org/10.3390/fluids11030064",
+      "refNumber": 8,
+      "source_type": "研究论文"
+    },
+    {
+      "id": "M01",
+      "doi": "10.1145/3447772",
+      "author": "Hogan et al.",
+      "title": "知识图谱的表示、构建与应用",
+      "label": "知识表达方法 · 2021",
+      "year": 2021,
+      "category": "allocation",
+      "question": "怎样组织实体、关系与来源，使领域知识能够被查询和使用？",
+      "method": "综述图式知识表示、知识图谱构建、查询与推理等方法。",
+      "result": "该综述提供知识表示的方法体系，不报告射孔弹型选择准确率。",
+      "contribution": "为器材、适配关系和来源的结构化组织提供方法参考。",
+      "limitations": "通用知识图谱综述；本案例的五个EDU型号及规则不是原文提供的数据。",
+      "access": "原始书目信息与已整理的方法说明",
+      "anchor": "ACM Computing Surveys 54(4), Article 71",
+      "sections": [
+        [
+          "怎样对应本案例",
+          "弹型、岩性、钢级与完井方式可作为实体或属性，适配条件表示关系或规则。规则库仍需真实规格、版本和专家核验；知识图谱这个名称本身不会提高选型可靠性。"
+        ]
+      ],
+      "figures": [],
+      "referenceTitle": "Knowledge Graphs",
+      "citation": "Aidan Hogan, Eva Blomqvist, Michael Cochez, Claudia D’amato, Gerard De Melo, Claudio Gutierrez, Sabrina Kirrane, José Emilio Labra Gayo, Roberto Navigli, Sebastian Neumaier, Axel-Cyrille Ngonga Ngomo, Axel Polleres, Sabbir M. Rashid, Anisa Rula, Lukas Schmelzeisen, Juan Sequeda, Steffen Staab, Antoine Zimmermann. Knowledge Graphs. ACM Computing Surveys 54, 1-37 (2021). https://doi.org/10.1145/3447772",
+      "source_url": "https://doi.org/10.1145/3447772",
+      "url": "https://doi.org/10.1145/3447772",
+      "refNumber": 9,
+      "source_type": "方法论文"
+    },
+    {
+      "id": "NA04",
+      "doi": "10.1109/JPROC.2015.2494218",
+      "author": "Bobak Shahriari et al.",
+      "title": "贝叶斯优化综述",
+      "referenceTitle": "Taking the Human Out of the Loop: A Review of Bayesian Optimization",
+      "label": "贝叶斯优化综述 · 2016",
+      "year": 2016,
+      "category": "ai",
+      "source_type": "方法论文",
+      "isAI": true,
+      "question": "单次评估昂贵时，如何安排下一次黑箱试验？",
+      "method": "以代理后验和采集函数组织昂贵黑箱函数的顺序评估。",
+      "result": "代理模型利用已观测数据建立后验，采集函数在改善当前最优值与探索不确定区域之间分配评估预算；每次新观测都更新搜索依据。",
+      "contribution": "将试验选择本身作为可优化决策，区别于一次训练后遍历所有候选。",
+      "limitations": "黑箱评估必须有可追踪来源；模拟调用次数不能写成实际靶试次数。",
+      "access": "Crossref元数据及出版商公开摘要；未补写不可核验的模型参数或性能",
+      "anchor": "Crossref作品元数据与原始来源摘要",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供以代理后验和采集函数组织昂贵黑箱函数的顺序评估。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "代码或作者实现：https://github.com/pytorch/botorch"
+        ],
+        [
+          "对应本案例",
+          "试验预算有限时，怎样在允许范围内顺序寻找较高穿深的参数组合？ 从少量已评估点拟合高斯过程后验，再用期望改进EI选择下一点。EI同时考虑均值改善与不确定性；每完成一次模拟评估，观测集合与后验随之更新。预算表示模拟函数调用次数，不是实际靶试数量。"
+        ]
+      ],
+      "figures": [],
+      "citation": "Bobak Shahriari, Kevin Swersky, Ziyu Wang, Ryan P. Adams, Nando de Freitas. Taking the Human Out of the Loop: A Review of Bayesian Optimization. Proceedings of the IEEE 104, 148-175 (2016). https://doi.org/10.1109/JPROC.2015.2494218",
+      "source_url": "https://doi.org/10.1109/JPROC.2015.2494218",
+      "url": "https://doi.org/10.1109/JPROC.2015.2494218",
+      "repository": "https://github.com/pytorch/botorch",
+      "refNumber": 10
+    },
+    {
+      "id": "NA17",
+      "doi": "10.48550/arXiv.1807.02811",
+      "author": "Frazier",
+      "title": "BO后验与采集函数",
+      "label": "BO后验与采集函数 · 2018",
+      "referenceTitle": "A Tutorial on Bayesian Optimization",
+      "year": 2018,
+      "category": "ai",
+      "source_type": "预印本",
+      "isAI": true,
+      "question": "高斯过程后验怎样转化为下一次评估位置？",
+      "method": "说明高斯过程条件后验、期望改进及顺序黑箱评估。",
+      "result": "教程从条件后验解释EI等采集策略，并区分代理模型、真实函数调用和搜索成本。图1展示一次观测前后可据以选择新点的信息。",
+      "contribution": "为预算受限的顺序试验提供可以逐步讲解和实现的概率决策框架。",
+      "limitations": "原论文的任务、完整网络或数据与本站改编不同；不能将原文性能写成本次复现成绩。",
+      "access": "已取得全文，核对模型与实验相关章节",
+      "anchor": "bo.pdf.txt",
+      "sections": [
+        [
+          "实现关系",
+          "本次算法保留上述核心思想，并公开训练和浏览器推理代码。原论文的全部训练配置没有宣称逐参数复现。"
+        ],
+        [
+          "对应本案例",
+          "试验预算有限时，怎样在允许范围内顺序寻找较高穿深的参数组合？ 从少量已评估点拟合高斯过程后验，再用期望改进EI选择下一点。EI同时考虑均值改善与不确定性；每完成一次模拟评估，观测集合与后验随之更新。预算表示模拟函数调用次数，不是实际靶试数量。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "ai-bo-fig1.png",
+          "number": "Frazier（2018），图1：后验与期望改进",
+          "label": "Frazier（2018），图1：后验与期望改进",
+          "url": "https://arxiv.org/pdf/1807.02811",
+          "explanation": "上部为已观测函数和条件后验，下部为采集函数。采集函数负责选择下一次评估位置；它不是新的真实实验结果。",
+          "width": 937,
+          "height": 728
+        }
+      ],
+      "citation": "Frazier. A Tutorial on Bayesian Optimization (2018). https://arxiv.org/abs/1807.02811",
+      "source_url": "https://arxiv.org/abs/1807.02811",
+      "url": "https://arxiv.org/abs/1807.02811",
+      "repository": "https://github.com/pytorch/botorch",
+      "refNumber": 11
+    },
+    {
+      "id": "NA03",
+      "doi": "10.7551/mitpress/3206.001.0001",
+      "author": "Carl Edward Rasmussen et al.",
+      "title": "高斯过程回归",
+      "referenceTitle": "Gaussian Processes for Machine Learning",
+      "label": "高斯过程回归 · 2005",
+      "year": 2005,
+      "category": "ai",
+      "source_type": "学术专著",
+      "isAI": true,
+      "question": "少量观测怎样约束一个未知函数，又怎样表达条件不确定性？",
+      "method": "以核函数描述函数相关性，在给定观测后计算条件均值与方差。",
+      "result": "给定核函数与观测噪声，条件高斯分布同时给出预测均值和协方差。靠近观测点时方差通常下降，但核选择与样本覆盖仍决定可解释范围。",
+      "contribution": "让回归预测与条件不确定性来自同一个概率模型，并为顺序采集提供后验。",
+      "limitations": "后验区间依赖核、噪声和数据覆盖，不能自动表示全部工程误差。",
+      "access": "已取得全文，核对方法、验证与局限相关章节",
+      "anchor": "gp-ch2.pdf.txt",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供以核函数描述函数相关性，在给定观测后计算条件均值与方差。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "代码或作者实现：https://gaussianprocess.org/gpml/"
+        ],
+        [
+          "对应本案例",
+          "试验预算有限时，怎样在允许范围内顺序寻找较高穿深的参数组合？ 从少量已评估点拟合高斯过程后验，再用期望改进EI选择下一点。EI同时考虑均值改善与不确定性；每完成一次模拟评估，观测集合与后验随之更新。预算表示模拟函数调用次数，不是实际靶试数量。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "ai-gp-fig2.png",
+          "number": "Rasmussen与Williams（2006），图2.2：GP先验与后验",
+          "label": "Rasmussen与Williams（2006），图2.2：GP先验与后验",
+          "url": "https://gaussianprocess.org/gpml/chapters/RW2.pdf",
+          "explanation": "左侧是加入观测前的函数分布，右侧为给定观测后的条件均值与不确定性带。原图解释核模型的更新机制；表皮预测和贝叶斯搜索分别使用各自声明的数据独立计算。",
+          "width": 1188,
+          "height": 601
+        }
+      ],
+      "citation": "Carl Edward Rasmussen, Christopher K. I. Williams. Gaussian Processes for Machine Learning. The MIT Press ,  (2005). https://doi.org/10.7551/mitpress/3206.001.0001",
+      "source_url": "https://doi.org/10.7551/mitpress/3206.001.0001",
+      "url": "https://doi.org/10.7551/mitpress/3206.001.0001",
+      "repository": "https://gaussianprocess.org/gpml/",
+      "refNumber": 12
+    },
+    {
+      "id": "NA02",
+      "doi": "10.1145/2939672.2939785",
+      "author": "Tianqi Chen et al.",
+      "title": "XGBoost树提升",
+      "referenceTitle": "XGBoost",
+      "label": "XGBoost树提 · 2016",
+      "year": 2016,
+      "category": "ai",
+      "source_type": "方法论文",
+      "isAI": true,
+      "question": "怎样让树提升在正则化目标下处理大规模、稀疏的结构化输入？",
+      "method": "在正则化树提升框架中累加回归树，并改进分裂与稀疏数据处理。",
+      "result": "预测由树叶分数累加得到；二阶目标近似、分裂增益及稀疏感知处理构成训练机制。原文还研究计算和存储效率，不能仅用一张特征重要性图概括。",
+      "contribution": "将统计目标、树结构搜索与系统实现结合，为结构化回归提供可复核基线。",
+      "limitations": "通用基准结果不是射孔穿深或本站模拟样本的精度。",
+      "access": "已取得全文，核对方法、验证与局限相关章节",
+      "anchor": "xgboost.pdf.txt",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供在正则化树提升框架中累加回归树，并改进分裂与稀疏数据处理。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "代码或作者实现：https://github.com/dmlc/xgboost"
+        ],
+        [
+          "对应本案例",
+          "试验预算有限时，怎样在允许范围内顺序寻找较高穿深的参数组合？ 从少量已评估点拟合高斯过程后验，再用期望改进EI选择下一点。EI同时考虑均值改善与不确定性；每完成一次模拟评估，观测集合与后验随之更新。预算表示模拟函数调用次数，不是实际靶试数量。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "ai-xgb-fig1.png",
+          "number": "Chen与Guestrin（2016），图1：树集成加和",
+          "label": "Chen与Guestrin（2016），图1：树集成加和",
+          "url": "https://arxiv.org/pdf/1603.02754",
+          "explanation": "每棵树将输入送入一个叶节点，最终预测为叶分数之和加初始值。原图示例对象与本站穿深数据不同，结构原理相同。",
+          "width": 613,
+          "height": 275
+        }
+      ],
+      "citation": "Tianqi Chen, Carlos Guestrin. XGBoost. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining , 785-794 (2016). https://doi.org/10.1145/2939672.2939785",
+      "source_url": "https://doi.org/10.1145/2939672.2939785",
+      "url": "https://doi.org/10.1145/2939672.2939785",
+      "repository": "https://github.com/dmlc/xgboost",
+      "refNumber": 13
+    },
+    {
+      "id": "ND13",
+      "doi": "10.1007/s12145-023-01014-7",
+      "author": "Yunxin Xie et al.",
+      "title": "BO岩性学习",
+      "referenceTitle": "A semi-supervised coarse-to-fine approach with bayesian optimization for lithology identification",
+      "label": "BO岩性学习 · 2023",
+      "year": 2023,
+      "category": "ai",
+      "source_type": "研究论文",
+      "isAI": true,
+      "question": "这项来源怎样支持BO岩性学习？",
+      "method": "结合半监督学习和贝叶斯优化研究岩性识别。",
+      "result": "提供上述方法、工程研究或数据组织依据；本站训练、优化与测试结果另行计算，不移用原文成绩。",
+      "contribution": "用于区分数据来源、算法机制与独立验证的作用。",
+      "limitations": "其优化对象是模型与岩性任务，不是商业射孔弹产品目录。",
+      "access": "Crossref元数据及出版商公开摘要；未补写不可核验的模型参数或性能",
+      "anchor": "Crossref作品元数据与原始来源摘要",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供结合半监督学习和贝叶斯优化研究岩性识别。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "按原始文献的方法、图表与条件核对；未发现可直接使用的完整作者训练仓库。"
+        ],
+        [
+          "对应本案例",
+          "试验预算有限时，怎样在允许范围内顺序寻找较高穿深的参数组合？ 从少量已评估点拟合高斯过程后验，再用期望改进EI选择下一点。EI同时考虑均值改善与不确定性；每完成一次模拟评估，观测集合与后验随之更新。预算表示模拟函数调用次数，不是实际靶试数量。"
+        ]
+      ],
+      "figures": [],
+      "citation": "Yunxin Xie, Liangyu Jin, Chenyang Zhu, Siyu Wu. A semi-supervised coarse-to-fine approach with bayesian optimization for lithology identification. Earth Science Informatics 16, 2285-2305 (2023). https://doi.org/10.1007/s12145-023-01014-7",
+      "source_url": "https://doi.org/10.1007/s12145-023-01014-7",
+      "url": "https://doi.org/10.1007/s12145-023-01014-7",
+      "repository": "",
+      "refNumber": 14
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "label": "数据与标签",
+      "title": "怎样取得适合该任务的观测与标签？",
+      "category": "question",
+      "isGap": true,
+      "x": 700,
+      "y": 270,
+      "image": "selection.png",
+      "question": "部分产品规格和靶试结果公开，跨厂商同条件对比及井下适配记录较分散，需要整理规则、单位和试验条件。",
+      "method": "统一输入、输出定义和单位，保留每条记录的来源及工况。",
+      "remaining": "当前演示资料与研究文献的数据分开，实际研究需核对可获取记录。",
+      "related": [
+        "P03",
+        "P05",
+        "P08",
+        "P11",
+        "P17",
+        "G03",
+        "G04",
+        "G05",
+        "M01"
+      ],
+      "status": "本组研究尚需补充的验证"
+    },
+    {
+      "id": "Q2",
+      "label": "独立验证",
+      "title": "怎样判断方法能否用于新的工程条件？",
+      "category": "question",
+      "isGap": true,
+      "x": 700,
+      "y": 450,
+      "image": "selection.png",
+      "question": "相邻采样、同井或同批记录可能包含共享条件。",
+      "method": "按井、批次或工况留出，采用对应的观测指标检验。",
+      "remaining": "本组文献涉及不同模型与观测条件，尚不能直接汇总成统一精度。",
+      "related": [
+        "P03",
+        "P05",
+        "P08",
+        "P11",
+        "P17",
+        "G03",
+        "G04",
+        "G05",
+        "M01"
+      ],
+      "status": "本组研究尚需补充的验证"
+    },
+    {
+      "id": "Q3",
+      "label": "应用与复核",
+      "title": "怎样把模型输出转为工程依据？",
+      "category": "question",
+      "isGap": true,
+      "x": 700,
+      "y": 630,
+      "image": "selection.png",
+      "question": "射孔弹型选择需同时考虑岩性、套管条件、完井方式和作业要求。适配性决定能否进入候选集，穿深、入口孔径及成本等指标用于比较合格候选。器材适配条件应有可追溯依据。",
+      "method": "保留输入、方法、输出与验证过程，并用独立观测复核。",
+      "remaining": "本站演示保留既有数据与算法，研究结果需结合各文献适用条件阅读。",
+      "related": [
+        "P03",
+        "P05",
+        "P08",
+        "P11",
+        "P17",
+        "G03",
+        "G04",
+        "G05",
+        "M01"
+      ],
+      "status": "本组研究尚需补充的验证"
+    }
+  ],
+  "relations": [
+    [
+      "P03",
+      "P08",
+      "theme",
+      "均讨论几何与产能，但2019年研究采用孔道摩阻和长度取舍准则。"
+    ],
+    [
+      "P17",
+      "P11",
+      "theme",
+      "分别采用响应面设计与拟三维多簇模拟分析射孔参数；两篇的数据和模型独立。"
+    ],
+    [
+      "P03",
+      "NA04",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P03",
+      "NA17",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P03",
+      "NA03",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P03",
+      "NA02",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P03",
+      "ND13",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ]
+  ],
+  "scenes": {
+    "all": {
+      "name": "从器材性能到工况适配",
+      "image": "selection.png",
+      "caption": "射孔弹型智能选型相关工程结构与参数示意",
+      "desc": "射孔弹型选择需同时考虑岩性、套管条件、完井方式和作业要求。适配性决定能否进入候选集，穿深、入口孔径及成本等指标用于比较合格候选。器材适配条件应有可追溯依据。"
+    },
+    "productivity": {
+      "name": "流动目标",
+      "image": "../papermap/paper-figures/P08-fig1.png",
+      "caption": "李进等（2019），原文图1",
+      "desc": "按研究问题阅读本组文献，比较输入条件、输出定义、验证方式及仍需补充的证据。"
+    },
+    "cleanup": {
+      "name": "器材与试验",
+      "image": "../papermap/paper-figures/G03-model.png",
+      "caption": "Liang, Zhao & Jin（2024），原文图 3",
+      "desc": "按研究问题阅读本组文献，比较输入条件、输出定义、验证方式及仍需补充的证据。"
+    },
+    "allocation": {
+      "name": "多指标设计",
+      "image": "../papermap/paper-figures/P11-fig1.jpg",
+      "caption": "Liu et al.（2024），原文图1",
+      "desc": "按研究问题阅读本组文献，比较输入条件、输出定义、验证方式及仍需补充的证据。"
+    },
+    "ai": {
+      "name": "智能算法与复现",
+      "image": "../perf-ai/figures/gp-fig2.png",
+      "caption": "Rasmussen与Williams（2006），图2.2：GP先验与后验",
+      "desc": "从少量已评估点拟合高斯过程后验，再用期望改进EI选择下一点。EI同时考虑均值改善与不确定性；每完成一次模拟评估，观测集合与后验随之更新。预算表示模拟函数调用次数，不是实际靶试数量。"
+    }
+  }
+}

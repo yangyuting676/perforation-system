@@ -1,0 +1,35 @@
+{
+  "source": "Liu et al. (2021), DOI:10.1371/journal.pone.0255793, Tables 2–3, Eq.15",
+  "raw_data": "../dataset.json",
+  "raw_sha256": "07bfb22bca08b4882c325787f6996c317c32b771b0b380e94aaa634ab2f4943e",
+  "medium": "web teaching figures; no journal submission target",
+  "design_plot": "Three orthogonal a–b slices at c=-1,0,+1. Identical design positions grouped and explicitly counted; no jitter.",
+  "diagnostics": "All 17 rows; parity axes equal aspect and limits [-30,60]; residual limits [-15,15] identical across models.",
+  "web_panels": "Individual web panels are exported with each axes tight bounds plus 0.02 inch padding; web images scale responsively.",
+  "overlap": "Exact parity coordinate overlaps use point area proportional to row count, labelled ×4. All residual rows shown individually.",
+  "uncertainty": "No uncertainty intervals estimated. Replicated parameter rows are not asserted to be independent experiments.",
+  "transformations": [
+    "coding exactly as Table 2",
+    "paper physical polynomial or full quadratic OLS refit",
+    "residual = prediction - source response"
+  ],
+  "matplotlib": "3.10.1",
+  "metrics": {
+    "paper": {
+      "r2": 0.9363983613096752,
+      "mae_m": 3.579788235294118,
+      "rmse_m": 5.084305920355768
+    },
+    "refit": {
+      "r2": 0.9382008643726528,
+      "mae_m": 3.6644735294117643,
+      "rmse_m": 5.01174218298153
+    }
+  },
+  "overview": {
+    "purpose": "single-screen web overview",
+    "design": "all 13 positions in three c slices, repeated center counted ×5; record ids available in sample sheet and raw data dialog",
+    "diagnostics": "all 17 rows; common limits and overlap count retained; no filtering or jitter",
+    "source": "绘图源码/draw_overview_figures.py"
+  }
+}

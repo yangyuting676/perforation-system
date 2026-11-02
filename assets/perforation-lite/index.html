@@ -1,0 +1,493 @@
+<!doctype html><script src="../core/media-assets.js?v=media-20261031"></script><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>射孔参数优化：文献响应面与整数方案优选</title><style>:root{font-family:"Microsoft YaHei","Segoe UI",sans-serif;color:#203f4c;background:#f5f8fa;font-size:14px;line-height:1.8}*{box-sizing:border-box}html,body{margin:0;height:auto;min-height:0;overflow:hidden}main{padding:24px;max-width:1400px;margin:auto}header{padding:8px 2px 18px}.eyebrow{font-size:11px;letter-spacing:2px;color:#60818e}h1{font-size:27px;margin:8px 0}h2{font-size:19px;margin:0 0 16px}h3{font-size:16px;margin:24px 0 10px}p{margin:10px 0;color:#506875}nav,.buttons,.search-controls{display:flex;gap:9px;flex-wrap:wrap}nav{padding:12px 0 18px;border-bottom:1px solid #d8e4e9}button,select{font:inherit;border:1px solid #c6d9df;background:white;color:#285b6b;border-radius:7px;padding:9px 13px;cursor:pointer}button:hover,button:focus-visible{border-color:#177d75;outline:2px solid #b9dfd9;outline-offset:2px}nav button.active{color:white;background:#247f76;border-color:#247f76}.model-choice{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;padding:16px 0;font-size:12px;color:#627b86}article,aside{background:white;border:1px solid #d5e2e8;border-radius:13px;padding:22px;min-width:0}.engineering-grid{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px}aside{background:#edf5f4}aside label{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px;font-weight:600;margin:18px 0 6px}aside b{color:#148278}aside input{width:100%;accent-color:#187f76}aside p{font-size:12px;line-height:1.8;margin:7px 0 20px}aside .buttons{margin-top:20px}aside button{width:100%;font-size:12px}.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.kpis>div{background:#eef5f7;border-radius:9px;padding:14px;min-width:0}.kpis small{font-size:12px;color:#627b86;display:block}.kpis strong{font-size:24px;line-height:1.5;display:block;color:#166d68;overflow-wrap:anywhere}.kpis strong small{display:inline}.caption{font-size:12px;color:#687e89;line-height:1.9}.current-note{padding:12px 15px;background:#e9f4ef;border-left:3px solid #2b8b77;font-size:13px}.surface-card{margin-top:18px}.section-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}.section-top span{font-size:13px;color:#456977}svg{display:block;width:100%;height:auto;max-width:100%}svg text{font-family:inherit}.surface-hit{cursor:pointer}.surface-hit:hover{stroke:#082f3e;stroke-width:2}.formula{background:#edf5f5;padding:18px;border-radius:8px;font-family:Georgia,"Microsoft YaHei",serif;line-height:2.3;overflow-wrap:anywhere}.table-wrap{width:100%;overflow:visible}table{border-collapse:collapse;width:100%;margin:14px 0;font-size:12px;table-layout:fixed}th,td{padding:10px 6px;text-align:right;border-bottom:1px solid #dce6eb;overflow-wrap:anywhere}th{background:#eff5f7;color:#365b6b;font-weight:600}th:first-child,td:first-child{text-align:left}tr.is-selected{background:#e3f2eb}.source-summary{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:18px 0}.source-summary span{padding:10px;background:#edf4f7;border-radius:6px;font-size:12px}a{color:#237e79}details{margin:20px 0;border-top:1px solid #d9e4e8;padding-top:14px}summary{cursor:pointer;color:#276b78}.search-controls{align-items:center;margin:18px 0}.search-controls label{font-size:13px}.search-controls select{padding:7px}.task-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:22px 0}.task-flow button{position:relative;display:grid;gap:10px;text-align:left;padding:14px;min-width:0}.task-flow button.active{background:#e2f1ec;border-color:#248675}.task-flow svg{height:50px}.task-flow strong{font-size:14px}.task-flow small{color:#6a818c;font-size:11px}.flow-info{padding:20px;background:#f0f6f8;border-radius:10px}.flow-info dl{display:grid;grid-template-columns:90px 1fr;gap:9px}.flow-info dt{font-weight:600;color:#276a76}.flow-info dd{margin:0}body[data-flow="true"] header,body[data-flow="true"] nav,body[data-flow="true"] .model-choice{display:none}@media(max-width:800px){.engineering-grid{grid-template-columns:1fr}aside{display:grid;grid-template-columns:1fr;gap:0}aside p{margin-bottom:8px}.kpis strong{font-size:21px}.task-flow{grid-template-columns:1fr 1fr}.task-flow button:last-child{grid-column:1/-1}}@media(max-width:500px){main{padding:15px}article,aside{padding:16px}h1{font-size:23px}.kpis{gap:6px}.kpis>div{padding:10px}.kpis strong{font-size:18px}table{font-size:10px}th,td{padding:8px 3px}.source-summary{grid-template-columns:1fr}.task-flow{grid-template-columns:1fr}.task-flow button:last-child{grid-column:auto}.flow-info dl{grid-template-columns:1fr}.flow-info dt{margin-top:10px}}
+.task-flow button:not(:last-child)::after{content:'→';position:absolute;right:-13px;top:42%;z-index:2;color:#4d8c80;font-size:22px;background:white;line-height:1}@media(max-width:800px){.task-flow{grid-template-columns:1fr}.task-flow button{grid-template-columns:35px 95px 1fr;align-items:center;gap:7px 12px}.task-flow button>svg{grid-column:2;grid-row:1/3}.task-flow button>strong{grid-column:3}.task-flow button>small:last-child{grid-column:3}.task-flow button:not(:last-child)::after{content:'↓';right:48%;top:auto;bottom:-15px}}
+
+/* Presentation layer. The original data and numerical app remain unchanged. */
+[hidden]{display:none!important}
+:root{--lab-height:680px;font-size:13px}main{height:var(--lab-height);padding:15px 18px;display:flex;flex-direction:column;gap:9px;overflow:hidden}header{padding:0;flex:none}header .eyebrow{font-size:9px}h1{font-size:23px;line-height:1.4;margin:3px 0}header p{margin:3px 0;font-size:12px}nav{padding:2px 0 9px;gap:7px;flex:none}nav button{padding:6px 12px;font-size:12px}.model-choice{padding:0;gap:8px;flex:none}.model-choice select{padding:4px 8px}.model-choice>span{font-size:10px}.view{min-height:0;flex:1}.view[hidden]{display:none!important}.engineering-grid{height:100%;grid-template-columns:192px minmax(0,1fr);gap:12px}article,aside{padding:15px;border-radius:11px}h2{font-size:16px;margin:0 0 10px}aside{display:flex;flex-direction:column;gap:0;background:linear-gradient(155deg,#edf7f3,#f2f6fa)}aside label{font-size:12px;margin:12px 0 4px;line-height:1.5}aside b{font-size:16px}aside p{font-size:11px;line-height:1.7;margin:4px 0 7px}aside .buttons{margin-top:auto;gap:7px}aside button{padding:6px 8px}.help-link{border:0;background:transparent;padding:0;color:#277f78;font-size:11px;text-align:left;width:auto;text-decoration:underline;text-underline-offset:3px}.visual-workspace{display:flex;flex-direction:column;gap:5px;overflow:hidden;padding:13px 15px}.visual-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex:none}.visual-heading h2{margin:0}.visual-switch{display:flex;gap:4px;padding:3px;border-radius:7px;background:#edf4f5}.visual-switch button{padding:4px 9px;font-size:11px;border:0;background:transparent}.visual-switch button.active{background:white;box-shadow:0 1px 5px #203e4820;color:#176f66}.viz-stage{min-height:0;flex:1;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 35%,#fff,#f1f5f5);border:1px solid #e3ebed;border-radius:9px;overflow:hidden}.viz-stage>div{height:100%;width:100%;min-height:0}.viz-stage svg{height:100%;width:100%;object-fit:contain}.viz-stage .surface-card{padding:5px;background:transparent;border:0;margin:0;height:100%;display:flex;flex-direction:column}.surface-card .section-top h2{display:none}.surface-card .section-top{font-size:10px;flex:none;justify-content:center}.surface-card #surface{flex:1;min-height:0}.surface-card .caption{display:none}.surface-card #surface svg{height:100%}.kpis{margin:2px 0;gap:8px;flex:none}.kpis>div{padding:7px 10px;border-radius:7px}.kpis small{font-size:10px}.kpis strong{font-size:22px;line-height:1.3;font-variant-numeric:tabular-nums}.difference-panel{height:92px;flex:none;border:1px solid #e1e9e9;border-radius:8px;background:#fcfdfd}.difference-panel svg{height:100%;width:100%}.current-note{margin:0;padding:6px 9px;font-size:11px;line-height:1.6;flex:none}.visual-workspace>.caption{font-size:10px;line-height:1.5;margin:0;flex:none}.reader-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.reader-bar button{padding:5px 10px;font-size:11px}.view>article{height:100%;overflow:auto;scrollbar-width:thin}.view>article>h2{margin-bottom:6px}.view>article>p{margin:6px 0}.formula{padding:10px 13px;font-size:12px;line-height:1.9}.view>article .kpis{margin:10px 0}.view>article h3{margin:11px 0 5px}.view>article table{margin:5px 0;font-size:11px}.view>article td,.view>article th{padding:6px}.source-summary{margin:8px 0}.source-summary span{padding:6px 9px}.search-controls{margin:9px 0}.search-controls select{padding:3px 6px}.search-controls button{padding:5px 10px}.source-summary+p,.source-summary+p+p{font-size:12px;line-height:1.65}.reading-dialog{border:1px solid #cfdddf;border-radius:13px;padding:0;width:calc(100% - 30px);max-width:1000px;max-height:calc(var(--lab-height) - 30px);color:#24424d;background:#fbfdfd;box-shadow:0 20px 70px #14364340}.reading-dialog::backdrop{background:#173b4c85;backdrop-filter:blur(4px)}.reader-heading{position:sticky;top:0;background:#f7faf9;display:flex;justify-content:space-between;align-items:center;padding:15px 19px;border-bottom:1px solid #dae6e5;z-index:1}.reader-heading h2{margin:0;font-size:18px}.reader-heading button{padding:3px 11px}.reader-content{padding:18px 23px;line-height:1.9}.reader-content h3{color:#246c67;margin-top:15px}.reader-content p{color:#476571;margin:8px 0}.reader-content ol{padding-left:22px}.reader-content .term{padding:11px 14px;background:#edf5f3;border-radius:8px;margin:11px 0}.reader-content table{font-size:12px}.reading-dialog svg{max-height:190px}.live-flash{animation:live-flash .35s ease-out}@keyframes live-flash{from{background:#d4eddf}to{background:#eef5f7}}@media(prefers-reduced-motion:reduce){.live-flash{animation:none}}
+@media(max-width:700px){main{padding:11px;gap:7px}header .eyebrow{display:none}h1{font-size:20px}header p{font-size:11px}.model-choice>span{display:none}.engineering-grid{grid-template-columns:168px minmax(0,1fr);gap:9px}article,aside{padding:11px}.visual-workspace{padding:10px;gap:5px}.visual-heading{flex-wrap:wrap;gap:5px}.visual-heading h2{font-size:14px}.kpis strong{font-size:18px}.kpis small{font-size:9px}.kpis>div{padding:7px}.difference-panel{height:82px}aside h2{font-size:15px}aside label{margin-top:10px}.visual-workspace>.caption{display:none}}
+@media(max-width:500px){main{padding:9px}h1{font-size:18px}header p{display:none}nav{gap:4px;padding:1px 0 6px}nav button{padding:5px 8px;font-size:11px}.engineering-grid{display:flex;flex-direction:column;gap:7px}aside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:8px;flex:none}aside h2,aside p{display:none}.parameter-block{min-width:0}aside label{display:block;font-size:10px;margin:0 0 3px}aside b{font-size:15px;display:block}aside input{margin:3px 0}.help-link{font-size:10px}aside .buttons{grid-column:1/-1;display:flex;flex-wrap:nowrap;margin:0}aside .buttons button{font-size:10px;padding:4px}.visual-workspace{flex:1;min-height:0}.visual-heading{flex-wrap:nowrap}.visual-heading h2{font-size:12px}.visual-switch button{padding:4px 6px;font-size:10px}.kpis strong{font-size:17px}.difference-panel{height:72px}.current-note{font-size:10px}.reader-content{padding:13px 16px}.source-summary{grid-template-columns:1fr 1fr}.view>article>p{font-size:11px}}
+
+.engineering-grid{min-height:0;grid-template-rows:minmax(0,1fr)}.engineering-grid>aside,.engineering-grid>article{min-height:0;max-height:100%;overflow:hidden}aside label{margin:7px 0 3px}aside p{font-size:10px;line-height:1.6;margin:3px 0 5px}aside h2{margin-bottom:3px}aside .buttons{gap:5px}aside .buttons>button{padding:5px 7px;line-height:1.5}aside .reader-bar{width:100%}aside .reader-bar button{width:100%;padding:4px;font-size:10px}aside .parameter-block{flex:none}aside input{margin:3px 0}.help-link{line-height:1.5}.visual-workspace .viz-stage{flex-basis:0}.visual-workspace .kpis{margin:0}
+@media(max-height:670px){header p,header .eyebrow{display:none}h1{font-size:20px;margin:0}aside p{display:none}main{gap:7px}.visual-workspace>.caption{display:none}}
+@media(max-width:700px){aside p{display:none}}
+
+.mode-surface .difference-panel{display:none}.mode-surface .surface-card .section-top span{font-size:11px}.mode-surface .viz-stage{min-height:200px}#view-optimize .caption{display:none}#view-optimize #candidates td,#view-optimize #candidates th{padding:4px;font-size:10px}#view-optimize #candidates button{padding:3px 7px;font-size:10px}#view-optimize .current-note{font-size:11px;line-height:1.6}#view-model .caption{font-size:10px;line-height:1.55}#view-model .kpis strong{font-size:19px}#view-model article>button,#view-data article>button,#view-optimize article>button{font-size:11px;padding:5px 10px;margin:5px 6px 0 0}
+
+header p{display:block!important;font-size:12px;line-height:1.65;color:#3c5e6c;max-width:none;margin:5px 0 2px}.model-choice>span{display:block!important;color:#297b70;font-size:11px}.live-reading{font-size:11px;line-height:1.6;color:#2b5967;background:#f0f6f8;border-radius:6px;padding:7px 10px;margin:0;flex:none}.visual-workspace>.caption{display:none!important}.difference-panel{height:76px}.current-note{font-size:10px;padding:5px 9px}.view>article{overflow:visible;scrollbar-width:none}.paged-article{display:flex;flex-direction:column;min-height:0;gap:7px}.reading-intro{flex:none}.reading-intro>h2{margin:0 0 5px}.reading-intro>p{font-size:12px;line-height:1.7;margin:0}.reading-page{flex:1;min-height:0;display:flow-root;overflow:visible}.reading-storage[hidden]{display:none!important}.reading-pages{display:flex;justify-content:space-between;align-items:center;gap:10px;flex:none;border-top:1px solid #dce7e8;padding:7px 0 0;font-size:11px;color:#5b7683}.reading-pages button{padding:5px 12px;font-size:11px}.reading-pages button:disabled{opacity:.4;cursor:default}.reading-block h3{margin:7px 0}.reading-block p{font-size:12px;line-height:1.8}.reading-dialog{height:calc(var(--lab-height) - 24px);max-height:none;overflow:visible}.reading-dialog[open]{display:flex;flex-direction:column}.reader-heading{flex:none;position:static;padding:11px 16px}.reader-heading h2{font-size:16px}.reader-content{flex:1;min-height:0;display:flex;flex-direction:column;padding:12px 18px;overflow:visible}.reading-dialog>.reading-pages{margin:0 18px;padding:8px 0 11px}.reader-content p{font-size:12px;line-height:1.9}.reader-content h3{font-size:15px;margin:7px 0}.reader-content .reading-page{width:100%}.reader-content table{margin:7px 0}.reader-content td,.reader-content th{padding:8px 5px}.reader-content ol{font-size:12px;line-height:1.9}.reading-page button{font-size:11px;padding:5px 10px}.reading-page details{margin:9px 0;padding-top:7px}.reading-page .source-summary{margin:7px 0}.reading-page .buttons{gap:6px}.reading-intro p{color:#4a6875}.paged-article .formula{padding:9px 12px}.paged-article .kpis{margin:7px 0}.live-reading b{color:#16776a}
+@media(max-width:700px){header p{font-size:11px}.model-choice>span{font-size:10px}.visual-heading h2{font-size:13px}.live-reading{font-size:10px;padding:5px 8px}.difference-panel{height:66px}aside .buttons>button{font-size:11px}aside label{margin-top:4px}aside b{font-size:15px}.visual-workspace{gap:4px}.reading-intro>p{font-size:11px}.reader-content{padding:10px 14px}.reader-content p{font-size:12px}.reader-heading h2{font-size:15px}}
+@media(max-width:500px){header p{font-size:10px;line-height:1.6}.model-choice{gap:3px}.model-choice>span{font-size:10px}.live-reading{font-size:10px}.difference-panel{height:58px}.visual-heading h2{font-size:11px}.reading-intro>p{font-size:11px}.reader-content td,.reader-content th{font-size:10px;padding:7px 3px}}
+
+header p{font-size:12px!important;line-height:1.7;max-width:none}.live-reading{font-size:11px!important;line-height:1.7}.model-choice>span{font-size:11px!important}
+
+header h1{font-size:21px}header .eyebrow{display:none}.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:9px;margin:5px 0 2px}.lesson-row>strong{font-size:13px;color:#226d65}.lesson-row>div{display:flex;align-items:center;gap:6px;flex-shrink:0}.lesson-row button{font-size:11px;padding:3px 8px;line-height:1.5}.lesson-row span{font-size:11px;color:#6b838a}.lesson-row button:disabled{opacity:.35;cursor:default}header p{margin:3px 0!important;font-size:12px!important;line-height:1.65;max-width:none}nav{padding:2px 0 6px}.model-choice>span{display:none!important}main{gap:7px}.visual-heading{gap:7px}.visual-heading h2{font-size:14px;white-space:nowrap}.total-chip{display:flex;gap:4px;align-items:baseline;font-size:11px;white-space:nowrap}.total-chip strong{font-size:15px;color:#236d69}.total-chip small{font-size:10px;color:#68828b}.visual-switch{margin-left:auto}.visual-switch button{font-size:11px}.result-row{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:8px;flex:none;height:60px}.result-row .kpis{display:grid;grid-template-columns:1fr 1fr;margin:0!important;gap:6px}.result-row .kpis>div{padding:7px 9px}.result-row .kpis strong{font-size:20px;white-space:nowrap}.result-row .kpis small{font-size:11px}.difference-panel{height:auto!important;min-width:0;padding:7px 10px;display:flex;flex-direction:column;justify-content:space-between}.ruler-heading{display:flex;justify-content:space-between;gap:5px;font-size:10px;color:#557781;white-space:nowrap}.ruler-track{position:relative;background:linear-gradient(90deg,#e5d5bd,#e2f2e9 50%,#e5d5bd);height:11px;border-radius:8px;margin:5px 4px 3px}.ruler-track i{position:absolute;display:block}.ruler-fill{height:11px;background:#b67c48;border-radius:8px}.ruler-zero{left:50%;top:-4px;height:19px;border-left:1px solid #4e8d82}.ruler-baseline{top:-5px;height:21px;border-left:2px dashed #8e9b9f}.ruler-current{width:11px;height:11px;border-radius:50%;border:2px solid white;background:#175d6a;transform:translateX(-50%);top:0;box-shadow:0 0 0 1px #175d6a}.ruler-ticks{display:flex;justify-content:space-between;font-size:11px;color:#476673;line-height:1.1}.visual-workspace #change{display:none}.live-reading{font-size:12px!important;line-height:1.6;padding:7px 10px}.viz-stage #cluster-art{display:flex;flex-direction:column;gap:4px;padding:5px 6px}.cluster-labels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;flex:none}.cluster-labels>div{display:flex;justify-content:center;align-items:baseline;gap:7px;color:#246d70;font-size:13px}.cluster-labels .middle{color:#a76332}.cluster-labels b{font-size:13px}.cluster-labels span{white-space:nowrap}.viz-stage #cluster-art>svg{flex:1;min-height:0;height:0;width:100%}.mode-surface .viz-stage{min-height:0!important}.mode-surface .difference-panel{display:flex}.mode-surface .section-top span{font-size:12px!important}.surface-card #surface{overflow:visible}.visual-workspace>.caption{display:none!important}
+@media(min-width:701px){nav{display:flex;align-items:center;flex-wrap:wrap}nav .model-choice{margin-left:auto}nav .model-choice label{font-size:11px}nav .model-choice select{font-size:11px}}
+@media(max-width:900px){.engineering-grid{display:flex;flex-direction:column;gap:7px}.engineering-grid>aside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 12px;flex:none;padding:8px 11px}.engineering-grid>aside h2,.engineering-grid>aside p{display:none}.parameter-block{min-width:0}.engineering-grid>aside label{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:nowrap;font-size:11px;margin:0 0 1px;line-height:1.5}.engineering-grid>aside b{font-size:16px;white-space:nowrap}.engineering-grid>aside input{margin:2px 0;width:100%;display:block}.engineering-grid>aside .help-link{font-size:10px;line-height:1.2}.engineering-grid>aside .buttons{grid-column:1/-1;display:flex;flex-wrap:nowrap;gap:7px;margin:2px 0 0}.engineering-grid>aside .buttons>button,.engineering-grid>aside .reader-bar{width:auto;flex:1}.engineering-grid>aside .reader-bar button{font-size:10px;padding:3px 5px;width:100%}.engineering-grid>aside .buttons>button{font-size:10px;padding:3px 5px}.engineering-grid>.visual-workspace{flex:1;min-height:0;padding:9px 11px}.result-row{height:54px}.result-row .kpis strong{font-size:18px}.result-row .kpis small{font-size:10px}.result-row .kpis>div{padding:6px 8px}.live-reading{font-size:11px!important;padding:5px 8px}.cluster-labels>div{font-size:12px;gap:5px}.cluster-labels b{font-size:12px}.model-choice{display:none}nav .model-choice{display:flex}.visual-heading h2{font-size:13px}}
+@media(max-width:700px){header h1{font-size:19px;margin:0}.lesson-row{margin:3px 0 1px}.lesson-row>strong{font-size:12px}.lesson-row button{font-size:10px;padding:3px 6px}.lesson-row>div{gap:4px}header p{font-size:11px!important;line-height:1.6}nav{flex-wrap:nowrap;gap:5px}nav button{font-size:11px;padding:5px 8px}nav .model-choice{margin-left:auto}nav .model-choice label{font-size:0}nav .model-choice select{font-size:10px;max-width:155px;padding:4px}.visual-heading{gap:6px}.total-chip{font-size:10px}.total-chip strong{font-size:13px}.visual-switch button{font-size:10px;padding:4px 6px}.ruler-heading{font-size:9px}.ruler-ticks{font-size:10px}}
+@media(max-width:500px){main{padding:8px}.lesson-row{align-items:start}.lesson-row>strong{font-size:11px;line-height:1.5;max-width:44%}.lesson-row button{padding:3px 5px}.lesson-row #lesson-prev{display:none}.lesson-row span{font-size:10px}.lesson-row>div{gap:3px}nav{flex-wrap:wrap;gap:4px}nav .model-choice{margin:0}nav .model-choice select{max-width:125px}.engineering-grid>aside{gap:3px 7px;padding:6px 8px}.engineering-grid>aside label{display:block;font-size:10px}.engineering-grid>aside b{display:block;font-size:14px}.engineering-grid>aside .buttons{gap:4px}.cluster-labels>div{display:block;text-align:center;font-size:11px}.cluster-labels b{display:block;font-size:12px}.visual-heading h2{font-size:11px}.total-chip small{display:none}.result-row{grid-template-columns:1.15fr 1fr;gap:5px;height:54px}.result-row .kpis>div{padding:5px}.result-row .kpis strong{font-size:15px}.result-row .kpis small{font-size:9px}.ruler-heading span:last-child{display:none}.difference-panel{padding:6px}.live-reading{font-size:10px!important}.visual-workspace{gap:4px}}
+
+.teaching-map{display:grid;grid-template-columns:28px minmax(0,1fr) 80px;grid-template-rows:minmax(0,1fr) 20px;gap:5px 10px;width:100%;height:100%;padding:5px}.map-y{position:relative;grid-column:1;grid-row:1}.map-y span{position:absolute;right:0;transform:translateY(-50%);font-size:12px;color:#294f60}.map-x{position:relative;grid-column:2;grid-row:2}.map-x span{position:absolute;transform:translateX(-50%);font-size:12px;color:#294f60}.map-plot{position:relative;grid-column:2;grid-row:1;min-height:0;border:1px solid #d1e0e3}.map-plot svg{width:100%;height:100%;display:block}.map-plot svg path{vector-effect:non-scaling-stroke}.map-cursor{position:absolute;width:13px;height:13px;border:2px solid #183b4d;background:#fff6;border-radius:50%;outline:2px solid white;transform:translate(-50%,-50%);z-index:1;pointer-events:none}.map-legend{grid-column:3;grid-row:1;display:flex;flex-direction:column;justify-content:space-between;padding:1px 0}.map-legend>div{display:flex;align-items:center;gap:7px;font-size:12px;line-height:1.2;white-space:nowrap;color:#355d6b}.map-legend i{width:16px;height:14px;border-radius:3px;flex:none}.surface-card #surface{display:flex}.map-legend:before{content:'|ΔL|';font-size:12px;font-weight:600;color:#285965}.mode-surface .section-top span{font-size:11px!important}@media(max-width:500px){.teaching-map{grid-template-columns:23px minmax(0,1fr) 61px;gap:4px 7px;padding:3px}.map-legend>div{font-size:10px;gap:4px}.map-legend i{width:12px;height:11px}.map-x span,.map-y span{font-size:11px}.map-legend:before{font-size:11px}.mode-surface .section-top span{font-size:10px!important}}
+
+@media(min-width:600px) and (max-width:900px){.engineering-grid{display:grid;grid-template-columns:164px minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:9px}.engineering-grid>aside{display:flex;flex-direction:column;gap:0;padding:11px}.engineering-grid>aside h2{display:block;font-size:13px;margin-bottom:6px}.engineering-grid>aside label{display:flex;flex-wrap:wrap;gap:2px;font-size:12px;margin:9px 0 4px}.engineering-grid>aside b{font-size:16px}.engineering-grid>aside input{margin:5px 0}.engineering-grid>aside .help-link{font-size:11px;line-height:1.5}.engineering-grid>aside .buttons{display:flex;flex-direction:column;gap:6px;margin-top:auto;flex-wrap:nowrap}.engineering-grid>aside .buttons>button,.engineering-grid>aside .reader-bar{width:100%;flex:none}.engineering-grid>aside .buttons>button{font-size:11px;padding:5px}.engineering-grid>aside .reader-bar button{font-size:11px;padding:5px}.cluster-labels>div{display:block;text-align:center;font-size:12px}.cluster-labels b{display:block;font-size:13px}.visual-heading{flex-wrap:wrap}.visual-heading h2{font-size:13px}.visual-switch{margin-left:auto}.result-row .kpis strong{font-size:17px}.result-row .kpis small{font-size:10px}.ruler-heading span:last-child{display:none}.live-reading{font-size:11px!important}.viz-stage #cluster-art{padding:7px 3px}.result-row{gap:6px}.total-chip{margin-left:auto}}
+
+.viz-stage #cluster-art>svg{overflow:hidden!important}.reader-content p{font-size:14px;line-height:1.9}.reader-content h3{font-size:16px}.reader-content ol{font-size:14px;line-height:1.9}@media(min-width:600px){.ruler-heading span:last-child{display:inline!important}.ruler-heading{font-size:10px}.ruler-ticks{font-size:11px}}
+
+.map-plot svg{overflow:hidden!important}
+</style></head><body><main>
+<header><div class="eyebrow">PERFORATION DESIGN · LIU ET AL., 2021</div><h1>三簇射孔参数与裂缝均衡</h1><p>调整孔数与孔径，观察响应面预测的簇间缝长差，再筛选均衡偏差较小的整数方案。</p></header>
+<nav aria-label="案例内部视图"><button data-view="engineering">工程演示</button><button data-view="model">响应面模型</button><button data-view="optimize">参数优选</button><button data-view="data">文献与数据</button></nav>
+<div class="model-choice"><label>计算方法 <select id="model"><option value="paper">文献响应面 · 式(15)</option><option value="refit">根据表3重新拟合</option></select></label><span>3个设计变量 · 13种参数组合 · 17组数值算例</span></div>
+<section id="view-engineering" class="view"><div class="engineering-grid"><aside><h2>设计参数</h2><label for="a">中间簇孔数 A <b id="a-value"></b></label><input id="a" type="range" min="4" max="20" value="12" step="1"><p>调整中间簇的孔眼数量，改变该簇入口阻力。</p><label for="b">两侧各簇孔数 B <b id="b-value"></b></label><input id="b" type="range" min="4" max="20" value="12" step="1"><p>两侧簇采用相同孔数，观察它们与中间簇的配合。</p><label for="c">中间簇孔径 C <b id="c-value"></b></label><input id="c" type="range" min="6" max="18" value="12" step="1"><p>两侧孔径保持文献基准12 mm，改变中间簇开口尺寸。</p><div class="buttons"><button id="baseline">基准 12 / 12 / 12</button><button id="reference">文献方案 15 / 7 / 15</button></div></aside><article><h2>孔眼布置与预测结果</h2><div id="cluster-art"></div><div class="kpis"><div><small>总孔数 A＋2B</small><strong id="total"></strong></div><div><small>预测缝长差 ΔL</small><strong id="signed"></strong></div><div><small>均衡偏差 |ΔL|</small><strong id="absolute"></strong></div></div><div id="difference-art"></div><p id="change" class="current-note"></p><p class="caption">孔眼数量与中间簇孔径按当前输入绘制；缝长差由响应面计算，越接近零表示三簇扩展越均衡。</p></article></div><article class="surface-card"><div class="section-top"><h2>A、B组合怎样影响均衡偏差</h2><span id="surface-context"></span></div><div id="surface"></div><p class="caption">固定当前孔径C，颜色表示预测 |ΔL|。点击图中位置可调整孔数；浅色斜线区域位于BBD设计凸包之外。</p></article></section>
+<section id="view-model" class="view" hidden><article><h2>从公开算例到响应面</h2><p>输入A、B为孔数，C为毫米孔径；输出ΔL保留表3中的正负号。优选目标取 |ΔL|，使各簇缝长差接近零。</p><div id="formula" class="formula"></div><div class="kpis" id="fit-stats"></div><p class="caption">上列指标为表3拟合误差。重复中心点按原文保留，拟合指标与独立预测能力分别解释。</p><h3>文献表5对照</h3><div id="verification"></div><p class="caption">基准配置与训练表中心点相同；15 / 7 / 15为文献另列的优化配置，未加入表3重拟合。</p><details><summary>模型与原文数值的关系</summary><p>文献模式使用式(15)公开的两位小数系数；重拟合模式以表3数值作二次最小二乘拟合。按公开系数计算、按表3重拟合及表5列出的预测存在差别；界面分别保留各自结果，不改写原表数值。</p></details><h3>逐组预测与残差</h3><div id="residuals"></div></article></section>
+<section id="view-optimize" class="view" hidden><article><h2>在设计范围内筛选整数方案</h2><p>对A、B取整数孔数，C取整数毫米孔径，按预测 |ΔL| 从小到大比较。搜索范围限制在BBD设计凸包内。</p><div class="search-controls"><label>总孔数上限 <select id="budget"><option>24</option><option>36</option><option>48</option><option selected>60</option></select></label><label>中间簇孔径上限 <select id="diameter-limit"><option>12</option><option>15</option><option selected>18</option></select> mm</label><button id="search">重新优选</button></div><div id="optimization-stats" class="current-note"></div><div id="candidates"></div><h3>文献方案对照</h3><div id="opt-reference"></div><p class="caption">此处为响应面上的整数网格搜索。候选值为模型预测；文献表5的数值模拟结果单独列出。</p></article></section>
+<section id="view-data" class="view" hidden><article><h2>公开数据与来源</h2><p>Liu W, Wang S, Dong K, Cheng T. Research on optimization of perforation parameters for formation fractures based on response surface optimization method. <i>PLOS ONE</i> 16(8): e0255793 (2021).</p><p><a href="https://doi.org/10.1371/journal.pone.0255793" target="_blank" rel="noopener">论文原文 ↗</a> · <a href="https://doi.org/10.1371/journal.pone.0255793.t003" target="_blank" rel="noopener">表3原始数据 ↗</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p><div class="source-summary"><span>表2：编码与水平，第12页</span><span>表3：17组数值算例，第13页</span><span>式15：响应面，第13页</span><span>表5：优化对照，第20页</span></div><p>表1固定工况：弹性模量20 GPa，泊松比0.2，最大/最小水平应力55/50 MPa，液体黏度10 mPa·s；两侧孔径12 mm。</p><p>编码换算：a＝(A−12)/8，b＝(B−12)/8，c＝(C−12)/6。表3有13种不同参数组合；中心配置出现5次，原文响应为4条32.5474 m和1条34.5474 m，均原样保留。两条负响应保留正负号。</p><div class="buttons"><button id="download-csv">下载公开数据 CSV</button><button id="download-json">下载数据与来源 JSON</button></div><div id="data-table"></div><details><summary>计算范围与核验记录</summary><p>该数据来自论文的二维三簇压裂数值算例。本站重算响应面与整数候选，不运行原始有限元模型。BBD编码范围−1至1，其凸包条件为 |a|＋|b|＋|c|≤2。</p><p id="source-hash"></p></details></article></section>
+<section id="view-flow" class="view" hidden><article><h2>三簇射孔参数优选流程</h2><p>将论文公开算例、响应面计算、整数方案搜索与原文对照连接起来。点击节点查看各步输入和输出。</p><div id="task-flow"></div><div id="task-detail"></div></article></section>
+</main><script>const DATA={
+  "doi": "10.1371/journal.pone.0255793",
+  "title": "Research on optimization of perforation parameters for formation fractures based on response surface optimization method",
+  "authors": "Liu W, Wang S, Dong K, Cheng T",
+  "year": 2021,
+  "journal": "PLOS ONE 16(8): e0255793",
+  "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0255793",
+  "source_table": "Table 2, p.12; Table 3, p.13; Equation 15, p.13; Table 5, p.20",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_sha256": "ba77769bf3f3f8e2de875197ec7817ccddb3773788562913207fa626c8bd36ee",
+  "kind": "Published numerical simulation results; not field measurements",
+  "coding": {
+    "a": "(middle_holes-12)/8",
+    "b": "(side_holes-12)/8",
+    "c": "(middle_diameter_mm-12)/6"
+  },
+  "rows": [
+    {
+      "id": "R01",
+      "run": 1,
+      "a": 0.0,
+      "b": 1.0,
+      "c": 1.0,
+      "middle_holes": 12,
+      "side_holes": 20,
+      "middle_diameter_mm": 18,
+      "delta_m": 30.3537,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R02",
+      "run": 2,
+      "a": -1.0,
+      "b": 0.0,
+      "c": 1.0,
+      "middle_holes": 4,
+      "side_holes": 12,
+      "middle_diameter_mm": 18,
+      "delta_m": 32.9299,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R03",
+      "run": 3,
+      "a": 0.0,
+      "b": -1.0,
+      "c": 1.0,
+      "middle_holes": 12,
+      "side_holes": 4,
+      "middle_diameter_mm": 18,
+      "delta_m": -23.7666,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R04",
+      "run": 4,
+      "a": 1.0,
+      "b": 0.0,
+      "c": 1.0,
+      "middle_holes": 20,
+      "side_holes": 12,
+      "middle_diameter_mm": 18,
+      "delta_m": 17.4154,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R05",
+      "run": 5,
+      "a": 0.0,
+      "b": 0.0,
+      "c": 0.0,
+      "middle_holes": 12,
+      "side_holes": 12,
+      "middle_diameter_mm": 12,
+      "delta_m": 32.5474,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R06",
+      "run": 6,
+      "a": 0.0,
+      "b": 0.0,
+      "c": 0.0,
+      "middle_holes": 12,
+      "side_holes": 12,
+      "middle_diameter_mm": 12,
+      "delta_m": 32.5474,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R07",
+      "run": 7,
+      "a": -1.0,
+      "b": 1.0,
+      "c": 0.0,
+      "middle_holes": 4,
+      "side_holes": 20,
+      "middle_diameter_mm": 12,
+      "delta_m": 52.8301,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R08",
+      "run": 8,
+      "a": -1.0,
+      "b": -1.0,
+      "c": 0.0,
+      "middle_holes": 4,
+      "side_holes": 4,
+      "middle_diameter_mm": 12,
+      "delta_m": 30.3537,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R09",
+      "run": 9,
+      "a": 0.0,
+      "b": 0.0,
+      "c": 0.0,
+      "middle_holes": 12,
+      "side_holes": 12,
+      "middle_diameter_mm": 12,
+      "delta_m": 32.5474,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R10",
+      "run": 10,
+      "a": 0.0,
+      "b": 0.0,
+      "c": 0.0,
+      "middle_holes": 12,
+      "side_holes": 12,
+      "middle_diameter_mm": 12,
+      "delta_m": 32.5474,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R11",
+      "run": 11,
+      "a": 1.0,
+      "b": -1.0,
+      "c": 0.0,
+      "middle_holes": 20,
+      "side_holes": 4,
+      "middle_diameter_mm": 12,
+      "delta_m": -22.0436,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R12",
+      "run": 12,
+      "a": 1.0,
+      "b": 1.0,
+      "c": 0.0,
+      "middle_holes": 20,
+      "side_holes": 20,
+      "middle_diameter_mm": 12,
+      "delta_m": 43.9413,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R13",
+      "run": 13,
+      "a": 0.0,
+      "b": 0.0,
+      "c": 0.0,
+      "middle_holes": 12,
+      "side_holes": 12,
+      "middle_diameter_mm": 12,
+      "delta_m": 34.5474,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R14",
+      "run": 14,
+      "a": 1.0,
+      "b": 0.0,
+      "c": -1.0,
+      "middle_holes": 20,
+      "side_holes": 12,
+      "middle_diameter_mm": 6,
+      "delta_m": 39.4493,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R15",
+      "run": 15,
+      "a": -1.0,
+      "b": 0.0,
+      "c": -1.0,
+      "middle_holes": 4,
+      "side_holes": 12,
+      "middle_diameter_mm": 6,
+      "delta_m": 43.1271,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R16",
+      "run": 16,
+      "a": 0.0,
+      "b": 1.0,
+      "c": -1.0,
+      "middle_holes": 12,
+      "side_holes": 20,
+      "middle_diameter_mm": 6,
+      "delta_m": 42.8325,
+      "source": "Table 3, p.13"
+    },
+    {
+      "id": "R17",
+      "run": 17,
+      "a": 0.0,
+      "b": -1.0,
+      "c": -1.0,
+      "middle_holes": 12,
+      "side_holes": 4,
+      "middle_diameter_mm": 6,
+      "delta_m": 29.9902,
+      "source": "Table 3, p.13"
+    }
+  ],
+  "refit_coefficients": [
+    32.94740000000001,
+    -10.059799999999996,
+    19.4279875,
+    -12.30833749999998,
+    10.877125000000003,
+    -2.959175000000007,
+    10.319499999999993,
+    3.3504750000000016,
+    -10.0275,
+    -3.067450000000007
+  ],
+  "paper_coefficients_physical": [
+    62.77,
+    -3.81,
+    1.57,
+    -1.85,
+    0.17,
+    -0.06,
+    0.22,
+    0.05,
+    -0.16,
+    -0.09
+  ],
+  "verification": [
+    {
+      "id": "V0",
+      "middle_holes": 12,
+      "side_holes": 12,
+      "middle_diameter_mm": 12,
+      "simulation_abs_delta_m": 32.55,
+      "paper_prediction_abs_delta_m": 32.95,
+      "note": "原基准；与表3中心配置相同，不视为独立验证"
+    },
+    {
+      "id": "V1",
+      "middle_holes": 15,
+      "side_holes": 7,
+      "middle_diameter_mm": 15,
+      "simulation_abs_delta_m": 0.528,
+      "paper_prediction_abs_delta_m": 0.53,
+      "note": "文献优化配置；未加入表3重拟合"
+    }
+  ],
+  "audit": {
+    "rows": 17,
+    "unique_configurations": 13,
+    "center_repeats": 5,
+    "center_raw_values_m": [
+      32.5474,
+      32.5474,
+      32.5474,
+      32.5474,
+      34.5474
+    ],
+    "missing_values": 0,
+    "negative_responses_preserved": 2,
+    "refit_training_r2": 0.9382008643726528
+  },
+  "fixed_conditions": {
+    "source": "Table 1, p.8",
+    "model": "2D, three clusters",
+    "young_modulus_GPa": 20,
+    "poisson_ratio": 0.2,
+    "maximum_horizontal_stress_MPa": 55,
+    "minimum_horizontal_stress_MPa": 50,
+    "fluid_viscosity_mPa_s": 10,
+    "fluid_density_kg_m3": 1010,
+    "side_perforation_diameter_mm": 12
+  }
+};</script><script>const $=s=>document.querySelector(s),ns='http://www.w3.org/2000/svg';let view='engineering',selection={A:12,B:12,C:12},model='paper';
+function features(A,B,C){let a=(A-12)/8,b=(B-12)/8,c=(C-12)/6;return [1,a,b,c,a*b,a*c,b*c,a*a,b*b,c*c]}
+function predict(A,B,C,which=model){let x=which==='paper'?[1,A,B,C,A*B,A*C,B*C,A*A,B*B,C*C]:features(A,B,C),b=which==='paper'?DATA.paper_coefficients_physical:DATA.refit_coefficients;return x.reduce((s,v,i)=>s+v*b[i],0)}
+function supported(A,B,C){let a=(A-12)/8,b=(B-12)/8,c=(C-12)/6;return Math.abs(a)<=1&&Math.abs(b)<=1&&Math.abs(c)<=1&&Math.abs(a)+Math.abs(b)+Math.abs(c)<=2+1e-9}
+function fmt(x,n=3){return Number(x).toFixed(n)}
+function showView(v){view=v;document.querySelectorAll('.view').forEach(e=>e.hidden=e.id!=='view-'+v);document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));if(v==='optimize')optimize();if(v==='flow')flow(0);queueHeight()}
+function svg(body,w=850,h=270,aria=''){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="'+aria+'">'+body+'</svg>'}
+function clusters(){let {A,B,C}=selection;let out='<defs><linearGradient id="steel" x2="0" y2="1"><stop stop-color="#718c9c"/><stop offset=".4" stop-color="#dce9ec"/><stop offset=".7" stop-color="#a4bcc4"/><stop offset="1" stop-color="#5c7d8c"/></linearGradient></defs><rect x="20" y="70" width="810" height="115" rx="28" fill="#e8d7bd"/><rect x="20" y="90" width="810" height="76" rx="20" fill="url(#steel)"/><rect x="20" y="105" width="810" height="46" rx="16" fill="#163f56"/><path d="M40 128H800" stroke="#78d0dc" stroke-width="3" stroke-dasharray="8 12"><animate attributeName="stroke-dashoffset" from="40" to="0" dur="3s" repeatCount="indefinite"/></path>';
+ [[155,B,12,'侧簇 1'],[425,A,C,'中间簇 2'],[695,B,12,'侧簇 3']].forEach(([x,n,d,title],k)=>{let color=k===1?'#b87643':'#238d83';out+='<rect x="'+(x-86)+'" y="48" width="172" height="158" rx="12" fill="'+color+'" fill-opacity=".08" stroke="'+color+'" stroke-opacity=".35"/>';for(let i=0;i<n;i++){let col=i%5,row=Math.floor(i/5),px=x-48+col*24,py=84+row*25,r=d/2;out+='<circle cx="'+px+'" cy="'+py+'" r="'+r+'" fill="'+color+'" stroke="white" stroke-width="1.5"/>'}out+='<text x="'+x+'" y="30" text-anchor="middle" font-size="19" font-weight="600" fill="#244c60">'+title+'</text><text x="'+x+'" y="237" text-anchor="middle" font-size="19" fill="'+color+'">'+n+'孔 · '+d+' mm</text>'});$('#cluster-art').innerHTML=svg(out,850,260,'三簇孔眼数量与孔径联动图')}
+function difference(){let y=predict(selection.A,selection.B,selection.C),base=predict(12,12,12),map=v=>80+(Math.max(-60,Math.min(60,v))+60)/120*690,cx=map(y);let out='<rect x="78" y="24" width="694" height="68" rx="8" fill="#f0f5f8"/><line x1="'+map(0)+'" y1="17" x2="'+map(0)+'" y2="100" stroke="#296b72" stroke-width="2"/><rect x="'+Math.min(map(0),cx)+'" y="46" width="'+Math.max(2,Math.abs(cx-map(0)))+'" height="24" rx="5" fill="'+(Math.abs(y)<5?'#218b78':'#b97846')+'"/><line x1="'+map(base)+'" y1="24" x2="'+map(base)+'" y2="90" stroke="#8c9ba4" stroke-dasharray="4 4" stroke-width="2"/><circle cx="'+cx+'" cy="58" r="7" fill="#145f65" stroke="white" stroke-width="2"/>';
+ for(let t of [-60,-30,0,30,60])out+='<text x="'+map(t)+'" y="124" text-anchor="middle" font-size="17" fill="#526e7e">'+t+' m</text>';out+='<text x="'+map(0)+'" y="158" text-anchor="middle" font-size="17" fill="#276e74">零差值参照</text><text x="'+map(base)+'" y="16" text-anchor="middle" font-size="15" fill="#6d818d">基准 '+fmt(base,2)+' m</text>';$('#difference-art').innerHTML=svg(out,850,180,'缝长差固定坐标与基准对照');$('#total').textContent=selection.A+2*selection.B;$('#signed').textContent=fmt(y)+' m';$('#absolute').textContent=fmt(Math.abs(y))+' m';let imp=Math.abs(base)-Math.abs(y);$('#change').textContent='相对基准，均衡偏差'+(imp>=0?'减小 ':'增大 ')+fmt(Math.abs(imp))+' m。'+(supported(selection.A,selection.B,selection.C)?'当前组合位于BBD设计凸包内。':'当前组合位于BBD设计凸包外，响应面为外推。')}
+function heatmap(){let C=selection.C,w=850,h=510,left=86,top=36,cell=23;let out='<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 7L7 0" stroke="#c7d3da" stroke-width="1"/></pattern></defs>';
+ for(let A=4;A<=20;A++)for(let B=4;B<=20;B++){let value=Math.abs(predict(A,B,C)),t=Math.min(value/60,1),fill=supported(A,B,C)?'hsl('+(165-140*t)+' 42% '+(94-52*t)+'%)':'url(#hatch)',x=left+(A-4)*cell,y=top+(20-B)*cell;out+='<rect class="surface-hit" data-a="'+A+'" data-b="'+B+'" x="'+x+'" y="'+y+'" width="23" height="23" fill="'+fill+'"><title>A='+A+'，B='+B+'，C='+C+' mm；|ΔL|='+fmt(value)+' m</title></rect>'}
+ for(let tick of [4,8,12,16,20]){out+='<text x="'+(left+(tick-4+.5)*cell)+'" y="450" text-anchor="middle" font-size="17" fill="#526d7b">'+tick+'</text><text x="64" y="'+(top+(20-tick+.65)*cell)+'" text-anchor="end" font-size="17" fill="#526d7b">'+tick+'</text>'}out+='<text x="280" y="487" text-anchor="middle" font-size="19" fill="#294f61">中间簇孔数 A</text><text x="29" y="21" font-size="17" fill="#294f61">两侧各簇孔数 B</text>';
+ out+='<circle cx="'+(left+(selection.A-4+.5)*cell)+'" cy="'+(top+(20-selection.B+.5)*cell)+'" r="8" fill="none" stroke="white" stroke-width="5"/><circle cx="'+(left+(selection.A-4+.5)*cell)+'" cy="'+(top+(20-selection.B+.5)*cell)+'" r="8" fill="none" stroke="#163c50" stroke-width="2"/>';
+ out+='<text x="550" y="74" font-size="20" fill="#254e60">均衡偏差 |ΔL|</text>';for(let i=0;i<6;i++){out+='<rect x="555" y="'+(105+i*41)+'" width="40" height="30" rx="4" fill="hsl('+(165-140*i/5)+' 42% '+(94-52*i/5)+'%)"/><text x="610" y="'+(127+i*41)+'" font-size="18" fill="#426575">'+(i===5?'≥60':i*12)+' m</text>'}$('#surface').innerHTML=svg(out,w,h,'中间簇与两侧簇孔数组合的均衡偏差响应面');$('#surface-context').textContent='当前中间簇孔径 C = '+C+' mm'}
+function table(headers,rows){return '<div class="table-wrap"><table><thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>'}
+function verification(){let h=table(['配置 A / B / C','本站 |ΔL| / m','文献预测 / m','数模对照 / m'],DATA.verification.map(v=>[v.middle_holes+' / '+v.side_holes+' / '+v.middle_diameter_mm,fmt(Math.abs(predict(v.middle_holes,v.side_holes,v.middle_diameter_mm))),fmt(v.paper_prediction_abs_delta_m),fmt(v.simulation_abs_delta_m)]));$('#verification').innerHTML=h;$('#opt-reference').innerHTML=h}
+function modelView(){let rs=DATA.rows.map(r=>({...r,p:predict(r.middle_holes,r.side_holes,r.middle_diameter_mm)})),mean=rs.reduce((s,r)=>s+r.delta_m,0)/rs.length,se=rs.reduce((s,r)=>s+(r.p-r.delta_m)**2,0),sst=rs.reduce((s,r)=>s+(r.delta_m-mean)**2,0),mae=rs.reduce((s,r)=>s+Math.abs(r.p-r.delta_m),0)/rs.length;$('#fit-stats').innerHTML='<div><small>表3拟合 R²</small><strong>'+fmt(1-se/sst,4)+'</strong></div><div><small>拟合 MAE / m</small><strong>'+fmt(mae)+'</strong></div><div><small>拟合 RMSE / m</small><strong>'+fmt(Math.sqrt(se/rs.length))+'</strong></div>';$('#formula').innerHTML=model==='paper'?'ΔL = 62.77 − 3.81A ＋ 1.57B − 1.85C ＋ 0.17AB − 0.06AC ＋ 0.22BC<br>＋ 0.05A² − 0.16B² − 0.09C²':'ΔL = β₀ ＋ β₁a ＋ β₂b ＋ β₃c ＋ β₄ab ＋ β₅ac ＋ β₆bc ＋ β₇a² ＋ β₈b² ＋ β₉c²<br>β = ['+DATA.refit_coefficients.map(x=>fmt(x,5)).join(', ')+']';$('#residuals').innerHTML=table(['算例','原表 ΔL / m','预测 ΔL / m','预测−原表 / m'],rs.map(r=>[r.id,fmt(r.delta_m,4),fmt(r.p,4),fmt(r.p-r.delta_m,4)]));verification()}
+function update(){selection={A:+$('#a').value,B:+$('#b').value,C:+$('#c').value};$('#a-value').textContent=selection.A+' 孔';$('#b-value').textContent=selection.B+' 孔';$('#c-value').textContent=selection.C+' mm';clusters();difference();heatmap();modelView();if(view==='optimize')optimize();queueHeight()}
+function apply(A,B,C){$('#a').value=A;$('#b').value=B;$('#c').value=C;update()}
+function optimize(){let maxN=+$('#budget').value,maxD=+$('#diameter-limit').value,rows=[];for(let A=4;A<=20;A++)for(let B=4;B<=20;B++)for(let C=6;C<=maxD;C++){if(A+2*B>maxN||!supported(A,B,C))continue;rows.push({A,B,C,y:predict(A,B,C)})}rows.sort((x,y)=>Math.abs(x.y)-Math.abs(y.y)||x.A+2*x.B-y.A-2*y.B||x.C-y.C);$('#optimization-stats').textContent='当前计算方法：'+(model==='paper'?'文献响应面式(15)':'表3重拟合')+'；已比较 '+rows.length+' 个整数方案，按 |ΔL| 升序列出前8项。';$('#candidates').innerHTML=table(['顺序','A / B / C','总孔数','|ΔL| / m','应用'],rows.slice(0,8).map((r,i)=>[i+1,r.A+' / '+r.B+' / '+r.C,r.A+2*r.B,fmt(Math.abs(r.y)), '<button data-apply="'+[r.A,r.B,r.C].join(',')+'">查看</button>']));verification();queueHeight()}
+const TASKS=[['01','公开数值算例','13种参数组合','从文献表2、表3读取因子水平、编码和响应。','17条记录；A、B为孔数，C为mm，ΔL为m。','中心点5次均保留；没有生成新的数值模拟样本。'],['02','因子编码','3个设计变量','按表2将物理参数映射为−1至1的编码。','a=(A−12)/8，b=(B−12)/8，c=(C−12)/6。','编码用于本站二次重拟合；文献式(15)直接使用物理参数。'],['03','响应面计算','二次项与交互项','选用文献式(15)，或以表3最小二乘重拟合。','输出保留正负号的预测ΔL，目标取绝对值。','表3拟合误差与表5另列的数模对照分别查看。'],['04','整数方案优选','在设计凸包内搜索','枚举整数A、B与毫米孔径C，应用总孔数和孔径约束。','输出按预测 |ΔL| 排序的候选配置。','例如文献配置15 / 7 / 15在式(15)下得到 |ΔL|=0.530 m。'],['05','对照与追溯','文献表5核对','将本站输出、文献预测和文献数值模拟并列。','优化配置文献预测0.530 m，数模结果0.528 m。','该配置未加入表3重拟合；基准配置与表3中心点相同。']];
+function flow(n){$('#task-flow').innerHTML='<div class="task-flow">'+TASKS.map((t,i)=>'<button data-task="'+i+'" class="'+(i===n?'active':'')+'"><small>'+t[0]+'</small>'+flowIcon(i)+'<strong>'+t[1]+'</strong><small>'+t[2]+'</small></button>').join('')+'</div>';let t=TASKS[n];$('#task-detail').innerHTML='<div class="flow-info"><h3>'+t[0]+' '+t[1]+'</h3><dl><dt>这一步做什么</dt><dd>'+t[3]+'</dd><dt>输入与输出</dt><dd>'+t[4]+'</dd><dt>怎样核对</dt><dd>'+t[5]+'</dd></dl></div>';queueHeight()}
+function download(name,content,type){let u=URL.createObjectURL(new Blob(['\ufeff'+content],{type})),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+document.addEventListener('click',e=>{let b=e.target.closest('[data-view],[data-apply],[data-task],.surface-hit');if(!b)return;if(b.dataset.view)showView(b.dataset.view);else if(b.dataset.apply){apply(...b.dataset.apply.split(',').map(Number));showView('engineering')}else if(b.dataset.task!==undefined)flow(+b.dataset.task);else if(b.dataset.a){$('#a').value=b.dataset.a;$('#b').value=b.dataset.b;update()}});
+['a','b','c'].forEach(k=>$('#'+k).addEventListener('input',update));$('#model').addEventListener('change',()=>{model=$('#model').value;update()});$('#baseline').onclick=()=>apply(12,12,12);$('#reference').onclick=()=>apply(15,7,15);$('#search').onclick=optimize;['budget','diameter-limit'].forEach(k=>$('#'+k).addEventListener('change',optimize));$('#download-json').onclick=()=>download('liu2021-dataset-and-source.json',JSON.stringify(DATA,null,2),'application/json');$('#download-csv').onclick=()=>{let keys=['id','a','b','c','middle_holes','side_holes','middle_diameter_mm','delta_m'];download('liu2021-table3.csv',keys.join(',')+'\n'+DATA.rows.map(r=>keys.map(k=>r[k]).join(',')).join('\n'),'text/csv')};
+$('#data-table').innerHTML=table(['编号','a / b / c','A / B / C','原表 ΔL / m'],DATA.rows.map(r=>[r.id,[r.a,r.b,r.c].join(' / '),[r.middle_holes,r.side_holes,r.middle_diameter_mm].join(' / '),fmt(r.delta_m,4)]));$('#source-hash').textContent='来源PDF SHA-256：'+DATA.source_sha256;
+let heightQueued=false,lastHeight=0;function queueHeight(){if(heightQueued)return;heightQueued=true;requestAnimationFrame(()=>{heightQueued=false;let height=Math.ceil(document.querySelector('main').getBoundingClientRect().height+32);if(Math.abs(lastHeight-height)>1){lastHeight=height;parent.postMessage({type:'petro-lite-height',height},'*')}})}
+update();let isFlow=location.search.includes('view=flow')||document.documentElement.dataset.mode==='flow';document.body.dataset.flow=String(isFlow);showView(isFlow?'flow':'engineering');new ResizeObserver(queueHeight).observe(document.querySelector('main'));document.fonts.ready.then(queueHeight);window.addEventListener('load',queueHeight);
+window.LitePerforation={predict:(A,B,C,m)=>predict(A,B,C,m),state:()=>({view,model,selection:{...selection},delta:predict(selection.A,selection.B,selection.C),rows:DATA.rows.length,source:DATA.doi})};
+function flowIcon(i){const art=[
+ '<rect x="25" y="5" width="90" height="48" rx="5" fill="#edf5f4" stroke="#36877c"/><path d="M25 20H115M50 5V53M75 5V53" stroke="#b7d3cc"/>'+Array.from({length:6},(_,j)=>'<circle cx="'+(37+j%3*27)+'" cy="'+(29+Math.floor(j/3)*15)+'" r="4" fill="#408f81"/>').join(''),
+ '<path d="M25 42H120M25 42V8" stroke="#557d8f" stroke-width="2"/><circle cx="40" cy="35" r="5" fill="#b88155"/><circle cx="77" cy="25" r="5" fill="#4b9a88"/><circle cx="113" cy="12" r="5" fill="#b88155"/><text x="36" y="59" font-size="12" fill="#426b7d">−1</text><text x="73" y="59" font-size="12" fill="#426b7d">0</text><text x="110" y="59" font-size="12" fill="#426b7d">1</text>',
+ '<path d="M20 50H130M25 50V5" stroke="#8da9b5" stroke-width="2"/><path d="M28 15Q75 73 125 12M28 30Q75 65 125 27" stroke="#2a8d7c" stroke-width="3" fill="none"/><circle cx="75" cy="39" r="5" fill="#b67a4f"/>',
+ Array.from({length:12},(_,j)=>'<rect x="'+(28+j%4*23)+'" y="'+(3+Math.floor(j/4)*19)+'" width="17" height="14" rx="2" fill="'+(j===6?'#288b78':'#dcebe9')+'"/>').join('')+'<circle cx="83" cy="28" r="12" fill="none" stroke="#a76c43" stroke-width="2"/>',
+ '<path d="M25 50H130" stroke="#a9bdc7"/><rect x="45" y="8" width="22" height="40" rx="3" fill="#277f77"/><rect x="87" y="9" width="22" height="39" rx="3" fill="#a47b53"/><text x="55" y="6" text-anchor="middle" font-size="9" fill="#3f6c77">0.530</text><text x="97" y="6" text-anchor="middle" font-size="9" fill="#3f6c77">0.528</text>'
+ ];return svg(art[i],145,65,'任务'+(i+1)+'对应的方法图')}
+
+/* All numerical functions stay in app.js. Only the renderer and reader layout are extended. */
+(function(){
+ const $=s=>document.querySelector(s),art=$('#cluster-art'),eng=$('#view-engineering'),workspace=art.closest('article');
+ let activeArt='structure';
+ workspace.classList.add('visual-workspace');
+ const heading=document.createElement('div');heading.className='visual-heading';heading.innerHTML='<h2>孔眼结构与均衡响应</h2><div class="visual-switch" role="group" aria-label="可视化切换"><button data-art="structure" class="active">孔眼结构</button><button data-art="surface">响应面图</button></div>';workspace.querySelector('h2').replaceWith(heading);
+ const visual=document.createElement('div');visual.className='viz-stage';heading.after(visual);visual.append(art);const surface=$('.surface-card');visual.append(surface);surface.hidden=true;
+ $('#difference-art').classList.add('difference-panel');
+ const params=[['a','A：中间簇孔数','改变中间簇的开口数量。'],['b','B：两侧各簇孔数','两个侧簇分别采用B孔。'],['c','C：中间簇孔径','仅调节中间簇，侧簇固定12 mm。']];
+ params.forEach(([id,title,brief])=>{let input=$('#'+id),label=input.previousElementSibling,p=input.nextElementSibling,block=document.createElement('div');block.className='parameter-block';label.before(block);block.append(label,input,p);p.textContent=brief;let help=document.createElement('button');help.className='help-link';help.dataset.reader=id;help.textContent='作用与读图';block.append(help)});
+ const reader=document.createElement('dialog');reader.className='reading-dialog';reader.innerHTML='<div class="reader-heading"><h2 id="reader-title"></h2><button aria-label="关闭讲解" id="reader-close">关闭 ×</button></div><div class="reader-content" id="reader-content"></div>';document.body.append(reader);$('#reader-close').onclick=()=>reader.close();reader.addEventListener('close',()=>parent.postMessage({type:'petro-lite-demo-reading',open:false},'*'));window.addEventListener('message',e=>{if(e.source===parent&&e.data?.type==='petro-lite-close-reader')reader.close()});reader.addEventListener('click',e=>{if(e.target===reader)reader.close()});
+ function openReader(title,content){$('#reader-content').querySelectorAll('#residuals,#data-table,#opt-reference').forEach(n=>readerBank.append(n));$('#reader-title').textContent=title;$('#reader-content').innerHTML=content;parent.postMessage({type:'petro-lite-demo-focus'},'*');if(!reader.open)reader.showModal();requestAnimationFrame(()=>{parent.postMessage({type:'petro-lite-demo-focus'},'*');parent.postMessage({type:'petro-lite-demo-reading',open:true},'*')})}
+ document.addEventListener('petro-teach',e=>openReader(e.detail.title,e.detail.html));
+ const explanations={
+ a:['中间簇孔数A：为何要调节？','<h3>它是什么</h3><p>A表示中间簇设置的孔眼总数。两侧各有B个孔，因此三簇总孔数为A＋2B。</p><h3>它怎样影响压裂</h3><p>在单孔流量、孔径和流量系数相同时，孔眼总开口面积越大，给定簇流量对应的入口阻力通常越小。三簇共用注入通道，各簇流量还会受裂缝压力和应力干扰共同影响，所以增加A并不必然改善均衡。</p><h3>你可以怎样操作</h3><p>先点“基准”，固定B＝12、C＝12 mm，拖动A。观察中间铜色区域孔眼数量的变化，再看下方ΔL标记朝零线靠近还是远离。接着改变B，比较同样的A变化是否产生相同结果，这就是参数交互。</p>'],
+ b:['两侧各簇孔数B：怎样与中间簇配合？','<h3>它是什么</h3><p>B分别用于左、右两个侧簇。将B从12调到20，意味着每个侧簇各增加8孔，三簇总孔数增加16孔，而中间簇A保持不变。</p><h3>为什么要同时看A与B</h3><p>多簇共用注入通道。调整两侧簇开口数量会改变侧簇入口阻力及簇间分流，进而与中间簇竞争、裂缝扩展和应力干扰相互影响。需要比较的是整组配置，而非仅增加某个簇的孔数。</p><h3>图里看什么</h3><p>左右青绿色孔眼会同步增减。切换“响应面图”，横轴为A、纵轴为B；当前参数处有定位环。固定孔径C，比较不同孔数组合的颜色，颜色越接近青绿色表示模型给出的均衡偏差越小。</p>'],
+ c:['中间簇孔径C：为何与孔数一同设计？','<h3>它是什么</h3><p>C是中间簇孔眼的直径，单位mm；本例两侧簇孔径固定为12 mm。圆形开口面积与孔径平方成正比，因此孔径改变会明显影响单孔通流面积。</p><h3>与孔数的区别</h3><p>孔数改变开口的数量，孔径改变每个开口的面积。两者共同影响簇的入口阻力，但裂缝均衡还取决于其他簇配置与地层条件。论文响应面含有AC、BC交互项，表示孔径的影响会随孔数配置而变化。</p><h3>你可以怎样操作</h3><p>固定A、B，拖动C：铜色孔眼的直径随之变化，细虚线圆保留12 mm参照尺寸。观察结果标记，再切换响应面图，查看整个A、B组合空间的偏差分布如何改变。</p>'],
+ result:['怎样阅读孔眼结构与均衡结果','<h3>上图：真实输入的几何表达</h3><p>左、右簇分别显示B个青绿色孔眼，中间簇显示A个铜色孔眼；铜色开口的显示直径随C变化。轴向位置用于区分三个簇，未作为新的设计变量。</p><h3>下图：同一尺度比较结果</h3><p>ΔL是模型计算的带符号缝长差。标记在固定的−60至60 m坐标上移动；零线表示差值为零，虚线标出12 / 12 / 12基准配置。彩色条越短，预测的绝对缝长差越小。读数以数值卡为准。</p><h3>先尝试一个完整对照</h3><ol><li>点击“基准”，记录三个参数与偏差。</li><li>只调整一个变量，观察孔眼和结果同步变化。</li><li>点击“文献方案”，比较15 / 7 / 15的偏差与基准。</li><li>切换响应面图，查看该点附近的组合，再到“参数优选”施加约束。</li></ol><p>结构图表示孔数与孔径，缝长差单独显示；单个差值不能确定三条裂缝各自的实际长度。</p>']
+ };
+ const bar=document.createElement('div');bar.className='reader-bar';bar.innerHTML='<button data-reader="result">如何读图与操作</button>';document.querySelector('aside .buttons').append(bar);
+ // Retain long tables and explanatory material in on-demand reading windows.
+ const readerBank=document.createElement('div');readerBank.hidden=true;document.body.append(readerBank);
+ function relocate(selector,title,buttonText){const node=$(selector);if(!node)return;let previous=node.previousElementSibling;if(previous?.tagName==='H3')readerBank.append(previous);readerBank.append(node);let btn=document.createElement('button');btn.textContent=buttonText;btn.onclick=()=>{openReader(title,'');$('#reader-content').append(node)};let parent=selector==='#residuals'?$('#view-model article'):$('#view-data article');parent.append(btn)}
+ relocate('#residuals','逐组预测与残差','查看17条残差');relocate('#data-table','论文表3：17条数值算例','展开完整数据表');
+ const optReference=$('#opt-reference');const optTitle=optReference.previousElementSibling;readerBank.append(optReference);if(optTitle?.tagName==='H3')readerBank.append(optTitle);let compareButton=document.createElement('button');compareButton.textContent='文献方案对照';compareButton.onclick=()=>{openReader('文献表5：方案对照','');$('#reader-content').append(optReference)};$('#view-optimize article').append(compareButton);
+ const more=$('#view-model details');if(more){readerBank.append(more);let b=document.createElement('button');b.textContent='模型与原文数值的关系';b.onclick=()=>{openReader('模型与原文数值的关系',more.innerHTML.replace(/<summary>[\s\S]*?<\/summary>/,''))};$('#view-model article').append(b)}
+ const originalClusters=clusters;
+ clusters=function(){let {A,B,C}=selection;
+ let s='<defs><linearGradient id="v-steel" x2="0" y2="1"><stop stop-color="#718795"/><stop offset=".23" stop-color="#edf4f6"/><stop offset=".46" stop-color="#9aadb7"/><stop offset=".55" stop-color="#e3edf1"/><stop offset="1" stop-color="#526e7e"/></linearGradient><linearGradient id="v-core" x2="0" y2="1"><stop stop-color="#19394b"/><stop offset=".5" stop-color="#2d6574"/><stop offset="1" stop-color="#122e40"/></linearGradient><linearGradient id="v-rock" x2="0" y2="1"><stop stop-color="#f4eddf"/><stop offset="1" stop-color="#ded0b8"/></linearGradient><pattern id="v-grain" width="32" height="25" patternUnits="userSpaceOnUse"><circle cx="4" cy="8" r="1.2" fill="#bba789"/><circle cx="22" cy="18" r=".9" fill="#c1ae91"/><path d="M0 24L32 20" stroke="#c2b396" stroke-opacity=".25"/></pattern><filter id="v-shadow"><feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#27414b" flood-opacity=".18"/></filter></defs>';
+ s+='<rect x="28" y="69" width="784" height="181" rx="24" fill="url(#v-rock)"/><rect x="28" y="69" width="784" height="181" rx="24" fill="url(#v-grain)"/><path d="M38 105Q220 81 420 105T800 105M38 218Q280 199 470 219T800 218" stroke="#c6b79a" fill="none" stroke-width="2" opacity=".6"/>';
+ s+='<g filter="url(#v-shadow)"><rect x="35" y="114" width="770" height="95" rx="36" fill="url(#v-steel)" stroke="#6e8793"/><rect x="35" y="145" width="770" height="43" rx="21" fill="url(#v-core)"/><ellipse cx="53" cy="162" rx="18" ry="41" fill="url(#v-steel)" stroke="#5a7788"/><ellipse cx="53" cy="164" rx="11" ry="22" fill="#183c50"/></g>';
+ s+='<path d="M83 166H777" stroke="#63c8cf" stroke-width="2" stroke-dasharray="6 14" opacity=".75"><animate attributeName="stroke-dashoffset" from="0" to="40" dur="3s" repeatCount="indefinite"/></path>';
+ [[195,B,12,'侧簇 1'],[425,A,C,'中间簇 2'],[655,B,12,'侧簇 3']].forEach(([x,n,d,name],i)=>{let color=i===1?'#bd7843':'#258b87';s+='<rect x="'+(x-86)+'" y="99" width="172" height="123" rx="17" fill="'+color+'" fill-opacity=".11" stroke="'+color+'" stroke-opacity=".5"/><path d="M'+x+' 51V94" stroke="'+color+'"/><text x="'+x+'" y="27" text-anchor="middle" fill="#294e60" font-size="20" font-weight="600">'+name+'</text><text x="'+x+'" y="52" text-anchor="middle" fill="'+color+'" font-size="16">'+n+' 孔 · '+d+' mm</text>';
+ for(let j=0;j<n;j++){let px=x-51+j%5*25.5,py=125+Math.floor(j/5)*24,r=d/18*9;s+='<circle cx="'+px+'" cy="'+py+'" r="6" fill="none" stroke="#fff" stroke-opacity=".75" stroke-dasharray="2 2"/><ellipse cx="'+px+'" cy="'+py+'" rx="'+r+'" ry="'+r*.78+'" fill="#153746" stroke="'+color+'" stroke-width="2.8"/><ellipse cx="'+px+'" cy="'+(py+1)+'" rx="'+r*.64+'" ry="'+r*.42+'" fill="'+color+'" opacity=".9"/>'}
+ s+='<path d="M'+(x-65)+' 248H'+(x+65)+'" stroke="'+color+'" stroke-width="2"/><text x="'+x+'" y="276" text-anchor="middle" fill="'+color+'" font-size="16">'+(i===1?'A = '+A+' · C = '+C+' mm':'B = '+B+' · 固定 12 mm')+'</text>'});
+ s+='<text x="790" y="305" text-anchor="end" fill="#66818b" font-size="13">孔数与孔径随输入变化</text>';art.innerHTML=svg(s,840,320,'三簇射孔开口数量和尺寸实时示意');
+ };
+ difference=function(){let y=predict(selection.A,selection.B,selection.C),base=predict(12,12,12),map=v=>75+(Math.max(-60,Math.min(60,v))+60)/120*690,cx=map(y),zero=map(0);let s='<defs><linearGradient id="v-response"><stop stop-color="#e7d9c9"/><stop offset=".5" stop-color="#e2f3ed"/><stop offset="1" stop-color="#e7d9c9"/></linearGradient></defs><rect x="75" y="32" width="690" height="24" rx="12" fill="url(#v-response)"/><path d="M'+zero+' 18V70" stroke="#2b7e72" stroke-width="2"/><path d="M'+map(base)+' 22V64" stroke="#8a99a1" stroke-width="2" stroke-dasharray="4 3"/><rect x="'+Math.min(cx,zero)+'" y="36" width="'+Math.max(2,Math.abs(cx-zero))+'" height="16" rx="8" fill="'+(Math.abs(y)<5?'#228979':'#b87845')+'"/><circle cx="'+cx+'" cy="44" r="8" stroke="white" stroke-width="3" fill="#155b67"/>';
+ for(let t of [-60,-30,0,30,60])s+='<text x="'+map(t)+'" y="87" text-anchor="middle" fill="#5d7885" font-size="15">'+t+'</text>';s+='<text x="75" y="15" fill="#526e7a" font-size="14">ΔL / m</text><text x="'+map(base)+'" y="15" text-anchor="middle" fill="#7a8d96" font-size="13">基准</text><text x="'+zero+'" y="110" text-anchor="middle" fill="#2b7e72" font-size="14">零差值</text>';$('#difference-art').innerHTML=svg(s,840,120,'带符号缝长差与基准的固定尺度对照');$('#total').textContent=selection.A+2*selection.B;$('#signed').textContent=fmt(y)+' m';$('#absolute').textContent=fmt(Math.abs(y))+' m';let improvement=Math.abs(base)-Math.abs(y);$('#change').textContent='相对基准，均衡偏差'+(improvement>=0?'减小 ':'增大 ')+fmt(Math.abs(improvement))+' m'+(Math.abs(base)>1e-9?'（'+fmt(Math.abs(improvement)/Math.abs(base)*100,1)+'%）。':'。')+(supported(selection.A,selection.B,selection.C)?'':'当前为设计凸包外的外推。');
+ };
+ // Keep the original heatmap values, hit targets and support mask; improve its graphic hierarchy.
+ heatmap=function(){let C=selection.C,left=57,top=23,cell=16;let out='<defs><pattern id="v-hatch" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 6L6 0" stroke="#becfd4"/></pattern></defs>';
+ for(let A=4;A<=20;A++)for(let B=4;B<=20;B++){let value=Math.abs(predict(A,B,C)),t=Math.min(value/60,1),fill=supported(A,B,C)?'hsl('+(165-140*t)+' 42% '+(94-52*t)+'%)':'url(#v-hatch)';out+='<rect class="surface-hit" data-a="'+A+'" data-b="'+B+'" x="'+(left+(A-4)*cell)+'" y="'+(top+(20-B)*cell)+'" width="16" height="16" stroke="#ffffff80" stroke-width=".5" fill="'+fill+'"><title>A='+A+'，B='+B+'，C='+C+' mm；|ΔL|='+fmt(value)+' m</title></rect>'}
+ for(let tick of [4,8,12,16,20])out+='<text x="'+(left+(tick-4+.5)*cell)+'" y="316" text-anchor="middle" font-size="13" fill="#355667">'+tick+'</text><text x="43" y="'+(top+(20-tick+.8)*cell)+'" text-anchor="end" font-size="13" fill="#355667">'+tick+'</text>';
+ let x=left+(selection.A-4+.5)*cell,y=top+(20-selection.B+.5)*cell;out+='<path d="M'+x+' 23V295M57 '+y+'H329" stroke="#153d50" opacity=".45" stroke-dasharray="3 3"/><circle cx="'+x+'" cy="'+y+'" r="7" fill="none" stroke="white" stroke-width="5"/><circle cx="'+x+'" cy="'+y+'" r="7" fill="none" stroke="#153f52" stroke-width="2"/><text x="193" y="345" text-anchor="middle" font-size="14" fill="#244e60">中间簇孔数 A</text><text x="57" y="14" font-size="12" fill="#244e60">两侧各簇孔数 B</text><text x="365" y="42" font-size="15" fill="#244e60">均衡偏差 |ΔL|</text>';
+ for(let i=0;i<6;i++)out+='<rect x="369" y="'+(61+i*32)+'" width="24" height="23" rx="3" fill="hsl('+(165-140*i/5)+' 42% '+(94-52*i/5)+'%)"/><text x="405" y="'+(78+i*32)+'" font-size="14" fill="#355667">'+(i===5?'≥60':i*12)+' m</text>';
+ out+='<text x="365" y="282" font-size="12" fill="#536f7d">青绿：偏差较小</text><text x="365" y="305" font-size="12" fill="#536f7d">斜线：设计凸包外</text>';$('#surface').innerHTML=svg(out,555,355,'孔数配置与均衡偏差的实时响应面');$('#surface-context').textContent='C = '+C+' mm · 点击色块调整A、B';
+ };
+ document.addEventListener('click',e=>{let b=e.target.closest('[data-art],[data-reader]');if(!b)return;if(b.dataset.art){activeArt=b.dataset.art;workspace.classList.toggle('mode-surface',activeArt==='surface');art.hidden=activeArt!=='structure';surface.hidden=activeArt!=='surface';document.querySelectorAll('[data-art]').forEach(x=>x.classList.toggle('active',x===b))}if(b.dataset.reader){let t=explanations[b.dataset.reader];openReader(...t)}});
+ const baseUpdate=update;update=function(){baseUpdate();$('#signed').closest('.kpis').classList.remove('live-flash');requestAnimationFrame(()=>$('#signed').closest('.kpis').classList.add('live-flash'))};
+ // Original input listeners retain their original callback, whose renderer calls use the new functions.
+ function viewport(h){document.documentElement.style.setProperty('--lab-height',Math.max(490,h)+'px');queueHeight()}
+ window.addEventListener('message',e=>{if(e.source!==parent)return;if(e.data?.type==='petro-lite-demo-viewport')viewport(Number(e.data.height)||680)});
+ parent.postMessage({type:'petro-lite-demo-ready'},'*');update();
+})();
+
+/* Reader-facing purpose and pagination. Does not change data or calculations. */
+(function(){
+ const $=s=>document.querySelector(s);
+ $('header h1').textContent='调节孔数与孔径，比较三簇均衡';
+ $('header p').textContent='同一井段的三簇裂缝可能扩展不均。这里调整各簇孔数与中间簇孔径，用论文响应面比较缝长差；|ΔL| 越接近0，预测的扩展越均衡。';
+ $('.model-choice>span').textContent='先看基准 → 一次只调一个参数 → 比较 |ΔL|';
+ $('aside h2').textContent='① 调整三个设计参数';
+ $('.visual-heading h2').textContent='② 看孔眼与均衡变化';
+ const explanation=document.createElement('p');explanation.id='live-reading';explanation.className='live-reading';$('#change').after(explanation);
+ function explain(){let A=+$('#a').value,B=+$('#b').value,C=+$('#c').value,y=predict(A,B,C),baseline=Math.abs(predict(12,12,12));explanation.textContent='③ 当前结果：中间簇'+A+'孔、两侧各'+B+'孔，中间孔径'+C+' mm。预测 |ΔL|='+fmt(Math.abs(y))+' m，'+(Math.abs(y)<baseline?'比基准更接近零，预测的裂缝扩展更均衡。':Math.abs(y)>baseline?'比基准偏差更大，可继续调整并比较。':'这是基准配置，接下来只改一个参数观察变化。');}
+ const mainPagers=[];let readerPager=null,queued=false;
+ function group(nodes){let blocks=[];for(let i=0;i<nodes.length;i++){let n=nodes[i];if(n.tagName==='H3'&&nodes[i+1]){let w=document.createElement('div');w.className='reading-block';n.before(w);w.append(n,nodes[++i]);blocks.push(w)}else blocks.push(n)}return blocks;}
+ function createPager(container,nodes,footerParent){
+  const body=document.createElement('div'),storage=document.createElement('div'),footer=document.createElement('div');body.className='reading-page';storage.className='reading-storage';storage.hidden=true;footer.className='reading-pages';footer.innerHTML='<button type="button" data-page-prev>上一页</button><span aria-live="polite"></span><button type="button" data-page-next>下一页</button>';
+  container.append(body,storage);(footerParent||container).append(footer);let blocks=group(nodes),pages=[],index=0;blocks.forEach(n=>storage.append(n));
+  function show(){blocks.forEach(n=>storage.append(n));body.replaceChildren();let page=pages[index]||[];page.forEach(entry=>{body.append(entry.node);if(entry.rows)entry.rows.forEach((r,i)=>r.hidden=i<entry.start||i>=entry.end)});footer.querySelector('span').textContent='第 '+(index+1)+' / '+Math.max(1,pages.length)+' 页';footer.querySelector('[data-page-prev]').disabled=index===0;footer.querySelector('[data-page-next]').disabled=index>=pages.length-1;}
+  function refresh(){if(!container.isConnected||container.closest('[hidden]'))return;let height=body.clientHeight;if(height<60)return;blocks.forEach(n=>{storage.append(n);n.querySelectorAll('tbody tr').forEach(r=>r.hidden=false)});pages=[[]];body.replaceChildren();
+   for(let node of blocks){let current=pages[pages.length-1];body.append(node);if(body.scrollHeight<=height+1){current.push({node});continue;}
+    storage.append(node);let rows=[...node.querySelectorAll('tbody tr')];
+    if(current.length){pages.push([]);current=pages[pages.length-1];body.replaceChildren();}
+    body.append(node);
+    if(body.scrollHeight<=height+1||!rows.length){current.push({node});continue;}
+    rows.forEach(r=>r.hidden=true);const fixed=node.getBoundingClientRect().height+8;rows[0].hidden=false;const rowHeight=Math.max(20,rows[0].getBoundingClientRect().height),maxCount=Math.max(1,Math.floor((height-fixed-10)/rowHeight)),count=Math.ceil(rows.length/Math.ceil(rows.length/maxCount));rows.forEach(r=>r.hidden=false);storage.append(node);body.replaceChildren();
+    for(let start=0;start<rows.length;start+=count){if(pages[pages.length-1].length)pages.push([]);pages[pages.length-1].push({node,rows,start,end:Math.min(rows.length,start+count)})}let last=pages[pages.length-1][0];body.append(node);rows.forEach((r,i)=>r.hidden=i<last.start||i>=last.end);
+   }
+   if(!pages[pages.length-1].length&&pages.length>1)pages.pop();index=Math.min(index,pages.length-1);show();
+  }
+  footer.querySelector('[data-page-prev]').onclick=()=>{index--;show()};footer.querySelector('[data-page-next]').onclick=()=>{index++;show()};
+  return {refresh,body,footer};
+ }
+ for(let id of ['model','optimize','data']){let article=$('#view-'+id+' > article'),nodes=[...article.children],heading=nodes.shift(),intro=nodes[0]?.tagName==='P'?nodes.shift():null;article.classList.add('paged-article');const fixed=document.createElement('div');fixed.className='reading-intro';article.prepend(fixed);fixed.append(heading);if(intro)fixed.append(intro);mainPagers.push(createPager(article,nodes));}
+ const dialog=$('.reading-dialog'),reader=$('#reader-content');
+ const observer=new MutationObserver(()=>scheduleReader());let readerQueued=false;
+ function scheduleReader(){if(readerQueued)return;readerQueued=true;requestAnimationFrame(()=>{readerQueued=false;if(!dialog.open)return;observer.disconnect();if(!reader.querySelector('.reading-page')){dialog.querySelectorAll('.reading-pages').forEach(x=>x.remove());readerPager=createPager(reader,[...reader.children],dialog);}readerPager?.refresh();observer.observe(reader,{childList:true});});}
+ observer.observe(reader,{childList:true});new MutationObserver(scheduleReader).observe(dialog,{attributes:true,attributeFilter:['open']});
+ function refresh(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;explain();mainPagers.forEach(p=>p.refresh());if(dialog.open){observer.disconnect();readerPager?.refresh();observer.observe(reader,{childList:true});}})}
+ document.addEventListener('input',refresh);document.addEventListener('change',refresh);document.addEventListener('click',e=>{if(!e.target.closest('.reading-pages'))refresh();if(e.target.closest('[data-view],#baseline,#reference'))requestAnimationFrame(()=>parent.postMessage({type:'petro-lite-demo-focus'},'*'))});window.addEventListener('resize',refresh);window.addEventListener('message',e=>{if(e.source===parent&&e.data?.type==='petro-lite-demo-viewport')refresh()});refresh();
+})();
+
+/* Lesson content and larger graphics; numerical app.js remains unchanged. */
+(function(){
+ const $=s=>document.querySelector(s);let lesson=0;$('nav').append($('.model-choice'));
+ const lessons=[
+ {title:'为什么要研究三簇均衡？',summary:'同一井段的三个射孔簇共用注入通道，却不一定获得相同流量。我们调孔数和孔径，比较预测缝长差；先理解问题，再寻找差值较小的配置。',body:()=>'<h3>先把工程对象看清楚</h3><p>图中是一段井筒上的三个射孔簇。每个簇包含多个孔眼，流体通过孔眼进入地层并推动裂缝扩展。左、右两簇在本算例中采用相同的孔数和孔径，中间簇单独调整。</p><h3>为什么三簇不一定同步扩展？</h3><p>三簇共用注入通道。各簇的入口阻力、裂缝内流动和应力干扰共同影响分流，获得的流量及裂缝扩展程度可能不同。仅看一个孔眼的大小，不能直接判断整个井段是否更均衡。</p><h3>这一课要回答什么？</h3><p>本演示利用Liu等（2021）公开算例建立的响应面，比较不同孔数、孔径配置对应的缝长差。评价目标取差值的绝对值 |ΔL|：越接近0，表示模型预测的簇间长度差异越小。</p><h3>先记住观察顺序</h3><p>先看左侧输入，确认改了哪个簇；再看孔眼图，确认孔数或开口尺寸的变化；最后看结果卡和差值标记。结构图说明“设置了什么”，结果区回答“这个设置预测得怎样”。</p>'},
+ {title:'A、B、C分别改变什么？',summary:'A是中间簇孔数，B是左右每一簇的孔数，C是中间簇孔径。调B会同时改变两个侧簇；总孔数为A＋2B，两侧孔径固定12 mm。',body:()=>'<h3>A：中间簇有多少个孔？</h3><p>A只改变中间簇的孔眼数量。保持孔径不变时，增加孔数会增大总开口面积，并改变给定簇流量下的入口阻力。它是否改善均衡，还要结合两侧簇的配置和裂缝相互作用判断。</p><h3>B：注意“每一侧”的含义</h3><p>B不是两侧孔数之和。B＝12表示左簇12孔、右簇也12孔。因此A＝12、B＝12时，三簇总孔数为12＋2×12＝36。把B增加1，两侧各增加1孔，总孔数增加2。</p><h3>C：改变的是单孔尺寸</h3><p>C以mm计量，只用于中间簇。两侧孔径固定为12 mm。圆形开口面积随直径平方变化，所以孔径与孔数都影响总开口面积，但二者不能简单视为同一个设计变量。</p><h3>用图核对你的输入</h3><p>两侧青绿色孔眼随B同步增减；中间铜色孔眼随A增减，尺寸随C变化。标签直接显示每簇孔数与孔径。图中的簇位置用于区分对象，轴向间距没有作为本例的可调参数。</p><h3>练习</h3><p>先把A、B、C设为12、12、12。只把B调到8，数一数图中两侧各有几孔，并用A＋2B核对总孔数。随后恢复基准，再单独改变C，比较“孔数变化”和“孔径变化”的区别。</p>'},
+ {title:'先建立基准，再开始比较',summary:'先点“基准”。记录A、B、C和 |ΔL|，之后每次只改一个参数。基准不是最优方案，而是用于判断变化方向的共同参照。',body:()=>'<h3>为什么不能一开始就同时拖三个滑块？</h3><p>同时改变多个变量，虽然结果会变化，但很难分辨是哪一项起了作用。先建立固定参照，再每次只改变一个变量，才能看清局部影响；之后再讨论变量之间的配合。</p><h3>本例的基准是什么？</h3><p>基准为A＝12孔、B＝12孔、C＝12 mm，共36孔。当前所选模型对这一配置给出的 |ΔL| 为'+fmt(Math.abs(predict(12,12,12)))+' m。切换模型时，应重新确认基准预测，不能混用不同模型的参照值。</p><h3>应该记录哪些内容？</h3><p>至少记录模型名称、三个参数、带符号的ΔL、绝对值 |ΔL| 和相对基准的变化。这样，当你返回原配置时，可以检查结果是否一致，也能明确两次比较究竟改变了什么。</p><h3>现在做一遍</h3><p>点击基准，先读总孔数和偏差。保持B、C不变，只移动A一格，观察孔眼数量和结果标记。若 |ΔL| 减小，说明在这组B、C条件下，此次调整使预测的长度差异减小；若增大，则方向相反。</p><h3>基准与文献表格如何对应？</h3><p>文献式(15)使用公布的舍入系数，本页重算基准为32.410 m；文献表5列出的作者预测为32.950 m，数值模拟为32.550 m。这些数值各自保留来源，不用一个数覆盖另一个数。</p>'},
+ {title:'一次只改一个参数，看清交互',summary:'先固定B、C，只调A；恢复基准后再分别调B和C。再换一组B重复调A，观察同样的A变化是否仍得到相同效果，这就是交互的读法。',body:()=>'<h3>实验一：只改变中间簇孔数</h3><p>固定B＝12、C＝12 mm，比较A＝12与A＝16。在当前模型下，两者的预测ΔL分别为'+fmt(predict(12,12,12))+' m和'+fmt(predict(16,12,12))+' m。先核对图中中间簇增加了4个孔，再比较绝对值，而不只看数值的正负。</p><h3>实验二：只改变两侧孔数</h3><p>恢复基准，把B由12改为8。A和C保持12；总孔数从36变为28。当前模型对12 / 8 / 12的预测ΔL为'+fmt(predict(12,8,12))+' m。注意两侧同时变化，不能把这一操作理解为只改了左簇。</p><h3>实验三：只改变中间孔径</h3><p>再次恢复基准，将C由12改为15 mm。孔眼数量不变，铜色开口变大。当前模型对12 / 12 / 15的预测ΔL为'+fmt(predict(12,12,15))+' m。把这个结果与孔数实验分开记录。</p><h3>怎样理解参数交互？</h3><p>将B换成另一数值，再重复同样的A变化。如果前后效果不同，说明A的作用依赖于B。二次响应面中的AB、AC和BC项用于描述这类共同影响，所以“增加孔数一定更好”不是本例可以直接给出的结论。</p><h3>用响应面图检查附近区域</h3><p>固定C后，响应面图展示A、B组合的预测偏差。先找到当前定位环，再比较周围色块。青绿色表示偏差较小，斜线区在设计凸包之外。点击色块可把该组合带回控件，而不必凭颜色估计具体数值。</p>'},
+ {title:'怎样读懂差值、颜色和基准？',summary:'先读 |ΔL| 的大小，再看它与基准的差别。负号不表示“比零更优”；零线表示差值为0，虚线标出基准，数值卡提供准确读数。',body:()=>'<h3>ΔL与 |ΔL| 有什么区别？</h3><p>ΔL保留模型输出的正负号；|ΔL|只比较差异的大小。例如−0.530 m与＋0.530 m的绝对偏差相同，而−20 m的绝对偏差大于＋1 m。本例的优选目标是使 |ΔL| 小，而不是让带符号数值越负越好。</p><h3>差值标尺怎么读？</h3><p>标尺固定在−60至＋60 m，中央为零。实心标记表示当前ΔL，虚线表示当前模型的基准预测。标记靠近零线时，预测偏差减小；它与虚线的距离反映相对基准的变化。</p><h3>孔眼图与响应面各回答什么？</h3><p>孔眼图回答“输入配置是什么”，强调孔数和开口尺寸；响应面回答“固定孔径后，不同孔数组合的偏差如何分布”。前者不把缝长差画成三条虚构的实际裂缝，后者的具体数值由模型计算。</p><h3>怎样形成一句完整结论？</h3><p>可按这个顺序表达：在某一模型下，A、B、C取何值，预测 |ΔL| 为多少，相对基准减小或增大多少。再说明该组合是否位于设计凸包内。这样读者能分清输入、模型输出和比较依据。</p><h3>不要从一个差值推导三个长度</h3><p>只有ΔL时，不能还原三条裂缝各自的长度，也不能据此计算现场产能。这里的结果用于理解配置对预测均衡性的影响，工程应用还需要相应工况下的验证。</p>'},
+ {title:'从比较走向优选与验证',summary:'到“参数优选”设置总孔数和孔径上限，再比较可行候选。选出偏差较小的配置后，还要核对文献对照，区分响应面预测与数值模拟结果。',body:()=>'<h3>优选之前，先规定可行条件</h3><p>偏差小不等于任何条件下都能采用。先限定三簇总孔数与中间簇孔径上限，再在允许范围内比较。本站沿用本例的整数网格和Box–Behnken设计凸包限制，按预测 |ΔL| 从小到大排列。</p><h3>怎样看候选表？</h3><p>每行包含A / B / C、总孔数和预测绝对偏差。点击“查看”，把配置带回工程演示，核对实际孔眼布置。比较相邻候选时，同时看总孔数和孔径，不只记住第一名。</p><h3>先分清两种响应面</h3><p>“文献式(15)”使用论文公布的系数；“根据表3重新拟合”使用公开17条数值记录重新最小二乘拟合。两者系数来源不同，拟合指标与候选排序可以不同。比较前先确认当前模型。</p><h3>模型指标怎样读？</h3><p>残差是预测值减去原表响应。MAE是绝对误差的平均值，单位仍为m；RMSE会更强调较大的误差；R²反映模型对这组响应变动的解释程度。这里用表3数据拟合并计算指标，首先回答的是拟合得怎样，不能将它直接当作新井段的预测成绩。</p><h3>为什么17条记录只有13种配置？</h3><p>公开表3包含12个非中心组合和5条中心配置记录。中心配置相同但原表响应并非全部相同，本站逐条保留。这里的输入、输出与重复记录共同决定重拟合结果，不能只按配置去重后仍声称使用同一数据。</p><h3>文献方案给了怎样的对照？</h3><p>15 / 7 / 15代入公布式(15)得到ΔL＝−0.530 m，绝对值为0.530 m。表5的作者预测为0.530 m，另列数值模拟为0.528 m。本站重拟合在该点给出不同预测，界面分别保留，不能把两种模型混作同一次复现。</p><h3>完成这个案例后应能回答什么？</h3><p>你应能说明三个参数分别作用于哪里，如何建立基准，为什么要先做单变量比较，如何读绝对缝长差，以及候选方案怎样在约束下形成。若要进入真实井段设计，还需补充井况、施工约束和独立验证。</p>'}
+ ];
+ const row=document.createElement('div');row.className='lesson-row';row.innerHTML='<strong id="lesson-title"></strong><div><button id="lesson-prev" aria-label="上一课">‹</button><span id="lesson-count"></span><button id="lesson-next" aria-label="下一课">下一课 ›</button><button id="lesson-detail">本课详解</button></div>';$('header p').before(row);
+ function teach(){const l=lessons[lesson];$('#lesson-title').textContent=l.title;$('#lesson-count').textContent=(lesson+1)+' / '+lessons.length;$('header p').textContent=l.summary;$('#lesson-prev').disabled=lesson===0;$('#lesson-next').disabled=lesson===lessons.length-1;}
+ $('#lesson-prev').onclick=()=>{lesson--;teach()};$('#lesson-next').onclick=()=>{lesson++;teach()};$('#lesson-detail').onclick=()=>{const wrap=document.createElement('div');wrap.innerHTML=lessons[lesson].body();let heading='',blocks=[];for(const node of wrap.children){if(node.tagName==='H3')heading=node.textContent;else if(node.textContent.trim())blocks.push([heading,node.textContent])}parent.postMessage({type:'petro-p1-teaching',title:'第'+(lesson+1)+'课 · '+lessons[lesson].title,blocks,inputs:[+$('#a').value,+$('#b').value,+$('#c').value]},'*')};teach();
+ const workspace=$('.visual-workspace'),kpis=workspace.querySelector('.kpis'),ruler=$('#difference-art'),total=$('#total').parentElement;
+ total.className='total-chip';total.querySelector('small').textContent='三簇共';$('.visual-heading').append(total);
+ const resultRow=document.createElement('div');resultRow.className='result-row';kpis.before(resultRow);resultRow.append(kpis,ruler);
+ const drawClusters=clusters;clusters=function(){drawClusters();const root=$('#cluster-art'),image=root.querySelector('svg');image.setAttribute('viewBox','14 66 808 190');image.setAttribute('aria-label','放大的三簇孔眼数量和孔径图');image.querySelectorAll('text').forEach(n=>n.remove());let labels=document.createElement('div');labels.className='cluster-labels';labels.innerHTML=[[selection.B,12,'侧簇1'],[selection.A,selection.C,'中间簇2'],[selection.B,12,'侧簇3']].map(([n,d,name],i)=>'<div class="'+(i===1?'middle':'')+'"><b>'+name+'</b><span>'+n+'孔 · '+d+' mm</span></div>').join('');root.prepend(labels);};
+ const drawDifference=difference;difference=function(){drawDifference();let y=predict(selection.A,selection.B,selection.C),base=predict(12,12,12),position=v=>(Math.max(-60,Math.min(60,v))+60)/120*100,p=position(y),b=position(base);ruler.innerHTML='<div class="ruler-heading"><span>ΔL位置 / m</span><span>虚线：基准</span></div><div class="ruler-track"><i class="ruler-fill" style="left:'+Math.min(p,50)+'%;width:'+Math.abs(p-50)+'%"></i><i class="ruler-zero"></i><i class="ruler-baseline" style="left:'+b+'%"></i><i class="ruler-current" style="left:'+p+'%"></i></div><div class="ruler-ticks"><span>−60</span><span>0</span><span>＋60</span></div>';};
+ const drawHeatmap=heatmap;heatmap=function(){drawHeatmap();let root=$('#surface'),image=root.querySelector('svg');image.setAttribute('viewBox','57 23 272 272');image.setAttribute('preserveAspectRatio','none');image.querySelectorAll('text').forEach(n=>n.remove());image.querySelectorAll('circle').forEach(n=>n.style.display='none');const layout=document.createElement('div');layout.className='teaching-map';layout.innerHTML='<div class="map-y">'+[20,12,4].map((v,i)=>'<span style="top:'+([2.941,50,97.059][i])+'%">'+v+'</span>').join('')+'</div><div class="map-plot"><i class="map-cursor" style="left:'+((selection.A-4+.5)/17*100)+'%;top:'+((20-selection.B+.5)/17*100)+'%"></i></div><div class="map-legend">'+[0,12,24,36,48,60].map((v,i)=>'<div><i style="background:hsl('+(165-140*i/5)+' 42% '+(94-52*i/5)+'%)"></i><span>'+(v===60?'≥60':v)+' m</span></div>').join('')+'</div><div class="map-x">'+[4,12,20].map((v,i)=>'<span style="left:'+([2.941,50,97.059][i])+'%">'+v+'</span>').join('')+'</div>';layout.querySelector('.map-plot').prepend(image);root.replaceChildren(layout);$('#surface-context').textContent='横轴 A：中间孔数 · 纵轴 B：两侧各簇孔数 · C='+selection.C+' mm';};
+ clusters();difference();heatmap();requestAnimationFrame(()=>parent.postMessage({type:'petro-lite-demo-focus'},'*'));
+})();
+</script></body></html>

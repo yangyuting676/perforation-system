@@ -1,0 +1,1650 @@
+{
+  "key": "design",
+  "title": "射孔参数优化参考文献图谱",
+  "intro": "22篇论文/研究来源，另按标识保留数据与专著；其中5项智能算法来源。新增方法关系表示本案例采用或比较，不冒充已核实的直接引用。",
+  "records": [
+    {
+      "id": "P01",
+      "refNumber": 1,
+      "doi": "10.2118/530-PA",
+      "year": 1963,
+      "category": "allocation",
+      "author": "Lagrone & Rasmussen",
+      "title": "限流完井的早期实践",
+      "label": "限流技术 · 1963",
+      "referenceTitle": "A New Development in Completion Methods- The Limited Entry Technique",
+      "citation": "K.W. Lagrone, J.W. Rasmussen. A New Development in Completion Methods- The Limited Entry Technique. Journal of Petroleum Technology 15(07), 695-702 (1963). https://doi.org/10.2118/530-PA",
+      "bibauthor": "Lagrone, K.W. and Rasmussen, J.W.",
+      "journal": "Journal of Petroleum Technology",
+      "volume": "15(07)",
+      "pages": "695-702",
+      "question": "怎样让处理液进入多个层段，而非集中进入少数易吸液层？",
+      "method": "限制射孔数并配合足够排量，利用孔眼入口压降改善多层分流；结合示踪测井检查处理范围。",
+      "result": "作者汇总1960—1963年363口井的应用，报告处理层段覆盖和井表现改善，未给出统一的随机对照增产率。",
+      "contribution": "把孔眼流阻作为分配处理液的设计手段。",
+      "limitations": "历史现场案例，井况和处理制度不统一；不能将363口井视为同条件对照试验。",
+      "access": "出版商摘要及公开引言",
+      "anchor": "摘要；Introduction；Limited Entry Technique",
+      "source_url": "https://doi.org/10.2118/530-PA",
+      "url": "https://doi.org/10.2118/530-PA",
+      "sections": [
+        [
+          "设计问题与作用机制",
+          "多层同时处理时，各层吸液能力不同，液体容易先进入阻力较小的层。限流设计通过减少入口数量、提高入口压降，使射孔阻力参与控制层间分配。研究中的孔数与施工排量需要配合选择，不能只把少打孔理解为有效限流。"
+        ],
+        [
+          "原始证据怎样获得",
+          "作者汇总1960—1963年363口井的应用，采用包括示踪测井在内的资料判断处理液是否到达预定层段。这类证据主要回答多层处理是否实现和技术能否应用，并非在相同地质条件下逐项改变孔径、孔数得到的控制试验。"
+        ],
+        [
+          "结果应怎样理解",
+          "这项经典工作的意义在于将孔眼入口阻力变成可设计的分流手段。现场覆盖范围和井表现支持其应用价值，但不能据此计算一个适用于所有储层的增产百分比。后续多簇压裂仍沿用入口压降调节分配的思想，同时需要计算裂缝竞争和孔眼变化。"
+        ]
+      ],
+      "figures": []
+    },
+    {
+      "id": "P02",
+      "refNumber": 2,
+      "doi": "10.2118/12781-PA",
+      "year": 1987,
+      "category": "productivity",
+      "author": "Tariq",
+      "title": "射孔汇流与非达西效应",
+      "label": "非达西流 · 1987",
+      "referenceTitle": "Evaluation of Flow Characteristics of Perforations Including Nonlinear Effects With the Finite-Element Method",
+      "citation": "Syed M. Tariq. Evaluation of Flow Characteristics of Perforations Including Nonlinear Effects With the Finite-Element Method. SPE Production Engineering 2(02), 104-112 (1987). https://doi.org/10.2118/12781-PA",
+      "bibauthor": "Tariq, Syed M.",
+      "journal": "SPE Production Engineering",
+      "volume": "2(02)",
+      "pages": "104-112",
+      "question": "孔道附近汇聚流与高速气流怎样改变产能？",
+      "method": "有限元计算稳态流动，进行网格敏感性检查，并考虑孔道附近非达西流。",
+      "result": "相对其数值结果，Locke图版高估约5%—10%；高产气井的非达西效应会降低产能。",
+      "contribution": "在几何参数之外纳入高速汇流损失，并检验既有图版。",
+      "limitations": "稳态数值研究；没有给出适用于所有气井的统一参数最优值。",
+      "access": "原始摘要",
+      "anchor": "Summary；作者机构库记录",
+      "source_url": "https://scholarsmine.mst.edu/min_nuceng_facwork/919/",
+      "url": "https://scholarsmine.mst.edu/min_nuceng_facwork/919/",
+      "sections": [
+        [
+          "为何需要三维流动计算",
+          "储层流体进入有限数量的射孔孔道时发生汇聚，孔道附近流速高于远场。穿深、孔密及圆周布置改变流线和局部压力损失；对于高产气井，局部高速流动还可能使压差与流量偏离达西线性关系。"
+        ],
+        [
+          "方法与核验对象",
+          "研究以有限元求解射孔附近的稳态流动，并检查网格对结果的影响。它比较的是几何引起的产能变化与非线性流动损失，不是通过训练数据学习射孔参数，也没有给出多簇压裂过程。"
+        ],
+        [
+          "结果的比较基准",
+          "作者指出，Locke图版相对于本文数值结果约高估5%—10%；这个数值的参照是所比较的图版与算例，而非现场产量预测误差。研究进一步表明，高速气体的非达西损失会降低产能。因此，只凭几何导流面积判断高产气井效果会遗漏局部流动损失。"
+        ]
+      ],
+      "figures": []
+    },
+    {
+      "id": "P03",
+      "refNumber": 3,
+      "doi": "10.2118/18247-PA",
+      "year": 1991,
+      "category": "productivity",
+      "author": "Karakas & Tariq",
+      "title": "射孔完井半解析产能模型",
+      "label": "半解析表皮 · 1991",
+      "referenceTitle": "Semianalytical Productivity Models for Perforated Completions",
+      "citation": "Metin Karakas, S. M. Tariq. Semianalytical Productivity Models for Perforated Completions. SPE Production Engineering 6(01), 73-82 (1991). https://doi.org/10.2118/18247-PA",
+      "bibauthor": "Karakas, Metin and Tariq, S. M.",
+      "journal": "SPE Production Engineering",
+      "volume": "6(01)",
+      "pages": "73-82",
+      "question": "如何较快估计穿深、孔密、相位及损伤对射孔表皮的影响？",
+      "method": "结合有限元结果与半解析关系，分别处理二维平面流和三维垂向汇聚流，并考虑损伤及渗透率各向异性。",
+      "result": "给出射孔表皮计算关系，指出相位和穿深共同影响穿过近井损伤带后的产能。",
+      "contribution": "把三维射孔流动结果转化为工程可用的表皮估计方法。",
+      "limitations": "不是多目标优化算法；2007年Hagoort针对其各向异性处理指出可能偏高的产能估计。",
+      "access": "原始摘要",
+      "anchor": "Summary；作者机构库记录",
+      "source_url": "https://scholarsmine.mst.edu/min_nuceng_facwork/916/",
+      "url": "https://scholarsmine.mst.edu/min_nuceng_facwork/916/",
+      "sections": [
+        [
+          "模型要简化什么",
+          "直接对每一种射孔布置进行三维数值计算成本较高。本文将有限元结果归纳为半解析表皮关系，使穿深、孔密、相位和损伤影响能够用于工程估算。表皮系数描述相对于参照流动的附加压力损失，并不是一个独立的产量。"
+        ],
+        [
+          "二维与三维分别表示什么",
+          "孔道沿井轴间距较小时，平面内流动与垂向汇聚的贡献不同。作者分别处理二维平面流和三维垂向汇聚，再考虑近井损伤及渗透率各向异性。参数的影响取决于孔道是否穿过损伤区及各方向的流动能力。"
+        ],
+        [
+          "贡献及后来被修正的部分",
+          "该方法把复杂几何计算转化为便于调用的射孔表皮估计，是后续产能研究的重要比较对象。Hagoort（2007）针对各向异性处理提出具体修正，指出损伤和各向异性共同存在时可能高估产能。这是明确的模型修正关系，不能扩展成所有工况下原模型均失效。"
+        ]
+      ],
+      "figures": []
+    },
+    {
+      "id": "P04",
+      "refNumber": 4,
+      "doi": "10.2118/20661-PA",
+      "year": 1991,
+      "category": "fracture",
+      "author": "Behrmann & Elbel",
+      "title": "射孔方位与水力裂缝起裂",
+      "label": "起裂试验 · 1991",
+      "referenceTitle": "Effect of Perforations on Fracture Initiation",
+      "citation": "L.A. Behrmann, J.L. Elbel. Effect of Perforations on Fracture Initiation. Journal of Petroleum Technology 43(05), 608-615 (1991). https://doi.org/10.2118/20661-PA",
+      "bibauthor": "Behrmann, L.A. and Elbel, J.L.",
+      "journal": "Journal of Petroleum Technology",
+      "volume": "43(05)",
+      "pages": "608-615",
+      "question": "射孔孔道方向是否决定裂缝最终扩展方向？",
+      "method": "在三轴应力条件下对大砂岩块进行套管、水泥固结、真实射孔和注液压裂试验。",
+      "result": "起裂受孔道方位、流体和排量影响；在所测工况下，裂缝在约一个井径内转向垂直最小水平应力的平面。",
+      "contribution": "区分孔道附近起裂位置与远离井筒后的裂缝方向。",
+      "limitations": "岩块尺度、岩性和应力范围有限，不能将局部起裂结论直接替代现场多簇扩展预测。",
+      "access": "原始摘要及公开正文片段",
+      "anchor": "Summary；Test Fixture；Experimental Procedure",
+      "source_url": "https://doi.org/10.2118/20661-PA",
+      "url": "https://doi.org/10.2118/20661-PA",
+      "sections": [
+        [
+          "试验如何接近实际完井",
+          "研究使用约27×27×32英寸的大砂岩块，在三轴应力条件下设置套管和水泥固结，再实施真实射孔与注液压裂。与直接预制一条理想裂缝相比，这种试验保留了射孔附近的复杂起裂条件。公开正文还说明了试验装置、孔隙压力设置与操作过程。"
+        ],
+        [
+          "需要区分的两个方向",
+          "孔道方向影响液体进入岩石的位置和近井起裂方式，但裂缝离开井筒后的方向同时受远场应力控制。在作者所测工况下，裂缝在约一个井径内转向垂直于最小水平主应力的平面。因此，射孔方位与最终裂缝方位不能简单画成同一直线。"
+        ],
+        [
+          "这项证据解决与遗留的问题",
+          "该试验为孔道控制起裂、应力控制后续转向提供了物理观察。其岩块尺度、岩性和应力范围限制了外推；多簇之间的应力阴影、不同簇的同时或先后起裂，还需要后续试验与耦合模型研究。"
+        ]
+      ],
+      "figures": []
+    },
+    {
+      "id": "P05",
+      "refNumber": 5,
+      "doi": "10.2118/83697-PA",
+      "year": 2003,
+      "category": "cleanup",
+      "author": "Underdown et al.",
+      "title": "按储层差异设计欠平衡射孔",
+      "label": "欠平衡设计 · 2003",
+      "referenceTitle": "Optimizing the Perforating Strategy in Well Completions To Maximize Productivity",
+      "citation": "D. R. Underdown, W. H. Jenkins, A. Pitts, A. Venkitaraman, H. Li. Optimizing the Perforating Strategy in Well Completions To Maximize Productivity. SPE Drilling & Completion 18(02), 177-181 (2003). https://doi.org/10.2118/83697-PA",
+      "bibauthor": "Underdown, D. R. and Jenkins, W. H. and Pitts, A. and Venkitaraman, A. and Li, H.",
+      "journal": "SPE Drilling & Completion",
+      "volume": "18(02)",
+      "pages": "177-181",
+      "question": "如何按分层渗透率选择枪弹、孔密与欠平衡，而非使用全井平均条件？",
+      "method": "Britannia气田将测井解释、方案模拟、模拟井下条件岩心试验和完井后表皮分析结合。",
+      "result": "露头岩心在1000 psi欠平衡下接近零射孔表皮；12口已完井井的分析呈低表皮或负表皮。",
+      "contribution": "以实验核对欠平衡设计，再将分层方案用于现场。",
+      "limitations": "特定气田与岩石、流体条件；1000 psi不是跨储层通用值，现场结果也不能分离各设计变量的贡献。",
+      "access": "原始摘要",
+      "anchor": "Summary",
+      "source_url": "https://doi.org/10.2118/83697-PA",
+      "url": "https://doi.org/10.2118/83697-PA",
+      "sections": [
+        [
+          "设计依据从平均值转向分层条件",
+          "Britannia气田案例把分层渗透率解释用于射孔设计，将枪弹、孔密和欠平衡条件配合选择。不同层段的流动能力和清洁要求可能不同，因此全井平均渗透率不足以代表每一层的设计条件。"
+        ],
+        [
+          "岩心试验与现场资料分别证明什么",
+          "作者在模拟井下条件的岩心试验中检查射孔效果，露头岩心在1000 psi欠平衡条件下接近零射孔表皮；又以12口已完井井的低表皮或负表皮结果报告现场表现。前者检验选定岩石与压力条件下的清洁效果，后者提供整套完井方案的应用证据。"
+        ],
+        [
+          "参数取值为何不能直接照搬",
+          "1000 psi是对应试验的压力条件，不是通用清洁阈值。现场同时改变或组合了多项设计，井况也有差异，因而无法仅由最终表皮分离某一个射孔参数的贡献。后续动态欠平衡模型补充了压力随时间变化的描述。"
+        ]
+      ],
+      "figures": []
+    },
+    {
+      "id": "P06",
+      "refNumber": 6,
+      "doi": "10.1016/j.petrol.2006.09.001",
+      "year": 2007,
+      "category": "productivity",
+      "author": "Hagoort",
+      "title": "各向异性条件下的解析产能模型",
+      "label": "各向异性 · 2007",
+      "referenceTitle": "An analytical model for predicting the productivity of perforated wells",
+      "citation": "Jacques Hagoort. An analytical model for predicting the productivity of perforated wells. Journal of Petroleum Science and Engineering 56(4), 199-218 (2007). https://doi.org/10.1016/j.petrol.2006.09.001",
+      "bibauthor": "Hagoort, Jacques",
+      "journal": "Journal of Petroleum Science and Engineering",
+      "volume": "56(4)",
+      "pages": "199-218",
+      "question": "既有射孔产能关系怎样处理渗透率各向异性与损伤？",
+      "method": "从单孔单相达西流解析解构建规则孔列模型，计算几何、损伤与各向异性影响。",
+      "result": "与既有数值结果作比较；指出Karakas–Tariq方法在损伤和各向异性并存时可能过高估计产能。",
+      "contribution": "对既有半解析方法的各向异性处理作了具体修正与比较。",
+      "limitations": "规则孔列、单相达西流假设；没有覆盖动态清洁、非达西气流及压裂多簇竞争。",
+      "access": "出版商摘要及公开结果片段",
+      "anchor": "Abstract；Results；Example calculation",
+      "source_url": "https://doi.org/10.1016/j.petrol.2006.09.001",
+      "url": "https://doi.org/10.1016/j.petrol.2006.09.001",
+      "sections": [
+        [
+          "解析模型的构造思路",
+          "作者从单个孔道在半无限储层中的单相达西流出发，构建规则孔列的产能模型。通过解析关系考察射孔几何、近井损伤和渗透率各向异性，目的在于以较低计算成本估计完井产能。"
+        ],
+        [
+          "与既有方法比较的重点",
+          "论文不是只增加一条参数敏感性曲线，而是检查Karakas–Tariq方法对各向异性的处理。公开结果指出，当损伤与各向异性共同存在时，既有处理可能给出偏高的产能；本文提供替代关系与比较算例。"
+        ],
+        [
+          "适用范围与后续问题",
+          "这里的产能结论建立在规则孔列、单相和达西流动条件下。孔道内高速非达西流、射孔后的瞬态清洁和压裂期间的多簇竞争属于不同过程。使用该模型时，应先核对流动条件，再比较其表皮或产能输出。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P06",
+          "number": "1",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0920410506001823-gr1.jpg",
+          "ok": true,
+          "file": "P06-fig1.jpg",
+          "explanation": "单孔解析模型的原始几何定义。Lp为孔道长度，2rp为直径，qp为进入井筒的流量；箭头表示周围介质向孔道汇流。这是构造规则孔列产能关系的基本单元。它没有显示清洁、冲蚀或裂缝扩展，读图时应将几何定义与后续产能计算区分。原站仅提供此尺寸版本。",
+          "caption": "",
+          "sha256": "bd9b61be3316a32874c2997f47a70f9fb347a7cfd66e081487cb00658fac8e8f",
+          "size": 6740,
+          "width": 222,
+          "height": 153
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "refNumber": 7,
+      "doi": "10.1016/j.petrol.2017.03.023",
+      "year": 2017,
+      "category": "allocation",
+      "author": "Li et al.",
+      "title": "限流压裂的孔眼入口单元",
+      "label": "入口单元 · 2017",
+      "referenceTitle": "Numerical simulation of limited-entry multi-cluster fracturing in horizontal well",
+      "citation": "Yang Li, Jingen Deng, Wei Liu, Wei Yan, Yongcun Feng, Wenke Cao, Pengfei Wang, Youlin Hou. Numerical simulation of limited-entry multi-cluster fracturing in horizontal well. Journal of Petroleum Science and Engineering 152, 443-455 (2017). https://doi.org/10.1016/j.petrol.2017.03.023",
+      "bibauthor": "Li, Yang and Deng, Jingen and Liu, Wei and Yan, Wei and Feng, Yongcun and Cao, Wenke and Wang, Pengfei and Hou, Youlin",
+      "journal": "Journal of Petroleum Science and Engineering",
+      "volume": "152",
+      "pages": "443-455",
+      "question": "怎样在多簇扩展计算中自动分配各簇进液量？",
+      "method": "将射孔入口单元接入三维水力–力学有限元模型，以两个单元级算例核验压降与分流。",
+      "result": "五簇算例表明，提高入口压降可缓解应力阴影引起的裂缝不均衡；井底压力相近不代表各簇均匀生长。",
+      "contribution": "把孔眼压降与各簇竞争扩展直接耦合。",
+      "limitations": "原模型忽略簇间井筒压降和近井裂缝弯曲摩阻，未处理孔眼冲蚀。",
+      "access": "公开正文",
+      "anchor": "§2假设；§2.1入口单元；§2.4核验；§4；§6",
+      "source_url": "https://doi.org/10.1016/j.petrol.2017.03.023",
+      "url": "https://doi.org/10.1016/j.petrol.2017.03.023",
+      "sections": [
+        [
+          "入口单元为何关键",
+          "多簇压裂中，井筒压力与各裂缝入口压力之间存在孔眼压降。本文将这一关系做成入口单元，使各簇流量随压力和裂缝竞争自动调整，而不是在计算开始时强行规定各簇等量进液。"
+        ],
+        [
+          "算例与验证层次",
+          "作者将入口单元接入三维流固耦合有限元模型，以单元级解析算例核验入口压降与分流关系，再研究五簇扩展。公开正文中的五簇示例采用10 m簇距、6 m³/min排量和8 mm孔径。单元核验与多簇算例承担不同的验证任务。"
+        ],
+        [
+          "结果及尚未纳入的过程",
+          "提高入口压降可以减弱应力阴影造成的分流不均；相近的井底压力却可能对应不同的各簇裂缝长度，因此仅看施工压力不足以判断均匀性。模型未计入簇间井筒摩阻、近井弯曲摩阻和孔眼冲蚀。Liu等后续工作明确增加冲蚀与起裂不同步，补充了其中部分过程。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P07",
+          "number": "1",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0920410517303807-gr1_lrg.jpg",
+          "ok": true,
+          "file": "P07-fig1.jpg",
+          "explanation": "两个压力节点构成的入口单元。p1、p2表示孔眼两侧压力，q1、q2表示节点流量；绿色连接表示模型中的入口关系。作者以孔眼压降与流量平方的关系更新入口阻力，使各簇流量由耦合系统求出，而不是预设每簇等量。",
+          "caption": "",
+          "sha256": "8807bff7b1e21a80ec102a3bc451595492e6c8a4be6b5db4bf8404811deb2653",
+          "size": 36586,
+          "width": 1500,
+          "height": 220
+        },
+        {
+          "paper": "P07",
+          "number": "8",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0920410517303807-gr8_lrg.jpg",
+          "ok": true,
+          "file": "P07-fig8.jpg",
+          "explanation": "射孔入口单元与裂缝单元的连接。图(a)给出一段水平井的多簇布置，图(b)给出计算连接：各入口单元在井筒侧共享一个注入节点，另一端分别接入裂缝。读图可看出，原模型把各簇井筒侧压力视为相同，因此没有计算簇间井筒沿程压降。",
+          "caption": "",
+          "sha256": "6222e7164662d99169671a5427ddc05cbf40ecb18184662906ff4f52c717d795",
+          "size": 264640,
+          "width": 1708,
+          "height": 1936
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "refNumber": 8,
+      "doi": "10.11885/j.issn.1674-5086.2018.09.12.02",
+      "year": 2019,
+      "category": "productivity",
+      "author": "李进等",
+      "title": "考虑孔道摩阻的最优穿深设计",
+      "label": "穿深取舍 · 2019",
+      "referenceTitle": "基于最优穿深分析的射孔参数优化设计新方法",
+      "citation": "李进, 许杰, 王昆剑, 韩耀图, 亓彦铼. 基于最优穿深分析的射孔参数优化设计新方法. 西南石油大学学报（自然科学版） 41(5), 142–149 (2019). https://doi.org/10.11885/j.issn.1674-5086.2018.09.12.02",
+      "bibauthor": "李进 and 许杰 and 王昆剑 and 韩耀图 and 亓彦铼",
+      "journal": "西南石油大学学报（自然科学版）",
+      "volume": "41(5)",
+      "pages": "142–149",
+      "question": "为何不能仅按产能随穿深增加的敏感性曲线确定设计穿深？",
+      "method": "耦合储层流入与孔道内流动，按Dikken准则，以摩阻导致产能降低20%对应的长度确定设计穿深。",
+      "result": "馆陶组算例选择孔径不小于20 mm、穿深600 mm、孔密40孔/m；报道投产92.30 m³/d。",
+      "contribution": "给出包含摩阻损失判据的穿深取舍方法。",
+      "limitations": "20%是所采用的设计准则；现场产量高于配产不等于与另一射孔方案的受控增产比较。",
+      "access": "全文",
+      "anchor": "§2.4式21；§3；§4表2；§5",
+      "source_url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/2019-5-142.htm",
+      "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/2019-5-142.htm",
+      "sections": [
+        [
+          "从敏感性分析到设计判据",
+          "常规产能曲线可能随穿深增加持续上升，难以据此确定应该选择多长的孔道。本文耦合储层流入与孔道流动摩阻，引入Dikken准则，以考虑摩阻的产能与忽略摩阻的产能之比为0.8作为穿深取舍依据。20%的损失是采用的设计判据，而非实验发现的普适临界值。"
+        ],
+        [
+          "如何从图得到参数",
+          "馆陶组算例先比较不同孔径下的最优穿深和产能：孔径超过20 mm后进一步增大带来的收益减小，因而选取孔径不小于20 mm；结合对应穿深曲线选择600 mm，再配合孔密40孔/m和45°/135°相位。各数值属于该区块与模型条件。"
+        ],
+        [
+          "现场结果的证据边界",
+          "论文报道投产单井产能92.30 m³/d，较油藏配产高约15 m³/d。配产是设计或管理参照，并非另一射孔方案的对照观测，因此不能将差值直接写成优化方案的净增产。与2023年孔道压降研究比较时，还应统一流量、孔径、粗糙度和流态。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P08",
+          "number": "1",
+          "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-1.jpg",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 156888,
+          "explanation": "产能比随穿深变化的参数曲线。各曲线对应不同孔径；单调增加的趋势说明，单凭产能敏感性难以确定设计穿深。",
+          "sha256": "887920fa5594ddf27e005297d36e8e44e7df4f999525d77a2287decdc5438269",
+          "width": 700,
+          "height": 476
+        },
+        {
+          "paper": "P08",
+          "number": "7",
+          "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-7.jpg",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 200730,
+          "explanation": "馆陶组储层采用Dikken优化原则的最佳穿深分析。不同颜色表示孔径；以考虑摩阻与忽略摩阻的产能之比为0.8作为取舍判据，识别对应的设计穿深。",
+          "sha256": "afe69fd769a18648058fffcd31a1e6cce0760f44efc7341b83ed60a7eeda029c",
+          "width": 700,
+          "height": 534
+        },
+        {
+          "paper": "P08",
+          "number": "8",
+          "url": "https://html.rhhz.net/XNSYDXXBZRB/HTML/PIC/xnsydxxbzrkxb-41-5-142-8.jpg",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 132625,
+          "explanation": "不同孔径下产能比随穿深的变化。曲线间距随孔径增加而缩小，用于识别扩大孔径后的边际收益。",
+          "sha256": "49f95a989a7aa153d8391c28bc16ca26b65d2cc2081cc6395efb1fa4731e0c4c",
+          "width": 700,
+          "height": 475
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "refNumber": 9,
+      "doi": "10.1016/j.petrol.2019.106495",
+      "year": 2020,
+      "category": "cleanup",
+      "author": "Bale & Satti",
+      "title": "动态欠平衡井筒压力快速计算",
+      "label": "瞬态压力 · 2020",
+      "referenceTitle": "A fast computational model for wellbore pressure transients while perforating with dynamic underbalance",
+      "citation": "Derek S. Bale, Rajani P. Satti. A fast computational model for wellbore pressure transients while perforating with dynamic underbalance. Journal of Petroleum Science and Engineering 185, 106495 (2020). https://doi.org/10.1016/j.petrol.2019.106495",
+      "bibauthor": "Bale, Derek S. and Satti, Rajani P.",
+      "journal": "Journal of Petroleum Science and Engineering",
+      "volume": "185",
+      "pages": "106495",
+      "question": "怎样在作业设计中计算短时欠平衡压力历程？",
+      "method": "建立面向设计流程的快速物理计算方法，将完井配置和储层条件与压力瞬态及清洁过程联系起来。",
+      "result": "本轮公开片段可核对模型目标与所考虑的过程，未取得完整误差表，不列速度倍数或预测误差。",
+      "contribution": "将欠平衡从单一初始压差扩展为有幅值和持续时间的瞬态过程。",
+      "limitations": "本轮未取得全文；模型适用范围及定量精度仍需按原文进一步复核。",
+      "access": "出版商公开片段",
+      "anchor": "Introduction公开片段",
+      "source_url": "https://doi.org/10.1016/j.petrol.2019.106495",
+      "url": "https://doi.org/10.1016/j.petrol.2019.106495",
+      "sections": [
+        [
+          "研究对象是压力历程",
+          "动态欠平衡不仅是射孔前井筒压力低于地层压力的一个差值，还包括射孔后压力下降、恢复和储层响应。本文面向完井设计建立快速计算模型，重点处理射孔后的井筒压力瞬态。压力幅值和持续时间共同决定后续回流所处的条件。"
+        ],
+        [
+          "过程划分怎样阅读",
+          "原文将射孔后的过程区分为压力瞬态、后续涌流以及孔道清洁等阶段。本文所建快速模型的重点是压力瞬态，不能将其描述成已经独立验证所有清洁与损伤清除过程。后续压实带研究需要以压力历程作为载荷，再求解固体变形和渗流。"
+        ],
+        [
+          "公开结果支持到哪一步",
+          "出版商公开结果说明图4对比模拟与实测井筒压力，图6考察500—3000 psi静态欠平衡及50、200、1500 mD渗透率，图7讨论动态欠平衡随静态欠平衡增大的变化。当前未取得完整误差表，故不把图形吻合转换为未经核实的百分比精度或计算加速倍数。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P09",
+          "number": "4",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0920410519309167-gr4_lrg.jpg",
+          "ok": true,
+          "file": "P09-fig4.jpg",
+          "explanation": "井筒压力瞬态的模型与试验对照。横轴为时间s，纵轴为压力psi；点状模型结果与连续测量曲线均显示压力骤降后恢复。比较时应分别观察最低压力、达到最低压力的时间及恢复段偏差。该图属于压力瞬态核验，不能据此推算孔道清洁率或给出图中没有列出的误差百分比。",
+          "caption": "",
+          "sha256": "5f137149554c2f27316fbbca76ce94c3a93bdf7f6d4cff797000ca6c7c990bd5",
+          "size": 213491,
+          "width": 1721,
+          "height": 1414
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "refNumber": 10,
+      "doi": "10.1038/s41598-023-46443-y",
+      "year": 2023,
+      "category": "productivity",
+      "author": "Jiang et al.",
+      "title": "储层渗流与孔道压降的量级比较",
+      "label": "压降组成 · 2023",
+      "referenceTitle": "Construction and application of flow pressure drop model of perforated well considering pressure loss of perforation hole",
+      "citation": "Hongfeng Jiang, Muwang Wu, Yongjian Zheng, Qibin Zhao, Yongde Gao. Construction and application of flow pressure drop model of perforated well considering pressure loss of perforation hole. Scientific Reports 13(1), 19074 (2023). https://doi.org/10.1038/s41598-023-46443-y",
+      "bibauthor": "Jiang, Hongfeng and Wu, Muwang and Zheng, Yongjian and Zhao, Qibin and Gao, Yongde",
+      "journal": "Scientific Reports",
+      "volume": "13(1)",
+      "pages": "19074",
+      "question": "生产压差主要消耗在储层渗流还是孔道内部？",
+      "method": "用等效阻力与管流理论耦合求解，并与Karakas–Tariq模型比较。",
+      "result": "其算例中孔道压降比生产压差小两个数量级以上；孔长、孔密的影响大于孔径和相位。",
+      "contribution": "对特定单相生产条件下孔道摩阻的重要性给出量级判断。",
+      "limitations": "模型间符合不能替代独立实验验证；该结论与2019年研究须按流量、孔径、粗糙度和流态分别比较。",
+      "access": "全文",
+      "anchor": "Solution of flow model；Results and discussion；Conclusions",
+      "source_url": "https://www.nature.com/articles/s41598-023-46443-y",
+      "url": "https://www.nature.com/articles/s41598-023-46443-y",
+      "sections": [
+        [
+          "模型将压差拆成哪些部分",
+          "论文用等效流动阻力描述储层中的分区径向流，并将孔道内的管流压降接入同一产能关系。这样可以分别检查流体从储层汇入孔道和通过孔道进入井筒所消耗的压差，避免将全部压力损失归入同一个表皮项。"
+        ],
+        [
+          "读结果时应比较量级",
+          "原图5比较不同孔径下压降随产量的变化，图6进一步分解孔道压降组成。在本文算例中，孔道压降比总生产压差小两个数量级以上；孔长和孔密对产能的影响大于孔径与相位。这个结论的关键是流动条件和量级，而不是孔道摩阻恒等于零。"
+        ],
+        [
+          "模型核验与跨论文对照",
+          "作者与Karakas–Tariq模型比较计算结果。模型间一致提供计算参照，但仍不同于独立压差—流量试验。2019年最优穿深研究更强调摩阻取舍，两者应在统一流量、几何和流态下重算，不能仅凭摘要中的结论判断哪一篇错误。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P10",
+          "number": "2",
+          "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-023-46443-y/MediaObjects/41598_2023_46443_Fig2_HTML.png",
+          "caption": "Figure 2 Full size image Three radial flow model of perforated well. ( a ) Three radial flow model. ( b ) Radial flow model in reservoir area. ( c ) Radial flow model in perforated area.",
+          "ok": true,
+          "status": 200,
+          "size": 1446312,
+          "explanation": "分区径向流模型。图(a)展示总体流动路径，图(b)、(c)分别表示储层区与射孔区的径向流，用于将各区域压力损失纳入同一计算。",
+          "sha256": "d096f3a259c3feefc6680925345938cab6d646f367d79fb69c344976d01fa445",
+          "width": 2007,
+          "height": 2100
+        },
+        {
+          "paper": "P10",
+          "number": "5",
+          "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-023-46443-y/MediaObjects/41598_2023_46443_Fig5_HTML.png",
+          "caption": "Figure 5 Full size image Relationship curve between pressure drop and production under different hole diameters.",
+          "ok": true,
+          "status": 200,
+          "size": 211447,
+          "explanation": "不同孔径下孔道压降与产量的关系。横轴为产量，纵轴采用对数刻度；在同一产量下比较曲线，可以看到孔径增大使孔道压降降低。",
+          "sha256": "3a9786014142e214736f1a8ffbcb6127e2126a60d1f98c86eb6e329fe80eeb48",
+          "width": 968,
+          "height": 604
+        },
+        {
+          "paper": "P10",
+          "number": "6",
+          "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-023-46443-y/MediaObjects/41598_2023_46443_Fig6_HTML.png",
+          "caption": "Figure 6 Full size image Composition of pressure drop in the hole under different production.",
+          "ok": true,
+          "status": 200,
+          "size": 128378,
+          "explanation": "不同产量下孔道压降的组成。蓝、橙、绿柱分别表示流体内摩擦、摩擦阻力与孔道总压降；读图应同时核对纵轴的MPa量级。",
+          "sha256": "a22987d39c0dde3303f7eb9942326713fb1a8846632ae3aa3cd6b9e9c4fa4632",
+          "width": 967,
+          "height": 714
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "refNumber": 11,
+      "doi": "10.1021/acsomega.3c06416",
+      "year": 2024,
+      "category": "allocation",
+      "author": "Liu et al.",
+      "title": "密切割条件下的射孔参数优选",
+      "label": "多簇优选 · 2024",
+      "referenceTitle": "Investigation and Application of Perforation Optimization Method on Shale Gas Horizontal Well with Numerical Simulation of Multicluster Fracturing under Dense-Segment Pattern",
+      "citation": "Chang Liu, Haitao Li, Hongwen Luo, Yu Lu, Ying Li, Chao Su, Shengnan Chen. Investigation and Application of Perforation Optimization Method on Shale Gas Horizontal Well with Numerical Simulation of Multicluster Fracturing under Dense-Segment Pattern. ACS Omega 9(1), 675-691 (2024). https://doi.org/10.1021/acsomega.3c06416",
+      "bibauthor": "Liu, Chang and Li, Haitao and Luo, Hongwen and Lu, Yu and Li, Ying and Su, Chao and Chen, Shengnan",
+      "journal": "ACS Omega",
+      "volume": "9(1)",
+      "pages": "675-691",
+      "question": "簇间距、孔数与初始孔径怎样影响多裂缝扩展均匀性？",
+      "method": "逐段核读引言、数值模型、20个参数算例、单井应用及结论。以拟三维位移不连续法连接裂缝变形、质量平衡、井筒与孔眼压降、冲蚀和起裂判别。",
+      "result": "原图7中簇距5、8、12、15 m的均匀性指标依次为0.77、0.90、0.93、0.94；原图11中每簇16、8、4孔的指标为0.77、0.87、0.90。表3两组现场阶段平均SRV复算约为5.23与12.31×10⁶ m³。",
+      "contribution": "在既有限流模型之外加入冲蚀和起裂不同步，并开展现场应用。",
+      "limitations": "数值算例依赖给定分层、应力和施工条件。单井前后两组阶段未经随机分配，SRV不等于产量；全文部分算例标号、簇数及产量图注存在不一致，原图与表保持原样。",
+      "access": "全文",
+      "anchor": "全文§1—§5；式1—21；表1—3；图1、4、7、11、17、20。原图文件由Europe PMC开放全文图像包取得。",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10785646/",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10785646/",
+      "sections": [
+        [
+          "研究问题：均衡并不只由簇距决定",
+          "作者关注一段水平井内各簇裂缝体积不均：井筒压力、孔眼阻力与裂缝应力干扰共同控制进液，而某些簇还可能晚起裂或始终未起裂。引言明确指出，已有孔眼入口模型与少簇数研究尚未充分纳入孔眼冲蚀、起裂不同步和密切割条件。因此，本研究不是只寻找一个最佳簇距，而是同时比较簇距、孔数和初始孔径的分布方式。"
+        ],
+        [
+          "方法：把流量、压力和裂缝变形连起来",
+          "模型采用拟三维位移不连续法描述裂缝相互作用；质量平衡计算进入裂缝的液体如何用于裂缝张开、滤失和继续流动。压力系统分别计算井筒沿程摩阻、孔眼入口压降和裂缝内压降。孔眼冲蚀又会增大孔径与流量系数，改变下一步分流。图1用四簇示例说明连接关系，后续参数比较按表2设置为八簇算例。"
+        ],
+        [
+          "起裂不同步具体怎样处理",
+          "每个时间步先识别尚未起裂的簇，并按起裂压力组织试算。模型检查当前压力能否使新的簇起裂，然后重新求解流量与压力，直到系统达到平衡，再计算裂缝扩展。图4中的排序是试算策略，并非预先规定的实际起裂顺序。这个处理避免把所有簇在同一时刻开始扩展作为默认前提。"
+        ],
+        [
+          "参数算例及比较条件",
+          "表1给出弹性模量45 GPa、泊松比0.25、平均最小/最大水平应力70/84 MPa、排量14 m³/min、流体黏度2 mPa·s和支撑剂浓度413 kg/m³。表2将20个算例分为六组，分别改变均匀或非均匀的簇距、孔数和初始孔径。比较输出是0—1的裂缝体积均匀性指标Ufm，越接近1越均匀；它不直接表示生产效率或现场成功率。"
+        ],
+        [
+          "数值结果：哪些改动有效，改善多少",
+          "图7中簇距从5、8、12增至15 m时，Ufm依次为0.77、0.90、0.93和0.94，后两者已较接近。图11在5 m簇距下把每簇16孔减为8孔、4孔，指标从0.77提高到0.87、0.90。图17在8 m簇距、每簇16孔下，将初始孔径7 mm增至10、14 mm，指标从0.90降至0.88、0.83。结果支持在这些条件下通过入口阻力抑制优势簇进液，不能据此直接指定其他井段的通用孔数和孔径。"
+        ],
+        [
+          "现场应用：观察到什么，依据是什么",
+          "应用井共22段，后11段采用平均约8 m簇距和每簇2—4孔的设计，并结合测井调整分布。前11段为经验设计。按表3的SRV列逐项复算，前组平均约5.23×10⁶ m³，试验组约12.31×10⁶ m³，约为2.35倍；图20同时给出事件空间分布和各段SRV。两组并非随机对照，地质和施工也有差异，因此这属于现场应用证据，不能把差值全部归因于射孔参数。"
+        ],
+        [
+          "研究推进与仍待核对之处",
+          "本文明确增加了冲蚀和起裂不同步，对早期入口单元路线作了具体补充。天然裂缝网络的质量与最终生产响应仍未由这20个算例统一回答。全文中§3.1的a-1簇距与表2、图5不一致，部分图号和井号也有差异；本页数值比较对应明确的表和原图，不把含混标注补写成新的数据。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P11",
+          "number": "1",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig1.jpg",
+          "explanation": "四簇示例的压力传递系统。液体沿井筒流动，经各簇孔眼进入裂缝；井筒摩阻、孔眼入口压降和裂缝内压降分别标出。读图先沿紫色箭头找进液方向，再比较每簇进入裂缝的支路：同一总排量不意味着各簇分到同样的流量。图中的四簇只是方法示意，后文参数算例使用八簇。",
+          "caption": "Pressure transmission system coupled with fracture propagation model built by DDM (displacement discontinuity method) for a four-cluster perforation example.",
+          "sha256": "816389416cd39c9efe8914a8c160a8f886186e3d68f3c647bc8b94a523010a08",
+          "size": 87287,
+          "width": 750,
+          "height": 354
+        },
+        {
+          "paper": "P11",
+          "number": "4",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig4.jpg",
+          "explanation": "起裂不同步的判别流程。先检查是否仍有未起裂簇，再计算其起裂压力，并在每个时间步试算压力与流量平衡。某簇达到条件后进入下一轮试算；直到系统平衡才推进裂缝。流程中的试算次序不等于实际起裂次序，起裂压力相近的多个簇可能同时起裂。",
+          "caption": "Flowchart of the initiation asynchrony progress, which is executed before the fracture propagation computation at each time-point whenever there exists clusters uninitiated.",
+          "sha256": "d9aa3d107a46535cb66d0e86edd19c8da915ea6228799d8d3022626ed91b72f2",
+          "size": 120890,
+          "width": 800,
+          "height": 782
+        },
+        {
+          "paper": "P11",
+          "number": "7",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig7.jpg",
+          "explanation": "簇距由5、8、12增至15 m的四组结果。蓝柱是八条裂缝各自占总裂缝体积的比例，理想均分为12.5%；红色点线采用右轴，表示均匀性指标Ufm，越接近1越均匀。原图分别为0.77、0.90、0.93、0.94，说明这一工况下增大簇距有利于均衡，但12到15 m的改善已较小。",
+          "caption": "Distributions of fracture volume percentages and fracture uniformity indices of case a-1 to case a-4 with evenly distributed cluster spacings, of which the cluster spacings are 5, 8, 12, and 15 m, respectively.",
+          "sha256": "7dfc017147e63d01058c53be934df1148aed0c9700798a39cf311f685531914a",
+          "size": 112711,
+          "width": 750,
+          "height": 327
+        },
+        {
+          "paper": "P11",
+          "number": "11",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig11.jpg",
+          "explanation": "相同5 m簇距下，将每簇孔数由16减至8和4孔。蓝柱显示裂缝体积占比的差异减小，红色均匀性指标由0.77增至0.87和0.90。其原因是入口阻力增强后更能约束优势簇进液。它展示的是这组三维模型结果，不表示所有井段都应采用4孔。",
+          "caption": "Fracture volume percentage distributions and fracture uniformity indices of cases a-1, c-1, and c-2 with the same cluster spacing of 5 m and even perforation numbers, of which the perforation numbers are 16, 8, and 4.",
+          "sha256": "1d55fdcb6eebcb33f2cc9a50b63f57fc8dc528579c1dfdf2e55756999de7450e",
+          "size": 103840,
+          "width": 663,
+          "height": 360
+        },
+        {
+          "paper": "P11",
+          "number": "17",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig17.jpg",
+          "explanation": "相同8 m簇距、每簇16孔时，初始孔径7、10、14 mm的结果。原图红色指标依次为0.90、0.88、0.83；蓝柱表明大孔径方案中部分裂缝占据更多体积。这里比较的是初始孔径，模型还在后续过程更新冲蚀，不能将图中的孔径当作施工结束后的孔径。",
+          "caption": "Fracture volume percentage distributions and fracture uniformity indices of cases a-1, e-1, and e-2 with the same cluster spacing of 8 m, the same perforation number of 16 per cluster, and even initial perforation diameters, of which the initial perforation diameters are 7, 10, and 14 mm, respectively.",
+          "sha256": "2cbe1894f5b2fb423c61a0a04a57eeada134cb0e7bba36fd729cd2f1a7d1864c",
+          "size": 101906,
+          "width": 646,
+          "height": 351
+        },
+        {
+          "paper": "P11",
+          "number": "20",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10785646/supplementaryFiles",
+          "ok": true,
+          "file": "P11-fig20.jpg",
+          "explanation": "现场微地震解释结果。左图为事件点及空间分布，右图按22个施工段展示解释SRV；前11段与后11个试验段用不同颜色表示。按原表3复算，两组平均SRV约为5.23和12.31×10⁶ m³，后者约为前者的2.35倍。SRV是微地震解释的改造体积，不能直接读取为产量或射孔参数的独立增产贡献。",
+          "caption": "Fracture microseismic monitoring result and interpreted SRV statistical chart of well A1",
+          "sha256": "d0e50bf9f6317a88c9626dca8d1258f5a07b913ec067775f837760536b5b2e0a",
+          "size": 138131,
+          "width": 700,
+          "height": 340
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "refNumber": 12,
+      "doi": "10.1016/j.compgeo.2023.106061",
+      "year": 2024,
+      "category": "fracture",
+      "author": "Li et al.",
+      "title": "CDEM模拟射孔起裂与扩展",
+      "label": "起裂模拟 · 2024",
+      "referenceTitle": "Study on the influence of perforation parameters on hydraulic fracture initiation and propagation based on CDEM",
+      "citation": "Jing Li, Lixiang Wang, Chun Feng, Rui Zhang, Xinguang Zhu, Yiming Zhang. Study on the influence of perforation parameters on hydraulic fracture initiation and propagation based on CDEM. Computers and Geotechnics 167, 106061 (2024). https://doi.org/10.1016/j.compgeo.2023.106061",
+      "bibauthor": "Li, Jing and Wang, Lixiang and Feng, Chun and Zhang, Rui and Zhu, Xinguang and Zhang, Yiming",
+      "journal": "Computers and Geotechnics",
+      "volume": "167",
+      "pages": "106061",
+      "question": "孔密、穿深和孔径怎样共同影响近井裂缝竞争？",
+      "method": "连续–非连续单元法耦合流动与岩体力学，并与物理试验对比。",
+      "result": "算例中裂缝竞争导致长度不均；裂缝发育程度对孔密和穿深更敏感。",
+      "contribution": "将射孔几何参数与近井裂缝形态及起裂压力联系。",
+      "limitations": "本轮核验到摘要，未取得误差表；模型趋势不能直接作为所有岩性与应力条件的设计范围。",
+      "access": "出版商摘要",
+      "anchor": "Abstract",
+      "source_url": "https://doi.org/10.1016/j.compgeo.2023.106061",
+      "url": "https://doi.org/10.1016/j.compgeo.2023.106061",
+      "sections": [
+        [
+          "为何采用连续—非连续方法",
+          "近井岩体在起裂前连续变形，起裂后出现裂缝及块体间相互作用。本文采用CDEM，将流动与岩体力学耦合，用于分析射孔几何改变后的起裂和裂缝竞争，并与物理试验进行比较。"
+        ],
+        [
+          "参数与响应分别是什么",
+          "输入关注孔密、穿深、孔径和布孔方式；输出包括起裂压力及裂缝形态。在作者算例中，线性布置的起裂压力最高；裂缝发育程度对孔密和穿深更敏感，不同孔道竞争又会造成裂缝长度不均。起裂压力与最终裂缝发育程度是不同响应，不能互相替代。"
+        ],
+        [
+          "当前能够核实的结论",
+          "本轮来源覆盖出版商摘要，尚无完整参数表与逐组误差。因此页面保留方法和趋势，不给出未经核实的最优孔密、穿深范围或统一精度。它补充近井几何与起裂竞争的数值解释，尚不能替代现场多簇流量与裂缝监测。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P12",
+          "number": "1",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0266352X23008182-gr1_lrg.jpg",
+          "ok": true,
+          "file": "P12-fig1.jpg",
+          "explanation": "CDEM的块体与界面表示。左侧是离散块体，放大处的法向和切向弹簧描述界面的力学连接，右侧区分真实界面与虚拟界面。这幅图用于理解模型如何表达连续变形与破裂转换；它是数值方法结构图，不是实际孔道照片或参数优化结果。",
+          "caption": "",
+          "sha256": "ea7771ed9c2170beae82b3da02364ecb8f51e70143578cc195c8ba2b2617014b",
+          "size": 279923,
+          "width": 3125,
+          "height": 862
+        }
+      ]
+    },
+    {
+      "id": "P13",
+      "refNumber": 13,
+      "doi": "10.1016/j.petsci.2024.04.006",
+      "year": 2024,
+      "category": "fracture",
+      "author": "Shi et al.",
+      "title": "多簇共面射孔压裂物理试验",
+      "label": "共面射孔 · 2024",
+      "referenceTitle": "Experimental study of hydraulic fracture propagation with multi-cluster in-plane perforations in a horizontal well",
+      "citation": "Xian Shi, Yuan-Yuan Yang, Xiang-Wei Kong, Qi Gao, Shu Jiang, Hai-Jun Mao. Experimental study of hydraulic fracture propagation with multi-cluster in-plane perforations in a horizontal well. Petroleum Science 21(5), 3258-3270 (2024). https://doi.org/10.1016/j.petsci.2024.04.006",
+      "bibauthor": "Shi, Xian and Yang, Yuan-Yuan and Kong, Xiang-Wei and Gao, Qi and Jiang, Shu and Mao, Hai-Jun",
+      "journal": "Petroleum Science",
+      "volume": "21(5)",
+      "pages": "3258-3270",
+      "question": "共面射孔是否能在非均质岩石中保证均匀裂缝？",
+      "method": "对10个300 mm立方体人造试样进行真三轴压裂，设置横向材料差异，改变应力差、孔数/相位、簇距、黏度、排量及暂堵条件，剖开观察裂缝并用激光扫描统计面积。",
+      "result": "表3中高排量试样6的总裂缝面积为1746.78 cm²，两区面积比2.11；暂堵试样10分别为1762.85 cm²和1.11。较大裂缝面积与较均匀的两区分配是不同目标。",
+      "contribution": "用物理试验展示共面布孔仍会受到横向材料差异和簇间应力干扰影响，补充理想均质条件下数值模型难以直接观察的裂缝形态证据。",
+      "limitations": "这是10个人造试样的室内研究，孔道为预制结构。部分正文与表2对试样编号、孔数和黏度的描述不一致；表3的两区面积比与其他论文的Ufm定义不同，不能直接横向排名。",
+      "access": "全文",
+      "anchor": "全文13页：§2试样和表1—2（p.2—4）；§3十组试验（p.4—9）；§4与表3（p.9—11）；§5结论（p.11—12）；图1、9、10、12、15。",
+      "source_url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf",
+      "url": "https://www.sciopen.com/article/10.1016/j.petsci.2024.04.006",
+      "sections": [
+        [
+          "研究对象与试样：先认清这是什么试验",
+          "全文使用10个300 mm×300 mm×300 mm的人造立方体试样，材料由水泥和石英砂配制，横向设置两种力学性质区域。井筒为外径15 mm、内径10 mm的不锈钢管，预制孔道直径3.5 mm。它用于研究布孔与材料差异对裂缝的引导，并非现场射孔枪形成孔道后的等比例复现。图1给出井轴、簇和材料分区的相对位置。"
+        ],
+        [
+          "比较了哪些条件，怎样观察结果",
+          "表2列出十组方案：改变两簇孔数/相位、水平应力差、流体黏度、簇距、排量及材料差异，并设置变密度射孔和暂堵试验。常用排量15 mL/min，试样6提高至30 mL/min；簇距主要为0.10 m，试样5为0.15 m。压裂过程中记录注入压力，结束后剖开试样观察裂缝，再通过激光扫描及重建统计两区裂缝面积。"
+        ],
+        [
+          "横向材料差异怎样改变路径",
+          "一般试样两区弹性模量为26.5与16.5 GPa。试样7将差值增至20 GPa，试样8采用相同力学性质。对照图9、10、15，可观察到非均质试样的分支、转向与较大的区域差异；均质试样则更接近平行横向扩展，但仍受到相邻裂缝的应力干扰。共面布孔可以约束近井起裂位置，却没有消除裂缝离开孔道后的竞争。"
+        ],
+        [
+          "结果：裂缝多、面积大与均衡不是同一件事",
+          "表3把两区裂缝面积分别列出，并用两区面积之比表示不均衡程度，数值接近1表示面积较接近。高排量试样6的总面积为1746.78 cm²，面积比2.11；其分支较发育，但两区面积并不均衡。这里的面积指标与现场改造体积、产量不是同一量，也不能与ACS论文0—1的Ufm直接比较。"
+        ],
+        [
+          "变密度射孔与暂堵实际表现如何",
+          "试样9采用不同孔数，表3总面积1108.47 cm²、面积比1.29；暂堵试样10为1762.85 cm²、面积比1.11。图12显示暂堵后较直的横向主裂缝与仍然存在的轴向裂缝。因此，试验不是证明暂堵无效，而是说明改善两区均衡的同时，流动阻力与裂缝方向也可能改变，不能只凭一个均匀性数值判断全部效果。"
+        ],
+        [
+          "研究补充了什么，设计时应关注什么",
+          "这项试验把横向力学差异引入共面射孔研究，使裂缝照片、压力历程和分区面积能够共同检验设计设想。其结论支持先了解沿井材料与应力差异，再选择孔数、簇距及处理方式。后续若要用于现场，需要扩展岩性、尺度和重复试验，并与井下分流或裂缝诊断对应；本文没有独立识别实际产量收益。"
+        ],
+        [
+          "原文数据的阅读依据",
+          "全文存在需核对的标注：表2与§3.1对试样1、2孔数的描述不同，黏度的正文说明与表2也不完全一致。本页方案条件按表2注明，面积结果按表3读取，照片保留作者原有试样编号；不对存在分歧的组别计算精确的单因素增益。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P13",
+          "number": "1",
+          "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=3",
+          "ok": true,
+          "file": "P13-fig1.jpeg",
+          "explanation": "共面射孔试验的井筒与布孔结构。图中给出水平井筒、不同方位的预制孔道及两种材料区。理解后续照片时，先用此图确定井轴、两个簇及分区界面的位置，再观察裂缝是否保持在预期平面。试样为300 mm立方体人造材料，孔道不是现场射孔枪形成的实测孔道。",
+          "caption": "",
+          "sha256": "fcf7286f4ac2b101e5747b062b2657364293b1ca087ec9595c9dfe602e300a9c",
+          "size": 287777,
+          "source_page": 3,
+          "width": 1772,
+          "height": 578
+        },
+        {
+          "paper": "P13",
+          "number": "9",
+          "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=7",
+          "ok": true,
+          "file": "P13-fig9.jpeg",
+          "explanation": "试样7的裂缝照片。黄色标记沿原作者辨认的裂缝轨迹，网格用于定位表面位置。两个区域的弹性模量差增至20 GPa后，照片中可见横向主裂缝之外的分支和转向。应与图10的均质试样对照，看裂缝如何偏向和连接，而不是仅比较黄色线的多少。",
+          "caption": "",
+          "sha256": "fa4ae6edbe7ce053df019c61a9696431eca2e9d6162b109170036a72a95c6316",
+          "size": 218701,
+          "source_page": 7,
+          "width": 832,
+          "height": 832
+        },
+        {
+          "paper": "P13",
+          "number": "10",
+          "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=7",
+          "ok": true,
+          "file": "P13-fig10.jpeg",
+          "explanation": "试样8的裂缝照片。该试样两区设置相同力学性质，较图9呈现更接近平行的两条横向主裂缝；局部仍存在偏转，说明消除材料差异后，簇间应力干扰仍可能影响路径。两幅照片提供形态对照，并非可直接换算到现场尺寸的裂缝长度预测。",
+          "caption": "",
+          "sha256": "825dd7217bba00e43c463ea617deb584415cb26b78758b84bf85a0f7c8d2d596",
+          "size": 254382,
+          "source_page": 7,
+          "width": 832,
+          "height": 832
+        },
+        {
+          "paper": "P13",
+          "number": "12",
+          "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=7",
+          "ok": true,
+          "file": "P13-fig12.jpeg",
+          "explanation": "试样10采用暂堵后的裂缝形态。图中两条横向主裂缝较直，同时仍可见轴向裂缝。原表3的两区裂缝面积分别为928.13和834.72 cm²，面积比为1.11，比高排量试样6的2.11更接近1。暂堵在这个试样改善了两区面积均衡，但也增加流动阻力并可能形成新的裂缝方向。",
+          "caption": "",
+          "sha256": "6da4de3daea00fbf91952d3a078672ba3ddf55f109760acc6786afd4bdb2598b",
+          "size": 186156,
+          "source_page": 7,
+          "width": 832,
+          "height": 772
+        },
+        {
+          "paper": "P13",
+          "number": "15",
+          "url": "https://cup.edu.cn/petroleumscience/docs/2024-11/unpub_5830be40d259428fa74b3d6a8bdac457.pdf#page=11",
+          "ok": true,
+          "file": "P13-fig15.jpeg",
+          "explanation": "横向非均质条件的裂缝形态对照。原图(a)概括两种材料区中的转向、分支及相互干扰，图(b)结合试样7、8的剖开结果比较有、无横向材料差异时的裂缝。示意与照片应对应阅读：横向性质差异不仅改变局部分支，也改变两区分得的裂缝面积。",
+          "caption": "",
+          "sha256": "dc6a791ec20101e87c1aa8dec6e93276540dd54e6a5560e69114128ac8a0ecf0",
+          "size": 558260,
+          "source_page": 11,
+          "width": 1772,
+          "height": 1681
+        }
+      ]
+    },
+    {
+      "id": "P14",
+      "refNumber": 14,
+      "doi": "10.1016/j.geoen.2025.213805",
+      "year": 2025,
+      "category": "allocation",
+      "author": "Li et al.",
+      "title": "含冲蚀的三维多簇耦合模型",
+      "label": "三维耦合 · 2025",
+      "referenceTitle": "A 3D fully coupled numerical model for multi-cluster fracturing with perforation erosion",
+      "citation": "Yang Li, Jiahao Wang, Di Wang, Zixian Guo, Huiying Tang, Liehui Zhang. A 3D fully coupled numerical model for multi-cluster fracturing with perforation erosion. Geoenergy Science and Engineering 250, 213805 (2025). https://doi.org/10.1016/j.geoen.2025.213805",
+      "bibauthor": "Li, Yang and Wang, Jiahao and Wang, Di and Guo, Zixian and Tang, Huiying and Zhang, Liehui",
+      "journal": "Geoenergy Science and Engineering",
+      "volume": "250",
+      "pages": "213805",
+      "question": "怎样同时计算井筒摩阻、孔眼摩阻、冲蚀与三维裂缝扩展？",
+      "method": "基于GEOS构建有限元–有限体积耦合模型，连接井筒与裂缝系统。",
+      "result": "公开片段给出六簇现场尺度算例；使用84核，算例均在9小时内完成。",
+      "contribution": "将井筒与孔眼摩阻及冲蚀纳入同一三维多簇计算框架。",
+      "limitations": "现场尺度模拟不等同于现场观测验证；所报运行时间依赖硬件、网格和算例，不能跨论文比快慢。",
+      "access": "出版商摘要及公开正文片段",
+      "anchor": "Abstract；Validations；Implications of field-scale cases",
+      "source_url": "https://doi.org/10.1016/j.geoen.2025.213805",
+      "url": "https://doi.org/10.1016/j.geoen.2025.213805",
+      "sections": [
+        [
+          "从入口关系到井筒—裂缝联合求解",
+          "研究基于GEOS构建三维全耦合模型，以有限元处理固体变形，以有限体积方法处理流体，并连接井筒与裂缝系统。井筒沿程摩阻、孔眼摩阻、孔眼冲蚀和裂缝扩展在同一框架中相互影响，避免把每簇的入口条件固定不变。"
+        ],
+        [
+          "模型规模与计算成本",
+          "公开正文给出六簇现场尺度算例，岩体域约400×600×110 m。作者使用84核，所列算例均在9小时内完成。该时间用于说明这一配置下的可计算性；由于硬件、网格和求解设置不同，不能用来与其他论文直接比较速度。原图11已取得，其中井段深度与公开文字存在数字差异，故不在此给出唯一深度。"
+        ],
+        [
+          "验证层次与仍待衔接的证据",
+          "文中区分模块核验与现场尺度应用计算。现场尺度表示几何和载荷接近现场量级，并不意味着所有输出均由井下实测验证。将孔眼几何、分流和多簇裂缝发展联合对照现场监测，仍是比单个模块吻合更高一级的证据要求。完整数值方法与结果仍待取得全文后逐项复核。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P14",
+          "number": "11",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S2949891025001630-gr11_lrg.jpg",
+          "ok": true,
+          "file": "P14-fig11.jpg",
+          "explanation": "三维岩体、井筒及六簇计算结构。右侧给出分层σxx应力和孔隙压力pp，较低应力的中层夹在上下层之间。原图标注井段位于−3945 m，而公开正文片段写−3495 m，二者尚未一致；此处保留原图，不自行改动深度。该图说明模型边界与层间约束，不是现场实测裂缝。",
+          "caption": "",
+          "sha256": "4bc751d4167068eb156fe833a7200a3143a300a1906e3b0db37303d4a727fdd8",
+          "size": 294865,
+          "width": 2333,
+          "height": 1284
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "refNumber": 15,
+      "doi": "10.1038/s41598-026-38667-5",
+      "year": 2026,
+      "category": "cleanup",
+      "author": "Li et al.",
+      "title": "动态负压清除压实带损伤",
+      "label": "损伤清除 · 2026",
+      "referenceTitle": "Investigation into the mechanism of damage removal in the compaction zone using dynamic negative pressure perforation",
+      "citation": "Fuguo Li, Yuchen Li, Zhiqiang Zhang, Feng Li, Changhao Wang, Yao Wang. Investigation into the mechanism of damage removal in the compaction zone using dynamic negative pressure perforation. Scientific Reports 16(1), 7608 (2026). https://doi.org/10.1038/s41598-026-38667-5",
+      "bibauthor": "Li, Fuguo and Li, Yuchen and Zhang, Zhiqiang and Li, Feng and Wang, Changhao and Wang, Yao",
+      "journal": "Scientific Reports",
+      "volume": "16(1)",
+      "pages": "7608",
+      "question": "瞬态压力怎样作用于压实带，哪些参数控制清洁程度？",
+      "method": "耦合压力瞬态、固体力学与达西流，以正交数值试验和逐步回归分析控制因素，并作物理试验比较。",
+      "result": "作者报告回归R²=0.792，所列物理试验比较误差小于3%；两者对应不同验证内容。",
+      "contribution": "由压力历程进一步分析压实带变形、损伤和空间非均匀清洁。",
+      "limitations": "研究主要面向脆性、均质碳酸盐岩，未考虑黏土水化膨胀；补充表部分清洁比例超过正文0—1的定义，尚需澄清。该补充表未用于本站演示数据。",
+      "access": "全文",
+      "anchor": "Numerical simulation；Experimental validation；Conclusion(4)(6)",
+      "source_url": "https://www.nature.com/articles/s41598-026-38667-5",
+      "url": "https://www.nature.com/articles/s41598-026-38667-5",
+      "sections": [
+        [
+          "清洁模型计算的对象",
+          "论文将动态负压简化为压力载荷，耦合固体力学与达西渗流，分析孔道周围压实带的流场、压力梯度、位移和破坏区域。对象是压实带损伤清除，而非仅计算井筒压力最低值。原图2用于观察载荷与空间压力场，图6用于检查数值与物理模型的对应。"
+        ],
+        [
+          "不同数字分别代表哪种核验",
+          "作者使用L32正交数值试验研究因素影响，并以逐步回归提取四个控制因素，报告R²为0.792；另列三组物理模型对比，报告误差小于3%。前者是回归拟合程度，后者是指定试验对比，不能合并写成模型对任意工况预测精度超过97%。"
+        ],
+        [
+          "原数据需要注意什么",
+          "研究主要针对脆性、均质碳酸盐岩，未覆盖黏土水化膨胀。另经核对，补充表中部分清洁指标超过100%，与正文给出的0—1比例定义存在不一致，需作者澄清。本站保留论文作为机理研究参考，但没有把这一补充表用于当前响应面演示。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P15",
+          "number": "1",
+          "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-026-38667-5/MediaObjects/41598_2026_38667_Fig1_HTML.png",
+          "caption": "Fig. 1 Full size image Simplified Schematic Diagram of the Dynamic Negative Pressure Curve. ( a ) True Dynamic Negative Pressure Curve, ( b ) Simplified Dynamic Negative Pressure Curve.",
+          "ok": true,
+          "status": 200,
+          "size": 221056,
+          "explanation": "动态负压曲线及模型简化。左图为实际压力变化，右图为简化载荷；两图用于说明压力幅值、持续时间与恢复过程如何进入模型。",
+          "sha256": "640f3d68a2c92dfee9bc6b20020fc6ae3f3c3cf5575d5c8249b4188fc0a746f5",
+          "width": 1866,
+          "height": 690
+        },
+        {
+          "paper": "P15",
+          "number": "2",
+          "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-026-38667-5/MediaObjects/41598_2026_38667_Fig2_HTML.png",
+          "caption": "Fig. 2 Full size image Flow Field and Pressure Fields Around a Perforation Tunnel with Compaction Zone. ( a ) 3D Flow Field Schematic of a Perforation Tunnel with Compaction Zone, ( b ) 2D Pressure Gradient Schematic for Perforation Tunnel with Compaction Zone.",
+          "ok": true,
+          "status": 200,
+          "size": 472161,
+          "explanation": "压实带附近的流场与压力梯度。图(a)给出三维流动方向，图(b)展示二维压力分布，强调压差作用在孔道周围并不均匀。",
+          "sha256": "66f7ede891ab4de452a11df6592eb96800de82ec3d3a7a83978aeb0a45f3589f",
+          "width": 1485,
+          "height": 702
+        },
+        {
+          "paper": "P15",
+          "number": "6",
+          "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-026-38667-5/MediaObjects/41598_2026_38667_Fig6_HTML.png",
+          "caption": "Fig. 6 Full size image Comparison of Numerical Simulation Results for Compacted Zone Cleanup with Physical Model Experiments.",
+          "ok": true,
+          "status": 200,
+          "size": 228141,
+          "explanation": "三组压实带清洁物理试验与数值模拟对比。每列对应一组试验，原图用于比较清除区域的空间形态；回归模型的R²不是这幅图的验证指标。",
+          "sha256": "a5f6567b62d41dcdd59d4e29ebcbadcea81e0a332dc7626fd6d38b28cc969190",
+          "width": 1645,
+          "height": 787
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "refNumber": 16,
+      "doi": "10.1016/j.powtec.2026.122650",
+      "year": 2026,
+      "category": "allocation",
+      "author": "Men et al.",
+      "title": "冲蚀形变与进液分配双向反馈",
+      "label": "冲蚀反馈 · 2026",
+      "referenceTitle": "Numerical investigation of perforation erosion and flow redistribution in multi-cluster hydraulic fracturing",
+      "citation": "Yuting Men, Zhiguo Wang, Shuai Li, Menghao He, Zhengguo Yan, Dan Liu, Guang Yang, Li Sun. Numerical investigation of perforation erosion and flow redistribution in multi-cluster hydraulic fracturing. Powder Technology 480, 122650 (2026). https://doi.org/10.1016/j.powtec.2026.122650",
+      "bibauthor": "Men, Yuting and Wang, Zhiguo and Li, Shuai and He, Menghao and Yan, Zhengguo and Liu, Dan and Yang, Guang and Sun, Li",
+      "journal": "Powder Technology",
+      "volume": "480",
+      "pages": "122650",
+      "question": "孔眼被冲大后，流量和支撑剂分配会怎样反过来改变冲蚀？",
+      "method": "双向CFD–DEM模型动态更新单簇12孔的几何形态及液固流动。",
+      "result": "该模型中低侧150°孔眼及趾端附近孔眼扩大更明显；8—11 m³/min排量有利于流量均匀性。",
+      "contribution": "把冲蚀导致的几何变化反馈给流场，研究孔眼位置效应。",
+      "limitations": "虽题名涉及多簇，具体计算域为单簇12孔；不能据此宣称已完成全井多簇裂缝与长期产能联合验证。",
+      "access": "出版商摘要及公开引言",
+      "anchor": "Abstract；Introduction",
+      "source_url": "https://doi.org/10.1016/j.powtec.2026.122650",
+      "url": "https://doi.org/10.1016/j.powtec.2026.122650",
+      "sections": [
+        [
+          "几何反馈为何不能忽略",
+          "含砂流体冲蚀孔眼后，入口面积发生变化，原先设定的孔眼阻力也会变化。研究采用双向CFD–DEM，使液固流动改变孔眼几何，再由更新后的几何重新影响流场，以分析冲蚀与分配之间的反馈。"
+        ],
+        [
+          "实际计算尺度与结果",
+          "虽然题名涉及多簇压裂，具体计算域是单簇12孔。作者算例中，低侧150°孔眼和趾端附近孔眼扩大更明显，圆周方位的影响强于轴向位置；8—11 m³/min排量在该模型条件下有利于分配均匀。这个范围不能脱离孔眼尺寸、液固条件直接用于另一口井。"
+        ],
+        [
+          "对多簇设计增加了什么",
+          "本文补充孔眼尺度的流场与几何演化，使恒定孔径假设的局限更清楚。但单簇孔眼反馈尚未等于全井多簇裂缝扩展与长期产能联合验证。与三维多簇模型连接时，需要传递可测的孔径变化和分流关系，而非简单叠加各模型的最优值。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P16",
+          "number": "GA",
+          "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0032591026005395-ga1_lrg.jpg",
+          "ok": true,
+          "file": "P16-figGA.jpg",
+          "explanation": "原文图文摘要。左上为单簇12孔套管及四组孔位，左下为颗粒几何表示，右侧按时间展示支撑剂输运和孔眼几何演化。先沿右侧由上到下观察输运过程，再对照各孔位置比较冲蚀。题名涉及多簇，但图示计算域仍为单簇，不能把它读成完整井段的多裂缝现场监测。",
+          "caption": "",
+          "sha256": "bc50ae42c88775405a6f2c526e34953a3c08ea7c6a090335baf41dccb61ec22d",
+          "size": 232917,
+          "label": "原文图文摘要",
+          "width": 2195,
+          "height": 886
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "refNumber": 17,
+      "doi": "10.1371/journal.pone.0255793",
+      "year": 2021,
+      "category": "allocation",
+      "author": "Liu et al.",
+      "title": "三簇射孔参数的响应面优化",
+      "label": "响应面优选 · 2021",
+      "referenceTitle": "Research on optimization of perforation parameters for formation fractures based on response surface optimization method",
+      "citation": "Wei Liu, Suling Wang, Kangxing Dong, Tiancai Cheng. Research on optimization of perforation parameters for formation fractures based on response surface optimization method. PLOS ONE 16(8), e0255793 (2021). https://doi.org/10.1371/journal.pone.0255793",
+      "bibauthor": "Liu, Wei and Wang, Suling and Dong, Kangxing and Cheng, Tiancai",
+      "journal": "PLOS ONE",
+      "volume": "16(8)",
+      "pages": "e0255793",
+      "question": "怎样同时选择中间簇孔数、两侧簇孔数与中间簇孔径，使三簇扩展更均衡？",
+      "method": "二维应力–渗流耦合数值模型采用三因子Box–Behnken设计，公开17组算例，并拟合二次响应面。",
+      "result": "表5给出基准缝长差32.550 m，优化配置15 / 7 / 15的数值模拟缝长差0.528 m；本站演示数据来自表3。",
+      "contribution": "把孔眼入口阻力、参数交互和连续响应面用于三簇均衡设计。",
+      "limitations": "二维特定应力工况；表3含重复中心点与有正负号的响应，拟合R²不是独立预测验证。",
+      "access": "全文",
+      "anchor": "表2（p.12）、表3与式15（p.13）、表5（p.20）",
+      "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0255793",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0255793",
+      "sections": [
+        [
+          "研究目标与数值实验",
+          "论文先建立水力裂缝模型，再在二维应力—渗流耦合三簇模型上研究分流与扩展。三项设计变量为中间簇孔数A、两侧每一簇孔数B，以及中间簇孔径C；其余条件固定。采用三因子Box–Behnken设计，以较少算例估计二次项和参数交互，而不是从现场井群训练通用预测模型。"
+        ],
+        [
+          "公开数据与模型输出",
+          "表2给出A、B各4—20孔，C为6—18 mm；表3公开17次算例，包含重复中心点，共13种参数组合。响应为有正负号的缝长差ΔL，单位m。优化目标是减小差值的绝对值。一个差值不能反推出三条裂缝各自长度，原图17和18提供的是原始数值模型的裂缝分布。"
+        ],
+        [
+          "优化结果与复核",
+          "原表5基准配置为12 / 12 / 12，数值模拟缝长差32.550 m；优化配置15 / 7 / 15的数值模拟差值为0.528 m。式15公布的是已舍入系数，直接代入基准得32.410 m，与表5预测32.950 m存在差异；本站将公布公式计算、表5数值和表3重拟合分别显示，保留来源区别。"
+        ],
+        [
+          "研究解决了什么，尚缺什么",
+          "响应面将三项变量及其交互转化为轻量的参数取舍工具，本站当前演示直接使用表3。结论依赖固定应力、材料、流体和二维模型；拟合优度不代表独立工况验证，也不证明现场产量提高。跨地质条件推广还需要新增数值算例、三维与实验核验。"
+        ]
+      ],
+      "figures": [
+        {
+          "paper": "P17",
+          "number": "6",
+          "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g006",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 1489141,
+          "explanation": "三簇二维模型与网格。原图给出100 m×100 m计算域、注入位置和三个簇的位置；后续响应面建立在这一模型及固定边界条件上。",
+          "sha256": "1f5c20e001795b6586884a7caed16f008ed2a953a3e7735d54bcc9b5994f3fce",
+          "width": 1803,
+          "height": 913
+        },
+        {
+          "paper": "P17",
+          "number": "13",
+          "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g013",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 814331,
+          "explanation": "中间簇孔数A与两侧各簇孔数B对缝长差的联合影响。曲面及底部等值线显示交互作用，第三变量按原图条件固定；这不是独立现场数据的预测精度图。",
+          "sha256": "d966728b9b03f2af0298652e47b21a8492aeee21ee0b51bcf8220a67cccc62ec",
+          "width": 1725,
+          "height": 1025
+        },
+        {
+          "paper": "P17",
+          "number": "17",
+          "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g017",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 189321,
+          "explanation": "优化前的三簇裂缝分布。原图标出的缝长差为32.550 m，中间簇与两侧簇扩展明显不均衡。颜色和数值均保留原文。",
+          "sha256": "446a4c1895176ed16ab2198f5339df93f45b602bb587a125514ca48e583bf59d",
+          "width": 1200,
+          "height": 853
+        },
+        {
+          "paper": "P17",
+          "number": "18",
+          "url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0255793.g018",
+          "caption": "",
+          "ok": true,
+          "status": 200,
+          "size": 191302,
+          "explanation": "优化后的三簇裂缝分布。原图标出的缝长差为0.528 m，显示该数值模型工况下的均衡改善；应与图17及表5共同阅读。",
+          "sha256": "ff1860154b2e87f316d50ebc802fcd0d181274acacd7dd262aef2c30d7d54019",
+          "width": 1200,
+          "height": 864
+        }
+      ]
+    },
+    {
+      "id": "ND01",
+      "doi": "10.3390/app152312616",
+      "author": "Zhongguo Ma et al.",
+      "title": "射孔表皮正交算例",
+      "referenceTitle": "Analysis of Factors Influencing Skin Factor in Conventional Perforation Completion and Prediction Model Research",
+      "label": "射孔表皮正交算例 · 2025",
+      "year": 2025,
+      "category": "ai",
+      "source_type": "研究论文",
+      "isAI": false,
+      "question": "射孔几何和损害因素怎样共同影响近井流动阻力？",
+      "method": "用耦合流动数值计算、单因素分析及49组正交组合研究表皮系数。",
+      "result": "文中先计算流动与压力场，再形成49组正交组合的质量流量及表皮表，并比较线性与非线性预测公式。其非线性拟合误差7.4%属于原文公式与该组算例的比较，不是本站GPR留出误差。",
+      "contribution": "提供可逐行追溯的六因素数值算例，使小样本代理模型与有限候选优化能够使用同一套明确响应。",
+      "limitations": "表3为CFD计算而非现场井数据；固定渗透率与压差条件下流量和表皮有关联。",
+      "access": "已取得全文，核对方法、验证与局限相关章节",
+      "anchor": "skin2025.pdf.txt",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供用耦合流动数值计算、单因素分析及49组正交组合研究表皮系数。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "按原始文献的方法、图表与条件核对；未发现可直接使用的完整作者训练仓库。"
+        ],
+        [
+          "对应本案例",
+          "在有来源的候选方案中，怎样比较表皮、流量和完井工作量的取舍？ NSGA-II先逐对检查支配关系，再按非支配层级与拥挤距离选择父代；交叉、变异和精英保留产生下一代。本站在这49个已计算候选中运行有限集合版本，不把未经Fluent重算的新参数组合冒充原文结果。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "ai-skin-model.png",
+          "number": "Ma等（2025），图1：射孔完井流动区域",
+          "label": "Ma等（2025），图1：射孔完井流动区域",
+          "url": "https://doi.org/10.3390/app152312616",
+          "explanation": "辨认井筒、孔道及近井地层中的汇流路径。它提供响应模型的空间对象，不是NSGA-II本身的网络结构。",
+          "width": 858,
+          "height": 323
+        }
+      ],
+      "citation": "Zhongguo Ma, Minjing Chen, Sen Yang, Jiacheng Lei, Gang Liu, Yuqi Li, Shixiong Zhang, Zongxiao Ren, Chao Zhang. Analysis of Factors Influencing Skin Factor in Conventional Perforation Completion and Prediction Model Research. Applied Sciences 15, 12616 (2025). https://doi.org/10.3390/app152312616",
+      "source_url": "https://doi.org/10.3390/app152312616",
+      "url": "https://doi.org/10.3390/app152312616",
+      "repository": "",
+      "refNumber": 18
+    },
+    {
+      "id": "NA01",
+      "doi": "10.1109/4235.996017",
+      "author": "K. Deb et al.",
+      "title": "NSGA-II非支配排序",
+      "referenceTitle": "A fast and elitist multiobjective genetic algorithm: NSGA-II",
+      "label": "NSGA-II非支 · 2002",
+      "year": 2002,
+      "category": "ai",
+      "source_type": "方法论文",
+      "isAI": true,
+      "question": "多目标进化搜索怎样同时保留较优解与不同折中方向？",
+      "method": "采用快速非支配排序、精英保留和拥挤距离维护多目标解集。",
+      "result": "非支配层级决定优先级；父子代合并实现精英保留，目标空间拥挤距离使同层解保持分散。输出为一个近似前沿，而非无需偏好的唯一最优方案。",
+      "contribution": "把收敛与多样性作为两个需要同时维护的搜索目标。",
+      "limitations": "算法通用性不等于射孔物理模型或安全约束已经验证。",
+      "access": "Crossref元数据及出版商公开摘要；未补写不可核验的模型参数或性能",
+      "anchor": "Crossref作品元数据与原始来源摘要",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供采用快速非支配排序、精英保留和拥挤距离维护多目标解集。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "代码或作者实现：https://github.com/anyoptimization/pymoo"
+        ],
+        [
+          "对应本案例",
+          "在有来源的候选方案中，怎样比较表皮、流量和完井工作量的取舍？ NSGA-II先逐对检查支配关系，再按非支配层级与拥挤距离选择父代；交叉、变异和精英保留产生下一代。本站在这49个已计算候选中运行有限集合版本，不把未经Fluent重算的新参数组合冒充原文结果。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "ai-nsga-crowding.png",
+          "number": "pymoo作者仓库：目标空间拥挤距离",
+          "label": "pymoo作者仓库：目标空间拥挤距离",
+          "url": "https://pymoo.org/algorithms/moo/nsga2.html",
+          "explanation": "以目标空间邻点间距维护前沿多样性。距离依各目标范围归一化，边界点优先保留。",
+          "width": 1162,
+          "height": 904
+        }
+      ],
+      "citation": "K. Deb, A. Pratap, S. Agarwal, T. Meyarivan. A fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE Transactions on Evolutionary Computation 6, 182-197 (2002). https://doi.org/10.1109/4235.996017",
+      "source_url": "https://doi.org/10.1109/4235.996017",
+      "url": "https://doi.org/10.1109/4235.996017",
+      "repository": "https://github.com/anyoptimization/pymoo",
+      "refNumber": 19
+    },
+    {
+      "id": "NA14",
+      "doi": "10.1109/ACCESS.2020.2990567",
+      "author": "Julian Blank et al.",
+      "title": "pymoo多目标框架",
+      "referenceTitle": "Pymoo: Multi-Objective Optimization in Python",
+      "label": "pymoo多目标框 · 2020",
+      "year": 2020,
+      "category": "ai",
+      "source_type": "方法论文",
+      "isAI": true,
+      "question": "怎样以统一的软件接口运行和评价多目标优化？",
+      "method": "提供多目标算法、测试问题和性能评价工具，支持NSGA-II实现核对。",
+      "result": "框架把问题、算法、算子和评价指标分开，提供NSGA-II等方法的实现与测试问题；其文档图解释分层选择和拥挤距离。",
+      "contribution": "使算法机制与实现可以交叉核对，避免把固定权重排序当作进化搜索。",
+      "limitations": "工具验证不能替代被优化的工程响应验证。",
+      "access": "Crossref元数据及出版商公开摘要；未补写不可核验的模型参数或性能",
+      "anchor": "Crossref作品元数据与原始来源摘要",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供提供多目标算法、测试问题和性能评价工具，支持NSGA-II实现核对。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "代码或作者实现：https://github.com/anyoptimization/pymoo"
+        ],
+        [
+          "对应本案例",
+          "在有来源的候选方案中，怎样比较表皮、流量和完井工作量的取舍？ NSGA-II先逐对检查支配关系，再按非支配层级与拥挤距离选择父代；交叉、变异和精英保留产生下一代。本站在这49个已计算候选中运行有限集合版本，不把未经Fluent重算的新参数组合冒充原文结果。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "ai-nsga-survival.png",
+          "number": "pymoo作者仓库：NSGA-II分层生存选择",
+          "label": "pymoo作者仓库：NSGA-II分层生存选择",
+          "url": "https://pymoo.org/algorithms/moo/nsga2.html",
+          "explanation": "父代与子代合并后按非支配层级依次保留，最后一层用拥挤距离截断。对应本站实际选育，不是固定分数排序。",
+          "width": 560,
+          "height": 319
+        }
+      ],
+      "citation": "Julian Blank, Kalyanmoy Deb. Pymoo: Multi-Objective Optimization in Python. IEEE Access 8, 89497-89509 (2020). https://doi.org/10.1109/ACCESS.2020.2990567",
+      "source_url": "https://doi.org/10.1109/ACCESS.2020.2990567",
+      "url": "https://doi.org/10.1109/ACCESS.2020.2990567",
+      "repository": "https://github.com/anyoptimization/pymoo",
+      "refNumber": 20
+    },
+    {
+      "id": "NA03",
+      "doi": "10.7551/mitpress/3206.001.0001",
+      "author": "Carl Edward Rasmussen et al.",
+      "title": "高斯过程回归",
+      "referenceTitle": "Gaussian Processes for Machine Learning",
+      "label": "高斯过程回归 · 2005",
+      "year": 2005,
+      "category": "ai",
+      "source_type": "学术专著",
+      "isAI": true,
+      "question": "少量观测怎样约束一个未知函数，又怎样表达条件不确定性？",
+      "method": "以核函数描述函数相关性，在给定观测后计算条件均值与方差。",
+      "result": "给定核函数与观测噪声，条件高斯分布同时给出预测均值和协方差。靠近观测点时方差通常下降，但核选择与样本覆盖仍决定可解释范围。",
+      "contribution": "让回归预测与条件不确定性来自同一个概率模型，并为顺序采集提供后验。",
+      "limitations": "后验区间依赖核、噪声和数据覆盖，不能自动表示全部工程误差。",
+      "access": "已取得全文，核对方法、验证与局限相关章节",
+      "anchor": "gp-ch2.pdf.txt",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供以核函数描述函数相关性，在给定观测后计算条件均值与方差。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "代码或作者实现：https://gaussianprocess.org/gpml/"
+        ],
+        [
+          "对应本案例",
+          "在有来源的候选方案中，怎样比较表皮、流量和完井工作量的取舍？ NSGA-II先逐对检查支配关系，再按非支配层级与拥挤距离选择父代；交叉、变异和精英保留产生下一代。本站在这49个已计算候选中运行有限集合版本，不把未经Fluent重算的新参数组合冒充原文结果。"
+        ]
+      ],
+      "figures": [
+        {
+          "file": "ai-gp-fig2.png",
+          "number": "Rasmussen与Williams（2006），图2.2：GP先验与后验",
+          "label": "Rasmussen与Williams（2006），图2.2：GP先验与后验",
+          "url": "https://gaussianprocess.org/gpml/chapters/RW2.pdf",
+          "explanation": "左侧是加入观测前的函数分布，右侧为给定观测后的条件均值与不确定性带。原图解释核模型的更新机制；表皮预测和贝叶斯搜索分别使用各自声明的数据独立计算。",
+          "width": 1188,
+          "height": 601
+        }
+      ],
+      "citation": "Carl Edward Rasmussen, Christopher K. I. Williams. Gaussian Processes for Machine Learning. The MIT Press ,  (2005). https://doi.org/10.7551/mitpress/3206.001.0001",
+      "source_url": "https://doi.org/10.7551/mitpress/3206.001.0001",
+      "url": "https://doi.org/10.7551/mitpress/3206.001.0001",
+      "repository": "https://gaussianprocess.org/gpml/",
+      "refNumber": 21
+    },
+    {
+      "id": "NA04",
+      "doi": "10.1109/JPROC.2015.2494218",
+      "author": "Bobak Shahriari et al.",
+      "title": "贝叶斯优化综述",
+      "referenceTitle": "Taking the Human Out of the Loop: A Review of Bayesian Optimization",
+      "label": "贝叶斯优化综述 · 2016",
+      "year": 2016,
+      "category": "ai",
+      "source_type": "方法论文",
+      "isAI": true,
+      "question": "单次评估昂贵时，如何安排下一次黑箱试验？",
+      "method": "以代理后验和采集函数组织昂贵黑箱函数的顺序评估。",
+      "result": "代理模型利用已观测数据建立后验，采集函数在改善当前最优值与探索不确定区域之间分配评估预算；每次新观测都更新搜索依据。",
+      "contribution": "将试验选择本身作为可优化决策，区别于一次训练后遍历所有候选。",
+      "limitations": "黑箱评估必须有可追踪来源；模拟调用次数不能写成实际靶试次数。",
+      "access": "Crossref元数据及出版商公开摘要；未补写不可核验的模型参数或性能",
+      "anchor": "Crossref作品元数据与原始来源摘要",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供以代理后验和采集函数组织昂贵黑箱函数的顺序评估。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "代码或作者实现：https://github.com/pytorch/botorch"
+        ],
+        [
+          "对应本案例",
+          "在有来源的候选方案中，怎样比较表皮、流量和完井工作量的取舍？ NSGA-II先逐对检查支配关系，再按非支配层级与拥挤距离选择父代；交叉、变异和精英保留产生下一代。本站在这49个已计算候选中运行有限集合版本，不把未经Fluent重算的新参数组合冒充原文结果。"
+        ]
+      ],
+      "figures": [],
+      "citation": "Bobak Shahriari, Kevin Swersky, Ziyu Wang, Ryan P. Adams, Nando de Freitas. Taking the Human Out of the Loop: A Review of Bayesian Optimization. Proceedings of the IEEE 104, 148-175 (2016). https://doi.org/10.1109/JPROC.2015.2494218",
+      "source_url": "https://doi.org/10.1109/JPROC.2015.2494218",
+      "url": "https://doi.org/10.1109/JPROC.2015.2494218",
+      "repository": "https://github.com/pytorch/botorch",
+      "refNumber": 22
+    },
+    {
+      "id": "NA05",
+      "doi": "10.1023/A:1010933404324",
+      "author": "Leo Breiman",
+      "title": "随机森林基线",
+      "referenceTitle": "Random Forests",
+      "label": "随机森林基线 · 2001",
+      "year": 2001,
+      "category": "ai",
+      "source_type": "方法论文",
+      "isAI": true,
+      "question": "这项来源怎样支持随机森林基线？",
+      "method": "通过随机化树集成进行分类和回归，为结构化任务提供比较基线。",
+      "result": "提供上述方法、工程研究或数据组织依据；本站训练、优化与测试结果另行计算，不移用原文成绩。",
+      "contribution": "用于区分数据来源、算法机制与独立验证的作用。",
+      "limitations": "随机森林不是本文所选主算法，也不能提供无条件的因果解释。",
+      "access": "Crossref元数据及出版商公开摘要；未补写不可核验的模型参数或性能",
+      "anchor": "Crossref作品元数据与原始来源摘要",
+      "sections": [
+        [
+          "在本站怎样使用",
+          "该来源提供通过随机化树集成进行分类和回归，为结构化任务提供比较基线。 当前案例的数据范围、实现规模和成绩见案例流程及演示；二者不默认相同。"
+        ],
+        [
+          "可复核材料",
+          "代码或作者实现：https://github.com/scikit-learn/scikit-learn"
+        ],
+        [
+          "对应本案例",
+          "在有来源的候选方案中，怎样比较表皮、流量和完井工作量的取舍？ NSGA-II先逐对检查支配关系，再按非支配层级与拥挤距离选择父代；交叉、变异和精英保留产生下一代。本站在这49个已计算候选中运行有限集合版本，不把未经Fluent重算的新参数组合冒充原文结果。"
+        ]
+      ],
+      "figures": [],
+      "citation": "Leo Breiman. Random Forests. Machine Learning 45, 5-32 (2001). https://doi.org/10.1023/A:1010933404324",
+      "source_url": "https://doi.org/10.1023/A:1010933404324",
+      "url": "https://doi.org/10.1023/A:1010933404324",
+      "repository": "https://github.com/scikit-learn/scikit-learn",
+      "refNumber": 23
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "label": "工况与摩阻",
+      "title": "怎样判定孔道摩阻何时不可忽略？",
+      "category": "question",
+      "isGap": true,
+      "x": 665,
+      "y": 175,
+      "image": "engineering-flow.png",
+      "question": "2019年最优穿深设计与2023年压降量级比较给出的关注重点不同。",
+      "method": "在共同流量、孔径、粗糙度、渗透率与边界条件下重算，再用独立压差–流量试验核对。",
+      "remaining": "所选文献尚未提供这两套模型在统一工况下的系统交叉验证。",
+      "related": [
+        "P08",
+        "P10"
+      ],
+      "status": "本组文献中的待核对问题"
+    },
+    {
+      "id": "Q2",
+      "label": "跨尺度耦合",
+      "title": "孔眼冲蚀怎样传递到多簇裂缝和最终产能？",
+      "category": "question",
+      "isGap": true,
+      "x": 665,
+      "y": 450,
+      "image": "parameter-casing.png",
+      "question": "单簇孔眼液固流动、多簇裂缝扩展与生产期产能属于不同计算尺度。",
+      "method": "将可测孔眼几何演化和流量分配用于校核裂缝模型，再以生产资料检验长期响应。",
+      "remaining": "2025年三维多簇模型与2026年单簇CFD–DEM各补充一部分过程，尚不等于全流程验证。",
+      "related": [
+        "P07",
+        "P11",
+        "P14",
+        "P16"
+      ],
+      "status": "已有分过程进展，联合验证仍待补充"
+    },
+    {
+      "id": "Q3",
+      "label": "现场独立验证",
+      "title": "怎样识别射孔方案自身的现场收益？",
+      "category": "question",
+      "isGap": true,
+      "x": 665,
+      "y": 740,
+      "image": "structure-atlas.png",
+      "question": "岩性、地应力、施工与生产制度都可能影响观察到的结果。",
+      "method": "采用匹配井段或重复试验，记录基线、地质差异及施工制度，报告效果的不确定性。",
+      "remaining": "本组现场案例提供应用证据，但尚不能把全部产能或SRV变化归因于单一射孔参数。",
+      "related": [
+        "P05",
+        "P08",
+        "P11",
+        "P15"
+      ],
+      "status": "应用证据已有，参数贡献仍需独立识别"
+    }
+  ],
+  "relations": [
+    [
+      "P02",
+      "P03",
+      "citation",
+      "Karakas与Tariq的参考文献明确列出Tariq（1987）。"
+    ],
+    [
+      "P03",
+      "P06",
+      "revision",
+      "Hagoort在摘要及比较算例中指出既有各向异性处理的偏差，提出解析替代。"
+    ],
+    [
+      "P01",
+      "P07",
+      "theme",
+      "同属利用孔眼入口压降调节分流的研究路线；此线不表示已核实的直接引用。"
+    ],
+    [
+      "P03",
+      "P08",
+      "theme",
+      "均讨论几何与产能，但2019年研究采用孔道摩阻和长度取舍准则。"
+    ],
+    [
+      "P08",
+      "P10",
+      "contrast",
+      "对孔道摩阻重要性的判断不同，须先核对生产流量、流态与边界条件。"
+    ],
+    [
+      "P03",
+      "P10",
+      "citation",
+      "Jiang等参考文献列出Karakas–Tariq，正文以其作模型比较。"
+    ],
+    [
+      "P05",
+      "P09",
+      "theme",
+      "从欠平衡设计与现场表现转向短时压力过程的快速计算。"
+    ],
+    [
+      "P09",
+      "P15",
+      "citation",
+      "Li等（2026）引用Bale与Satti（2020），并进一步讨论压实带损伤清除。"
+    ],
+    [
+      "P04",
+      "P12",
+      "theme",
+      "共同研究孔道几何与近井起裂；数值方法和验证工况不同。"
+    ],
+    [
+      "P04",
+      "P13",
+      "theme",
+      "由射孔起裂试验扩展至多簇共面射孔物理试验，不能视作同条件性能比较。"
+    ],
+    [
+      "P07",
+      "P11",
+      "extension",
+      "Liu等引言明确讨论Li等（2017）的限流模型，增加冲蚀与起裂不同步。"
+    ],
+    [
+      "P07",
+      "P14",
+      "citation",
+      "Li等（2025）的参考文献列出2017年孔眼入口单元研究。"
+    ],
+    [
+      "P11",
+      "P16",
+      "citation",
+      "Men等（2026）参考文献列出Liu等，进一步研究孔眼几何与流场反馈。"
+    ],
+    [
+      "P14",
+      "P16",
+      "theme",
+      "分别关注多簇三维扩展与单簇孔眼冲蚀反馈，模型尺度不同。"
+    ],
+    [
+      "P07",
+      "P17",
+      "theme",
+      "同属利用孔眼入口阻力调节多簇分流的研究路线；PLOS论文参考文献14为另一篇中文限流研究，此线不作为直接引用。"
+    ],
+    [
+      "P17",
+      "P11",
+      "theme",
+      "分别采用响应面设计与拟三维多簇模拟分析射孔参数；两篇的数据和模型独立。"
+    ],
+    [
+      "P01",
+      "ND01",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P01",
+      "NA01",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P01",
+      "NA14",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P01",
+      "NA03",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P01",
+      "NA04",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ],
+    [
+      "P01",
+      "NA05",
+      "theme",
+      "本案例将工程研究与该智能方法作方法关联；未核实直接引用或相同数据上的性能提升。"
+    ]
+  ],
+  "scenes": {
+    "all": {
+      "name": "射孔设计研究",
+      "image": "engineering-flow.png",
+      "caption": "原有射孔工程结构示意",
+      "desc": "按工程对象区分产能、清洁、起裂与分配；智能算法作为新的方法来源加入。"
+    },
+    "productivity": {
+      "name": "产能与流动",
+      "image": "engineering-flow.png",
+      "caption": "原有射孔工程结构示意",
+      "desc": "按工程对象区分产能、清洁、起裂与分配；智能算法作为新的方法来源加入。"
+    },
+    "cleanup": {
+      "name": "欠平衡清洁",
+      "image": "engineering-flow.png",
+      "caption": "原有射孔工程结构示意",
+      "desc": "按工程对象区分产能、清洁、起裂与分配；智能算法作为新的方法来源加入。"
+    },
+    "fracture": {
+      "name": "起裂",
+      "image": "engineering-flow.png",
+      "caption": "原有射孔工程结构示意",
+      "desc": "按工程对象区分产能、清洁、起裂与分配；智能算法作为新的方法来源加入。"
+    },
+    "allocation": {
+      "name": "分配",
+      "image": "engineering-flow.png",
+      "caption": "原有射孔工程结构示意",
+      "desc": "按工程对象区分产能、清洁、起裂与分配；智能算法作为新的方法来源加入。"
+    },
+    "ai": {
+      "name": "智能算法与复现",
+      "image": "../perf-ai/figures/nsga-survival.png",
+      "caption": "pymoo作者仓库：NSGA-II分层生存选择",
+      "desc": "NSGA-II先逐对检查支配关系，再按非支配层级与拥挤距离选择父代；交叉、变异和精英保留产生下一代。本站在这49个已计算候选中运行有限集合版本，不把未经Fluent重算的新参数组合冒充原文结果。"
+    }
+  }
+}

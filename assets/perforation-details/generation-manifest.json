@@ -1,0 +1,292 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "penetration",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-52ca01d0-6ef6-451e-86d0-96a4eb669e39.png",
+      "prompt": "Use case: scientific-educational. Generate a polished standalone photorealistic 3D scientific illustration for a petroleum engineering detail dialog explaining FORMATION PENETRATION LENGTH L. One coherent scene, not a screenshot or collage: a clean cutaway golden sandstone specimen with a single horizontal perforation tunnel entering its flat front face and terminating visibly inside rock. Show fine realistic sandstone grains, an open continuous rough internal tunnel, a clear exposed entry plane and a rounded blind end. Orthographic three-quarter view, soft studio light, warm white seamless background, generous margins, crisp high resolution, balanced 3:2 landscape composition. A subtle thin teal dimension arrow parallel to the tunnel spans only from the rock entry face to the blind tunnel end; exclude casing or cement lengths. No text, letters, numerical results, logo, border, UI, captions, inset panels, watermark, or surrounding website. Beautiful consistent premium engineering textbook rendering. This is a conceptual illustration, not a field measurement."
+    },
+    {
+      "id": "reservoir",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-d94c82bd-f392-4587-89c8-bbf4f8b087bd.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A standalone golden sandstone reservoir specimen, a carefully cut block and a small natural broken face showing realistic pores and mineral grains. Clearly explain reservoir rock as a porous medium. No perforation hole, no casing, no UI."
+    },
+    {
+      "id": "cement",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-d4ebbc52-d63c-41b5-a6a4-bf6e640ded52.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A coherent cylindrical well-completion cutaway focusing on the gray cement annulus between inner steel casing and surrounding golden sandstone. Remove a wedge to expose all three concentric materials; make the continuous cement annulus visually unmistakable."
+    },
+    {
+      "id": "casing",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-173e3a17-9c20-410a-8364-94cf3ce931b3.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: An isolated cylindrical steel pipe used as oil-well casing, with a broad removed wedge to reveal the hollow bore and metal wall thickness. One small round machined access port through the steel wall. Brushed silver steel, industrial product catalog, no tool or weapon."
+    },
+    {
+      "id": "wellbore",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-eac6c874-e198-4d08-8e1b-f45228512041.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A short vertical wellbore cutaway segment with a blue-green fluid-filled steel casing, gray cement annulus and sandstone exterior. Three-quarter scientific product-render view, visible open top and interior fluid, focus on the inner wellbore passage."
+    },
+    {
+      "id": "aperture",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-1ad72566-a664-43d8-8707-a44db8ce20c6.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A close-up isolated steel casing wall cutaway containing exactly one circular perforation opening. Show true wall thickness and a short passage into cement behind it. A thin double-headed teal arrow spans the diameter across the steel opening only, no numbers or letters. Clean round entry, not a long rock penetration."
+    },
+    {
+      "id": "gun",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-bfffd7d5-0adf-4783-a132-4c9e620df392.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: An isolated oilfield downhole perforating-tool carrier as an industrial scientific product model: a long silver cylindrical metal pressure housing with several small circular ports and a short section opened to show internal modular sensor-like carrier seats. No ammunition, no ignition, no explosion, no weapon depiction. Focus on outside diameter and pressure housing construction."
+    },
+    {
+      "id": "clearance",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-7b957048-8a05-4546-81de-a40ba4c7b593.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A slim cylindrical downhole industrial tool centered inside a short longitudinally sectioned steel well casing. Clear small annular clearance between the inner tool outside diameter and outer casing inside diameter. Distinguish silver tool from darker pipe; one coherent product model."
+    },
+    {
+      "id": "large-entry",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-5be5ba5b-0d86-4d67-9e74-c96468dee61f.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A close-up coherent rock/cement/steel completion cutaway showing a relatively wide circular perforation entry in the steel wall and a short broad tunnel into sandstone. Focus on wide entry area, pristine continuous materials and a smooth studio composition."
+    },
+    {
+      "id": "logging-tool",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-58189902-718a-4ec3-b534-30d557b15694.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A slim realistic production logging probe suspended on wireline inside a cutaway fluid-filled cased well at a perforated interval. Show a recognizable metal probe and sensor sections, depth context in the rock, no screen or numerical readouts."
+    },
+    {
+      "id": "layer-flow",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-769f537a-3af8-4827-94b4-5648f23d4e24.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: One vertical cased well intersecting two distinct porous sandstone layers separated by a gray low-permeability bed. A few subtle teal flow arrows enter the well from both layers and merge upward. Focus on independently contributing layers, not a numerical field or graph."
+    },
+    {
+      "id": "damage-zone",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-6dc65199-fc9a-47f4-9beb-45da02ca0281.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A clean wedge-cut sandstone specimen with a single perforation tunnel and a clearly differentiated compacted darker annular zone immediately around the tunnel. Outer sandstone remains golden and porous. Show a physically coherent continuous transition, not an applied flat patch."
+    },
+    {
+      "id": "radial-flow",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-a8afe024-d6dd-46cd-9798-d17e367dd060.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A cylindrical porous sandstone reservoir volume with a vertical central cased well. Remove a clean wedge so the well, perforations and surrounding rock are visible. Subtle teal arrows converge radially through the rock toward perforations and into the well. No color contour plot or numeric pressure field."
+    },
+    {
+      "id": "cleanup-debris",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-92f0bce8-aa6b-498b-9fa8-8bda337180c6.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A single sandstone perforation tunnel connected through cement and casing to a fluid-filled well. A few realistic loose rock grains and fines sit inside the tunnel. A restrained teal arrow shows underbalanced fluid backflow carrying those particles from the tunnel into the well, never into the formation."
+    },
+    {
+      "id": "flow-network",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-690993ae-18e7-4f89-beee-6ad48db9a3b7.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: Exactly six perforation branches connected to one horizontal steel cased wellbore in a continuous golden sandstone cutaway. Each branch has a distinct clearly visible inlet; elegant teal streamlines divide among all six branches. One coherent scene, not tiled or repeated image strips, no arrows that imply six measured results."
+    },
+    {
+      "id": "ccl-collar",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-364fbaff-41c7-42c8-a78f-c8e9b8ef0082.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A clean vertical steel casing cutaway showing two casing joints connected by one visibly thicker coupling collar, and a compact wireline casing-collar-locator probe inside near that collar. Focus on the actual joint, thickness contrast, electromagnetic sensing shown only by a very subtle teal halo."
+    },
+    {
+      "id": "depth-reference",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-0a976aa7-7ad3-4276-b89d-1aca0c123c31.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A vertical cased well cutaway crossing three horizontal rock strata with a clearly marked target stratum and casing collar. A slim wireline tool and a fine vertical reference line align collar and target interval. Explain correspondence between a physical depth reference and a target bed, no graphs or numbers."
+    },
+    {
+      "id": "lithology",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-1c7dd2ef-f35c-457c-bb2b-ef108159033b.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A polished freestanding cutaway rock column with three distinct lithologies: golden sandstone, dark gray shale, and pale limestone. Natural continuous bedding interfaces, realistic grain and fracture textures, clearly separate materials without artificial UI boxes."
+    },
+    {
+      "id": "candidate-window",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-4778ee66-4246-4a8b-bb84-8cac34156a6f.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A vertical stratigraphic rock column beside a cased borehole, with one thin sandstone interval enclosed by a subtle translucent teal horizontal observation band. Neighboring shale beds visible above and below. Focus on selecting and checking a candidate reservoir window."
+    },
+    {
+      "id": "fracture",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-13e82b6c-d453-4f23-9a51-d1c0e640b66f.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A single perforation tunnel entering a coherent sandstone specimen with a physically plausible branching hydraulic fracture starting from the tunnel tip and propagating into rock. Restrained thin teal fluid in the fracture, not lightning or explosion."
+    },
+    {
+      "id": "engineering-check",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-f0882418-a554-4409-98eb-aa05cd81a9b2.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: One cased completion cutaway at a target reservoir interval, with visible steel wall, gray cement seal, perforated sandstone and a wireline probe. A subtle minimal caliper and pressure sensing port indicate engineering verification; no checkmarks, software windows, clipart or dashboards."
+    },
+    {
+      "id": "impact",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-5802778e-4648-471c-9ce2-ed8a7f210b5a.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A steel oil-well casing coupon with a single round opening, viewed in three-quarter cutaway; small concentric teal stress-wave rings around the opening explain a transient local mechanical load in an engineering material. Show a coherent metallic specimen, realistic thickness and local strain concept; no ammunition, weapon, ignition, fire or explosion."
+    },
+    {
+      "id": "thermal",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-e36f9923-a435-45f6-9d79-71e7e3106c2b.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: One sandstone perforation tunnel with a subtle warm orange near-wall thermal affected zone and cooler natural rock away from the tunnel. Coherent cutaway, restrained colors and realistic minerals; no flames, no molten cartoon rock, no quantified temperature map."
+    },
+    {
+      "id": "pressure-pulse",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-2666280c-70a2-4b1d-aed5-09a41849b8fc.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A fluid-filled cased well connected to one sandstone perforation tunnel. A few subtle concentric teal pressure-wave fronts in the well and a coherent backflow streamline from tunnel toward well convey a transient underbalanced pressure pulse. Conceptual single scene, no time graph or fictional measurement."
+    },
+    {
+      "id": "density-phase",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-fe6887ac-d4c2-48af-b351-bcfa997a4502.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A short open-ended stainless-steel industrial water-filter tube with many small circular machined ports arranged in a helical staggered pattern along its cylinder. Three-quarter product catalogue view showing axial spacing and angular distribution of ports. Clearly a hollow plumbing component, no tool or machine attached, no weapons or ammunition, no branding or text."
+    },
+    {
+      "id": "physical-model",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-2ba922ea-f137-4f2a-978c-1cd678191c75.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A coherent scientific 3D illustration of one sandstone specimen with a perforation channel, showing its solid left half as realistic material and its right half as a clean translucent computational mesh around the same channel. Continuous object, not a split-screen collage; explain physical modeling vs surrogate approximation without words or equations."
+    },
+    {
+      "id": "measurement",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-c823c889-326e-4ca7-8e54-9c557e60cb7c.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A precise studio macro view of a cutaway perforated sandstone test specimen with adjacent steel wall and cement, together with a realistic digital caliper measuring a material dimension. Display is blank, no numbers; crisp metrology-focused scientific illustration."
+    },
+    {
+      "id": "production-monitor",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-8a247982-0822-447e-ac38-d08193e22d1b.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A compact realistic oil-well completion cutaway showing reservoir perforations feeding a central well and a small polished pressure/flow sensing assembly on the well conduit above. Elegant teal streamlines and realistic metal, conceptual production observation, no machinery unrelated to well production."
+    },
+    {
+      "id": "entry-flow",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-cd17cbdc-9a87-4cf4-af7f-27c2abad0383.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A close-up coherent steel-cement-sandstone cutaway at one perforation entrance. Teal fluid streamlines contract through the round steel entry and continue down the tunnel, clearly showing local entrance restriction. Crisp materials, gentle studio light, no numeric labels."
+    },
+    {
+      "id": "completion-clusters",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-83869379-aca5-4b48-9526-3542375c713e.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A cased horizontal well cutaway in continuous layered sandstone showing three clearly separated perforation clusters along the well, each cluster containing several small entry holes. Highlight cluster separation by balanced composition only; no measurements, no identical tiled crops."
+    },
+    {
+      "id": "stress-rock",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-43f4f45f-b4d2-426d-80a2-659fb8982fa7.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A cubic porous sandstone specimen containing a blind perforation tunnel, surrounded by subtle opposing arrows on two exterior faces representing confining stress. Keep arrows small and teal, no stress contour colors, numbers, equations or UI. Focus on rock under confinement."
+    },
+    {
+      "id": "production-path",
+      "path": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-a380740a-55a5-4d80-be03-f894762b81a5.png",
+      "prompt": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: A coherent sandstone reservoir cutaway with one wellbore, a connected perforation tunnel, and subtle teal streamlines traveling from pores to tunnel to well. Show clear connected paths and a single integrated physical object, no plots, no multiple panels."
+    }
+  ],
+  "specs": [
+    [
+      "reservoir",
+      "A standalone golden sandstone reservoir specimen, a carefully cut block and a small natural broken face showing realistic pores and mineral grains. Clearly explain reservoir rock as a porous medium. No perforation hole, no casing, no UI."
+    ],
+    [
+      "casing",
+      "An isolated cylindrical steel pipe used as oil-well casing, with a broad removed wedge to reveal the hollow bore and metal wall thickness. One small round machined access port through the steel wall. Brushed silver steel, industrial product catalog, no tool or weapon."
+    ],
+    [
+      "cement",
+      "A coherent cylindrical well-completion cutaway focusing on the gray cement annulus between inner steel casing and surrounding golden sandstone. Remove a wedge to expose all three concentric materials; make the continuous cement annulus visually unmistakable."
+    ],
+    [
+      "wellbore",
+      "A short vertical wellbore cutaway segment with a blue-green fluid-filled steel casing, gray cement annulus and sandstone exterior. Three-quarter scientific product-render view, visible open top and interior fluid, focus on the inner wellbore passage."
+    ],
+    [
+      "aperture",
+      "A close-up isolated steel casing wall cutaway containing exactly one circular perforation opening. Show true wall thickness and a short passage into cement behind it. A thin double-headed teal arrow spans the diameter across the steel opening only, no numbers or letters. Clean round entry, not a long rock penetration."
+    ],
+    [
+      "gun",
+      "An isolated oilfield downhole perforating-tool carrier as an industrial scientific product model: a long silver cylindrical metal pressure housing with several small circular ports and a short section opened to show internal modular sensor-like carrier seats. No ammunition, no ignition, no explosion, no weapon depiction. Focus on outside diameter and pressure housing construction."
+    ],
+    [
+      "clearance",
+      "A slim cylindrical downhole industrial tool centered inside a short longitudinally sectioned steel well casing. Clear small annular clearance between the inner tool outside diameter and outer casing inside diameter. Distinguish silver tool from darker pipe; one coherent product model."
+    ],
+    [
+      "large-entry",
+      "A close-up coherent rock/cement/steel completion cutaway showing a relatively wide circular perforation entry in the steel wall and a short broad tunnel into sandstone. Focus on wide entry area, pristine continuous materials and a smooth studio composition."
+    ],
+    [
+      "layer-flow",
+      "One vertical cased well intersecting two distinct porous sandstone layers separated by a gray low-permeability bed. A few subtle teal flow arrows enter the well from both layers and merge upward. Focus on independently contributing layers, not a numerical field or graph."
+    ],
+    [
+      "logging-tool",
+      "A slim realistic production logging probe suspended on wireline inside a cutaway fluid-filled cased well at a perforated interval. Show a recognizable metal probe and sensor sections, depth context in the rock, no screen or numerical readouts."
+    ],
+    [
+      "damage-zone",
+      "A clean wedge-cut sandstone specimen with a single perforation tunnel and a clearly differentiated compacted darker annular zone immediately around the tunnel. Outer sandstone remains golden and porous. Show a physically coherent continuous transition, not an applied flat patch."
+    ],
+    [
+      "radial-flow",
+      "A cylindrical porous sandstone reservoir volume with a vertical central cased well. Remove a clean wedge so the well, perforations and surrounding rock are visible. Subtle teal arrows converge radially through the rock toward perforations and into the well. No color contour plot or numeric pressure field."
+    ],
+    [
+      "cleanup-debris",
+      "A single sandstone perforation tunnel connected through cement and casing to a fluid-filled well. A few realistic loose rock grains and fines sit inside the tunnel. A restrained teal arrow shows underbalanced fluid backflow carrying those particles from the tunnel into the well, never into the formation."
+    ],
+    [
+      "flow-network",
+      "Exactly six perforation branches connected to one horizontal steel cased wellbore in a continuous golden sandstone cutaway. Each branch has a distinct clearly visible inlet; elegant teal streamlines divide among all six branches. One coherent scene, not tiled or repeated image strips, no arrows that imply six measured results."
+    ],
+    [
+      "ccl-collar",
+      "A clean vertical steel casing cutaway showing two casing joints connected by one visibly thicker coupling collar, and a compact wireline casing-collar-locator probe inside near that collar. Focus on the actual joint, thickness contrast, electromagnetic sensing shown only by a very subtle teal halo."
+    ],
+    [
+      "depth-reference",
+      "A vertical cased well cutaway crossing three horizontal rock strata with a clearly marked target stratum and casing collar. A slim wireline tool and a fine vertical reference line align collar and target interval. Explain correspondence between a physical depth reference and a target bed, no graphs or numbers."
+    ],
+    [
+      "lithology",
+      "A polished freestanding cutaway rock column with three distinct lithologies: golden sandstone, dark gray shale, and pale limestone. Natural continuous bedding interfaces, realistic grain and fracture textures, clearly separate materials without artificial UI boxes."
+    ],
+    [
+      "candidate-window",
+      "A vertical stratigraphic rock column beside a cased borehole, with one thin sandstone interval enclosed by a subtle translucent teal horizontal observation band. Neighboring shale beds visible above and below. Focus on selecting and checking a candidate reservoir window."
+    ],
+    [
+      "engineering-check",
+      "One cased completion cutaway at a target reservoir interval, with visible steel wall, gray cement seal, perforated sandstone and a wireline probe. A subtle minimal caliper and pressure sensing port indicate engineering verification; no checkmarks, software windows, clipart or dashboards."
+    ],
+    [
+      "fracture",
+      "A single perforation tunnel entering a coherent sandstone specimen with a physically plausible branching hydraulic fracture starting from the tunnel tip and propagating into rock. Restrained thin teal fluid in the fracture, not lightning or explosion."
+    ],
+    [
+      "impact",
+      "A steel oil-well casing coupon with a single round opening, viewed in three-quarter cutaway; small concentric teal stress-wave rings around the opening explain a transient local mechanical load in an engineering material. Show a coherent metallic specimen, realistic thickness and local strain concept; no ammunition, weapon, ignition, fire or explosion."
+    ],
+    [
+      "thermal",
+      "One sandstone perforation tunnel with a subtle warm orange near-wall thermal affected zone and cooler natural rock away from the tunnel. Coherent cutaway, restrained colors and realistic minerals; no flames, no molten cartoon rock, no quantified temperature map."
+    ],
+    [
+      "density-phase",
+      "A short open-ended stainless-steel industrial water-filter tube with many small circular machined ports arranged in a helical staggered pattern along its cylinder. Three-quarter product catalogue view showing axial spacing and angular distribution of ports. Clearly a hollow plumbing component, no tool or machine attached, no weapons or ammunition, no branding or text."
+    ],
+    [
+      "pressure-pulse",
+      "A fluid-filled cased well connected to one sandstone perforation tunnel. A few subtle concentric teal pressure-wave fronts in the well and a coherent backflow streamline from tunnel toward well convey a transient underbalanced pressure pulse. Conceptual single scene, no time graph or fictional measurement."
+    ],
+    [
+      "physical-model",
+      "A coherent scientific 3D illustration of one sandstone specimen with a perforation channel, showing its solid left half as realistic material and its right half as a clean translucent computational mesh around the same channel. Continuous object, not a split-screen collage; explain physical modeling vs surrogate approximation without words or equations."
+    ],
+    [
+      "measurement",
+      "A precise studio macro view of a cutaway perforated sandstone test specimen with adjacent steel wall and cement, together with a realistic digital caliper measuring a material dimension. Display is blank, no numbers; crisp metrology-focused scientific illustration."
+    ],
+    [
+      "production-monitor",
+      "A compact realistic oil-well completion cutaway showing reservoir perforations feeding a central well and a small polished pressure/flow sensing assembly on the well conduit above. Elegant teal streamlines and realistic metal, conceptual production observation, no machinery unrelated to well production."
+    ],
+    [
+      "entry-flow",
+      "A close-up coherent steel-cement-sandstone cutaway at one perforation entrance. Teal fluid streamlines contract through the round steel entry and continue down the tunnel, clearly showing local entrance restriction. Crisp materials, gentle studio light, no numeric labels."
+    ],
+    [
+      "completion-clusters",
+      "A cased horizontal well cutaway in continuous layered sandstone showing three clearly separated perforation clusters along the well, each cluster containing several small entry holes. Highlight cluster separation by balanced composition only; no measurements, no identical tiled crops."
+    ],
+    [
+      "stress-rock",
+      "A cubic porous sandstone specimen containing a blind perforation tunnel, surrounded by subtle opposing arrows on two exterior faces representing confining stress. Keep arrows small and teal, no stress contour colors, numbers, equations or UI. Focus on rock under confinement."
+    ],
+    [
+      "production-path",
+      "A coherent sandstone reservoir cutaway with one wellbore, a connected perforation tunnel, and subtle teal streamlines traveling from pores to tunnel to well. Show clear connected paths and a single integrated physical object, no plots, no multiple panels."
+    ]
+  ],
+  "base": "Use case: scientific-educational. Create ONE standalone photorealistic high-end 3D petroleum-engineering educational illustration, designed specifically for a detail-dialog image, not a screenshot, existing-figure crop, contact sheet or collage. Warm white seamless studio background, orthographic three-quarter view, realistic sandstone/steel/cement materials, soft studio shadows, balanced 3:2 landscape composition with generous margins, crisp professional textbook quality. No text, letters, numerals, axes, logos, watermark, border, panels or website elements. Conceptual illustration, no fabricated field measurements. SUBJECT: "
+}

@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "input": "network-2.png",
+  "output": "network-2-clean.png",
+  "source": "C:\\Users\\hajimi\\.codex\\generated_images\\01a19516-3cce-7a82-a909-31ba4efd3d5b\\exec-289c36ea-f814-48bc-9e0b-76f4fce85c5a.png",
+  "prompt": "Edit the provided engineering cutaway into a clean unperforated structural background for interactive overlays. Preserve exactly the 3:2 landscape composition, camera angle, long horizontal metallic well casing at its current position and diagonal perspective, left vertical-to-horizontal elbow, sandstone and shale layers, cement support, cream studio background, material realism, lighting, and geometry. REMOVE ALL existing perforation holes from the visible metal pipe, and ALL turquoise fluid jets, glows, streamlines and turquoise cracks in the rock, leaving continuous smooth realistic brushed steel with no holes anywhere. Remove the large vertical fracture seams crossing the rock block as well; replace those seams with continuous natural sedimentary layers. Keep metal collar joints on the pipe. The final image must be a beautiful intact layered reservoir cutaway with a completely smooth UNPERFORATED steel casing, so software can draw exactly the user's chosen number of hole clusters over it. No labels, letters, measurements, arrows, diagrams, colored overlays, droplets, fractures, cut-and-paste patches or extra objects. Do not change the pipe's trajectory or framing. High quality seamless photorealistic technical illustration."
+}

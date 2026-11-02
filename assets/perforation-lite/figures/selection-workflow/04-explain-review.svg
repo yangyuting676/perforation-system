@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns2="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="460.8pt" height="446.4pt" viewBox="0 0 460.8 446.4" version="1.1" role="img" aria-labelledby="04-explain-review-title 04-explain-review-desc">
+ <title id="04-explain-review-title">推荐或拒绝的解释与复核</title><desc id="04-explain-review-desc">可行集为空时停止推荐并列明失败规则；非空时解释型号、排名、约束判断及分项贡献。记录输入、规则版本、权重和推荐或拒绝原因，工程应用前核对生产商及试验依据。</desc><title>推荐或拒绝的解释与复核</title>
+ <metadata>
+  <rdf:RDF>
+   <ns2:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:title>推荐或拒绝的解释与复核</dc:title>
+    <dc:date>2026-10-29T12:59:09.151718</dc:date>
+    <dc:description>可行集为空时停止推荐并列明失败规则；非空时解释型号、排名、约束判断及分项贡献。记录输入、规则版本、权重和推荐或拒绝原因，工程应用前核对生产商及试验依据。</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <ns2:Agent>
+      <dc:title>Matplotlib; existing P3 teaching rules</dc:title>
+     </ns2:Agent>
+    </dc:creator>
+   </ns2:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 446.4  L 460.8 446.4  L 460.8 0  L 0 0  z " style="fill: #f8fbfa" />
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 125.28 74.16  L 335.52 74.16  Q 342 74.16 342 80.64  L 342 109.44  Q 342 115.92 335.52 115.92  L 125.28 115.92  Q 118.8 115.92 118.8 109.44  L 118.8 80.64  Q 118.8 74.16 125.28 74.16  z " clip-path="url(#p3c39dbd207)" style="fill: #eaf1f5; stroke: #b9d0c7; stroke-width: 1.1; stroke-linejoin: miter" />
+   </g>
+   <g id="patch_3">
+    <path d="M 230.4 139.68  L 349.2 171.36  L 230.4 203.04  L 111.6 171.36  z " clip-path="url(#p3c39dbd207)" style="fill: #ffffff; stroke: #247567; stroke-width: 1.5; stroke-linejoin: miter" />
+   </g>
+   <g id="patch_4">
+    <path d="M 31.68 226.08  L 213.12 226.08  Q 219.6 226.08 219.6 232.56  L 219.6 291.6  Q 219.6 298.08 213.12 298.08  L 31.68 298.08  Q 25.2 298.08 25.2 291.6  L 25.2 232.56  Q 25.2 226.08 31.68 226.08  z " clip-path="url(#p3c39dbd207)" style="fill: #faf0e4; stroke: #b9d0c7; stroke-width: 1.1; stroke-linejoin: miter" />
+   </g>
+   <g id="patch_5">
+    <path d="M 247.68 226.08  L 429.12 226.08  Q 435.6 226.08 435.6 232.56  L 435.6 291.6  Q 435.6 298.08 429.12 298.08  L 247.68 298.08  Q 241.2 298.08 241.2 291.6  L 241.2 232.56  Q 241.2 226.08 247.68 226.08  z " clip-path="url(#p3c39dbd207)" style="fill: #e8f3ee; stroke: #b9d0c7; stroke-width: 1.1; stroke-linejoin: miter" />
+   </g>
+   <g id="patch_6">
+    <path d="M 31.68 340.56  L 429.12 340.56  Q 435.6 340.56 435.6 347.04  L 435.6 391.68  Q 435.6 398.16 429.12 398.16  L 31.68 398.16  Q 25.2 398.16 25.2 391.68  L 25.2 347.04  Q 25.2 340.56 31.68 340.56  z " clip-path="url(#p3c39dbd207)" style="fill: #ffffff; stroke: #b9d0c7; stroke-width: 1.1; stroke-linejoin: miter" />
+   </g>
+   <g id="line2d_1">
+    <path d="M 122.4 300.24  L 122.4 319.68  L 230.4 319.68  " clip-path="url(#p3c39dbd207)" style="fill: none; stroke: #6c9690; stroke-width: 1.4; stroke-linecap: square" />
+   </g>
+   <g id="line2d_2">
+    <path d="M 338.4 300.24  L 338.4 319.68  L 230.4 319.68  " clip-path="url(#p3c39dbd207)" style="fill: none; stroke: #6c9690; stroke-width: 1.4; stroke-linecap: square" />
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="230.4" y="30.432422" transform="rotate(-0 230.4 30.432422)">推荐和拒绝，都要给出依据</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #486770" x="230.4" y="52.846992" transform="rotate(-0 230.4 52.846992)">应用：保留判断路径，形成复核记录</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="230.4" y="98.895469" transform="rotate(-0 230.4 98.895469)">读取经过筛选的可行集</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 230.4 119.362588  Q 230.4 128.521792 230.4 136.003946  " style="fill: none; stroke: #6c9690; stroke-width: 1.5; stroke-linecap: round" />
+    <path d="M 233 130.803946  L 230.4 136.003946  L 227.8 130.803946  z " style="fill: #6c9690; stroke: #6c9690; stroke-width: 1.5; stroke-linecap: round" />
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="230.4" y="175.215469" transform="rotate(-0 230.4 175.215469)">可行集为空？</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 111.140552 173.305898  Q 105.480005 197.279978 100.204833 219.621885  " style="fill: none; stroke: #6c9690; stroke-width: 1.5; stroke-linecap: round" />
+    <path d="M 103.930178 215.1585  L 100.204833 219.621885  L 98.869332 213.963578  z " style="fill: #6c9690; stroke: #6c9690; stroke-width: 1.5; stroke-linecap: round" />
+   </g>
+   <g id="text_5">
+    <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="89.64" y="200.584688" transform="rotate(-0 89.64 200.584688)">是</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 349.659448 173.305898  Q 355.319995 197.279978 360.595167 219.621885  " style="fill: none; stroke: #6c9690; stroke-width: 1.5; stroke-linecap: round" />
+    <path d="M 361.930668 213.963578  L 360.595167 219.621885  L 356.869822 215.1585  z " style="fill: #6c9690; stroke: #6c9690; stroke-width: 1.5; stroke-linecap: round" />
+   </g>
+   <g id="text_6">
+    <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="371.16" y="200.584688" transform="rotate(-0 371.16 200.584688)">否</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="122.4" y="249.375469" transform="rotate(-0 122.4 249.375469)">停止推荐</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 12.5px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="122.4" y="275.602383" transform="rotate(-0 122.4 275.602383)">列出各型号的失败规则</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="338.4" y="249.375469" transform="rotate(-0 338.4 249.375469)">解释型号与排名</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 12.5px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="338.4" y="275.602383" transform="rotate(-0 338.4 275.602383)">列出规则判断与分项贡献</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 230.4 321.677227  Q 230.4 329.040391 230.4 334.726505  " style="fill: none; stroke: #6c9690; stroke-width: 1.5; stroke-linecap: round" />
+    <path d="M 233 329.526505  L 230.4 334.726505  L 227.8 329.526505  z " style="fill: #6c9690; stroke: #6c9690; stroke-width: 1.5; stroke-linecap: round" />
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="230.4" y="363.855469" transform="rotate(-0 230.4 363.855469)">形成复核记录</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 12.5px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #214b55" x="230.4" y="380.866383" transform="rotate(-0 230.4 380.866383)">井况 · 规则版本 · 权重 · 结果或拒绝原因</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.8px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #486770" x="230.4" y="430.654219" transform="rotate(-0 230.4 430.654219)">工程应用前，核对生产商资料与靶试依据。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p3c39dbd207">
+   <rect x="0" y="0" width="460.8" height="446.4" />
+  </clipPath>
+ </defs>
+</svg>
