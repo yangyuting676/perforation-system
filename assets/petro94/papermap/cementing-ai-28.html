@@ -1,0 +1,1499 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>候凝时间教学代理预测研究图谱 · PaperMap</title><style>
+  :root {
+    --primary: #185FA5;
+    --primary-light: #378ADD;
+    --primary-bg: rgba(24,95,165,0.10);
+    --accent: #0F6E56;
+    --accent-light: #1D9E75;
+    --accent-bg: rgba(15,110,86,0.08);
+    --dark: #1a2332;
+    --text-primary: #1a2332;
+    --text-secondary: #5f5e5a;
+    --text-muted: #888780;
+    --bg: #f2f5f8;
+    --white: #ffffff;
+    --border: rgba(0,0,0,0.06);
+    --border-strong: rgba(0,0,0,0.12);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.03);
+    --radius: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    /* Apple Glass */
+    --glass-bg: rgba(255,255,255,0.65);
+    --glass-border: rgba(255,255,255,0.4);
+    --glass-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    --glass-blur: blur(20px);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(165deg, #eef2f7 0%, #f5f7fa 40%, #e8edf4 100%);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 15px;
+    min-height: 100vh;
+  }
+
+  /* Hero Section - Apple Vision Pro inspired */
+  .hero {
+    background: linear-gradient(135deg, #0c2f52 0%, #0f4a7a 35%, #185FA5 55%, #1D9E75 100%);
+    color: white;
+    padding: 72px 40px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top:-50%; left:-50%; width:200%; height:200%;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.10) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0%, transparent 40%);
+    pointer-events:none;
+  }
+  /* Apple-style grain texture for hero */
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    opacity: 0.02;
+    background: radial-gradient(circle at 25% 0%, rgba(255,255,255,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 100%, rgba(255,255,255,0.02) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  #particle-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-badge {
+    display:inline-block; padding:7px 20px; border-radius:20px;
+    background:rgba(255,255,255,0.1); backdrop-filter:blur(20px) saturate(1.3);
+    -webkit-backdrop-filter:blur(20px) saturate(1.3);
+    font-size:12px; letter-spacing:1px; margin-bottom:24px;
+    border:1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .hero h1 { font-size:42px; font-weight:700; margin-bottom:10px; letter-spacing:-0.8px; line-height:1.12; }
+  .hero .subtitle { font-size:17px; opacity:0.8; max-width:480px; margin:0 auto 28px; line-height:1.6; font-weight:400; }
+
+  /* Hero Search Bar - Apple Vision Pro inspired */
+  .hero-search {
+    display: flex; align-items: center; max-width: 600px; margin: 0 auto;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(30px) saturate(1.4);
+    -webkit-backdrop-filter: blur(30px) saturate(1.4);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 6px;
+    transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .hero-search:focus-within {
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 4px 28px rgba(0,0,0,0.12), 0 0 0 2px rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.3);
+  }
+  .hero-search input {
+    flex: 1; background: none; border: none; padding: 14px 20px;
+    font-size: 16px; color: white; font-family: inherit; outline: none;
+  }
+  .hero-search input::placeholder { color: rgba(255,255,255,0.55); }
+  .hero-search button {
+    padding: 12px 28px; background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border: none; border-radius: 11px;
+    font-size: 14px; font-weight: 600; color: var(--dark); cursor: pointer;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .hero-search button:hover {
+    background: white;
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  /* Container */
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  .section { padding:48px 0; }
+  .section-title {
+    font-size:28px; font-weight:700; color:var(--dark); text-align:center;
+    margin-bottom:10px; position:relative;
+  }
+  .section-title::after {
+    content: ''; display: block;
+    width: 60px; height: 3px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 2px;
+  }
+  .section-subtitle { text-align:center; color:var(--text-secondary); margin-bottom:45px; font-size:16px; }
+
+  /* Cards - Apple Glass */
+  .card {
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-lg); border: 1px solid var(--glass-border);
+    padding: 32px; transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--glass-shadow);
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+
+  /* Pain Points Grid - Apple Glass */
+  .pain-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:35px; }
+  .pain-item {
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius); border: 1px solid var(--glass-border);
+    padding: 26px 22px; position:relative; overflow:hidden;
+    box-shadow: var(--glass-shadow);
+  }
+  .pain-item::before {
+    content:''; position:absolute; top:0; left:0; width:4px; height:100%;
+    background:linear-gradient(to bottom, var(--primary), var(--accent));
+    opacity: 0.6;
+  }
+  .pain-item h3 { font-size:17px; font-weight:600; color:var(--dark); margin-bottom:10px; padding-left:8px; }
+  .pain-item p { color:var(--text-secondary); font-size:14px; padding-left:8px; line-height:1.7; }
+  .pain-icon {
+    width:42px; height:42px; border-radius:12px; display:flex; align-items:center;
+    justify-content:center; font-size:20px; margin-bottom:12px;
+    backdrop-filter: blur(8px);
+  }
+
+  /* ========== APPLE GLASS BUTTONS ========== */
+  .glass-btn {
+    padding: 10px 22px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 12px; font-size: 13px; font-weight: 500;
+    color: var(--text-secondary); cursor: pointer;
+    transition: all 0.2s ease, transform 0.08s ease;
+    white-space: nowrap; font-family: inherit;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  }
+  .glass-btn:hover {
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    color: var(--text-primary);
+    border-color: rgba(255,255,255,0.6);
+  }
+  .glass-btn.primary {
+    background: rgba(24,95,165,0.10);
+    color: var(--primary); border-color: rgba(24,95,165,0.12);
+  }
+  .glass-btn.primary:hover {
+    background: rgba(24,95,165,0.16);
+    color: var(--primary);
+  }
+  .glass-btn.accent {
+    background: rgba(29,158,117,0.08);
+    color: var(--accent); border-color: rgba(29,158,117,0.10);
+  }
+  .glass-btn.accent:hover {
+    background: rgba(29,158,117,0.14);
+  }
+  .glass-btn.dark {
+    background: rgba(44,62,80,0.08);
+    color: #2c3e50; border-color: rgba(44,62,80,0.10);
+  }
+  .glass-btn.dark:hover {
+    background: rgba(44,62,80,0.14);
+  }
+
+  /* Toggle Panels - Apple Glass */
+  .toggle-panel {
+    margin-top: 20px; padding: 24px 28px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur) saturate(1.3);
+    -webkit-backdrop-filter: var(--glass-blur) saturate(1.3);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+  }
+  .glass-btn.active {
+    background: rgba(24,95,165,0.14);
+    color: var(--primary); border-color: rgba(24,95,165,0.2);
+    backdrop-filter: blur(16px) saturate(1.3);
+  }
+
+  /* Graph Visualization - Apple Glass */
+  #graph-container {
+    width:100%; height:520px;
+    background: rgba(249,250,252,0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+    position:relative; overflow:hidden; margin-top:16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.03);
+  }
+  #graph-canvas { width:100%; height:100%; }
+
+  /* Stats Row - Apple Glass */
+  .stats-row { display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; justify-content:center; }
+  .stat-card {
+    flex:1; min-width:140px; max-width:200px;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 16px; text-align:center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .stat-num { font-size:26px; font-weight:700; color:var(--primary); line-height:1.2; }
+  .stat-label { font-size:12px; color:var(--text-secondary); margin-top:2px; }
+
+  /* Tech Stack - Apple Glass */
+  .tech-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-top:30px; }
+  .tech-item {
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius); border: 1px solid var(--glass-border);
+    padding:20px; text-align:center; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--glass-shadow);
+  }
+  .tech-item:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(0,0,0,0.06); border-color: rgba(255,255,255,0.6); }
+  .tech-icon { font-size:28px; margin-bottom:8px; }
+  .tech-name { font-weight:600; font-size:14px; color:var(--dark); }
+  .tech-desc { font-size:12px; color:var(--text-muted); margin-top:4px; }
+
+  /* Comparison Table - Apple Glass */
+  .compare-table { width:100%; border-collapse:collapse; margin-top:30px; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--glass-border); box-shadow: var(--glass-shadow); }
+  .compare-table th { background:rgba(24,95,165,0.06); padding:14px 18px; text-align:left; font-weight:600; font-size:14px; color:var(--primary); border-bottom:2px solid var(--primary); }
+  .compare-table td { padding:14px 18px; border-bottom:1px solid var(--border); font-size:14px; vertical-align:top; }
+  .compare-table tr:last-child td { border-bottom:none; }
+  .compare-table tr:hover td { background:rgba(255,255,255,0.5); }
+  .check { color:var(--accent); font-weight:bold; }
+  .cross { color:#e24b4a; }
+  .highlight-row td { background:rgba(15,110,86,0.06); font-weight:600; }
+  .highlight-row:hover td { background:rgba(15,110,86,0.08); }
+
+  /* Value Proposition - Apple Glass */
+  .value-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin-top:30px; }
+  .value-card {
+    background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-lg); border: 1px solid var(--glass-border);
+    padding:28px; position:relative; overflow:hidden;
+    box-shadow: var(--glass-shadow);
+  }
+  .value-card::after {
+    content:''; position:absolute; top:-20px; right:-20px; width:100px; height:100px;
+    border-radius:50%; opacity:0.05;
+    filter: blur(20px);
+  }
+  .value-card.personal::after { background:var(--primary); }
+  .value-card.social::after { background:var(--accent); }
+  .value-card.biz::after { background:#BA7517; }
+  .value-emoji { font-size:32px; margin-bottom:12px; }
+  .value-card h3 { font-size:17px; font-weight:700; color:var(--dark); margin-bottom:8px; }
+  .value-card p { font-size:14px; color:var(--text-secondary); line-height:1.7; }
+
+  /* Footer - Apple Dark Glass */
+  .footer {
+    background: linear-gradient(135deg, rgba(26,35,50,0.92), rgba(26,35,50,0.85));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color:rgba(255,255,255,0.7); padding:40px; text-align:center;
+    font-size:14px; line-height:1.8;
+  }
+  .footer strong { color:white; }
+
+  /* Animations */
+  @keyframes fadeInUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+  .animate-in { animation:fadeInUp 0.6s ease forwards; opacity:0; }
+  .delay-1 { animation-delay:0.1s; }
+  .delay-2 { animation-delay:0.2s; }
+  .delay-3 { animation-delay:0.3s; }
+  .delay-4 { animation-delay:0.4s; }
+
+  /* Node tooltip */
+  .graph-node { cursor:pointer; }
+  .graph-node.shape-hover .node-shape { filter: brightness(1.12) drop-shadow(0 0 10px rgba(24,95,165,0.45)); }
+  .graph-node.is-dim { opacity: 0.22; }
+  .graph-node.is-link .node-label { fill: var(--primary); font-weight: 600; }
+  .node-shape { transition: filter 0.2s ease, opacity 0.2s ease; }
+  .edge-line { transition: opacity 0.2s ease, stroke-width 0.2s ease; }
+  .edge-line.is-dim { opacity: 0.06 !important; }
+  .edge-line.is-link { stroke-opacity: 0.85 !important; stroke-width: 2.2 !important; }
+  #graph-canvas { touch-action: none; cursor: grab; }
+  #graph-canvas.panning { cursor: grabbing; }
+
+  /* Graph toolbar */
+  .graph-card {
+    max-width:1100px; margin:0 auto; padding:0 24px;
+  }
+  .graph-toolbar {
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    margin:24px 0 10px;
+  }
+  .mode-switch {
+    display:flex; padding:3px; gap:2px; border-radius:11px;
+    background: rgba(255,255,255,0.55); border:1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .mode-switch button {
+    padding:6px 14px; border:none; background:transparent; cursor:pointer;
+    border-radius:8px; font-size:12.5px; font-weight:600; color:var(--text-secondary);
+    font-family:inherit; transition:all 0.18s ease;
+  }
+  .mode-switch button.active { background:var(--primary); color:white; box-shadow:0 2px 8px rgba(24,95,165,0.25); }
+  .mode-switch button:not(.active):hover { color:var(--primary); background:rgba(24,95,165,0.06); }
+  .graph-status {
+    font-size:12px; color:var(--text-muted); flex:1; min-width:120px;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .graph-status strong { color:var(--primary); font-weight:600; }
+  .graph-actions { display:flex; gap:4px; }
+  .graph-actions button {
+    width:30px; height:30px; border-radius:9px; border:1px solid rgba(255,255,255,0.5);
+    background:rgba(255,255,255,0.6); cursor:pointer; color:var(--text-secondary);
+    font-size:14px; line-height:1; display:flex; align-items:center; justify-content:center;
+    font-family:inherit; transition:all 0.16s ease;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  .graph-actions button.wide { width:auto; padding:0 12px; font-size:12px; font-weight:600; }
+  .graph-actions button:hover { background:white; color:var(--primary); border-color:rgba(24,95,165,0.25); }
+  .graph-hint {
+    font-size:11.5px; color:var(--text-muted); text-align:center; margin-top:8px;
+  }
+  .graph-legend {
+    display:flex; gap:16px; flex-wrap:wrap; justify-content:center;
+    margin-top:10px; font-size:11.5px; color:var(--text-secondary);
+  }
+  .legend-item { display:inline-flex; align-items:center; gap:6px; }
+  .graph-tooltip {
+    position:absolute; z-index:8; pointer-events:none; opacity:0;
+    transform: translate(-50%, -100%); transition: opacity 0.15s ease;
+    background: rgba(26,35,50,0.94); color:white; padding:8px 12px;
+    border-radius:10px; font-size:12px; line-height:1.5; max-width:280px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.18);
+  }
+  .graph-tooltip.show { opacity:1; }
+  .graph-tooltip .tt-title { font-weight:600; margin-bottom:2px; }
+  .graph-tooltip .tt-meta { color:rgba(255,255,255,0.65); font-size:11px; }
+  .graph-empty {
+    position:absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:6px; text-align:center;
+    color:var(--text-muted); font-size:13px; padding:20px;
+  }
+  .graph-empty strong { color:var(--text-secondary); font-size:14px; }
+
+  /* Paper list view */
+  .paper-list { padding:16px; display:flex; flex-direction:column; gap:8px; overflow:auto; height:100%; }
+  .paper-card {
+    display:flex; gap:12px; align-items:flex-start; padding:12px 14px;
+    background:rgba(255,255,255,0.6); border:1px solid rgba(0,0,0,0.05);
+    border-radius:12px; cursor:pointer; transition:all 0.16s ease;
+  }
+  .paper-card:hover { background:white; border-color:rgba(24,95,165,0.2); transform:translateX(2px); }
+  .paper-rank {
+    flex-shrink:0; width:26px; height:26px; border-radius:8px; display:flex;
+    align-items:center; justify-content:center; font-size:12px; font-weight:700;
+    background:var(--primary-bg); color:var(--primary);
+  }
+  .paper-card.foundation .paper-rank { background:var(--primary); color:white; }
+  .paper-body { flex:1; min-width:0; }
+  .paper-title { font-size:13.5px; font-weight:600; color:var(--text-primary); line-height:1.45; }
+  .paper-meta { font-size:11.5px; color:var(--text-muted); margin-top:3px; }
+
+  /* Reading path list */
+  .reading-item {
+    display:flex; gap:12px; padding:12px 14px; border-radius:12px; cursor:pointer;
+    border:1px solid rgba(0,0,0,0.05); background:rgba(255,255,255,0.45);
+    margin-bottom:8px; transition:all 0.16s ease;
+  }
+  .reading-item:hover { background:white; border-color:rgba(24,95,165,0.2); }
+  .reading-step {
+    flex-shrink:0; width:24px; height:24px; border-radius:50%; display:flex;
+    align-items:center; justify-content:center; font-size:11px; font-weight:700;
+    background:var(--primary-bg); color:var(--primary);
+  }
+  .reading-item.foundation .reading-step { background:var(--primary); color:white; }
+  .reading-title { font-size:13.5px; font-weight:600; color:var(--text-primary); line-height:1.45; }
+  .reading-why { font-size:11.5px; color:var(--text-muted); margin-top:3px; }
+  .panel-head {
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+    margin-bottom:12px; flex-wrap:wrap;
+  }
+  .panel-head h4 { font-size:16px; font-weight:700; color:var(--dark); }
+  .panel-head .panel-tools { display:flex; gap:8px; align-items:center; }
+  .icon-btn {
+    background:none; border:none; cursor:pointer; color:var(--text-muted);
+    font-size:16px; line-height:1; padding:4px; border-radius:6px; font-family:inherit;
+  }
+  .icon-btn:hover { color:var(--text-primary); background:rgba(0,0,0,0.04); }
+  .export-btn {
+    padding:6px 12px; border-radius:9px; font-size:12px; font-weight:600; cursor:pointer;
+    border:1px solid rgba(24,95,165,0.14); background:rgba(24,95,165,0.07);
+    color:var(--primary); font-family:inherit; transition:all 0.16s ease;
+  }
+  .export-btn:hover { background:rgba(24,95,165,0.14); }
+
+  /* Toast */
+  .toast-stack {
+    position:fixed; right:20px; bottom:20px; z-index:1200;
+    display:flex; flex-direction:column; gap:10px; align-items:flex-end;
+    pointer-events:none;
+  }
+  .pm-toast {
+    pointer-events:auto; min-width:220px; max-width:360px;
+    background:rgba(255,255,255,0.92); color:var(--text-primary);
+    backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3);
+    border:1px solid rgba(0,0,0,0.06); border-left:4px solid var(--primary);
+    border-radius:12px; padding:12px 14px; font-size:13px; line-height:1.6;
+    box-shadow:0 12px 36px rgba(0,0,0,0.12);
+    animation: toastIn 0.32s cubic-bezier(0.22,1,0.36,1);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .pm-toast.hide { opacity:0; transform: translateY(8px); }
+  .pm-toast .toast-title { font-weight:700; margin-bottom:2px; display:flex; align-items:center; gap:6px; }
+  .pm-toast.success { border-left-color: var(--accent); }
+  .pm-toast.error { border-left-color: #e24b4a; }
+  .pm-toast.warn { border-left-color: #d9a441; }
+  .pm-toast .toast-close {
+    position:absolute; top:8px; right:8px; border:none; background:none; cursor:pointer;
+    color:var(--text-muted); font-size:14px; line-height:1; padding:2px 4px;
+  }
+  .pm-toast { position:relative; }
+  @keyframes toastIn { from { opacity:0; transform: translateY(12px) scale(0.98); } to { opacity:1; transform:none; } }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Enhanced Graph Container */
+  #graph-container {
+    transition: box-shadow 0.3s ease;
+  }
+  #graph-container.loaded {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  }
+
+  /* Demo indicator banner */
+  .demo-indicator {
+    position: absolute; bottom: 8px; left: 8px;
+    padding: 5px 14px; border-radius: 6px;
+    background: rgba(255,193,7,0.2); color: #b07a00;
+    font-size: 11px; font-weight: 600;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    pointer-events: none;
+    border: 1px solid rgba(255,193,7,0.25);
+    z-index: 5;
+  }
+
+  /* Suggestion chips */
+  .suggestion-chip {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  }
+  .suggestion-chip:hover {
+    background: rgba(255,255,255,0.8);
+    color: var(--primary);
+    border-color: rgba(255,255,255,0.7);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  /* ========== Knowledge Map ========== */
+  .knowledge-map {
+    padding: 4px 0;
+  }
+  .km-domain {
+    font-size: 20px; font-weight: 700; color: var(--primary);
+    padding: 16px 20px; margin-bottom: 16px;
+    background: linear-gradient(135deg, rgba(24,95,165,0.06), rgba(24,95,165,0.02));
+    border-radius: 12px; border-left: 4px solid var(--primary);
+    backdrop-filter: blur(8px);
+  }
+  .km-concept {
+    margin-bottom: 8px; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.4); overflow: hidden;
+    transition: box-shadow 0.2s;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+  }
+  .km-concept:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .km-concept-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 18px; cursor: pointer;
+    background: rgba(255,255,255,0.6); user-select: none;
+    transition: background 0.2s;
+  }
+  .km-concept-header:hover { background: rgba(255,255,255,0.85); }
+  .km-expand-icon {
+    font-size: 12px; color: var(--text-muted); transition: transform 0.3s;
+    width: 16px; text-align: center; flex-shrink: 0;
+  }
+  .km-expand-icon.expanded { transform: rotate(90deg); }
+  .km-concept-name { font-size: 15px; font-weight: 600; color: var(--dark); flex: 1; }
+  .km-badge {
+    font-size: 11px; padding: 3px 12px; border-radius: 12px;
+    background: rgba(24,95,165,0.08); color: var(--primary); font-weight: 600;
+    backdrop-filter: blur(4px);
+  }
+  .km-concept-papers {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 18px; background: rgba(245,247,250,0.4);
+  }
+  .km-concept-papers.open {
+    max-height: 800px; padding: 12px 18px;
+  }
+  .km-paper-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border-radius: 8px;
+    cursor: pointer; transition: background 0.15s;
+    border-left: 3px solid rgba(0,0,0,0.06);
+    margin-bottom: 6px;
+    background: rgba(255,255,255,0.3);
+  }
+  .km-paper-item:hover {
+    background: rgba(255,255,255,0.7);
+    border-left-color: var(--primary);
+  }
+  .km-paper-item:last-child { margin-bottom: 0; }
+  .km-paper-title {
+    font-size: 13px; font-weight: 500; color: var(--text-primary); flex: 1;
+  }
+  .km-paper-meta {
+    font-size: 11px; color: var(--text-muted); white-space: nowrap;
+  }
+  .km-empty {
+    text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px;
+  }
+
+  /* ========== 创意视觉元素 ========== */
+
+  /* Apple-style layered background */
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(24,95,165,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(29,158,117,0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(55,138,221,0.03) 0%, transparent 60%);
+    pointer-events: none; z-index: -1;
+  }
+  /* Subtle dot pattern overlay */
+  body::after {
+    content: ''; position: fixed; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.035) 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    pointer-events: none; z-index: -1;
+  }
+
+  /* 渐变标题 */
+  .gradient-title {
+    background: linear-gradient(135deg, #185FA5, #1D9E75);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 节点标签基础类：白色描边保证密集处依然可读 */
+  .node-label {
+    font-family:inherit; font-size:12px; fill:var(--text-primary);
+    paint-order: stroke; stroke: rgba(255,255,255,0.92); stroke-width: 3px;
+    stroke-linejoin: round; pointer-events: none;
+  }
+
+  /* ========== APPLE GLASSMORPHISM SYSTEM ========== */
+  .glass {
+    background: rgba(255,255,255,0.68);
+    backdrop-filter: blur(24px) saturate(1.3);
+    -webkit-backdrop-filter: blur(24px) saturate(1.3);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  }
+  .glass-dark {
+    background: rgba(26,35,50,0.68);
+    backdrop-filter: blur(24px) saturate(1.3);
+    -webkit-backdrop-filter: blur(24px) saturate(1.3);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+  }
+  /* ========== TAB NAVIGATION ========== */
+  .top-nav {
+    position: fixed; top:0; left:0; right:0; z-index:1000;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(40px) saturate(1.5);
+    -webkit-backdrop-filter: blur(40px) saturate(1.5);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .top-nav-brand {
+    font-size: 18px; font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-right: 32px;
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+  }
+  .top-nav-tabs { display: flex; gap: 2px; flex: 1; }
+  .top-nav-tab {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.08s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .top-nav-tab:hover { background: rgba(0,0,0,0.03); color: var(--text-primary); }
+  .top-nav-tab.active {
+    background: rgba(24,95,165,0.08);
+    backdrop-filter: blur(8px);
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .top-nav-actions { display: flex; gap: 6px; align-items: center; margin-left: auto; }
+
+  /* ========== APPLE-STYLE THEME PICKER ========== */
+  .theme-picker-btn {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.06);
+    cursor: pointer; transition: all 0.2s; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.3);
+  }
+  .theme-picker-btn:hover { transform: scale(1.15); border-color: var(--primary); background: rgba(255,255,255,0.6); }
+  .theme-picker-btn.active-theme { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(24,95,165,0.2); }
+  .theme-picker-btn .check { display: none; color: white; font-size: 14px; }
+  .theme-picker-btn.active-theme .check { display: block; }
+  .theme-picker {
+    position: fixed; top: 64px; right: 20px; z-index: 1001;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(40px) saturate(1.5);
+    -webkit-backdrop-filter: blur(40px) saturate(1.5);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+    display: none;
+    min-width: 240px;
+  }
+  .theme-picker.open { display: block; }
+  .theme-picker h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 14px; }
+  .theme-grid { display: flex; flex-direction: column; gap: 10px; }
+  .theme-option {
+    display: flex; align-items: center; gap: 12px; padding: 10px 12px;
+    border-radius: 12px; cursor: pointer; transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+  .theme-option:hover { background: rgba(0,0,0,0.02); }
+  .theme-option.active {
+    border-color: rgba(24,95,165,0.2);
+    background: rgba(24,95,165,0.06);
+    backdrop-filter: blur(4px);
+  }
+  .theme-swatch {
+    width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .theme-info { flex: 1; }
+  .theme-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .theme-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ========== TAB CONTENT ========== */
+  .tab-content { display: none; padding-top: 56px; }
+  .tab-content.active { display: block; }
+
+  /* ========== SEARCH HISTORY ========== */
+  .history-list { display: flex; flex-direction: column; gap: 6px; }
+  .history-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  }
+  .history-item:hover {
+    background: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.6);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .history-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .history-info { flex: 1; min-width: 0; }
+  .history-keyword { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+  .history-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .history-action {
+    padding: 6px 14px; border-radius: 8px; border: none;
+    background: var(--primary); color: white; font-size: 12px; font-weight: 600;
+    cursor: pointer; opacity: 0; transition: opacity 0.15s; font-family: inherit;
+    box-shadow: 0 2px 8px rgba(24,95,165,0.15);
+  }
+  .history-item:hover .history-action { opacity: 1; }
+  .history-clear {
+    padding: 8px 18px; border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+    color: var(--text-secondary); font-size: 13px;
+    cursor: pointer; transition: all 0.15s; font-family: inherit;
+  }
+  .history-clear:hover { border-color: #e24b4a; color: #e24b4a; background: rgba(226,75,74,0.05); }
+  .history-empty {
+    text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 14px;
+  }
+
+  /* ========== IMPROVED PAPER DETAIL PANEL ========== */
+  .detail-overlay {
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px) saturate(1.1);
+    -webkit-backdrop-filter: blur(8px) saturate(1.1);
+    display: none;
+    animation: fadeIn 0.2s ease;
+  }
+  .detail-overlay.open { display: block; }
+  .detail-slide {
+    position: fixed; top: 0; right: -480px; width: 460px; max-width: 90vw;
+    height: 100vh; z-index: 501;
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(40px) saturate(1.4);
+    -webkit-backdrop-filter: blur(40px) saturate(1.4);
+    border-left: 1px solid rgba(255,255,255,0.3);
+    padding: 28px;
+    overflow-y: auto;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -8px 0 48px rgba(0,0,0,0.08);
+  }
+  .detail-slide.open { right: 0; }
+  .detail-close {
+    width: 36px; height: 36px; border-radius: 50%; border: none;
+    background: rgba(0,0,0,0.03);
+    backdrop-filter: blur(8px);
+    cursor: pointer; font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; color: var(--text-secondary);
+  }
+  .detail-close:hover { background: rgba(0,0,0,0.08); }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ========== APPLE-STYLE NAV SEARCH ========== */
+  .nav-search {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(0,0,0,0.03);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    padding: 3px 3px 3px 14px;
+    flex: 1; max-width: 360px;
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .nav-search:focus-within {
+    border-color: rgba(24,95,165,0.2);
+    box-shadow: 0 0 0 3px rgba(24,95,165,0.06);
+  }
+  .nav-search input {
+    border: none; background: transparent; outline: none;
+    font-size: 13px; font-family: inherit; color: var(--text-primary);
+    flex: 1; min-width: 100px;
+  }
+  .nav-search button {
+    padding: 6px 14px; border-radius: 8px; border: none;
+    background: var(--primary); color: white; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-search button:hover { background: #0c447c; }
+
+  /* ========== APPLE-STYLE LOADING OVERLAY ========== */
+  .search-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0a1628 0%, #132642 40%, #1a3a2e 100%);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    z-index: 9998; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  .search-overlay.active {
+    opacity: 1; pointer-events: auto;
+  }
+  .search-overlay canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .search-overlay-content {
+    position: relative; z-index: 1;
+    text-align: center; color: white;
+    padding: 40px;
+  }
+  .search-overlay-keyword {
+    font-size: 48px; font-weight: 700;
+    background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px; letter-spacing: -1px;
+  }
+  .search-overlay-sub {
+    font-size: 18px; opacity: 0.7; font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .search-overlay-loader {
+    display: inline-block;
+    width: 32px; height: 32px;
+    border: 2px solid rgba(255,255,255,0.15);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  .search-overlay-progress {
+    margin-top: 24px;
+    display: flex; gap: 8px; justify-content: center;
+  }
+  .search-overlay-progress span {
+    padding: 5px 16px; border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.04);
+    font-size: 12px; color: rgba(255,255,255,0.5);
+    transition: all 0.4s;
+  }
+  .search-overlay-progress span.done {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.1);
+    color: white;
+  }
+  .overlay-escape {
+    display: none; margin-top: 26px; padding: 9px 18px; cursor: pointer;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.82);
+    border: 1px solid rgba(255,255,255,0.16); border-radius: 10px;
+    font-size: 12.5px; font-family: inherit;
+    transition: background 0.2s ease;
+  }
+  .overlay-escape:hover { background: rgba(255,255,255,0.18); }
+
+  /* ========== RESPONSIVE: Tablet & Mobile ========== */
+  @media(max-width:768px) {
+    .top-nav { padding: 0 12px; height: 50px; gap: 2px; }
+    .top-nav-brand { font-size: 15px; margin-right: 12px; }
+    .top-nav-tab { padding: 6px 10px; font-size: 12px; }
+    .theme-picker { right: 8px; top: 56px; min-width: 200px; }
+    .detail-slide { width: 100%; max-width: 100vw; right: -100%; }
+    .nav-search { max-width: 180px; }
+
+    .hero { padding: 48px 20px 36px; }
+    .hero h1 { font-size: 30px; }
+    .hero .subtitle { font-size: 15px; }
+    .hero-search { max-width: 100%; }
+    .hero-search input { padding: 12px 16px; font-size: 15px; }
+    .hero-search button { padding: 10px 20px; font-size: 13px; }
+    #graph-container { height: 360px; }
+
+    .section { padding: 36px 0; }
+    .section-title { font-size: 22px; }
+    .demo-section { padding: 16px; }
+    .suggestion-chip { padding: 4px 12px; font-size: 11px; }
+    .toggle-panel { padding: 16px; }
+    .stat-card { min-width: 100px; padding: 12px; }
+    .stat-num { font-size: 20px; }
+    .compare-table th,.compare-table td { padding: 10px 12px; font-size: 13px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: repeat(2, 1fr); }
+    .value-grid { grid-template-columns: 1fr; }
+
+    .search-overlay-keyword { font-size: 32px; }
+    .search-overlay-sub { font-size: 15px; }
+  }
+
+  @media(max-width:480px) {
+    .hide-mobile { display: none; }
+    .top-nav { padding: 0 8px; gap: 0; }
+    .top-nav-brand { font-size: 14px; margin-right: 8px; }
+    .top-nav-tabs { gap: 0; }
+    .top-nav-tab { padding: 6px 8px; font-size: 11px; }
+    .top-nav-actions .nav-search { display: none; }
+
+    .hero { padding: 40px 14px 28px; }
+    .hero h1 { font-size: 26px; }
+    .hero .subtitle { font-size: 14px; }
+    .hero-badge { font-size: 10px; padding: 4px 12px; }
+    .hero-search { border-radius: 12px; padding: 4px; }
+    .hero-search input { padding: 10px 12px; font-size: 14px; }
+    .hero-search button { padding: 8px 16px; font-size: 12px; border-radius: 8px; }
+    .stats-row { gap: 6px; }
+    .stat-card { min-width: auto; flex: 1; padding: 10px 8px; }
+    .stat-num { font-size: 17px; }
+    .stat-label { font-size: 10px; }
+    #graph-container { height: 300px; }
+    .graph-toolbar { margin-top: 18px; gap: 8px; }
+    .graph-status { order: 3; width: 100%; flex: none; }
+    .graph-actions button { width: 28px; height: 28px; }
+    .graph-hint { font-size: 11px; }
+    .paper-list { padding: 10px; gap: 6px; }
+    .paper-card { padding: 10px; gap: 10px; }
+    .paper-title { font-size: 12.5px; }
+    .reading-item { padding: 10px 12px; gap: 10px; }
+    .reading-title { font-size: 12.5px; }
+    .toast-stack { right: 12px; left: 12px; bottom: 12px; align-items: stretch; }
+    .pm-toast { max-width: none; }
+
+    .section-title { font-size: 20px; }
+    .section { padding: 28px 0; }
+    .container { padding: 0 12px; }
+    .suggestion-chip { padding: 3px 8px; font-size: 10px; border-radius: 10px; }
+    .toggle-panel { padding: 12px; margin-top: 12px; }
+    .toggle-panel h4 { font-size: 14px !important; }
+
+    .glass-btn { padding: 8px 14px; font-size: 12px; }
+
+    .search-overlay-keyword { font-size: 24px; }
+    .search-overlay-sub { font-size: 14px; }
+    .search-overlay-content { padding: 20px; }
+    .search-overlay-progress span { font-size: 10px; padding: 3px 10px; }
+
+    .detail-slide { padding: 20px; }
+    .detail-slide h3 { font-size: 18px; }
+    .detail-slide p { font-size: 13px; }
+
+    .km-domain { font-size: 16px; padding: 12px 16px; }
+    .km-concept-name { font-size: 13px; }
+
+    .tech-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .tech-item { padding: 14px; }
+    .tech-name { font-size: 12px; }
+
+    .pain-item { padding: 18px 16px; }
+    .pain-item h3 { font-size: 15px; }
+    .pain-item p { font-size: 13px; }
+
+    .footer { padding: 24px 16px; font-size: 12px; }
+
+    .search-result-toast { top: auto; bottom: 16px; right: 16px; left: 16px; max-width: none; font-size: 13px; }
+  }
+
+
+
+html,body{height:auto!important;min-height:0!important;overflow:hidden!important}body{background:#f4f7fa;color:#233c4c}main{max-width:1400px;margin:auto;padding:24px}.pm-title{margin:0 0 8px;font-size:25px;color:#1c4e63}.pm-intro{font-size:14px;color:#5a6c77;line-height:1.9;margin:0 0 17px}.scene-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.scene-tabs button,.gap-chips button,.detail-heading button,.related-links button{border:1px solid #cbd9e2;background:white;border-radius:8px;padding:8px 12px;color:#3e6072;cursor:pointer;font:inherit;font-size:13px}.scene-tabs button.active,.gap-chips button.active{background:#1c648b;border-color:#1c648b;color:white}.scene-illustration{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;align-items:center;background:white;border:1px solid #d8e3eb;border-radius:13px;padding:18px 22px;margin-bottom:18px}.scene-illustration h2{font-size:20px;margin:0 0 9px}.scene-illustration p{font-size:13px;line-height:1.9;color:#566c7a;margin:0}.graph-toolbar{margin:0 0 12px;max-width:none;padding:0}.mode-switch{flex-shrink:0}.mode-switch button{font-size:13px}.graph-status{font-size:12px}.graph-actions button{font-size:13px}#graph-container{height:auto!important;min-height:0!important;overflow:hidden;position:relative;background:radial-gradient(ellipse at center,#fff,#edf3f9);border:1px solid #dae5ef}#graph-canvas{display:block;width:100%;height:auto!important;min-height:320px;aspect-ratio:1400/900}.graph-node{cursor:pointer;pointer-events:bounding-box}.node-label{font-size:26px!important;fill:#1f5d89;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}.graph-tooltip{transform:translateX(-50%)!important;max-width:350px;pointer-events:none;line-height:1.7}.graph-tooltip span{display:block;font-size:11px;margin-top:4px}.graph-hint{font-size:12px;margin:11px 0 6px;color:#667c8a}.graph-legend{font-size:12px;margin:10px 0 17px;display:flex;gap:12px;flex-wrap:wrap}.gap-chips{border-top:1px solid #d5e0e9;padding-top:16px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:13px;margin-top:17px}.gap-chips>strong{font-size:13px;color:#765f3b}.paper-list{max-height:none!important;height:auto!important;overflow:visible!important;padding:12px}.paper-card{display:flex;width:100%;text-align:left;border:1px solid #dbe5ed;background:white;padding:13px 15px;margin:8px 0;border-radius:9px;gap:14px;cursor:pointer}.paper-card strong{font-size:14px;font-weight:600;display:block;color:#22567d}.paper-card small{font-size:12px;color:#647b8b;display:block;margin-top:5px}.paper-rank{font-size:14px;flex-shrink:0;min-width:35px;color:#28628b}#paper-detail{margin-top:24px;background:white;padding:25px;border:1px solid #d8e3eb;border-radius:13px}#paper-detail[hidden]{display:none}.detail-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.detail-heading small{font-size:12px;color:#5c798a}.detail-heading h2{font-size:23px;color:#1b5377;margin:9px 0 12px}.detail-heading button{flex-shrink:0}.reference-title{font-size:12px;color:#6c808b;line-height:1.8}.measurements{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:17px 0}.measurements>div{background:#f0f6fb;border:1px solid #d8e6f1;padding:17px 19px;border-radius:9px}.measurements span{font-size:12px;display:block;color:#537486}.measurements strong{font-size:28px;display:block;color:#225e88;margin:5px 0}.measurements small{font-size:15px}.measurements em{font-size:12px;color:#627e90;font-style:normal}.condition-line{font-size:12px;line-height:2;color:#536f80;padding-bottom:15px}.detail-figures{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:14px 0 23px}.detail-figures>a,.detail-figures figure{display:block;border:1px solid #d5e2eb;border-radius:8px;background:#f6f9fb;padding:12px;margin:0;text-align:center}.detail-figures img{width:100%;height:210px;object-fit:contain}.detail-figures span,.detail-figures figcaption{font-size:11px;line-height:1.8;color:#5e7786;display:block;margin-top:7px}.reading-section{margin-top:18px}#paper-detail h3{font-size:16px;color:#284f65;margin:21px 0 8px}#paper-detail p{font-size:14px;line-height:2;color:#405e70;margin:8px 0}.status-pill{background:#fbf5e9;color:#856737;border:1px solid #e9d9b5;padding:8px 12px;border-radius:7px;font-size:13px;margin:12px 0}.related-links{display:flex;gap:7px;flex-wrap:wrap;margin:11px 0}.original-page{margin-top:23px;border-top:1px solid #d9e3eb;padding-top:14px}.original-page summary{cursor:pointer;color:#2d698e;font-size:14px}.original-page img{width:100%;max-width:1000px;display:block;margin:14px auto}.question-figure{margin:16px 0;text-align:center;border:1px solid #d8e4ec;background:#f6f9fb;border-radius:9px;padding:15px}.question-figure img{max-height:400px;max-width:100%;object-fit:contain}.question-figure figcaption{max-width:900px;margin-left:auto;margin-right:auto;line-height:1.8;font-size:13px;color:#67808d;margin-top:9px}.pm-credit{font-size:11px;color:#718794;margin:18px 0 0}.pm-credit a{color:#426e8b}.graph-node:focus-visible{outline:2px solid #9e7134}.graph-legend svg{width:26px!important;height:10px!important;min-width:0!important}.graph-legend .legend-item{display:inline-flex;align-items:center;gap:5px}@media(max-width:620px){main{padding:15px}.scene-illustration{grid-template-columns:1fr;padding:16px}.measurements,.detail-figures{grid-template-columns:1fr}#paper-detail{padding:17px}.detail-heading h2{font-size:20px}.graph-toolbar{gap:8px}.pm-title{font-size:22px}}
+.reading-meta{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.reading-meta span{background:#eaf2f6;border:1px solid #d2e0e7;border-radius:6px;padding:7px 10px;font-size:12px;color:#315568}.detail-figures svg{width:100%;height:210px;display:block}.relation-reading{padding:13px 16px;background:#f3f7fa;border-left:3px solid #7e9bb0;margin:12px 0;border-radius:5px}.relation-reading button{border:1px solid #c9dae5;background:white;color:#265b7c;border-radius:6px;padding:7px 11px;font:inherit;cursor:pointer}.source-record{margin-top:22px;padding-top:14px;border-top:1px solid #d4e0e7;font-size:13px;line-height:1.9;overflow-wrap:anywhere}.source-record summary{cursor:pointer;color:#315c78}.question-figure img{width:100%}.original-figures{margin:28px 0}.original-figures figure{margin:20px 0 28px;padding:22px;background:#fff;border:1px solid #dbe5ec;border-radius:12px}.original-figures figure>a{display:block;text-align:center;background:#fff}.original-figures img{display:block;width:auto;max-width:100%;max-height:640px;height:auto;margin:0 auto;object-fit:contain}.original-figures figcaption{margin-top:19px;border-top:1px solid #e2eaf0;padding-top:15px;text-align:left}.original-figures figcaption strong{color:#215d7c;font-size:15px}.original-figures figcaption small{display:block;font-size:12px;color:#587181;line-height:1.9}.figure-source-link{margin:24px 0;padding:16px 20px;border-left:3px solid #b9cdd9;background:#f5f8fa;font-size:14px}.reading-section{max-width:960px}#paper-detail .reading-section p{font-size:15px;line-height:2.05}@media(max-width:620px){.original-figures figure{padding:12px}.original-figures img{max-height:none}}.question-figure figcaption small{display:block;color:#6b7f8b;font-size:11px;margin-top:5px}</style><main>
+ <h1 class="pm-title">候凝时间教学代理预测研究图谱</h1>
+ <p class="pm-intro">11篇领域参考文献。题录与DOI真实检索，详情区分摘要证据与仅元数据；不将自动摘句标为全文精读。</p>
+ <nav class="scene-tabs" aria-label="知识图谱分类"><button data-scene="all" onclick="setScene('all')">全部研究</button><button data-scene="productivity" onclick="setScene('productivity')">工程机理与测量</button><button data-scene="cleanup" onclick="setScene('cleanup')">环境校正与误差</button><button data-scene="fracture" onclick="setScene('fracture')">温压与工况条件</button><button data-scene="allocation" onclick="setScene('allocation')">试验与现场对照</button><button data-scene="ai" onclick="setScene('ai')">智能估计与学习</button></nav>
+ <section class="scene-illustration"><div><h2 id="scene-name"></h2><p id="scene-description"></p></div></section>
+ <div class="graph-toolbar"><div class="mode-switch"><button data-mode="graph" class="active" onclick="setGraphMode('graph')">图谱视图</button><button data-mode="list" onclick="setGraphMode('list')">列表视图</button></div><div class="graph-status" id="graph-status"></div><div class="graph-actions" id="graph-actions"><button onclick="zoomGraph(1.25)" aria-label="放大图谱">＋</button><button onclick="zoomGraph(0.8)" aria-label="缩小图谱">－</button><button class="wide" onclick="resetGraphView()">重置</button></div></div>
+ <div id="graph-container"></div>
+ <div id="graph-hint" class="graph-hint">拖拽平移 · 按钮缩放（或 Ctrl＋滚轮） · 点击文献查看方法、结果与后续进展</div>
+ <div id="graph-legend" class="graph-legend"></div>
+ <div class="gap-chips"><strong>研究问题</strong><button data-gap="Q1" onclick="openPaper('Q1')">机理与测量歧义</button><button data-gap="Q2" onclick="openPaper('Q2')">独立验证与外推</button></div>
+ <section id="paper-detail" hidden aria-label="研究文献阅读详情"></section>
+ <p class="pm-credit">图谱交互：<a href="https://ansonxb.github.io/papermap-demo/" target="_blank" rel="noopener">PaperMap</a> · 文献检索与核验日期：2026-11-03。各篇阅读范围和引用位置见详情。</p>
+</main>
+<script>function nodeRadius(paper) {
+  if (paper.isExternal) return 14;
+  if (paper.isFoundation) return 22;
+  return paper.rank && paper.rank <= 5 ? 19 : 15;
+}
+
+/** 节点半径方向的角度 → 标签锚点位置 */
+function labelPlacement(paper, radius) {
+  const a = paper.labelAngle;
+  if (a === undefined || paper.labelRadius === 0) {
+    return { x: paper.x, y: paper.y + radius + 16, anchor: 'middle' };
+  }
+  const dist = paper.labelRadius + radius + 14;
+  const x = GRAPH_CENTER.cx + dist * Math.cos(a);
+  const y = GRAPH_CENTER.cy + dist * GRAPH_CENTER.yScale * Math.sin(a);
+  const cosA = Math.cos(a);
+  const anchor = Math.abs(cosA) < 0.35 ? 'middle' : (cosA > 0 ? 'start' : 'end');
+  return { x, y: y + 4, anchor };
+}
+
+function applyGraphView() {
+  const vp = document.getElementById('graph-viewport');
+  if (vp) vp.setAttribute('transform', `translate(${graphView.tx} ${graphView.ty}) scale(${graphView.scale})`);
+}
+
+/** 屏幕坐标 → viewBox 坐标 */
+function clientToViewBox(clientX, clientY) {
+  const svg = document.getElementById('graph-canvas');
+  if (!svg || !svg.getScreenCTM()) return { x: 0, y: 0 };
+  const pt = svg.createSVGPoint();
+  pt.x = clientX; pt.y = clientY;
+  return pt.matrixTransform(svg.getScreenCTM().inverse());
+}
+
+/** 以某点为中心缩放（默认画布中心） */
+function zoomGraph(factor, origin) {
+  const c = origin || { x: VIEWBOX.w / 2, y: VIEWBOX.h / 2 };
+  const next = Math.min(4, Math.max(0.55, graphView.scale * factor));
+  if (next === graphView.scale) return;
+  graphView.tx = c.x * graphView.scale + graphView.tx - c.x * next;
+  graphView.ty = c.y * graphView.scale + graphView.ty - c.y * next;
+  graphView.scale = next;
+  applyGraphView();
+}
+
+function resetGraphView() {
+  graphView = { scale: 1, tx: 0, ty: 0 };
+  applyGraphView();
+}
+
+/** 悬停高亮：只保留该节点及其一阶邻居、相关边 */
+function highlightNeighborhood(id) {
+  const keep = new Set([id]);
+  edgeElList.forEach(e => {
+    if (e.from === id) keep.add(e.to);
+    if (e.to === id) keep.add(e.from);
+  });
+  nodeElMap.forEach((el, nodeId) => {
+    el.classList.toggle('is-dim', !keep.has(nodeId));
+    el.classList.toggle('is-link', keep.has(nodeId) && nodeId !== id);
+    el.classList.toggle('shape-hover', nodeId === id);
+  });
+  edgeElList.forEach(e => {
+    const linked = e.from === id || e.to === id;
+    e.el.classList.toggle('is-link', linked);
+    e.el.classList.toggle('is-dim', !linked);
+  });
+}
+
+function clearHighlight() {
+  nodeElMap.forEach(el => el.classList.remove('is-dim', 'is-link', 'shape-hover'));
+  edgeElList.forEach(e => e.el.classList.remove('is-dim', 'is-link'));
+}
+
+function showNodeTooltip(paper) {
+  const tip = document.getElementById('graph-tooltip');
+  const container = document.getElementById('graph-container');
+  if (!tip || !container) return;
+  const svg = document.getElementById('graph-canvas');
+  const m = svg.getScreenCTM();
+  const pt = svg.createSVGPoint();
+  pt.x = paper.x * graphView.scale + graphView.tx;
+  pt.y = paper.y * graphView.scale + graphView.ty;
+  const screen = pt.matrixTransform(m);
+  const rect = container.getBoundingClientRect();
+  tip.innerHTML = `<div class="tt-title">${esc(paper.title)}</div>
+    <div class="tt-meta">${paper.year} · ${(paper.citations || 0).toLocaleString()} 次引用${paper.rank && paper.rank < 999 ? ' · 重要度 #' + paper.rank : ''}</div>`;
+  tip.style.left = (screen.x - rect.left) + 'px';
+  tip.style.top = (screen.y - rect.top - nodeRadius(paper) - 8) + 'px';
+  tip.classList.add('show');
+}
+
+function hideNodeTooltip() {
+  const tip = document.getElementById('graph-tooltip');
+  if (tip) tip.classList.remove('show');
+}
+
+/** 渲染图谱 */
+function drawGraph() {
+  const svg = document.getElementById('graph-canvas');
+  if (!svg) return;
+  nodeElMap = new Map();
+  edgeElList = [];
+  svg.innerHTML = '';
+  svg.style.opacity = '1';
+  hideNodeTooltip();
+
+  const viewport = document.createElementNS(SVG_NS, 'g');
+  viewport.setAttribute('id', 'graph-viewport');
+  svg.appendChild(viewport);
+
+  if (!demoPapers.length) {
+    const empty = document.createElementNS(SVG_NS, 'text');
+    empty.setAttribute('x', String(VIEWBOX.w / 2));
+    empty.setAttribute('y', String(VIEWBOX.h / 2));
+    empty.setAttribute('text-anchor', 'middle');
+    empty.setAttribute('fill', '#98a2b3');
+    empty.setAttribute('font-size', '15');
+    empty.textContent = '暂无数据，请输入关键词开始检索';
+    viewport.appendChild(empty);
+    svg.style.opacity = '1';
+    applyGraphView();
+    return;
+  }
+
+  // All topics share a single continuous network canvas.
+  // ── 连线 ──
+  edges.forEach(edge => {
+    const from = Array.isArray(edge) ? edge[0] : edge.from;
+    const to = Array.isArray(edge) ? edge[1] : edge.to;
+    const kind = (edge && edge.kind) || 'similar';
+    const src = demoPapers.find(p => p.id === from);
+    const dst = demoPapers.find(p => p.id === to);
+    if (!src || !dst) return;
+
+    const st = edgeStyle(kind);
+    const line = document.createElementNS(SVG_NS, 'path');
+    const dx=dst.x-src.x,dy=dst.y-src.y,length=Math.hypot(dx,dy)||1;
+    const bend=src.category===dst.category?22:35;
+    const controlX=(src.x+dst.x)/2-dy/length*bend,controlY=(src.y+dst.y)/2+dx/length*bend;
+    line.setAttribute('d',`M${src.x} ${src.y} Q${controlX} ${controlY} ${dst.x} ${dst.y}`);
+    line.setAttribute('fill','none');
+    line.setAttribute('stroke', st.color);
+    line.setAttribute('stroke-width', String(st.width));
+    line.setAttribute('stroke-opacity', String(kind==='theme'||kind==='question'?st.opacity*.72:st.opacity*.8));
+    if (st.dash) line.setAttribute('stroke-dasharray', st.dash);
+    line.classList.add('edge-line');
+    viewport.appendChild(line);
+    edgeElList.push({ el: line, from, to, kind });
+
+    if (st.arrow) {
+      const angle = Math.atan2(dst.y - controlY, dst.x - controlX);
+      const rOff = nodeRadius(dst) + 4;
+      const ax = dst.x - Math.cos(angle) * rOff;
+      const ay = dst.y - Math.sin(angle) * rOff;
+      const arr = 6;
+      const head = document.createElementNS(SVG_NS, 'polygon');
+      head.setAttribute('points',
+        `${ax},${ay} ${ax - arr * Math.cos(angle - 0.4)},${ay - arr * Math.sin(angle - 0.4)} ${ax - arr * Math.cos(angle + 0.4)},${ay - arr * Math.sin(angle + 0.4)}`);
+      head.setAttribute('fill', st.color);
+      head.setAttribute('fill-opacity', String(Math.min(st.opacity * 1.4, 0.75)));
+      head.classList.add('edge-line');
+      viewport.appendChild(head);
+      edgeElList.push({ el: head, from, to, kind });
+    }
+  });
+
+  // ── 节点 ──
+  demoPapers.forEach(paper => {
+    const cx = paper.x, cy = paper.y;
+    const radius = nodeRadius(paper);
+    const nodeColor = colors[paper.category] || '#888';
+    const group = document.createElementNS(SVG_NS, 'g');
+    group.classList.add('graph-node'); group.dataset.paperId=paper.id; group.setAttribute('role','button'); group.setAttribute('tabindex','0'); group.setAttribute('aria-label',paper.title); group.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showPaperDetail(paper)}});
+
+    if (paper.rank === 1 || paper.isFoundation) {
+      const glow = document.createElementNS(SVG_NS, 'circle');
+      glow.setAttribute('cx', cx); glow.setAttribute('cy', cy);
+      glow.setAttribute('r', radius + 9);
+      glow.setAttribute('fill', nodeColor);
+      glow.setAttribute('fill-opacity', '0.12');
+      group.appendChild(glow);
+    }
+
+    let shapeEl;
+    const polygon = (pts) => {
+      const el = document.createElementNS(SVG_NS, 'polygon');
+      el.setAttribute('points', pts.join(' '));
+      return el;
+    };
+    if (paper.category === 'foundation') {
+      const pts = [];
+      for (let i = 0; i < 6; i++) { const a = -Math.PI / 2 + i * Math.PI / 3; pts.push(`${cx + radius * Math.cos(a)},${cy + radius * Math.sin(a)}`); }
+      shapeEl = polygon(pts);
+      shapeEl.setAttribute('stroke', 'rgba(255,255,255,0.55)');
+      shapeEl.setAttribute('stroke-width', '2.5');
+    } else if (paper.category === 'vision' || paper.isGap) {
+      shapeEl = polygon([`${cx},${cy - radius}`, `${cx + radius * 0.9},${cy}`, `${cx},${cy + radius}`, `${cx - radius * 0.9},${cy}`]);
+    } else if (paper.category === 'generative') {
+      const h = radius * 1.1, w = radius * 1.1;
+      shapeEl = polygon([`${cx},${cy - h}`, `${cx + w},${cy + radius * 0.6}`, `${cx - w},${cy + radius * 0.6}`]);
+    } else if (paper.category === 'survey') {
+      const pts = [];
+      for (let i = 0; i < 8; i++) { const a = Math.PI / 8 + i * Math.PI / 4; pts.push(`${cx + radius * Math.cos(a)},${cy + radius * Math.sin(a)}`); }
+      shapeEl = polygon(pts);
+    } else if (paper.category === 'theory') {
+      const pts = [];
+      for (let i = 0; i < 5; i++) { const a = -Math.PI / 2 + i * 2 * Math.PI / 5; pts.push(`${cx + radius * Math.cos(a)},${cy + radius * Math.sin(a)}`); }
+      shapeEl = polygon(pts);
+    } else {
+      shapeEl = document.createElementNS(SVG_NS, 'circle');
+      shapeEl.setAttribute('cx', cx);
+      shapeEl.setAttribute('cy', cy);
+      shapeEl.setAttribute('r', radius);
+    }
+    shapeEl.setAttribute('fill', nodeColor);
+    shapeEl.classList.add('node-shape');
+    group.appendChild(shapeEl);
+
+    // 节点内文字：排名或年份
+    const inner = document.createElementNS(SVG_NS, 'text');
+    inner.setAttribute('x', cx);
+    inner.setAttribute('y', cy);
+    inner.setAttribute('text-anchor', 'middle');
+    inner.setAttribute('dominant-baseline', 'central');
+    inner.setAttribute('fill', 'white');
+    inner.setAttribute('font-weight', '700');
+    inner.setAttribute('font-size', '19');
+    inner.textContent = paper.isGap ? '?' : '[' + paper.refNumber + ']';
+    group.appendChild(inner);
+
+    // 标签沿半径向外，避免相邻节点文字重叠
+    const label = document.createElementNS(SVG_NS, 'text');
+    const pos = labelPlacement(paper, radius);
+    label.setAttribute('x', pos.x);
+    label.setAttribute('y', pos.y);
+    label.setAttribute('text-anchor', pos.anchor);
+    label.classList.add('node-label');
+    label.style.fontSize = '22px';
+    label.style.fontWeight = paper.isFoundation ? '600' : '400';
+    const maxLen = 22;
+    if(pos.shifted){const lead=document.createElementNS(SVG_NS,'line');
+      lead.setAttribute('x1',cx);lead.setAttribute('y1',cy);lead.setAttribute('x2',pos.x);lead.setAttribute('y2',pos.y-8);
+      lead.setAttribute('stroke','#809eae');lead.setAttribute('stroke-width','1');lead.setAttribute('stroke-opacity','.65');
+      group.insertBefore(lead,group.firstChild);
+    }
+    label.textContent=paper.label||paper.title;
+    group.appendChild(label);
+
+    group.addEventListener('mouseenter', () => {
+      highlightNeighborhood(paper.id);
+      showNodeTooltip(paper);
+    });
+    group.addEventListener('mouseleave', () => {
+      clearHighlight();
+      hideNodeTooltip();
+    });
+    group.addEventListener('click', () => { if (!svg.dataset.dragged) showPaperDetail(paper); });
+
+    nodeElMap.set(paper.id, group);
+    viewport.appendChild(group);
+  });
+
+  applyGraphView();
+  renderGraphLegend();
+  setTimeout(() => {
+    svg.style.transition = 'opacity 0.6s ease';
+    svg.style.opacity = '1';
+  }, 60);
+}
+
+/** 图例用 DOM 渲染（不占用画布空间，移动端也不糊） */
+function renderGraphLegend() {
+  const box = document.getElementById('graph-legend');
+  if (!box) return;
+  const kinds = new Set(edges.map(e => (e && e.kind) || 'similar'));
+  const items = Object.entries(EDGE_STYLES).filter(([k]) => kinds.has(k));
+  box.innerHTML = items.map(([, s]) => `
+    <span class="legend-item">
+      <svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5"
+        stroke="${s.color}" stroke-width="${Math.max(1.4, s.width)}" ${s.dash ? `stroke-dasharray="${s.dash}"` : ''}/></svg>
+      ${s.label}
+    </span>`).join('') + (items.length ? '' : '');
+}
+
+/** 列表视图：小屏与快速浏览更友好 */
+function renderPaperList() {
+  const container = document.getElementById('graph-container');
+  const ranked = demoPapers.filter(p => !p.isExternal).sort((a, b) => (a.rank || 99) - (b.rank || 99));
+  const external = demoPapers.filter(p => p.isExternal);
+  const rows = [...ranked, ...external];
+  if (!rows.length) {
+    container.innerHTML = `<div class="graph-empty"><strong>还没有数据</strong><span>在上方输入关键词后点击「搜索」</span></div>`;
+    return;
+  }
+  container.innerHTML = `<div class="paper-list">` + rows.map(p => {
+    const tag = p.isExternal ? '前期基础' : (p.isCiting ? '后续引用' : `${esc(categoryLabel(p.category))}`);
+    const rankText = p.isExternal ? '★' : (p.rank && p.rank < 999 ? p.rank : '·');
+    return `<div class="paper-card ${p.isFoundation ? 'foundation' : ''}" onclick="showPaperDetail(demoPapers.find(x => x.id === '${p.id}'))">
+      <div class="paper-rank">${rankText}</div>
+      <div class="paper-body">
+        <div class="paper-title">${esc(p.title)}</div>
+        <div class="paper-meta">${p.year} · ${(p.citations || 0).toLocaleString()} 次引用 · ${tag}</div>
+      </div>
+    </div>`;
+  }).join('') + `</div>`;
+}
+
+function categoryLabel(cat) {
+  return {
+    foundation: '基础架构', llm: '语言模型', vision: '计算机视觉', generative: '生成模型',
+    survey: '综述', rl: '强化学习', graph: '图学习', theory: '理论基础',
+    pre: '前期基础', tutorial: '教程', other: '其他', sport: '运动科学', bio: '生物医学',
+  }[cat] || '相关研究';
+}
+
+/** 图谱 / 列表 视图切换 */
+function setGraphMode(mode) {
+  graphMode = mode;
+  document.querySelectorAll('.mode-switch button').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  const container = document.getElementById('graph-container');
+  const hint = document.getElementById('graph-hint');
+  const toolbarActions = document.getElementById('graph-actions');
+  if (toolbarActions) toolbarActions.style.display = mode === 'graph' ? '' : 'none';
+  if (hint) hint.style.display = mode === 'graph' ? '' : 'none';
+  if (mode === 'list') {
+    renderPaperList();
+  } else {
+    container.innerHTML = `<svg id="graph-canvas" viewBox="0 0 ${VIEWBOX.w} ${VIEWBOX.h}" role="img" aria-label="候凝时间教学代理预测研究图谱"></svg><div id="graph-tooltip" class="graph-tooltip" aria-hidden="true"></div>`;
+    resetGraphView();
+    drawGraph();
+    bindGraphInteraction();
+  }
+}
+
+/** 拖拽平移 / 滚轮缩放 / 双指缩放 */
+function bindGraphInteraction() {
+  const svg = document.getElementById('graph-canvas');
+  if (!svg || svg.dataset.bound) return;
+  svg.dataset.bound = '1';
+
+  const pointers = new Map();
+  let last = null;
+  let pinchDist = 0;
+
+  const scaleFactor = () => VIEWBOX.w / Math.max(1, svg.getBoundingClientRect().width);
+
+  svg.addEventListener('pointerdown', (e) => {
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    last = { x: e.clientX, y: e.clientY };
+    delete svg.dataset.dragged;
+    svg.classList.add('panning');
+    // 注意：这里不能立刻 setPointerCapture，否则 click 会被 SVG 吞掉，节点点击失效
+  });
+
+  svg.addEventListener('pointermove', (e) => {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.size >= 2) {
+      const [a, b] = [...pointers.values()];
+      const d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (pinchDist) {
+        const mid = clientToViewBox((a.x + b.x) / 2, (a.y + b.y) / 2);
+        zoomGraph(d / pinchDist, mid);
+      }
+      pinchDist = d;
+      svg.dataset.dragged = '1';
+      if (!svg.hasPointerCapture?.(e.pointerId)) svg.setPointerCapture?.(e.pointerId);
+      return;
+    }
+
+    if (!last) return;
+    const dx = e.clientX - last.x, dy = e.clientY - last.y;
+    if (Math.abs(dx) + Math.abs(dy) > 2) {
+      svg.dataset.dragged = '1';
+      // 确认是拖拽后再捕获指针，保证拖出画布也能跟手
+      if (!svg.hasPointerCapture?.(e.pointerId)) svg.setPointerCapture?.(e.pointerId);
+    }
+    const f = scaleFactor();
+    graphView.tx += dx * f;
+    graphView.ty += dy * f;
+    last = { x: e.clientX, y: e.clientY };
+    applyGraphView();
+  });
+
+  const endPointer = (e) => {
+    pointers.delete(e.pointerId);
+    if (pointers.size < 2) pinchDist = 0;
+    if (pointers.size === 0) {
+      last = null;
+      svg.classList.remove('panning');
+      // click 事件在 pointerup 之后派发，等一拍再复位拖拽标记
+      setTimeout(() => { delete svg.dataset.dragged; }, 0);
+    }
+  };
+  svg.addEventListener('pointerup', endPointer);
+  svg.addEventListener('pointercancel', endPointer);
+  window.addEventListener('pointerup', endPointer);
+
+  svg.addEventListener('wheel', (e) => {
+    if(!e.ctrlKey&&!e.metaKey)return;
+    e.preventDefault();
+    const origin = clientToViewBox(e.clientX, e.clientY);
+    zoomGraph(e.deltaY < 0 ? 1.12 : 0.89, origin);
+  }, { passive: false });
+
+  svg.addEventListener('dblclick', resetGraphView);
+}
+
+
+
+/* Source readings are curated locally. Renderer/pan/zoom: Ansonxb/PaperMap. */
+const RECORDS=[{"id": "P01", "refNumber": 1, "doi": "10.2118/226462-ms", "year": 2025, "category": "productivity", "author": "Shameed Ashraf, Martijn Bogaerts, Cinto Azwar, Haresh Mohanaraju, Mohamad Azizol Fizri Mohd Nawi, Muhammad Farhan Ubaidillah", "title": "油井水泥缓凝剂类型对改善早期抗压强度发展和减少等待水泥时间的影响", "label": "抗压强度1 · 2025", "referenceTitle": "Impact of Well Cement Retarder Types Towards Improving Early Compressive Strength Development and Reducing Waiting-On-Cement Time", "citation": "Shameed Ashraf, Martijn Bogaerts, Cinto Azwar, Haresh Mohanaraju, Mohamad Azizol Fizri Mohd Nawi, Muhammad Farhan Ubaidillah. Impact of Well Cement Retarder Types Towards Improving Early Compressive Strength Development and Reducing Waiting-On-Cement Time. SPE/IATMI Asia Pacific Oil &amp; Gas Conference and Exhibition (2025). https://doi.org/10.2118/226462-ms", "journal": "SPE/IATMI Asia Pacific Oil &amp; Gas Conference and Exhibition", "question": "本篇题名的研究主题：油井水泥缓凝剂类型对改善早期抗压强度发展和减少等待水泥时间的影响。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "当前摘要未给出可独立识别的方法线索；从DOI查看原文，不按题名补写实验或模型结构。", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.2118/226462-ms", "url": "https://doi.org/10.2118/226462-ms", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "摘要 固井缓凝剂按其化学性质可分为木质素磺酸盐类、无机化合物类、有机磷酸盐类、羟基羧酸类等。在本文中，我们"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P02", "refNumber": 2, "doi": "10.3390/su13116128", "year": 2021, "category": "productivity", "author": "Nurul Nazmin Zulkarnain, Syed Ahmad Farhan, Yon Azwa Sazali, Nasir Shafiq, Siti Humairah Abd Rahman, Afif Izwan Abd Hamid, Mohd Firdaus Habarudin", "title": "以氯化钙（CaCl2）为促进剂缩短地聚物水泥井等待固井时间：测井抗压强度和声阻抗分析", "label": "抗压强度2 · 2021", "referenceTitle": "Reducing the Waiting-On-Cement Time of Geopolymer Well Cement using Calcium Chloride (CaCl2) as the Accelerator: Analysis of the Compressive Strength and Acoustic Impedance for Well Logging", "citation": "Nurul Nazmin Zulkarnain, Syed Ahmad Farhan, Yon Azwa Sazali, Nasir Shafiq, Siti Humairah Abd Rahman, Afif Izwan Abd Hamid, Mohd Firdaus Habarudin. Reducing the Waiting-On-Cement Time of Geopolymer Well Cement using Calcium Chloride (CaCl2) as the Accelerator: Analysis of the Compressive Strength and Acoustic Impedance for Well Logging. Sustainability (2021). https://doi.org/10.3390/su13116128", "journal": "Sustainability", "question": "本篇题名的研究主题：以氯化钙（CaCl2）为促进剂缩短地聚物水泥井等待固井时间：测井抗压强度和声阻抗分析。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "当前摘要未给出可独立识别的方法线索；从DOI查看原文，不按题名补写实验或模型结构。", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.3390/su13116128", "url": "https://doi.org/10.3390/su13116128", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "地质聚合物水泥（GPC）是一种硅铝酸盐基粘合剂，具有成本效益和环保性，具有高抗压强度和耐酸侵蚀性。它可以防止降解"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P03", "refNumber": 3, "doi": "10.1061/9780784486788.049", "year": 2026, "category": "productivity", "author": "Xudong Zhang, Bo Zhou", "title": "等待水泥期水泥环静态凝胶强度预测模型及失重分析", "label": "水泥体系3 · 2026", "referenceTitle": "Predictive Modeling of Static Gel Strength and Weight Loss Analysis of Cement Sheath during Waiting-on-Cement Period", "citation": "Xudong Zhang, Bo Zhou. Predictive Modeling of Static Gel Strength and Weight Loss Analysis of Cement Sheath during Waiting-on-Cement Period. ICHCE and ESI 2025 (2026). https://doi.org/10.1061/9780784486788.049", "journal": "ICHCE and ESI 2025", "question": "本篇题名的研究主题：等待水泥期水泥环静态凝胶强度预测模型及失重分析。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "当前摘要未给出可独立识别的方法线索；从DOI查看原文，不按题名补写实验或模型结构。", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "仅题录与DOI核对；未获得摘要", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.1061/9780784486788.049", "url": "https://doi.org/10.1061/9780784486788.049", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（来源原文）", "来源摘要尚未提供中文短摘录，请通过DOI核对原文；此处不据题名补写结果。"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": false, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P04", "refNumber": 4, "doi": "10.2118/14200-ms", "year": 1985, "category": "productivity", "author": "M. E. Jordan, R. A. Shepherd", "title": "水泥粘结日志：确定等待水泥时间", "label": "胶结测井4 · 1985", "referenceTitle": "Cement Bond Log: Determining Waiting-on-Cement Time", "citation": "M. E. Jordan, R. A. Shepherd. Cement Bond Log: Determining Waiting-on-Cement Time. SPE Annual Technical Conference and Exhibition (1985). https://doi.org/10.2118/14200-ms", "journal": "SPE Annual Technical Conference and Exhibition", "question": "本篇题名的研究主题：水泥粘结日志：确定等待水泥时间。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "当前摘要未给出可独立识别的方法线索；从DOI查看原文，不按题名补写实验或模型结构。", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.2118/14200-ms", "url": "https://doi.org/10.2118/14200-ms", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "摘要 开发了一种确定运行水泥粘结测井之前最短等待水泥时间的程序，以最大限度地减少钻机运行前的闲置时间。"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P05", "refNumber": 5, "doi": "10.2118/235584-ms", "year": 2026, "category": "allocation", "author": "F. Bin Tarsh, A. Elhassan, M. Abdellatif, A. Hamidzada, N. Mukai, K. Abdalla, A. Telguziyev", "title": "消除错误的水泥粘结误解：利用重复现场记录优化等待水泥时间的数据驱动方法", "label": "胶结测井5 · 2026", "referenceTitle": "Eliminating False Cement Bond Misconceptions: A Data-Driven Approach to Optimizing Waiting-On-Cement Time Using Repeated Field Logging", "citation": "F. Bin Tarsh, A. Elhassan, M. Abdellatif, A. Hamidzada, N. Mukai, K. Abdalla, A. Telguziyev. Eliminating False Cement Bond Misconceptions: A Data-Driven Approach to Optimizing Waiting-On-Cement Time Using Repeated Field Logging. ADIPEC (2026). https://doi.org/10.2118/235584-ms", "journal": "ADIPEC", "question": "本篇题名的研究主题：消除错误的水泥粘结误解：利用重复现场记录优化等待水泥时间的数据驱动方法。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "摘要中可检索到的方法与证据线索：\n现场资料：核对井、工具和作业条件", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.2118/235584-ms", "url": "https://doi.org/10.2118/235584-ms", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "摘要 使用水泥胶结测井 (CBL) 进行分区隔离评估对于井的完整性至关重要，但是早期测井可能会因水泥水化不完全和"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P06", "refNumber": 6, "doi": "10.17794/rgn.2022.5.3", "year": 2022, "category": "productivity", "author": "Hani Al Khalaf, Gabriella Federer Kovacsne, Nagham Alhaj Mohammed, Ferenc Remeczki", "title": "使用聚丙烯纤维改善油井水泥的力学性能并评估测量套管水泥粘结强度的新实验室方法", "label": "胶结测井6 · 2022", "referenceTitle": "IMPROVING MECHANICAL PROPERTIES OF OIL WELL CEMENT USING POLYPROPYLENE FIBERS AND EVALUATING A NEW LABORATORY METHOD FOR MEASURING THE CASING CEMENT BONDING STRENGTH", "citation": "Hani Al Khalaf, Gabriella Federer Kovacsne, Nagham Alhaj Mohammed, Ferenc Remeczki. IMPROVING MECHANICAL PROPERTIES OF OIL WELL CEMENT USING POLYPROPYLENE FIBERS AND EVALUATING A NEW LABORATORY METHOD FOR MEASURING THE CASING CEMENT BONDING STRENGTH. Rudarsko-geološko-naftni zbornik (2022). https://doi.org/10.17794/rgn.2022.5.3", "journal": "Rudarsko-geološko-naftni zbornik", "question": "本篇题名的研究主题：使用聚丙烯纤维改善油井水泥的力学性能并评估测量套管水泥粘结强度的新实验室方法。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "摘要中可检索到的方法与证据线索：\n实验室证据：核对试样、仪器和受控条件", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.17794/rgn.2022.5.3", "url": "https://doi.org/10.17794/rgn.2022.5.3", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "本研究的主要目的是通过使用纯聚丙烯来改善油井水泥机械性能较差的性能"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P07", "refNumber": 7, "doi": "10.1680/adcr.1997.9.34.47", "year": 1997, "category": "productivity", "author": "O. B. Lile, H. Elvebakk, K. R. Backe, P. Skalle, S. Lyomov", "title": "固化油井水泥渗透率和抗拉强度测定新技术", "label": "渗流能力7 · 1997", "referenceTitle": "A new technique for measuring permeability and tensile strength of a curing oil well cement", "citation": "O. B. Lile, H. Elvebakk, K. R. Backe, P. Skalle, S. Lyomov. A new technique for measuring permeability and tensile strength of a curing oil well cement. Advances in Cement Research (1997). https://doi.org/10.1680/adcr.1997.9.34.47", "journal": "Advances in Cement Research", "question": "本篇题名的研究主题：固化油井水泥渗透率和抗拉强度测定新技术。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "当前摘要未给出可独立识别的方法线索；从DOI查看原文，不按题名补写实验或模型结构。", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.1680/adcr.1997.9.34.47", "url": "https://doi.org/10.1680/adcr.1997.9.34.47", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "天然气通过水泥运移是世界各地许多油井面临的问题。水泥浆养护过程中的行为研究"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P08", "refNumber": 8, "doi": "10.3390/eng6060117", "year": 2025, "category": "productivity", "author": "Musaed N. J. AlAwad, Khalid A. Fattah", "title": "油井水泥-地层鞘粘结强度表征", "label": "水泥体系8 · 2025", "referenceTitle": "Characterization of Oil Well Cement–Formation Sheath Bond Strength", "citation": "Musaed N. J. AlAwad, Khalid A. Fattah. Characterization of Oil Well Cement–Formation Sheath Bond Strength. Eng (2025). https://doi.org/10.3390/eng6060117", "journal": "Eng", "question": "本篇题名的研究主题：油井水泥-地层鞘粘结强度表征。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "摘要中可检索到的方法与证据线索：\n实验室证据：核对试样、仪器和受控条件", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.3390/eng6060117", "url": "https://doi.org/10.3390/eng6060117", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "本研究的目的是开发一种简单可靠的实验室测试程序，用于评估水泥地层护套的粘结强度，该程序考虑了"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [{"src": "../images/cementing-ai-28-2.jpg", "number": 1, "label": "候凝时间教学代理预测 · 来源工程图1（外部解释配图）", "width": 880, "height": 734, "explanation": "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 此图提供工程对象的背景，来自单独标明的外部资料，不声称是这篇论文的原图或本站实验结果。\n来源图的对象说明：来源资料主题：混凝土结构与气井安全研究资料。", "url": "https://www.wesa.fm/environment-energy/2017-04-04/south-park-researchers-dissect-concrete-to-help-prevent-gas-well-explosions", "credit": "www.wesa.fm"}], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P09", "refNumber": 9, "doi": "10.32047/cwb.2025.30.3.4", "year": 2026, "category": "allocation", "author": "Chi Zhang, Huiting Liu, Yongjin Yu, Zinhao Zhao, Gang Liu, Ming Li", "title": "油气井第一界面水泥胶结强度影响因素试验研究", "label": "胶结测井9 · 2026", "referenceTitle": "Experimental study on the factors affecting cement bond strength at the first interface of oil-gas well", "citation": "Chi Zhang, Huiting Liu, Yongjin Yu, Zinhao Zhao, Gang Liu, Ming Li. Experimental study on the factors affecting cement bond strength at the first interface of oil-gas well. Cement Wapno Beton (2026). https://doi.org/10.32047/cwb.2025.30.3.4", "journal": "Cement Wapno Beton", "question": "本篇题名的研究主题：油气井第一界面水泥胶结强度影响因素试验研究。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "摘要中可检索到的方法与证据线索：\n实验室证据：核对试样、仪器和受控条件", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.32047/cwb.2025.30.3.4", "url": "https://doi.org/10.32047/cwb.2025.30.3.4", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "第一固井界面是指注水泥完成后水泥环与套管之间的界面。粘合强度为"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P10", "refNumber": 10, "doi": "10.1007/s13202-019-0704-z", "year": 2019, "category": "productivity", "author": "Raja Rajeswary Suppiah, Siti Humairah A. Rahman, Nasir Shafiq, Sonny Irawan", "title": "油井水泥用地质聚合物水泥单轴抗压强度", "label": "抗压强度10 · 2019", "referenceTitle": "Uniaxial compressive strength of geopolymer cement for oil well cement", "citation": "Raja Rajeswary Suppiah, Siti Humairah A. Rahman, Nasir Shafiq, Sonny Irawan. Uniaxial compressive strength of geopolymer cement for oil well cement. Journal of Petroleum Exploration and Production Technology (2019). https://doi.org/10.1007/s13202-019-0704-z", "journal": "Journal of Petroleum Exploration and Production Technology", "question": "本篇题名的研究主题：油井水泥用地质聚合物水泥单轴抗压强度。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "当前摘要未给出可独立识别的方法线索；从DOI查看原文，不按题名补写实验或模型结构。", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.1007/s13202-019-0704-z", "url": "https://doi.org/10.1007/s13202-019-0704-z", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "摘要 确保油井完整性是固井设计中具有挑战性的任务之一。众所周知，水泥在暴露时往往会降解"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}, {"id": "P11", "refNumber": 11, "doi": "10.2118/149687-ms", "year": 2011, "category": "fracture", "author": "Lorents Reinås, Helge Hodne, Mirkamil A. Turkel", "title": "养护温度低导致油井水泥强度发展受阻", "label": "温度影响11 · 2011", "referenceTitle": "Hindered Strength Development in Oil Well Cement due to Low Curing Temperature", "citation": "Lorents Reinås, Helge Hodne, Mirkamil A. Turkel. Hindered Strength Development in Oil Well Cement due to Low Curing Temperature. SPE Arctic and Extreme Environments Conference and Exhibition (2011). https://doi.org/10.2118/149687-ms", "journal": "SPE Arctic and Extreme Environments Conference and Exhibition", "question": "本篇题名的研究主题：养护温度低导致油井水泥强度发展受阻。阅读时核对其研究对象和输出定义，再与“温度、配方和缓凝作用如何影响候凝时间判断？”对照。", "method": "摘要中可检索到的方法与证据线索：\n实验室证据：核对试样、仪器和受控条件", "result": "本页没有提取到可按测试集和单位独立核对的性能指标。原文定性结果与完整条件请由DOI核对，不据此补写数值成绩。", "contribution": "本案例的阅读切入点：候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "limitations": "此处提供题录、短摘要线索和工程阅读指引，不标为全文精读。自动辅助译文需与英文题名和原文对照；模型、样本与试验条件必须按原文核对。", "access": "摘要短摘录与自动辅助译读；原始题名及DOI可追溯", "anchor": "原始检索/cementing-ai-28.json；精确摘要及参考文献DOI以检索候选中相同DOI条目为准", "source_url": "https://doi.org/10.2118/149687-ms", "url": "https://doi.org/10.2118/149687-ms", "sections": [["怎样连接本案例", "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 对照本文输入是否包含温度、水灰比、缓凝剂掺量，并核对其输出是否与达到示例强度所需时间采用相同定义。"], ["摘要短摘录（自动辅助译读）", "摘要 本文报道了不同水灰比的波特兰 G 级油井水泥浆在常温下早期强度发展的实验室测试结果。"], ["复现时应核对什么", "记录输入单位、仪器或试验条件、样本来源、数据划分和评价指标；按独立井、配方或工具留出，检查域外输入。"]], "figures": [], "source_type": "领域研究", "verified_abstract": true, "retrieval_query": "oil well cement waiting on cement strength"}],QUESTIONS=[{"id": "Q1", "isGap": true, "title": "温度、配方和缓凝作用如何影响候凝时间判断？", "label": "机理与测量歧义", "category": "question", "image": "manual-cementing-ai-28-1.jpg", "image_caption": "水泥养护时间温度与强度响应。来源：https://link.springer.com/article/10.1007/s13202-020-00979-1。来源研究/装置参照，不是本站新增实验结果。", "question": "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。 所选研究涉及的输入、仪器和试验条件可能不同，需要先对齐达到示例强度所需时间的定义，再比较方法。", "method": "固定其他条件，分别改变温度、水灰比、缓凝剂掺量，用独立测量或受控试验核对观察量；将本页机理参照与智能模型预测分开记录。", "remaining": "本站尚未提供这一问题的同条件独立现场或实验验证；此处是待验证的问题，不声称整个领域没有相关研究。", "related": ["P01", "P02", "P03", "P04"], "status": "从本案例与所选研究提出的验证问题"}, {"id": "Q2", "isGap": true, "title": "候凝时间教学代理预测：模型能否迁移到独立工况？", "label": "独立验证与外推", "category": "question", "image": "supp-uca.jpg", "image_caption": "Fann双样品超声水泥分析仪。来源：https://www.fann.com/en/products/twin-cell-uca-model-420atc。来源研究/装置参照，不是本站新增实验结果。", "question": "相邻深度、重复配方或相同工具样本可能共享信息。随机拆分的成绩不能直接代表新井、新配方或新工具条件。", "method": "明确训练与测试的工程分组，增加独立井/配方/工具留出；与机理和简单统计基线比较，报告误差分布及超出覆盖的输入。", "remaining": "当前案例用于前端算法教学，不提供设备选型或生产决策的现场有效性保证。", "related": ["P11"], "status": "独立工况证据需另行建立"}],RELATIONS=[["P01", "P02", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"], ["P03", "P01", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"], ["P04", "P05", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"], ["P05", "P02", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"], ["P06", "P07", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"], ["P08", "P03", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"], ["P09", "P08", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"], ["P10", "P02", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"], ["P11", "P01", "theme", "两篇题名共享工程研究主题；此线用于并列阅读，不代表已证实的直接引用、改进或性能优劣。"]];
+const SVG_NS='http://www.w3.org/2000/svg',VIEWBOX={w:1600,h:1120};
+const colors={productivity:'#267966',cleanup:'#3d7eae',fracture:'#ab7042',allocation:'#6864a2',question:'#b18b4f',ai:'#61758d'};
+const EDGE_STYLES={citation:{label:'已核对引用（早→晚）',color:'#3c77a2',width:1.8,opacity:.6,arrow:true},revision:{label:'明确修正',color:'#257f6a',width:2.3,opacity:.7,arrow:true},extension:{label:'具体补充',color:'#7664a1',width:2.3,opacity:.7,arrow:true},contrast:{label:'结论需按工况对照',color:'#ae7a39',width:2,dash:'5 4',opacity:.65},theme:{label:'相关研究主题',color:'#94a6b1',width:1.1,dash:'3 6',opacity:.4},question:{label:'关联研究缺口',color:'#ad9567',width:1,dash:'4 6',opacity:.35}};
+function edgeStyle(k){return EDGE_STYLES[k]||EDGE_STYLES.theme}
+function esc(t){return String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const SCENES={"all": {"name": "候凝时间教学代理预测研究", "desc": "候凝应依据目标工况下达到规定性能的证据，不能只按固定时钟外推。", "image": "", "caption": ""}, "productivity": {"name": "工程机理与测量", "desc": "工程机理与测量：点击文献节点核对题名、方法、结果、来源摘要和适用边界。", "image": "", "caption": ""}, "cleanup": {"name": "环境校正与误差", "desc": "环境校正与误差：点击文献节点核对题名、方法、结果、来源摘要和适用边界。", "image": "", "caption": ""}, "fracture": {"name": "温压与工况条件", "desc": "温压与工况条件：点击文献节点核对题名、方法、结果、来源摘要和适用边界。", "image": "", "caption": ""}, "allocation": {"name": "试验与现场对照", "desc": "试验与现场对照：点击文献节点核对题名、方法、结果、来源摘要和适用边界。", "image": "", "caption": ""}, "ai": {"name": "智能估计与学习", "desc": "智能估计与学习：点击文献节点核对题名、方法、结果、来源摘要和适用边界。", "image": "", "caption": ""}};
+const PAPERS=RECORDS.map(r=>({...r,rank:null,citations:null,isFoundation:false,isExternal:false}));
+let demoPapers=[],edges=[],graphView={scale:1,tx:0,ty:0},nodeElMap=new Map(),edgeElList=[],graphMode='graph',scene='all',selected=null;
+const ALL_EDGES=RELATIONS.map(([from,to,kind,reason])=>({from,to,kind,reason}));
+QUESTIONS.forEach(q=>q.related.forEach(from=>ALL_EDGES.push({from,to:q.id,kind:'question'})));
+const POS={P01:[770,500],P02:[150,150],P03:[350,110],P04:[840,120],P05:[155,510],P06:[520,250],P07:[920,450],P08:[170,300],P09:[350,570],P10:[390,365],P11:[1100,460],P12:[1080,170],P13:[980,310],P14:[1190,620],P15:[430,745],P16:[1000,765],P17:[800,650]};
+PAPERS.forEach((p,i)=>{const t=-Math.PI/2+i/PAPERS.length*Math.PI*2;p.x=700+460*Math.cos(t);p.y=450+300*Math.sin(t)});
+function placeLabels(){
+ const papers=demoPapers.filter(p=>!p.isGap),gaps=demoPapers.filter(p=>p.isGap);
+ VIEWBOX.h=1100;const cx=800,cy=550,rx=470,ry=390;
+ papers.forEach((p,i)=>{const a=-Math.PI/2+i*2*Math.PI/Math.max(1,papers.length),side=Math.cos(a);
+  p.x=cx+rx*Math.cos(a);p.y=cy+ry*Math.sin(a);
+  if(Math.abs(side)<.10){p.labelPos={x:p.x,y:p.y+(Math.sin(a)<0?-49:60),anchor:'middle'}}
+  else {p.labelPos={x:p.x+(side>0?45:-45),y:p.y+7,anchor:side>0?'start':'end'}}
+ });
+ gaps.forEach((p,i)=>{p.x=cx;p.y=gaps.length===1?cy:340+i*420/Math.max(1,gaps.length-1);
+  p.labelPos={x:p.x,y:p.y+54,anchor:'middle'};
+ });
+ const occupied=[],measure=document.createElement('canvas').getContext('2d');measure.font='22px sans-serif';
+ const intersects=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
+ const nodeBoxes=demoPapers.map(n=>({x:n.x-35,y:n.y-35,w:70,h:70}));
+ demoPapers.forEach(p=>{const base={...p.labelPos},w=measure.measureText(p.label||p.title).width+18;let chosen=null,best=Infinity;
+  for(const dy of [0,-36,36,-72,72,-108,108,-144,144]){const y=Math.max(40,Math.min(1070,base.y+dy));
+   const x=base.x,box={x:base.anchor==='start'?x-6:base.anchor==='end'?x-w+6:x-w/2,y:y-25,w,h:34};
+   const collisions=[...occupied,...nodeBoxes].filter(b=>intersects(box,b)).length;
+   const score=collisions*10000+Math.abs(dy);if(score<best){best=score;chosen={x,y,anchor:base.anchor,box,shifted:Math.abs(y-base.y)>20}}
+  }p.labelPos=chosen;occupied.push(chosen.box);
+ });
+}
+function nodeRadius(p){return p.isGap?26:30}
+function labelPlacement(p){return p.labelPos||{x:p.x,y:p.y+45,anchor:'middle'}}
+function categoryLabel(c){return SCENES[c]?.name||c}
+function showNodeTooltip(p){const tip=document.getElementById('graph-tooltip');tip.innerHTML='<strong>'+esc(p.title)+'</strong><span>'+(p.isGap?esc(p.status):esc(p.author)+' · '+p.year+' · '+esc(p.access))+'</span>';tip.classList.add('show');tip.style.left='50%';tip.style.top='12px'}
+function hideNodeTooltip(){document.getElementById('graph-tooltip')?.classList.remove('show')}
+function section(title,text){return '<section class="reading-section"><h3>'+title+'</h3><p>'+esc(text)+'</p></section>'}
+function paperButton(id){let p=PAPERS.find(p=>p.id===id);return '<button onclick="openPaper(\''+id+'\')">['+p.refNumber+'] '+esc(p.author)+' · '+p.year+'</button>'}
+function focusDetail(){requestAnimationFrame(()=>requestAnimationFrame(()=>parent.postMessage({type:'petro-papermap-focus',y:document.getElementById('paper-detail').offsetTop},'*')))}
+function originalFigures(p){
+ const figures=p.figures||[];
+ if(!figures.length)return '<div class="figure-source-link"><strong>原文图版</strong><p>当前资料未收录可核对的原文图版，可前往出版商页面查看。</p><a href="'+esc(p.source_url)+'" target="_blank" rel="noopener">前往出版商查看图版 ↗</a></div>';
+ return '<section class="original-figures"><h3>来源配图与读图说明</h3>'+figures.map(f=>{let file=f.file||(p.id+'-fig'+f.number+'.png'),label=f.label||('原文图 '+f.number);return '<figure><a href="'+esc(f.src||('../papermap/paper-figures/'+file))+'" target="_blank" rel="noopener" aria-label="打开'+esc(label)+'大图"><img loading="lazy" width="'+f.width+'" height="'+f.height+'" style="width:'+f.width+'px;aspect-ratio:'+f.width+'/'+f.height+'" src="'+esc(f.src||('../papermap/paper-figures/'+file))+'" alt="'+esc(label)+'：'+esc(f.explanation)+'"></a><figcaption><strong>'+esc(label)+'</strong><p>'+esc(f.explanation)+'</p><small>'+esc(f.credit||(p.author+' ('+p.year+')'))+' · <a href="'+esc(f.url)+'" target="_blank" rel="noopener">原图来源 ↗</a> · <a href="'+esc(p.doi?'https://doi.org/'+p.doi:p.source_url)+'" target="_blank" rel="noopener">相关论文 ↗</a> · 点击图片查看原尺寸</small></figcaption></figure>'}).join('')+'</section>'
+}
+function showPaperDetail(p){if(!p)return;selected=p.id;if(demoPapers.some(x=>x.id===p.id))highlightNeighborhood(p.id);document.querySelectorAll('[data-gap]').forEach(b=>b.classList.toggle('active',b.dataset.gap===p.id));const box=document.getElementById('paper-detail');box.hidden=false;
+ let head='<div class="detail-heading"><div><small>'+(p.isGap?'研究缺口':'文献 ['+p.refNumber+'] · '+esc(p.author)+' · '+p.year)+'</small><h2>'+esc(p.title)+'</h2></div><button onclick="closePaperDetail()">收起</button></div>';
+ if(p.isGap){box.innerHTML=head+'<figure class="question-figure"><img src="../images/'+esc(p.image)+'" alt="'+esc(p.title+'：验证思路概念图')+'" decoding="async"><figcaption>'+esc(p.image_caption)+'<small>来源场景图用于理解待验证问题，图注保留来源；不是本案例的新实验结果。</small></figcaption></figure><div class="status-pill">'+esc(p.status)+'</div>'+section('缺口依据',p.question)+section('验证路径',p.method)+section('尚缺的证据',p.remaining)+'<div class="related-links">'+p.related.map(paperButton).join('')+'</div>'}
+ else{let related=ALL_EDGES.filter(e=>e.kind!=='question'&&(e.from===p.id||e.to===p.id));let later=related.filter(e=>['revision','extension'].includes(e.kind)&&e.from===p.id&&PAPERS.find(q=>q.id===e.to)?.year>=p.year);let image=SCENES[p.category].image;
+ box.innerHTML=head+'<p class="reference-title">'+esc(p.referenceTitle)+'</p><div class="reading-meta"><span>'+esc(categoryLabel(p.category))+'</span>'+(p.source_type?'<span>'+esc(p.source_type)+'</span>':'')+'<span>阅读范围：'+esc(p.access)+'</span></div>'+section('研究问题',p.question)+(p.sections||[]).map(([title,text])=>section(title,text)).join('')+originalFigures(p)+section('研究方法',p.method)+section('主要结果',p.result)+section('对本案例的启发',p.contribution)+section('适用条件与局限',p.limitations)+'<h3>后续进展</h3>'+(later.length?later.map(e=>'<div class="relation-reading">'+paperButton(e.to)+'<p>'+esc(e.reason)+'</p></div>').join(''):'<p>所选文献尚未提供直接检验这一局限的后续证据。</p>')+'<h3>相关文献与关系依据</h3>'+related.map(e=>'<div class="relation-reading">'+paperButton(e.from===p.id?e.to:e.from)+'<p>'+esc(EDGE_STYLES[e.kind].label)+'：'+esc(e.reason)+'</p></div>').join('')+'<details class="source-record"><summary>文献与来源位置</summary><p>'+esc(p.citation)+'</p><p>阅读位置：'+esc(p.anchor)+'</p><p>“适用条件与局限”包含基于研究设计作出的评估；后续补充按上述关系逐项说明。</p></details><p><a href="'+esc(p.source_url)+'" target="_blank" rel="noopener">原始文献 ↗</a>　<a href="'+esc(p.doi?'https://doi.org/'+p.doi:p.source_url)+'" target="_blank" rel="noopener">文献 ↗</a></p>'}
+ focusDetail();queueHeight()}
+function openPaper(id){showPaperDetail([...PAPERS,...QUESTIONS].find(p=>p.id===id))}
+function closePaperDetail(){document.getElementById('paper-detail').hidden=true;clearHighlight();selected=null;queueHeight()}
+function renderPaperList(){document.getElementById('graph-container').innerHTML='<div class="paper-list">'+demoPapers.map(p=>'<button class="paper-card" onclick="openPaper(\''+p.id+'\')"><span class="paper-rank">'+(p.isGap?'?':'['+p.refNumber+']')+'</span><span><strong>'+esc(p.title)+'</strong><small>'+(p.isGap?esc(p.status):esc(p.author)+' · '+p.year+' · '+categoryLabel(p.category)+' · '+esc(p.access))+'</small></span></button>').join('')+'</div>';queueHeight()}
+function setScene(key){scene=key;const keep=PAPERS.filter(p=>key==='all'||p.category===key),ids=new Set(keep.map(p=>p.id));let qs=QUESTIONS.filter(q=>key==='all'||q.related.some(id=>ids.has(id)));demoPapers=[...keep,...qs].map(p=>({...p}));const allids=new Set(demoPapers.map(p=>p.id));edges=ALL_EDGES.filter(e=>allids.has(e.from)&&allids.has(e.to));if(key!=='all'){demoPapers.forEach((p,i)=>{let t=-Math.PI/2+i/demoPapers.length*Math.PI*2;p.x=700+430*Math.cos(t);p.y=450+300*Math.sin(t)})}placeLabels();document.querySelectorAll('[data-scene]').forEach(b=>b.classList.toggle('active',b.dataset.scene===key));let s=SCENES[key];document.getElementById('scene-name').textContent=s.name;document.getElementById('scene-description').textContent=s.desc;document.getElementById('graph-status').textContent=keep.length+'项来源 · '+qs.length+'项研究缺口';document.getElementById('paper-detail').hidden=true;setGraphMode(graphMode);queueHeight()}
+let heightScheduled=false,lastHeight=0;
+function queueHeight(){if(!heightScheduled){heightScheduled=true;requestAnimationFrame(()=>{heightScheduled=false;let h=Math.ceil(document.querySelector('main').getBoundingClientRect().height+32);if(Math.abs(h-lastHeight)>1){lastHeight=h;parent.postMessage({type:'petro-papermap-height',height:h},'*')}})}}
+setScene('all');new ResizeObserver(queueHeight).observe(document.querySelector('main'));document.addEventListener('toggle',queueHeight,true);window.addEventListener('load',queueHeight);document.fonts.ready.then(queueHeight);
+window.PerforationPaperMap={state:()=>({scene,mode:graphMode,selected,graphView,papers:demoPapers.map(p=>p.id),edges:edges.map(e=>({...e}))})};
+</script></html>

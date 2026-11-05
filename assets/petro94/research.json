@@ -1,0 +1,487 @@
+{
+  "scope": "核验题名、作者、年份与来源；摘要级方法调研，不声称全部全文精读。比较方法不等于已部署实现。",
+  "papers": [
+    {
+      "id": "backprop",
+      "title": "Learning representations by back-propagating errors",
+      "authors": "Rumelhart, Hinton & Williams",
+      "year": 1986,
+      "url": "https://doi.org/10.1038/323533a0",
+      "role": "MLP梯度传播的方法来源；本例权重由TensorFlow.js实际训练",
+      "tags": [
+        "mlp",
+        "cnn"
+      ]
+    },
+    {
+      "id": "deep",
+      "title": "Deep learning",
+      "authors": "LeCun, Bengio & Hinton",
+      "year": 2015,
+      "url": "https://doi.org/10.1038/nature14539",
+      "role": "多层表示与卷积网络的背景综述；不直接提供石油模型权重",
+      "tags": [
+        "mlp",
+        "cnn"
+      ]
+    },
+    {
+      "id": "cnn98",
+      "title": "Gradient-based learning applied to document recognition",
+      "authors": "LeCun, Bottou, Bengio & Haffner",
+      "year": 1998,
+      "url": "https://doi.org/10.1109/5.726791",
+      "role": "卷积与降采样思想；本站使用1D窗口并非复现文档识别基准",
+      "tags": [
+        "cnn"
+      ]
+    },
+    {
+      "id": "adam",
+      "title": "Adam: A Method for Stochastic Optimization",
+      "authors": "Kingma & Ba",
+      "year": 2014,
+      "url": "https://arxiv.org/abs/1412.6980",
+      "role": "实际采用的Adam优化器；一阶矩与二阶矩的自适应更新",
+      "tags": [
+        "mlp",
+        "cnn"
+      ]
+    },
+    {
+      "id": "dropout",
+      "title": "Dropout: A Simple Way to Prevent Neural Networks from Overfitting",
+      "authors": "Srivastava et al.",
+      "year": 2014,
+      "url": "https://jmlr.org/papers/v15/srivastava14a.html",
+      "role": "正则化比较阅读；当前默认模型没有Dropout，不伪称已启用",
+      "tags": [
+        "mlp",
+        "cnn"
+      ]
+    },
+    {
+      "id": "loss",
+      "title": "Visualizing the Loss Landscape of Neural Nets",
+      "authors": "Li, Xu, Taylor, Studer & Goldstein",
+      "year": 2018,
+      "url": "https://arxiv.org/abs/1712.09913",
+      "role": "损失切片的可视化动机；本站计算末层权重与偏置的精确二维切片，不冒称滤波器归一化全参数景观",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "tfjs",
+      "title": "TensorFlow.js: Machine Learning for the Web and Beyond",
+      "authors": "Smilkov et al.",
+      "year": 2019,
+      "url": "https://arxiv.org/abs/1901.05350",
+      "role": "浏览器训练和张量计算的运行基础",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "explainer",
+      "title": "CNN Explainer: Learning Convolutional Neural Networks with Interactive Visualization",
+      "authors": "Wang et al.",
+      "year": 2020,
+      "url": "https://arxiv.org/abs/2004.15004",
+      "role": "分层概览与局部数学细节的交互设计参考；不直接复制其图像分类模型",
+      "tags": [
+        "cnn",
+        "mlp"
+      ]
+    },
+    {
+      "id": "d3",
+      "title": "D³ Data-Driven Documents",
+      "authors": "Bostock, Ogievetsky & Heer",
+      "year": 2011,
+      "url": "https://doi.org/10.1109/TVCG.2011.185",
+      "role": "数据驱动网络、树和图谱的实际绘制基础",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "reliance",
+      "title": "All Models are Wrong, but Many are Useful: Learning a Variable's Importance by Studying an Entire Class of Prediction Models Simultaneously",
+      "authors": "Fisher, Rudin & Dominici",
+      "year": 2019,
+      "url": "https://jmlr.org/papers/v20/18-760.html",
+      "role": "置换重要性的解释边界；本站只计算单模型的置换误差差，不计算MCR区间",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "lime",
+      "title": "Why Should I Trust You?: Explaining the Predictions of Any Classifier",
+      "authors": "Ribeiro, Singh & Guestrin",
+      "year": 2016,
+      "url": "https://arxiv.org/abs/1602.04938",
+      "role": "局部解释的比较文献；本站不把响应面或置换重要性命名为LIME",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "shap",
+      "title": "A Unified Approach to Interpreting Model Predictions",
+      "authors": "Lundberg & Lee",
+      "year": 2017,
+      "url": "https://arxiv.org/abs/1705.07874",
+      "role": "加性归因的比较阅读；本站未实现SHAP，置换误差增量不冒充Shapley值",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "forest",
+      "title": "Random Forests",
+      "authors": "Breiman",
+      "year": 2001,
+      "url": "https://doi.org/10.1023/A:1010933404324",
+      "role": "实际随机森林的集成思想；mljs实现训练与预测",
+      "tags": [
+        "forest"
+      ]
+    },
+    {
+      "id": "bagging",
+      "title": "Bagging predictors",
+      "authors": "Breiman",
+      "year": 1996,
+      "url": "https://doi.org/10.1007/BF00058655",
+      "role": "自助采样与集成的来源；森林成员并非神经元",
+      "tags": [
+        "forest"
+      ]
+    },
+    {
+      "id": "trees",
+      "title": "Induction of decision trees",
+      "authors": "Quinlan",
+      "year": 1986,
+      "url": "https://doi.org/10.1007/BF00116251",
+      "role": "树划分思想的比较背景；本例实际为回归树并非ID3分类器",
+      "tags": [
+        "forest"
+      ]
+    },
+    {
+      "id": "bootstrap",
+      "title": "Bootstrap Methods: Another Look at the Jackknife",
+      "authors": "Efron",
+      "year": 1979,
+      "url": "https://doi.org/10.1214/aos/1176344552",
+      "role": "重采样方法背景；不把树间波动直接当作校准置信区间",
+      "tags": [
+        "forest"
+      ]
+    },
+    {
+      "id": "logreview",
+      "title": "Artificial Intelligence Applications in Log Interpretation - A Review",
+      "authors": "El-Banbi, El-Maraghi & Sayyouh",
+      "year": 2025,
+      "url": "https://doi.org/10.62593/2090-2468.1090",
+      "role": "测井任务、数据质量与泛化边界的领域综述，不提供本站合成数据",
+      "domain": "welllog",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "cementann",
+      "title": "Using Artificial Neural Networks to Predict the Quality and Performance of Oilfield Cements",
+      "authors": "Coveney, Hughes & Fletcher",
+      "year": 1996,
+      "url": "https://cdn.aaai.org/IAAI/1996/IAAI96-275.pdf",
+      "role": "水泥材料表征与神经网络预测的领域先例；本站未取得其原始光谱数据",
+      "domain": "cementing",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "completionml",
+      "title": "Machine Learning-Based Completions Sequencing for Well Performance Optimization",
+      "authors": "Liu et al.",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2402.15608",
+      "role": "完井多因素预测的领域背景，强调模型局限；不直接验证本站工具或控流案例",
+      "domain": "completion",
+      "tags": [
+        "mlp",
+        "cnn",
+        "forest",
+        "gpr"
+      ]
+    },
+    {
+      "id": "tcn",
+      "title": "An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling",
+      "authors": "Bai, Kolter & Koltun",
+      "year": 2018,
+      "url": "https://arxiv.org/abs/1803.01271",
+      "role": "原射孔TCN案例的因果膨胀卷积参考；新1D-CNN不冒称TCN",
+      "tags": [
+        "cnn"
+      ]
+    },
+    {
+      "id": "xgb",
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "authors": "Chen & Guestrin",
+      "year": 2016,
+      "url": "https://arxiv.org/abs/1603.02754",
+      "role": "原射孔XGBoost模型的树集成依据；新森林不冒称XGBoost",
+      "tags": [
+        "forest"
+      ]
+    },
+    {
+      "id": "softdtw",
+      "title": "Soft-DTW: a Differentiable Loss Function for Time-Series",
+      "authors": "Cuturi & Blondel",
+      "year": 2017,
+      "url": "https://proceedings.mlr.press/v70/cuturi17a.html",
+      "role": "原射孔DTW配准的比较方法；不声称硬DTW实现了soft-DTW梯度",
+      "tags": [
+        "cnn"
+      ]
+    },
+    {
+      "id": "gpbook",
+      "title": "Gaussian Processes for Machine Learning",
+      "authors": "Rasmussen & Williams",
+      "year": 2006,
+      "url": "https://gaussianprocess.org/gpml/",
+      "role": "GPR后验、核矩阵与条件方差的专门来源；当前固定RBF核，不冒称复现书中全部方法",
+      "tags": [
+        "gpr"
+      ]
+    },
+    {
+      "id": "gprpaper",
+      "title": "Gaussian Processes for Regression",
+      "authors": "Williams & Rasmussen",
+      "year": 1995,
+      "url": "https://papers.nips.cc/paper_files/paper/1995/hash/7cce53cf90577442771720a370c3c723-Abstract.html",
+      "role": "高斯过程回归的方法来源；本例用ml-matrix执行Cholesky求解",
+      "tags": [
+        "gpr"
+      ]
+    },
+    {
+      "id": "bo",
+      "title": "Practical Bayesian Optimization of Machine Learning Algorithms",
+      "authors": "Snoek, Larochelle & Adams",
+      "year": 2012,
+      "url": "https://arxiv.org/abs/1206.2944",
+      "role": "原射孔贝叶斯优化的研究参考；新GPR没有声称自动优化超参数",
+      "tags": [
+        "gpr"
+      ]
+    },
+    {
+      "id": "lstm",
+      "title": "Long Short-Term Memory",
+      "authors": "Hochreiter & Schmidhuber",
+      "year": 1997,
+      "url": "https://doi.org/10.1162/neco.1997.9.8.1735",
+      "role": "LSTM门控记忆的方法依据；实际门值从当前模型权重计算",
+      "tags": [
+        "lstm"
+      ]
+    },
+    {
+      "id": "lstmvis",
+      "title": "LSTMVis: A Tool for Visual Analysis of Hidden State Dynamics in Recurrent Neural Networks",
+      "authors": "Strobelt et al.",
+      "year": 2018,
+      "url": "https://arxiv.org/abs/1606.07461",
+      "role": "时序隐状态热图的可视化研究来源；不加载原文语言模型",
+      "tags": [
+        "lstm"
+      ]
+    },
+    {
+      "id": "ae",
+      "title": "Reducing the Dimensionality of Data with Neural Networks",
+      "authors": "Hinton & Salakhutdinov",
+      "year": 2006,
+      "url": "https://doi.org/10.1126/science.1127647",
+      "role": "压缩瓶颈与重构训练的研究基础；本例不是变分自编码器",
+      "tags": [
+        "ae"
+      ]
+    },
+    {
+      "id": "pinn",
+      "title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+      "authors": "Raissi, Perdikaris & Karniadakis",
+      "year": 2019,
+      "url": "https://doi.org/10.1016/j.jcp.2018.10.045",
+      "role": "物理残差训练的来源；本站新例仅代数达西型约束，不复现PDE基准",
+      "tags": [
+        "pinn"
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "name": "TensorFlow.js",
+      "url": "https://github.com/tensorflow/tfjs",
+      "package": "@tensorflow/tfjs",
+      "use": "实际MLP、Conv1D、MaxPooling、Adam训练与中间激活计算",
+      "state": "runtime"
+    },
+    {
+      "name": "TensorFlow.js Vis",
+      "url": "https://github.com/tensorflow/tfjs/tree/master/tfjs-vis",
+      "package": "@tensorflow/tfjs-vis",
+      "use": "实际模型摘要、激活热图与权重直方图",
+      "state": "runtime"
+    },
+    {
+      "name": "mljs/random-forest",
+      "url": "https://github.com/mljs/random-forest",
+      "package": "ml-random-forest",
+      "use": "实际随机森林训练、成员树和预测",
+      "state": "runtime"
+    },
+    {
+      "name": "D3",
+      "url": "https://github.com/d3/d3",
+      "package": "d3",
+      "use": "实际权重连接、决策树、文献关系和等值线",
+      "state": "runtime"
+    },
+    {
+      "name": "ECharts GL",
+      "url": "https://github.com/ecomfe/echarts-gl",
+      "package": "echarts-gl",
+      "use": "实际计算数据的三维响应面和损失切片",
+      "state": "runtime"
+    },
+    {
+      "name": "TensorFlow Playground",
+      "url": "https://github.com/tensorflow/playground",
+      "use": "神经元和连接交互的设计参考；不声称直接运行该站训练器",
+      "state": "design-reference"
+    },
+    {
+      "name": "CNN Explainer",
+      "url": "https://github.com/poloclub/cnn-explainer",
+      "use": "卷积/池化分层解释的设计参考；计算使用本地TensorFlow.js模型",
+      "state": "design-reference"
+    },
+    {
+      "name": "loss-landscape",
+      "url": "https://github.com/tomgoldstein/loss-landscape",
+      "use": "高维损失切片的研究参考；PyTorch训练代码不混入纯前端",
+      "state": "research-reference"
+    },
+    {
+      "name": "TensorSpace",
+      "url": "https://github.com/tensorspace-team/tensorspace",
+      "use": "调研3D网络交互；与当前tfjs版本适配未通过前不作为运行依赖",
+      "state": "evaluated"
+    },
+    {
+      "name": "NN-SVG",
+      "url": "https://github.com/alexlenail/NN-SVG",
+      "use": "调研网络结构图表达；不能替代真实权重与激活读取",
+      "state": "evaluated"
+    },
+    {
+      "name": "Netron",
+      "url": "https://github.com/lutzroeder/netron",
+      "use": "调研模型结构查看；未嵌入其桌面服务，避免破坏纯前端交付",
+      "state": "evaluated"
+    },
+    {
+      "name": "LSTMVis",
+      "url": "https://github.com/HendrikStrobelt/LSTMVis",
+      "use": "隐状态与门控过程的专属可视化研究；Python服务不混入纯前端",
+      "state": "research-reference"
+    },
+    {
+      "name": "Anomagram",
+      "url": "https://github.com/victordibia/anomagram",
+      "use": "AE瓶颈、重构误差、阈值和异常评价的专属交互参考",
+      "state": "research-reference"
+    },
+    {
+      "name": "dtreeviz",
+      "url": "https://github.com/parrt/dtreeviz",
+      "use": "树路径和划分解释参考；运行时使用mljs导出真实树而非Python服务",
+      "state": "research-reference"
+    },
+    {
+      "name": "keras-tcn",
+      "url": "https://github.com/philipperemy/keras-tcn",
+      "use": "因果膨胀卷积与感受野实现核对；本例用tfjs可微算子适配",
+      "state": "research-reference"
+    },
+    {
+      "name": "gaussianprocess_js",
+      "url": "https://github.com/scotthellman/gaussianprocess_js",
+      "use": "JS高斯过程后验实现调研；当前数值求解采用ml-matrix",
+      "state": "research-reference"
+    },
+    {
+      "name": "DTW",
+      "url": "https://github.com/langholz/dtw",
+      "use": "动态规划累计代价和路径接口调研；用于原射孔DTW增强的实现核对",
+      "state": "research-reference"
+    },
+    {
+      "name": "Physics-informed playground",
+      "url": "https://github.com/Rayzhangzirui/physics-informed-playground",
+      "use": "物理残差与网络表达联动调研，不把原项目PDE求解宣称为本站实现",
+      "state": "research-reference"
+    },
+    {
+      "name": "ax-js",
+      "url": "https://github.com/eytan/ax-js",
+      "use": "后验曲面、协方差和优化轨迹的专属交互研究",
+      "state": "research-reference"
+    },
+    {
+      "name": "mljs/matrix",
+      "url": "https://github.com/mljs/matrix",
+      "package": "ml-matrix",
+      "use": "实际GPR核矩阵的Cholesky分解与线性求解",
+      "state": "runtime"
+    }
+  ]
+}

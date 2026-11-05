@@ -105,7 +105,8 @@
     if (!t.background) err('缺少 tabs.background', '专业背景 tab 是必需项');
     else {
       var secs = (t.background.sections || []);
-      if (secs.length < 2) warn('background.sections 少于 2 段', '建议按四段式写：问题 / 介入点 / 数据 / 难度');
+      if (t.background.mode === 'page' && secs.length === 1 && /<iframe\b[^>]*\bsrc=["']assets\/petro94\//i.test(secs[0].html || '')) ok('独立交互背景页', '工程场景、参数响应、动画与研究图谱在独立页面内展示');
+      else if (secs.length < 2) warn('background.sections 少于 2 段', '建议按四段式写：问题 / 介入点 / 数据 / 难度');
       else ok('background 段落', secs.length + ' 段');
       var badSec = secs.filter(function (s) { return !s.title || !(s.html || s.body); });
       if (badSec.length) err('有段落缺 title 或内容', badSec.map(function (s) { return s.title || '(无题)'; }).join('、'));
