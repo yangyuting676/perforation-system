@@ -1,0 +1,37 @@
+{
+  "BertViz": {
+    "repository": "https://github.com/jessevig/bertviz",
+    "commit": "79dbaebfe31ada110c1268de7bb6509b14fe9df3",
+    "files": {
+      "head_view.js": "e0c2f79e8d1b20989af07259b825899a6f6ef80a40dc3fe9fcb215b5f6a4f695",
+      "neuron_view.js": "9b7740f5a63e0b698d69c2dc82de12f79e99ba0ad75131260f2e145d875900f8"
+    }
+  },
+  "TensorSpace": {
+    "repository": "https://github.com/tensorspace-team/tensorspace",
+    "version": "0.6.1",
+    "file": "dist/tensorspace.cjs.js",
+    "sha256": "5828d2ebf6994c3cc723457aa0db628b003b2b64727771f8958ce837e1eb06a9"
+  },
+  "dependencies": {
+    "three": "0.102.1",
+    "@tweenjs/tween.js": "17.2.0",
+    "three-trackballcontrols": "0.0.7",
+    "d3": "5.7.0",
+    "jquery": "3.7.1",
+    "stats-js": "1.0.1"
+  },
+  "adaptations": {
+    "BertViz": [
+      "AMD/require wrapper to ES module; all rendering functions reused",
+      "Chinese literal labels; expanded default; scope one upstream global selector to instance",
+      "Responsive viewBox only; no changes to attention computation or edge generation"
+    ],
+    "TensorSpace": [
+      "unmodified npm dist/tensorspace.cjs.js",
+      "native Sequential, Input1d/Reshape, Conv1d, Pooling1d, Flatten, Dense and layer.updateValue",
+      "host supplies actual activations; existing model inference stays in host TensorFlow",
+      "camera fit and Chinese outer controls; no renderer rewrite"
+    ]
+  }
+}
