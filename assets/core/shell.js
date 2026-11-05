@@ -507,6 +507,8 @@
       if (c.tabs.demo) panels += '<div class="panel" data-panel="demo">' + renderDemoShell(sc, c) + '</div>';
     }
 
+    panels = panels.replace(/<iframe\b(?![^>]*\bloading=)/gi, '<iframe loading="lazy"');
+
     var cBadge = allCases.length
       ? '<span class="badge-ready">案例 ' + esc(c.id) + ' · v' + esc(c.version || '—') + '</span>' +
         (allCases.length > 1 ? '<span class="tag">共 ' + allCases.length + ' 个案例</span>' : '')

@@ -36,8 +36,8 @@
   var KEY_V1 = 'atlas.casepack.v1';
   var KEY_BLOCKED = 'atlas.case.blocked.v1';
   var ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-  var MAX_TOTAL = 6 * 1024 * 1024;
-  var WARN_TOTAL = 1.6 * 1024 * 1024;
+  var MAX_TOTAL = 256 * 1024 * 1024;
+  var WARN_TOTAL = 128 * 1024 * 1024;
   var unzipReady;
   var ownScript = document.currentScript && document.currentScript.src;
   function zipLibrary() {
@@ -52,7 +52,7 @@
     return unzipReady;
   }
   function expandZip(file) {
-    if (file.size > MAX_TOTAL) return Promise.reject(new Error('ZIP 文件超过 6 MB'));
+    if (file.size > MAX_TOTAL) return Promise.reject(new Error('ZIP 文件超过 256 MB'));
     return Promise.all([zipLibrary(), file.arrayBuffer()]).then(function (parts) {
       var total = 0, count = 0, names = Object.create(null);
       return new Promise(function (resolve, reject) {
@@ -63,7 +63,7 @@
             if (/\\|\x00|^\/|^[a-z]:|(?:^|\/)\.\.?(?:\/|$)/i.test(name)) throw new Error('ZIP 包含无效路径：' + name);
             if (names[name]) throw new Error('ZIP 中存在重名文件：' + name);
             names[name] = true; total += entry.originalSize;
-            if (!Number.isSafeInteger(entry.originalSize) || entry.originalSize < 0 || total > MAX_TOTAL || ++count > 1000) throw new Error('ZIP 解压后的案例内容超过 6 MB 或文件过多');
+            if (!Number.isSafeInteger(entry.originalSize) || entry.originalSize < 0 || total > MAX_TOTAL || ++count > 5000) throw new Error('ZIP 解压后的案例内容超过 256 MB 或文件过多');
             return true;
           }}, function (error, entries) {
             if (error) return reject(error);
@@ -137,6 +137,7 @@
      1. 存储
      --------------------------------------------------------- */
   function readStore(key) {
+    if (key === KEY && global.PortableCases) return global.PortableCases.records;
     try {
       var raw = JSON.parse(global.localStorage.getItem(key) || '[]');
       return Array.isArray(raw) ? raw : [];
@@ -146,6 +147,7 @@
   }
 
   function writeStore(list) {
+    if (global.PortableCases) return global.PortableCases.write(list);
     memFallback = list;
     try {
       global.localStorage.setItem(KEY, JSON.stringify(list));
@@ -284,10 +286,17 @@
     if (tabs.workflow && t.workflow.html) importedFlows.set(tabs.workflow.steps, t.workflow.html);
 
     /* --- 示范：三种来源 --- */
-    var mode = files.length ? global.CaseDemoHost.resolveMode({ files: files, demo: cfg }) : 'none';
+    var mode = pkg.portable ? 'page' : (files.length ? global.CaseDemoHost.resolveMode({ files: files, demo: cfg }) : 'none');
     var handle = null;
 
-    if (cfg.builtin && mode === 'none') {
+    if (pkg.portable) {
+      var portableFrame = null;
+      tabs.demo = {label: cfg.label || '案例演示', mount:function(root){
+        portableFrame=document.createElement('iframe');portableFrame.src=cfg.url;
+        portableFrame.title=meta.title+'智能算法实验';portableFrame.style.cssText='width:100%;height:1400px;border:0;display:block';
+        root.appendChild(portableFrame);
+      },unmount:function(){if(portableFrame){portableFrame.remove();portableFrame=null;}}};
+    } else if (cfg.builtin && mode === 'none') {
       var src = global.Cases.get(cfg.builtin);
       if (src && src.tabs && src.tabs.demo && typeof src.tabs.demo.mount === 'function') {
         tabs.demo = {
@@ -422,12 +431,18 @@
     }
 
     /* 6 示范 */
-    var mode = files.length ? global.CaseDemoHost.resolveMode({ files: files, demo: cfg }) : 'none';
+    var mode = pkg.portable ? 'portable' : (files.length ? global.CaseDemoHost.resolveMode({ files: files, demo: cfg }) : 'none');
     var jsFile = files.filter(function (f) { return isJs(f.name); })[0] || null;
     var cssFiles = files.filter(function (f) { return isCss(f.name); });
     var htmlFile = files.filter(function (f) { return isHtml(f.name); })[0] || null;
 
-    if (mode === 'page') {
+    if (mode === 'portable') {
+      var names = files.map(function(f){return f.name;});
+      (pkg.entries || []).forEach(function(n){if(names.indexOf(n)<0) err('缺少案例入口：'+n);});
+      if(!pkg.entries || !pkg.entries.length) err('完整案例包缺少入口定义');
+      else ok('完整案例资源：背景、流程、演示均随包提供');
+      cssFiles = [];
+    } else if (mode === 'page') {
       ok('示范：整页模式（沙箱）', htmlFile.name + ' 会在隔离的 iframe 里运行，写多复杂都不会影响主站');
       if (htmlFile.size < 60) warn('示范页内容过短', 'index.html 看起来是空壳，检查是不是存错文件');
       /* 引用完整性：src / href / url() 指向的本地文件在不在 */
@@ -488,7 +503,7 @@
     } else {
       ok('文件清单：' + (files.length + 1) + ' 个，共 ' + kb(total) + ' KB',
         files.map(function (f) { return f.name; }).slice(0, 6).join('、') + (files.length > 6 ? ' …' : ''));
-      if (total > MAX_TOTAL) err('包太大：' + kb(total) + ' KB', '上限 6 MB；图片先压缩，视频请放外部链接');
+      if (total > MAX_TOTAL) err('包太大：' + kb(total) + ' KB', '上限 256 MB；图片先压缩，视频请放外部链接');
       else if (total > WARN_TOTAL) warn('包偏大（' + kb(total) + ' KB）', '会占用浏览器本地存储，建议压到 1.5 MB 以内');
     }
 
@@ -909,7 +924,7 @@
       '<input type="file" id="imp-dir" webkitdirectory directory multiple hidden>' +
       '<span class="imp-ic">↑</span>' +
       '<b>拖入 ZIP / 案例文件夹，或点击选择</b>' +
-      '<span class="imp-sub">支持 ZIP、文件夹或多文件。案例 JSON 可任意命名；没有清单时自动识别 HTML／脚本入口，再补充名称和分类。资源在浏览器本地处理，解压后上限 6 MB。</span>' +
+      '<span class="imp-sub">支持 ZIP、文件夹或多文件。案例 JSON 可任意命名；没有清单时自动识别 HTML／脚本入口，再补充名称和分类。资源在浏览器本地处理，解压后上限 256 MB。</span>' +
       '<span class="imp-choose">' +
       '<button class="btn sm" id="imp-pick-files" type="button">选择文件</button>' +
       '<button class="btn sm ghost" id="imp-pick-dir" type="button">选择文件夹</button>' +
@@ -1230,7 +1245,7 @@
   }
 
   /* ---- 提交 ---- */
-  function commit() {
+  async function commit() {
     var meta = metaNow();
     var list = checkAll(S.pkg, meta, S.files);
     paintResults(list);
@@ -1241,12 +1256,16 @@
 
     saved = saved.filter(function (r) { return r.meta && r.meta.id !== meta.id; });
     var rec = { v: 2, pkg: S.pkg, meta: meta, files: S.files, savedAt: new Date().toISOString() };
+    if (rec.pkg.portable) {
+      try {tip('正在保存完整案例资源…','');rec=await global.PortableCases.store(rec);}catch(e){tip('资源保存失败：'+e.message,'is-err');return;}
+    }
     saved.push(rec);
     /* 同 id 的插件案例若曾被隐藏，重新上传时解除隐藏 */
     var bl = readBlocklist();
     if (bl.indexOf(meta.id) >= 0) writeBlocklist(bl.filter(function (x) { return x !== meta.id; }));
 
     var stored = writeStore(saved);
+    try {if(global.PortableCases) await global.PortableCases.flush();}catch(e){tip('案例存储失败：'+e.message,'is-err');return;}
     global.Cases.register(toCase(rec));
 
     close();

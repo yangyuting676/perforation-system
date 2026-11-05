@@ -180,4 +180,4 @@ if(d.state==='cancelled'){busy(false);state('已停止 · 保留停止前模型'
 if(d.model){Object.assign(M,d.model);trained=true;busy(false);$('train-progress').value=$('train-progress').max;state('训练完成 · 已载入本次新权重 · 用时 '+elapsed+' 秒');$('train-download').hidden=false;$('train-result').textContent='任务 '+active.slice(0,8)+' · 随机种子 '+M.seed+'；下方图、预测和测试成绩已切换到本次模型。刷新页面恢复随包模型。';window.dispatchEvent(new CustomEvent('perf-model-replaced'));}
 });send('health');
 })();
-</script><script src="../petro94/legacy-loader.js?v=cnmath-20261104"></script></body></html>
+</script><script src="../petro94/legacy-loader.js?v=86d998623d0d"></script></body></html>

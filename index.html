@@ -44,28 +44,29 @@
 <script src="assets/core/registry.js?v=f9ec05be0cad"></script>
 <script src="assets/core/kit.js?v=20261022i"></script>
 
-<script src="assets/cases/welllog-layer.case.js?v=component-fix-20261102"></script>
+<script src="assets/cases/welllog-layer.case.js?v=df2a7aa5a2ec"></script>
 <script src="assets/cases/welllog-layer.demo.js?v=20261022i"></script>
-<script src="assets/cases/perforation-viz-p1-334-v2.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perforation-viz-p2-334-v2.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perforation-viz-p3-334-v2.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perforation-viz-p4-334-v2.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perf-interval-topsis-334.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perf-damage-skin-334.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perf-productivity-ridge-334.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perf-cleanup-pulse-334.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perf-hole-flow-network-334.case.js?v=component-fix-20261102"></script>
-<script src="assets/cases/perf-depth-ccl-334.case.js?v=component-fix-20261102"></script>
+<script src="assets/cases/perforation-viz-p1-334-v2.case.js?v=ed6ca48a936f"></script>
+<script src="assets/cases/perforation-viz-p2-334-v2.case.js?v=e941e79a9e0b"></script>
+<script src="assets/cases/perforation-viz-p3-334-v2.case.js?v=04b9befbfde6"></script>
+<script src="assets/cases/perforation-viz-p4-334-v2.case.js?v=8975845a06b9"></script>
+<script src="assets/cases/perf-interval-topsis-334.case.js?v=50d71abf920c"></script>
+<script src="assets/cases/perf-damage-skin-334.case.js?v=997edc59ab44"></script>
+<script src="assets/cases/perf-productivity-ridge-334.case.js?v=d27ee7c4ca4d"></script>
+<script src="assets/cases/perf-cleanup-pulse-334.case.js?v=f0ffe3ac3b9f"></script>
+<script src="assets/cases/perf-hole-flow-network-334.case.js?v=4cf67c7acec9"></script>
+<script src="assets/cases/perf-depth-ccl-334.case.js?v=cb6fd76738f1"></script>
 <!-- ↑ 新案例加在这里：<script src="assets/cases/你的案例.case.js"></script> -->
 
-<script src="assets/petro94/register94.js?v=d27cd823abc4"></script>
+<script src="assets/petro94/register94.js?v=67a43831a544"></script>
 <script src="assets/petro94/background-overrides.js?v=7a975971294b"></script>
 
+<script src="assets/core/portable-loader.js?v=02a5ec5e961e"></script>
 <!-- 上传的案例包（localStorage）在这里恢复注册，必须在 shell.js 之前 -->
 <script src="assets/core/case-demo-host.js?v=mechanics-v2-final-20261101"></script>
-<script src="assets/core/case-upload.js?v=ac157fb88a68"></script>
 
-<script src="assets/core/admin.js?v=20261022i"></script>
+
+
 
 <script src="assets/perforation-lite/lesson-library.js?v=20261028-six-lessons"></script>
 <script src="assets/perforation-lite/geometry-course.js?v=20261028-material-cutaway-v1"></script>
@@ -75,7 +76,10 @@
 <script src="assets/perf-ai/detail-illustrations.js?v=component-fix-20261102"></script><script src="assets/perf-ai/parent.js?v=mechanics-v2-final-20261101"></script>
 <link rel="stylesheet" href="assets/petro94/workflow94.css?v=fddadfbedd1d">
 <script src="assets/petro94/workflow94.js?v=fddadfbedd1d"></script>
-<script src="assets/core/shell.js?v=mechanics-v2-final-20261101"></script>
 
+
+<script>
+(function(){let started=false;function start(){if(started)return;started=true;const files=['assets/core/case-upload.js?v=eaf6e1d87f55','assets/core/admin.js?v=20261105','assets/core/shell.js?v=bea474686752'];function next(){const f=files.shift();if(!f)return;const s=document.createElement('script');s.src=f;s.onload=next;s.onerror=()=>{document.getElementById('view').textContent='资源加载失败：'+f};document.body.appendChild(s)}next()}if(window.PortableCasesReady)start();else document.addEventListener('portable-cases-ready',start,{once:true})})();
+</script>
 </body>
 </html>
